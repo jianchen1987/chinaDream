@@ -1,0 +1,118 @@
+//
+//  PrefixHeader.pch
+//  policyManager
+//
+//  Created by xiaogao on 15/7/15.
+//  Copyright (c) 2015年 高国峰. All rights reserved.
+//
+
+#ifndef policyManager_PrefixHeader_pch
+#define policyManager_PrefixHeader_pch
+
+#import "NetworkEngine.h"
+#import "UIViewExt.h"
+#import "Utility.h"
+#import "RHMethods.h"
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//获取设备的物理宽度
+#define DeviceWidth [UIScreen mainScreen].bounds.size.width
+//获取设备的物理高度
+#define DeviceHeight [UIScreen mainScreen].bounds.size.height
+//获取背景颜色RGB
+#define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define Color(r,g,b) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1]
+
+//设置字体大小
+#define Font(x) [UIFont systemFontOfSize:x]
+#define boldFont(x) [UIFont boldSystemFontOfSize:x]
+
+#define GetWidth(width)  (width)/DesignWidth*kScreenWidth
+#define PublishFont Font(16)
+
+// 状态栏高度
+#define kSTATUSBAR_HEIGHT            (20.f)
+// 导航栏高度
+#define kNAVIGATION_HEIGHT           (44.f)
+// 导航栏高度 + 状态栏高度
+#define kSTATUSBAR_NAVIGATION_HEIGHT (64.f)
+// 标签栏高度
+#define kTABBAR_HEIGHT               (49.f)
+// 英文键盘
+#define KEYBOARD_HEIGHT_ENGLISH      (216.0f)
+// 中文键盘
+#define kKEYBOARD_HEIGHT_CHINESE     (252.0f)
+// 底部工具条高度
+#define kTOOLHEIGHT 50.f
+//外网地址
+#define baseUrl @"http://120.24.0.49/66quart/jsonrpc.jspx?classParam="
+
+
+#define appHostPath @"http://192.168.2.109:8080/"
+//#define baseUrl @"http://192.168.2.127:8080/66quart/jsonrpc.jspx?classParam="
+#define UploadImagePath @"/66quart/jsonrpc.jspx?classParam="
+#define AppendingImageUrl @"http://120.24.0.49/66quart"
+
+
+
+#pragma mark -----------------------第三方应用key，secretKey
+#define shareSDKAPPID @""
+#define shareSDKAppSecret @""
+#define weixinAppID @""
+#define weixinAppSecret @""
+#define weiboAppID @""  //517533886     test:1164664866
+#define weiboAppSecret @""  //4415d9704892450461be6403478e0309  test:40e9e9a72e94b95511b0583a38bf09ac
+#define QQAppID @""
+#define QQAppSecret @""
+#define UMAppKEY @""
+#define graycolor  RGBA(234, 234, 234, 1)
+
+
+#define AppService @"appService"
+
+//接口
+#define getComment         @"getComment" //获得商品详情评论
+
+
+#define GetQuartersPath    @"getQuarters"
+#define GetVerifyCodePath  @"getVerifyCode"  //获取验证码
+#define RegisterPath       @"registerUser" //注册
+#define LoginUserPath      @"loginUser"  //登录
+#define GetUserByIdPath    @"getUserById"  //根据用户id来获取用户信息
+#define GetUserByPhonePath @"getUserByPhone" //根据手机号码获取用户信息
+#define ModifyUserPath     @"modifyUser"   //修改用户信息
+#define SignIntegralPath   @"signIntegral"  //签到赚取积分
+#define PublishAskorTalkPath @"publishAskorTalk"  //发布一条问问或者说说
+#define GetNearAskOrTalkById @"getNearAskOrTalkById" // 通过ID获取邻里问问或者说说
+#define GetNearAskLogo       @"getNearAskLogo" //获取轮播图
+#define ToastNearTalkOrAsk   @"toastNearTalkOrAsk" //点赞随便说说和邻里问问
+#define ShareNearTalkOrAsk   @"shareNearTalkOrAsk" //分享随便说说和邻里问问
+#define GetProductByHotOrTuiJian @"getProductByHotOrTuiJian"
+#define GetProductType       @"getProductType"
+#define SetQuaterPath        @"setQuater" //设置小区
+#define GetAllChipLogoPath   @"getAllChipLogo"  //获取超市广告图
+#define GetLogoByProductIdPath    @"getLogoByProductId"  //获取超市产品的轮播图
+#define GetCouponsBatchByPagePath @"getCouponsBatchByPage"  //分页获取系统优惠卷信息集合
+#define GetCouponsByPagePath      @"getCouponsByPage"  //获取用户优惠券
+#define UserHasCouponPath         @"hasCoupon"  //领取优惠券
+#define UserUseCouponPath         @"useCoupon"   //用户使用优惠券
+#define GetNearAsksOrTalkPath     @"getNearAsksOrTalk"
+#define  getProductById            @"getProductById"//产品id来获取产品信息
+
+#define getChipByPage          @"getChipByPage"//众筹列表
+#define getChipById            @"getChipById"//单个众筹详情
+
+#define allchip @"allchip"             //众筹评论参数
+#define secondhand @"secondhand"       // 二手闲置评论
+#define supermarket @"supermarket"     // 超市产品评论
+#define freeeat @"freeeat"             //免费试吃评论
+#define integralstore @"integralstore" //积分商城
+
+#endif
