@@ -88,9 +88,12 @@
     if ([defaults objectForKey:@"userID"]) {
         user.nickName=[defaults valueForKey:@"nickName"];
         user.nickName=[defaults valueForKey:@"nickName"];
-        user.id=[defaults valueForKey:@"userID"];
+        user.identifyName=[defaults valueForKey:@"userID"];
         user.phone=[defaults valueForKey:@"phone"];
         user.gender=[defaults valueForKey:@"gender"];
+        user.master = @"1";
+        user.identityIntegral = @"2";
+        
     }
    
 

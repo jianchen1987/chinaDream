@@ -27,11 +27,12 @@
 
 -(CGRect)titleRectForContentRect:(CGRect)contentRect
 {
-    return CGRectMake(0, 40, self.width, 20);
+    return CGRectMake(0, self.height - 20, self.width, 20);
 }
+
 -(CGRect)imageRectForContentRect:(CGRect)contentRect
 {
-    return CGRectMake(self.width/2-15, 5, 30, 30);
+    return CGRectMake(13, 3, self.height - 26, self.height - 26);
 }
 
 

@@ -7,74 +7,92 @@
 //
 
 #import "MyselfViewController.h"
+#import "SystemSettingViewController.h"
+#import "LoginViewController.h"
+#import "myLabel.h"
+
+#define _MYSELF_BUTTON_SETT_ 901
+#define _MYSELF_BUTTON_HELP_ 902
+
+#define _MYSELF_ORDERS_    101
+#define _MYSELF_FAVORI_    102
+#define _MYSELF_FOLLOW_    103
+#define _MYSELF_NEIGHBOUR_ 104
+#define _MYSELF_MYINFO_    105
+
+#define _MYSELF_INTEGRAL_SHOP_ 301
+#define _MYSELF_VILLAGE_       302
+#define _MYSELF_V_             303
+#define _MYSELF_RESEARCH_      304
+
 
 @interface MyselfViewController ()
 
 @end
 
 @implementation MyselfViewController
+
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
 //    self.navigationController.navigationBarHidden = NO;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController.navigationBar setBackgroundColor:[UIColor greenColor]];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-//    self.navigationController.navigationBarHidden = YES;
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 
 }
 
 
-- (void)viewDidLoad {
+
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
-    
     UIImageView *bottomView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 200)];
     bottomView.image = [UIImage imageNamed:@"myself_default_headBackImage"];
+    [bottomView setUserInteractionEnabled:YES];
+    bottomView.contentMode = UIViewContentModeScaleAspectFill;
     
-    NSArray *barButtonImages = @[@"myself_doubt",@"myself_setting"];
-    for (int i = 0; i < 2; i++) {
+    NSArray *barButtonImages = @[@"myself_setting",@"myself_doubt"];
+    for (int i = 0; i < 2; i++)
+    {
         UIButton *settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        settingButton.frame = CGRectMake(DeviceWidth-100+30*i+20*i, 10, 30, 30);
-        [settingButton setImage:[UIImage imageNamed:barButtonImages[i]] forState:0];
+        settingButton.frame = CGRectMake(DeviceWidth - 30*(i + 1 ) - 10*(i+1), 20, 30, 30);
+        settingButton.tag = 901 + i;
+        [settingButton setImage:[UIImage imageNamed:barButtonImages[i]] forState:UIControlStateNormal];
         [settingButton addTarget:self action:@selector(settingButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [bottomView addSubview:settingButton];
     }
     
-    
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-49) style:UITableViewStyleGrouped];
-    myTableView.delegate = self;
-    myTableView.dataSource = self;
-    myTableView.showsVerticalScrollIndicator = NO;
-//    myTableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 0);
-    [self.view addSubview:myTableView];
-    
-    
-    UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, -64, DeviceWidth, 210)];
-    view.backgroundColor = [UIColor clearColor];
-    [myTableView setParallaxHeaderView:view
+    self.tableView.showsVerticalScrollIndicator = NO;
+
+    [self.tableView setParallaxHeaderView:bottomView
                                   mode:VGParallaxHeaderModeFill
-                                height:210];
-    
-    
-    
-    myTableView.parallaxHeader.stickyViewPosition = VGParallaxHeaderStickyViewPositionBottom;
-    [myTableView.parallaxHeader setStickyView:bottomView
-                                   withHeight:210];
+                                height:200];
+
     
 }
+
+#pragma mark -- scroll delegate --
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [myTableView shouldPositionParallaxHeader];
+    [self.tableView shouldPositionParallaxHeader];
 }
+
+#pragma mark -- tableview delegate --
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 4;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    switch (section) {
+    switch (section)
+    {
         case 1:
             return 3;
             break;
@@ -87,6 +105,7 @@
             break;
     }
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *titleArray = @[@"我的积分",@"邀请有礼",@"我的优惠券"];
@@ -97,24 +116,30 @@
     UITableViewCell *laseCell = [tableView dequeueReusableCellWithIdentifier:lastCellIdentifire];
     
     
-    if (indexPath.section == 1) {
-        if (!secondCell) {
+    if (indexPath.section == 1)
+    {
+        if (!secondCell)
+        {
             secondCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:secondIdentifire];
             
         }
         secondCell.textLabel.text = titleArray[indexPath.row];
+        secondCell.textLabel.font = [UIFont systemFontOfSize:_SUBTITLE_FONT_SIZE_];
         secondCell.imageView.image = [UIImage imageNamed:cellImageArray[indexPath.row]];
         secondCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return secondCell;
  
-    }else if(indexPath.section == 3)
+    }
+    else if(indexPath.section == 3)
     {
         NSArray *lastSectionArray = @[@"我的帖子",@"我的回复",@"我的闲置"];
-        if (!laseCell) {
+        if (!laseCell)
+        {
             laseCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:lastCellIdentifire];
             
         }
         laseCell.textLabel.text = lastSectionArray[indexPath.row];
+        laseCell.textLabel.font = [UIFont systemFontOfSize:_SUBTITLE_FONT_SIZE_];
         laseCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return laseCell;
     }else
@@ -125,76 +150,67 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 100;
-    }else if(section == 1)
+    if (section == 0)
+    {
+        return 150;
+    }
+    else if(section == 1)
+    {
         return 10;
+    }
     else if (section == 2)
-        return 60;
+    {
+        return 70;
+    }
     else
     {
         return 10;
     }
 }
+
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
+    if (section == 0)
+    {
         NSArray *array = @[@"我的订单",@"我的收藏",@"我的关注",@"我的邻居",@"我的资料"];
         NSArray *imagesArray = @[@"myself_myOrder",@"myself_collection",@"myself_myFocus",@"myself_neighbor",@"myself_imformation"];
-        UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 100)];
-        backView.backgroundColor = [UIColor whiteColor];
+        UIView *backView = [self getUserInfoView];
         
-        
-        UIImageView *userHeadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, -40, 60, 60)];
-        userHeadImageView.backgroundColor = [UIColor grayColor];
-        userHeadImageView.layer.cornerRadius = 30;
-        userHeadImageView.clipsToBounds = YES;
-        [backView addSubview:userHeadImageView];
-        
-        UILabel *ageLable = [[UILabel alloc] initWithFrame:CGRectMake(userHeadImageView.right+30, 10, 40, 20)];
-        ageLable.text = @"25岁";
-        ageLable.font = Font(15);
-        [backView addSubview:ageLable];
-        
-        UIButton *placeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        placeButton.frame = CGRectMake(ageLable.right+5, 10, 100, 20);
-        [placeButton setImage:[UIImage imageNamed:@""] forState:0];
-        [placeButton setTitle:@"南洋苑" forState:0];
-        placeButton.titleLabel.font = Font(13);
-        [placeButton setTitleColor:[UIColor grayColor] forState:0];
-        [backView addSubview:placeButton];
-
-        
-        
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++)
+        {
+            CGFloat btnWidth = DeviceWidth/5;
             CustomMyselfButton *btn = [CustomMyselfButton buttonWithType:UIButtonTypeCustom];
-            [btn setFrame:CGRectMake(DeviceWidth/5*i, userHeadImageView.bottom+20, DeviceWidth/5, 60)];
-            [btn setTitle:array[i] forState:0];
-            [btn setImage:[UIImage imageNamed:[imagesArray objectAtIndex:i]] forState:0];
-            [btn setTitleColor:[UIColor grayColor] forState:0];
-            btn.titleLabel.font = Font(15);
+            [btn setFrame:CGRectMake(btnWidth*i, backView.frame.size.height - btnWidth - 10, btnWidth, btnWidth)];
+            [btn setTitle:array[i] forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:[imagesArray objectAtIndex:i]] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            btn.titleLabel.font = Font(_DETAIL_FONT_SIZE_);
             btn.titleLabel.textAlignment = NSTextAlignmentCenter;
             [btn addTarget:self action:@selector(clickButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+            btn.tag = 101 + i;
             [backView addSubview:btn];
         }
         
         
         return backView;
-    }else if(section == 2)
+    }
+    else if(section == 2)
     {
-        UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 60)];
+        UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 70)];
         backView.backgroundColor = [UIColor whiteColor];
         NSArray *secondTitleArray = @[@"积分商城",@"我的小区",@"V认证",@"问卷调查"];
         NSArray *secondImagesArray = @[@"myself_integral_mall",@"myself_community",@"myself_V_certification",@"myself_question_servey"];
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++)
+        {
             CustomMyselfButton *button = [CustomMyselfButton buttonWithType:UIButtonTypeCustom];
-            [button setFrame:CGRectMake(DeviceWidth/4*i, 0, DeviceWidth/4, 60)];
-            [button setImage:[UIImage imageNamed:secondImagesArray[i]] forState:0];
-            [button setTitle:secondTitleArray[i] forState:0];
+            [button setFrame:CGRectMake(DeviceWidth/4*i + (DeviceWidth/4 - 50)/2 , 10, 50, 50)];
+            [button setImage:[UIImage imageNamed:secondImagesArray[i]] forState:UIControlStateNormal];
+            [button setTitle:secondTitleArray[i] forState:UIControlStateNormal];
             button.titleLabel.textAlignment = NSTextAlignmentCenter;
-            button.titleLabel.font = Font(15);
-            [button setTitleColor:[UIColor grayColor] forState:0];
+            button.titleLabel.font = Font(_DETAIL_FONT_SIZE_);
+            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+            button.tag = 301 + i;
             [backView addSubview:button];
         }
         return backView;
@@ -224,10 +240,12 @@
     if (section == 0)
     {
         return 0.01;
-    }else if(section == 2)
+    }
+    else if(section == 2)
     {
         return 0.01;
     }
+    else
     {
         return 10;
     }
@@ -246,7 +264,8 @@
 }
 -(void)clickButtonAction:(UIButton *)sender
 {
-    if ([sender.titleLabel.text isEqualToString:@"我的订单"]) {
+    if (sender.tag == _MYSELF_ORDERS_)
+    {
         
         NSArray *viewControllers = [NSArray arrayWithObjects:[CompletePaymentViewController class],[WaittingPaymentViewController class],[CompleteViewController class], nil];
         NSArray *titles = [NSArray arrayWithObjects:@"已付款",@"待付款",@"已完成", nil];
@@ -264,21 +283,28 @@
         pageVC.menuViewStyle = WMMenuViewStyleLine;
         pageVC.titleSizeSelected = 15;
         [self.navigationController pushViewController:pageVC animated:YES];
-    }else if([sender.titleLabel.text isEqualToString:@"我的邻居"])
+    }
+    else if(sender.tag == _MYSELF_NEIGHBOUR_)
     {
         MyNeiborViewController *neiborVC = [MyNeiborViewController new];
         neiborVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:neiborVC animated:YES];
-    }else if([sender.titleLabel.text isEqualToString:@"我的资料"])
+    }
+    else if(sender.tag == _MYSELF_MYINFO_)
     {
-        MyImformationViewController *imformationVC = [MyImformationViewController new];
+        MyImformationViewController *imformationVC = [[MyImformationViewController alloc] init];
         imformationVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:imformationVC animated:YES];
-    }else if([sender.titleLabel.text isEqualToString:@"我的收藏"])
+    }
+    else if(sender.tag == _MYSELF_FAVORI_)
     {
         MyCollectionViewController *myCollectionVC = [MyCollectionViewController new];
         myCollectionVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:myCollectionVC animated:YES];
+    }
+    else if(sender.tag == _MYSELF_FOLLOW_)
+    {
+        
     }
     
 }
@@ -291,23 +317,119 @@
     }
 }
 #pragma mark ------------------------顶部按钮方法
--(void)settingButtonAction:(UIButton *)sender
+- (void)settingButtonAction:(id)button
 {
-    
+    if(((UIButton *)button).tag == _MYSELF_BUTTON_HELP_)
+    {
+        
+    }
+    else if(((UIButton *)button).tag == _MYSELF_BUTTON_SETT_)
+    {
+        SystemSettingViewController *vc = [[SystemSettingViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
+
+
+- (UIView *)getUserInfoView
+{
+    UIView *userInfoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 150)];
+    [userInfoView setBackgroundColor:[UIColor whiteColor]];
+    if([self.user isLogin])
+    {
+        UIImageView *headView = [[UIImageView alloc] initWithFrame:CGRectMake(20, -40, 60, 60)];
+        if([self.user.headIcon isEqualToString:@""])
+        {
+            headView.image = [UIImage imageNamed:@"myself_default_headImage"];
+        }
+        else
+        {
+            headView.image = [UIImage imageNamed:@"myself_default_headImage"];
+        }
+        headView.layer.cornerRadius = 30;
+        headView.clipsToBounds = YES;
+        [userInfoView addSubview:headView];
+        
+        myLabel *userName = [[myLabel alloc] initWithText:self.user.nickName FontSize:_SUBTITLE_FONT_SIZE_ MaxWidth:150];
+        userName.frame = CGRectMake(headView.right + 5, 10, userName.frame.size.width, 25);
+        [userInfoView addSubview:userName];
+        
+        UIImageView *userGenderImg = [[UIImageView alloc] initWithFrame:CGRectMake(userName.right+1, 10, 25, 25)];
+        if([self.user.gender isEqualToString:@"男"])
+        {
+            userGenderImg.image = [UIImage imageNamed:@"myself_sex_man"];
+        }
+        else
+        {
+            userGenderImg.image = [UIImage imageNamed:@"myself_sex_woman"];
+        }
+        [userInfoView addSubview:userGenderImg];
+        
+        UIImageView *userLevel = [[UIImageView alloc] initWithFrame:CGRectMake(userGenderImg.right, 10, 25, 25)];
+        userLevel.image = [UIImage imageNamed:[NSString stringWithFormat:@"myself_level_%@",self.user.identityIntegral]];
+        [userInfoView addSubview:userLevel];
+        
+        UIImageView *userMaster = [[UIImageView alloc] initWithFrame:CGRectMake(userLevel.right, 10, 25, 25)];
+        if([self.user.master isEqualToString:@"1"])
+        {
+            userMaster.image = [UIImage imageNamed:@"myself_V"];
+        }
+        else
+        {
+            userMaster.image = [UIImage imageNamed:@"myself_V_certification"];
+        }
+        [userInfoView addSubview:userMaster];
+        
+        myLabel *userAge = [[myLabel alloc] initWithText:@"20岁" FontSize:_DETAIL_FONT_SIZE_ MaxWidth:30];
+        userAge.frame = CGRectMake(headView.right + 5, userName.bottom, userAge.frame.size.width, 25);
+        [userInfoView addSubview:userAge];
+        
+        UIImageView *userLocal = [[UIImageView alloc] initWithFrame:CGRectMake(userAge.right + 5, userName.bottom, 25, 25)];
+        userLocal.image = [UIImage imageNamed:@"myself_positioning"];
+        [userInfoView addSubview:userLocal];
+        
+        myLabel *userAddr = [[myLabel alloc] initWithText:@"远洋明珠大厦" FontSize:_DETAIL_FONT_SIZE_ MaxWidth:150];
+        userAddr.frame = CGRectMake(userLocal.right, userName.bottom, userAddr.frame.size.width, 25);
+        [userInfoView addSubview:userAddr];
+        
+        
+    }
+    else
+    {
+        UIImageView *headView = [[UIImageView alloc] initWithFrame:CGRectMake(DeviceWidth/2 - 30, -40, 60, 60)];
+        headView.image = [UIImage imageNamed:@"myself_default_headImage"];
+        headView.layer.cornerRadius = 30;
+        headView.clipsToBounds = YES;
+        [userInfoView addSubview:headView];
+        
+        UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        loginBtn.frame = CGRectMake(DeviceWidth/2 - 50, headView.bottom + 10, 100, 20);
+        NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"注册/登陆"];
+        [title addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:_SUBTITLE_FONT_SIZE_] range:NSMakeRange(0, title.length)];
+        [title addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, title.length)];
+        //[loginBtn setTitle:@"注册/登陆" forState:UIControlStateNormal];
+        [loginBtn setAttributedTitle:title forState:UIControlStateNormal];
+        [loginBtn addTarget:self action:@selector(gotoLoginView:) forControlEvents:UIControlEventTouchUpInside];
+        [userInfoView addSubview:loginBtn];
+    }
+    
+    return userInfoView;
+}
+
+- (void)gotoLoginView:(id)sender
+{
+    LoginViewController *vc = [[LoginViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:NO completion:nil];
+}
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

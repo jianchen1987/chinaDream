@@ -138,7 +138,7 @@ static NSString *buttonCellIdentifire = @"buttonCellIdentifire";
 #pragma mark --------------------获取热门和推荐产品
 -(void)loadProductType
 {
-    NSArray *parmas3 = @[@"",self.user.id,@1,@4];
+    NSArray *parmas3 = @[@"",self.user.identifyName,@1,@4];
     [self showLoading];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:parmas3 WithPath:GetProductByHotOrTuiJian successBlock:^(id successJsonData) {
         if (successJsonData) {

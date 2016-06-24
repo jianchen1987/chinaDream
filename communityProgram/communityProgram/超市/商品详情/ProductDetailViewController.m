@@ -171,7 +171,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
      *   pageSize 显示数量
      *
      */
-    NSArray * array=@[self.user.id,[self.dicData objectForKey:@"id"],@"supermarket",@1,@4];
+    NSArray * array=@[self.user.identifyName,[self.dicData objectForKey:@"id"],@"supermarket",@1,@4];
    [NetworkEngine postRequestWithUrl:AppService paramsArray:array  WithPath:getComment successBlock:^(id successJsonData)
     {
         

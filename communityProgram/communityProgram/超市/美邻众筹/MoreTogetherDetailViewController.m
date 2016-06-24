@@ -53,7 +53,7 @@
      */
     
     
-    NSArray * array=@[self.user.id,_ID,allchip,@1,@4];
+    NSArray * array=@[self.user.identifyName,_ID,allchip,@1,@4];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:array  WithPath:getComment successBlock:^(id successJsonData)
      {
          for (NSDictionary *dic in successJsonData) {

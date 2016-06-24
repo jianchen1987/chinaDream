@@ -21,9 +21,8 @@
 #import "IntegralMallViewController.h"
 #import "MyNeiborViewController.h"
 #import "MyCollectionViewController.h"
-@interface MyselfViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
-{
-    UITableView *myTableView;
-    NSMutableArray *dataSource;
-}
+#import "baseTableViewController.h"
+
+@interface MyselfViewController : baseTableViewController
+
 @end

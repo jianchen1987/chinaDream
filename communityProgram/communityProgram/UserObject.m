@@ -8,14 +8,23 @@
 
 #import "UserObject.h"
 
+static UserObject *USER;
+
 @implementation UserObject
-+(UserObject*)shareUser{
-    static UserObject * user;
+
++ (UserObject*)shareUser
+{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        user=[[UserObject alloc]init];
-        user.id=@"";
+        
+        USER = [[UserObject alloc] init];
+        USER.identifyName = @"";
     });
-    return user;
+    return USER;
+}
+
+- (BOOL)isLogin
+{
+    return (self.identifyName && ![self.identifyName isEqualToString:@""]);
 }
 @end

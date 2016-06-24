@@ -74,6 +74,14 @@
     [forgetButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:forgetButton];
     
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    cancelButton.frame = CGRectMake((DeviceWidth - 100)/2, login_btn.bottom+20, 100, 30);
+    [cancelButton setTitle:@"取消" forState:0];
+    [cancelButton setTitleColor:[UIColor grayColor] forState:0];
+    cancelButton.titleLabel.font = Font(14);
+    [cancelButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:cancelButton];
+    
     
     
     UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -130,19 +138,30 @@
 -(void)buttonAction:(UIButton *)sender
 {
     [self.view endEditing:YES];
-    if ([sender.titleLabel.text isEqualToString:@"注册"]) {
+    if ([sender.titleLabel.text isEqualToString:@"注册"])
+    {
         NSLog(@"注册");
         [self.navigationController pushViewController:[RegisterNextViewController new] animated:YES];
-    }else if([sender.titleLabel.text isEqualToString:@"忘记密码"])
+    }
+    else if([sender.titleLabel.text isEqualToString:@"忘记密码"])
     {
         
         ForgetPasswordViewController *forgetVC = [ForgetPasswordViewController new];
         [self.navigationController pushViewController:forgetVC animated:YES];
 
-    }else
+    }
+    else if([sender.titleLabel.text isEqualToString:@"取消"])
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
     {        
         NSArray *loginArray = @[phoneNumber_tf.text,password_tf.text.md5];
-        [NetworkEngine postRequestWithUrl:AppService paramsArray:loginArray WithPath:LoginUserPath successBlock:^(id successJsonData) {
+        [NetworkEngine postRequestWithUrl:AppService
+                              paramsArray:loginArray
+                                 WithPath:LoginUserPath
+                             successBlock:^(id successJsonData)
+        {
             NSLog(@"successJsonData = %@",successJsonData);
             
             [Utility saveToDefaults:[successJsonData valueForKey:@"gender"] forKey:@"gender"];
@@ -152,13 +171,16 @@
             if ([successJsonData valueForKey:@"quarter"]) {
                 [Utility saveToDefaults:[[successJsonData valueForKey:@"quarter"] valueForKey:@"id"] forKey:@"quarterID"];
             }
-            self.user.nickName=[successJsonData valueForKey:@"nickName"];
-            self.user.id=[successJsonData valueForKey:@"id"];
-            self.user.phone=[successJsonData valueForKey:@"phone"];
-            self.user.gender=[successJsonData valueForKey:@"gender"];
-            [self.navigationController popViewControllerAnimated:YES];
+            self.user.nickName     = [successJsonData valueForKey:@"nickName"];
+            self.user.identifyName = [successJsonData valueForKey:@"id"];
+            self.user.phone        = [successJsonData valueForKey:@"phone"];
+            self.user.gender       = [successJsonData valueForKey:@"gender"];
+            //[self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
             
-        } errorBlock:^(int code, NSString *errorJsonData) {
+        }
+                               errorBlock:^(int code, NSString *errorJsonData)
+        {
             NSLog(@"errorJsonData = %@",errorJsonData);
 
         }];

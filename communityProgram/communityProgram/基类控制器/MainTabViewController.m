@@ -55,7 +55,7 @@
     BaseNaviViewController *navi4 = [[BaseNaviViewController alloc] initWithRootViewController:messageVC];
     
     
-    MyselfViewController *mySelfVC = [MyselfViewController new];
+    MyselfViewController *mySelfVC = [[MyselfViewController alloc] initWithStyle:UITableViewStyleGrouped];
     mySelfVC.title = @"我的";
     BaseNaviViewController *navi5 = [[BaseNaviViewController alloc] initWithRootViewController:mySelfVC];
     NSArray *viewControllersArray = [NSArray arrayWithObjects:navi1,navi2,navi3,navi4,navi5, nil];
@@ -70,21 +70,21 @@
 
     
     item0.selectedImage = [[UIImage imageNamed:@"tab_community"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
-    item0.image = [[UIImage imageNamed:@"tab_community_gray"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    
+    item0.image         = [[UIImage imageNamed:@"tab_community_gray"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+
     item1.selectedImage = [[UIImage imageNamed:@"tab_surpermaket"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
-    item1.image = [[UIImage imageNamed:@"tab_supermaket_gray"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
+    item1.image         = [[UIImage imageNamed:@"tab_supermaket_gray"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
     item2.selectedImage = [[UIImage imageNamed:@"tab_shoppingCar"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
-    item2.image = [[UIImage imageNamed:@"tab_shoppingCar_gray"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
+    item2.image         = [[UIImage imageNamed:@"tab_shoppingCar_gray"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
     item3.selectedImage = [[UIImage imageNamed:@"tab_news"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
-    item3.image = [[UIImage imageNamed:@"tab_news_gray"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    
+    item3.image         = [[UIImage imageNamed:@"tab_news_gray"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+
     item4.selectedImage = [[UIImage imageNamed:@"tab_myself"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
-    item4.image = [[UIImage imageNamed:@"tab_myself_gray"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    item4.image         = [[UIImage imageNamed:@"tab_myself_gray"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
 }
 - (void)didReceiveMemoryWarning {

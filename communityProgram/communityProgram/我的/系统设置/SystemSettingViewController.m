@@ -14,7 +14,8 @@
 
 @implementation SystemSettingViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.title = @"设置";
     myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-64) style:UITableViewStyleGrouped];
@@ -23,10 +24,12 @@
     myTableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:myTableView];
 }
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 3;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {

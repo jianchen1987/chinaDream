@@ -14,17 +14,18 @@
 
 @implementation BaseViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    _user =[UserObject shareUser];
-    [self.navigationController.navigationBar setTitleTextAttributes:
-  @{NSFontAttributeName:[UIFont systemFontOfSize:19],
-    NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    self.view.backgroundColor = RGBA(239, 238, 239, 1);
+    _user = [UserObject shareUser];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    self.view.backgroundColor   = RGBA(239, 238, 239, 1);
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    if (self.navigationController.viewControllers.count>1) {
-        UIButton * back =[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 40)];
-        back.contentEdgeInsets=UIEdgeInsetsMake(7, -45, 0, 0);
+    if (self.navigationController.viewControllers.count>1)
+    {
+        UIButton * back =[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+        back.contentEdgeInsets=UIEdgeInsetsMake(0, -45, 0, 0);
         [back setImage:[UIImage imageNamed:@"返回按钮"] forState:UIControlStateNormal];
         UIBarButtonItem * Leftbutton=[[UIBarButtonItem alloc]initWithCustomView:back];
         [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];

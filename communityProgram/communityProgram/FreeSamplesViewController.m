@@ -82,7 +82,7 @@
 }
 #pragma mark 获得所有的试吃记录
 -(void)getAllFreerecord{
-    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.id,@1,@10] WithPath:@"getFreeEatRecordByPage" successBlock:^(id successJsonData) {
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName,@1,@10] WithPath:@"getFreeEatRecordByPage" successBlock:^(id successJsonData) {
         NSLog(@"所有的试吃纪录%@",successJsonData);
 //        self.AllFreeRecord=successJsonData;
         [_AllFreeRecord addObjectsFromArray:successJsonData];
@@ -100,7 +100,7 @@
 -(void)appleyFree
 {
     NSDictionary * dic =_FreeArray[0];
-    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.id,self.user.phone,[dic objectForKey:@"id"]] WithPath:@"applyFreeEat" successBlock:^(id successJsonData) {
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName,self.user.phone,[dic objectForKey:@"id"]] WithPath:@"applyFreeEat" successBlock:^(id successJsonData) {
         NSLog(@"申请＝＝＝＝＝%@",successJsonData);
     } errorBlock:^(int code, NSString *errorJsonData) {
         

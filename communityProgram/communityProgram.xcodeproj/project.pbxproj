@@ -56,6 +56,9 @@
 		48FF68E01D10FA4600DAD002 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48FF68D81D10FA4600DAD002 /* MBProgressHUD.bundle */; };
 		48FF68E11D10FA4600DAD002 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FF68DA1D10FA4600DAD002 /* MBProgressHUD.m */; };
 		48FF68E21D10FA4600DAD002 /* UIImageView+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FF68DC1D10FA4600DAD002 /* UIImageView+GIF.m */; };
+		E831BCEE1D1C209500BE9247 /* baseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E831BCED1D1C209500BE9247 /* baseTableViewController.m */; };
+		E831BCF11D1C518000BE9247 /* myLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E831BCF01D1C518000BE9247 /* myLabel.m */; };
+		E831BCF51D1CC61900BE9247 /* quarterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E831BCF41D1CC61900BE9247 /* quarterModel.m */; };
 		F218EEEE1C218DF7005FFD60 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F218EEED1C218DF7005FFD60 /* AboutUsViewController.m */; };
 		F21AD4761C886D610052F1BA /* ComfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F21AD4751C886D610052F1BA /* ComfirmOrderViewController.m */; };
 		F241DAEB1C4A1F3E001A828D /* bgImage_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F241DAE71C4A1F3E001A828D /* bgImage_HL@2x.png */; };
@@ -412,6 +415,12 @@
 		48FF68DA1D10FA4600DAD002 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		48FF68DB1D10FA4600DAD002 /* UIImageView+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GIF.h"; sourceTree = "<group>"; };
 		48FF68DC1D10FA4600DAD002 /* UIImageView+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GIF.m"; sourceTree = "<group>"; };
+		E831BCEC1D1C209500BE9247 /* baseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseTableViewController.h; sourceTree = "<group>"; };
+		E831BCED1D1C209500BE9247 /* baseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseTableViewController.m; sourceTree = "<group>"; };
+		E831BCEF1D1C518000BE9247 /* myLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myLabel.h; path = selfControl/myLabel.h; sourceTree = "<group>"; };
+		E831BCF01D1C518000BE9247 /* myLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = myLabel.m; path = selfControl/myLabel.m; sourceTree = "<group>"; };
+		E831BCF31D1CC61900BE9247 /* quarterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = quarterModel.h; path = dataModel/quarterModel.h; sourceTree = "<group>"; };
+		E831BCF41D1CC61900BE9247 /* quarterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = quarterModel.m; path = dataModel/quarterModel.m; sourceTree = "<group>"; };
 		F218EEEC1C218DF7005FFD60 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		F218EEED1C218DF7005FFD60 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		F21AD4741C886D610052F1BA /* ComfirmOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComfirmOrderViewController.h; sourceTree = "<group>"; };
@@ -1077,6 +1086,8 @@
 			isa = PBXGroup;
 			children = (
 				480A4A0F1D13CD0700BA4CB8 /* 进度条 */,
+				E831BCEF1D1C518000BE9247 /* myLabel.h */,
+				E831BCF01D1C518000BE9247 /* myLabel.m */,
 			);
 			name = "自定义控件";
 			sourceTree = "<group>";
@@ -1114,6 +1125,17 @@
 				48FF68DC1D10FA4600DAD002 /* UIImageView+GIF.m */,
 			);
 			path = HUD;
+			sourceTree = "<group>";
+		};
+		E831BCF21D1CC5E500BE9247 /* 数据模型 */ = {
+			isa = PBXGroup;
+			children = (
+				48FF68D01D0FFB0500DAD002 /* UserObject.h */,
+				48FF68D11D0FFB0500DAD002 /* UserObject.m */,
+				E831BCF31D1CC61900BE9247 /* quarterModel.h */,
+				E831BCF41D1CC61900BE9247 /* quarterModel.m */,
+			);
+			name = "数据模型";
 			sourceTree = "<group>";
 		};
 		F21AD4731C886D500052F1BA /* 确认订单 */ = {
@@ -1163,9 +1185,8 @@
 		F26980961C12BAFC00C46C6D /* communityProgram */ = {
 			isa = PBXGroup;
 			children = (
+				E831BCF21D1CC5E500BE9247 /* 数据模型 */,
 				480BDEE91D17BADD00531FAA /* 自定义控件 */,
-				48FF68D01D0FFB0500DAD002 /* UserObject.h */,
-				48FF68D11D0FFB0500DAD002 /* UserObject.m */,
 				F269809A1C12BAFC00C46C6D /* AppDelegate.h */,
 				F269809B1C12BAFC00C46C6D /* AppDelegate.m */,
 				F269809D1C12BAFC00C46C6D /* ViewController.h */,
@@ -1988,6 +2009,8 @@
 				F2AE25121C40D9410006C9CB /* BaseTableViewCell.m */,
 				F2943BBF1C53202500958029 /* BaseProductCollectionViewCell.h */,
 				F2943BC01C53202500958029 /* BaseProductCollectionViewCell.m */,
+				E831BCEC1D1C209500BE9247 /* baseTableViewController.h */,
+				E831BCED1D1C209500BE9247 /* baseTableViewController.m */,
 			);
 			path = "基类控制器";
 			sourceTree = "<group>";
@@ -2479,6 +2502,7 @@
 				F2A520741C468131009E7551 /* UIView+WebCacheOperation.m in Sources */,
 				480A4A081D13C9BF00BA4CB8 /* MASLayoutConstraint.m in Sources */,
 				F26E42A51C8186070041E1E1 /* MJType.m in Sources */,
+				E831BCF51D1CC61900BE9247 /* quarterModel.m in Sources */,
 				F26E427E1C8183690041E1E1 /* UITextView+Emotion.m in Sources */,
 				F28E4F991C250BE300FA5F75 /* DirectMessageTableViewCell.m in Sources */,
 				F26E42861C8183690041E1E1 /* EmotionPageControl.m in Sources */,
@@ -2521,6 +2545,7 @@
 				F2A432111C39079200479C73 /* CustomSupermarketBtn.m in Sources */,
 				F2BF2F331C1BBC1B00EB7E88 /* AFHTTPRequestOperation.m in Sources */,
 				F279F5B11C1D51A8001FB738 /* MJRefreshComponent.m in Sources */,
+				E831BCF11D1C518000BE9247 /* myLabel.m in Sources */,
 				F28B564C1C87250200F62D4E /* MoreTogetherDetailViewController.m in Sources */,
 				F28F5B431C78841D00E67969 /* CustomBottomLineButton.m in Sources */,
 				F2C878F31CA7822C008444DC /* NSMutableAttributedString+Emoji.m in Sources */,
@@ -2634,6 +2659,7 @@
 				F2BEFDF11C8ABDE800149FD4 /* AddressTableViewCell.m in Sources */,
 				F26E427B1C8183690041E1E1 /* NSString+Emoji.m in Sources */,
 				F2B6654F1C7997F7007427BB /* UIView+Layout.m in Sources */,
+				E831BCEE1D1C209500BE9247 /* baseTableViewController.m in Sources */,
 				F279F5BE1C1D51A8001FB738 /* MJRefreshConst.m in Sources */,
 				F29DA54F1C1EFFE90054C205 /* AddNumberView.m in Sources */,
 				F26E42911C8185CD0041E1E1 /* CoreBtn.m in Sources */,
