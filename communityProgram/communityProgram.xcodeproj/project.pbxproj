@@ -59,6 +59,7 @@
 		E831BCEE1D1C209500BE9247 /* baseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E831BCED1D1C209500BE9247 /* baseTableViewController.m */; };
 		E831BCF11D1C518000BE9247 /* myLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E831BCF01D1C518000BE9247 /* myLabel.m */; };
 		E831BCF51D1CC61900BE9247 /* quarterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E831BCF41D1CC61900BE9247 /* quarterModel.m */; };
+		E831BCF81D1CD9E600BE9247 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E831BCFA1D1CD9E600BE9247 /* Localizable.strings */; };
 		F218EEEE1C218DF7005FFD60 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F218EEED1C218DF7005FFD60 /* AboutUsViewController.m */; };
 		F21AD4761C886D610052F1BA /* ComfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F21AD4751C886D610052F1BA /* ComfirmOrderViewController.m */; };
 		F241DAEB1C4A1F3E001A828D /* bgImage_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F241DAE71C4A1F3E001A828D /* bgImage_HL@2x.png */; };
@@ -421,6 +422,8 @@
 		E831BCF01D1C518000BE9247 /* myLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = myLabel.m; path = selfControl/myLabel.m; sourceTree = "<group>"; };
 		E831BCF31D1CC61900BE9247 /* quarterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = quarterModel.h; path = dataModel/quarterModel.h; sourceTree = "<group>"; };
 		E831BCF41D1CC61900BE9247 /* quarterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = quarterModel.m; path = dataModel/quarterModel.m; sourceTree = "<group>"; };
+		E831BCF91D1CD9E600BE9247 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E831BCFB1D1CD9F700BE9247 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F218EEEC1C218DF7005FFD60 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		F218EEED1C218DF7005FFD60 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		F21AD4741C886D610052F1BA /* ComfirmOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComfirmOrderViewController.h; sourceTree = "<group>"; };
@@ -1215,6 +1218,7 @@
 			isa = PBXGroup;
 			children = (
 				F26980981C12BAFC00C46C6D /* main.m */,
+				E831BCFA1D1CD9E600BE9247 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2328,6 +2332,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = F269808B1C12BAFC00C46C6D;
 			productRefGroup = F26980951C12BAFC00C46C6D /* Products */;
@@ -2369,6 +2374,7 @@
 				48FF68DD1D10FA4600DAD002 /* 37x-Checkmark.png in Resources */,
 				48FF68E01D10FA4600DAD002 /* MBProgressHUD.bundle in Resources */,
 				48FF68DE1D10FA4600DAD002 /* loading.gif in Resources */,
+				E831BCF81D1CD9E600BE9247 /* Localizable.strings in Resources */,
 				480A4A621D14F9B500BA4CB8 /* DetaiHeadView.xib in Resources */,
 				F2B6653C1C7997F7007427BB /* photo_number_icon@2x.png in Resources */,
 				48FF68CF1D0FD92300DAD002 /* File in Resources */,
@@ -2685,6 +2691,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		E831BCFA1D1CD9E600BE9247 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E831BCF91D1CD9E600BE9247 /* en */,
+				E831BCFB1D1CD9F700BE9247 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F26980A01C12BAFC00C46C6D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

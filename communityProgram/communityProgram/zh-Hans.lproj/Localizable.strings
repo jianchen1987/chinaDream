@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  communityProgram
+
+  Created by 陈剑 on 16/6/24.
+  Copyright © 2016年 高国峰. All rights reserved.
+*/
+"nickName"="昵称";
+"gender"="性别";
+"birth"="生日";
+"hobbile"="爱好";
+"homeTown"="故乡";
+"room"="房间号";

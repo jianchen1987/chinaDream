@@ -9,6 +9,9 @@
 #import "BaseViewController.h"
 #import "MBProgressHUD.h"
 #import "MBProgressHUD+MBW.h"
+#import "LoginViewController.h"
+
+
 @interface BaseViewController ()
 @end
 
@@ -38,27 +41,31 @@
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
+
 -(void)showPrompt:(NSString*)detail
 {
     [MBProgressHUD showError:detail toView:self.view];
     [MBProgressHUD hideHUD];
 }
+
 -(void)dismissShow
 {
     [MBProgressHUD hideHUD];
 }
--(void)back{
+
+-(void)back
+{
     [self.navigationController popViewControllerAnimated:YES];
 }
--(void)viewDidAppear:(BOOL)animated{
-    
 
 
-}
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 -(NSMutableAttributedString*)AttributedString:(NSString*)allstring rangeString:(NSString*)rangeString color:(UIColor*)color
 {
     NSMutableAttributedString* string=[[NSMutableAttributedString alloc]initWithString:allstring];
@@ -69,6 +76,8 @@
     return string;
 
 }
+
+
 -(NSMutableAttributedString*)AttributedString:(NSString*)allstring  image:(NSString*)imageName
 {
     NSMutableAttributedString* string=[[NSMutableAttributedString alloc]init];
@@ -83,14 +92,24 @@
     [string appendAttributedString:two];
     return string;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
-*/
+
+- (void)checkIsLogin
+{
+    UserObject *user = [UserObject shareUser];
+    if(![user isLogin])
+    {
+        LoginViewController *vc = [[LoginViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+}
+
+
 
 @end

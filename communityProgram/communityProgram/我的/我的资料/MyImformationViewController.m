@@ -8,8 +8,15 @@
 
 #import "MyImformationViewController.h"
 #import "ProgressView.h"
+#import "AddressManagerViewController.h"
+#import "NetworkEngine.h"
 
 @interface MyImformationViewController ()<UITextFieldDelegate>
+{
+    NSArray *_titleArr;
+    NSDictionary *_placeholder;
+    NSMutableDictionary *_cellContent;
+}
 
 @end
 
@@ -20,6 +27,21 @@
     [super viewDidLoad];
     
     self.title = @"我的资料";
+    
+    _titleArr    = @[@[@"nickName",@"gender",@"birth",@"hobbile",@"homeTown",@"room"],@[@"地址管理"]];
+    _placeholder = @{@"nickName":@"",@"gender":@"",@"birth":@"",@"hobbile":@"",@"homeTown":@"",@"room":@"如501"};
+    _cellContent = [[NSMutableDictionary alloc] initWithDictionary:@{@"nickName":self.user.nickName?self.user.nickName:@"",
+                                                                    @"gender":self.user.gender?self.user.gender:@"",
+                                                                    @"birth":self.user.birth?self.user.birth:@"",
+                                                                    @"hobbile":self.user.hobbile?self.user.hobbile:@"",
+                                                                    @"homeTown":self.user.homeTown?self.user.homeTown:@"",
+                                                                    @"room":self.user.room?self.user.room:@""}];
+    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveUserInfoToServer)];
+    [saveButton setTintColor:[UIColor whiteColor]];
+    [self.navigationItem setRightBarButtonItem:saveButton];
+    
+    
    
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 120)];
     topView.backgroundColor = [UIColor whiteColor];
@@ -83,39 +105,26 @@
 {
     static NSString *myImformationIdentifire = @"myImformationCell";
     static NSString *myImformationInputIdentifire = @"myImformationInputCell";
-    NSArray *leftTitleArray = @[@[@"昵称",@"性别",@"生日",@"爱好",@"家乡",@"房间号"],@[@"地址管理"]];
+    
     
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:myImformationIdentifire];
     
     if (indexPath.section == 0)
     {
-        if (indexPath.row == 1 || indexPath.row == 2)
+        MyImformationInputTableViewCell *inputCell = [tableView dequeueReusableCellWithIdentifier:myImformationInputIdentifire];
+        if (!inputCell)
         {
-            if (!cell)
-            {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myImformationIdentifire];
-            }
-            
-            cell.textLabel.text = leftTitleArray[indexPath.section][indexPath.row];
-
-            
-            return cell;
+            inputCell = [[MyImformationInputTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myImformationInputIdentifire];
         }
-        else
-        {
-            MyImformationInputTableViewCell *inputCell = [tableView dequeueReusableCellWithIdentifier:myImformationInputIdentifire];
-            if (!inputCell)
-            {
-                inputCell = [[MyImformationInputTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myImformationInputIdentifire];
-            }
-            inputCell.inputTextFeild.delegate = self;
-            inputCell.textLabel.text = leftTitleArray[indexPath.section][indexPath.row];
-
-            return inputCell;
-            
-        }
+        NSString *key = _titleArr[indexPath.section][indexPath.row];
+        inputCell.textLabel.text = NSLocalizedString(key, nil);
         
+        inputCell.inputTextFeild.delegate = self;
+        inputCell.inputTextFeild.placeholder = [_placeholder objectForKey:key];
+        inputCell.inputTextFeild.text = [_cellContent objectForKey:key];
+        inputCell.inputTextFeild.tag = 101 + indexPath.row;
+        return inputCell;
     }
     else
     {
@@ -123,7 +132,7 @@
         {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myImformationIdentifire];
         }
-        cell.textLabel.text = leftTitleArray[indexPath.section][indexPath.row];
+        cell.textLabel.text = _titleArr[indexPath.section][indexPath.row];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }
@@ -170,37 +179,81 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1)
     {
-        
+        AddressManagerViewController *vc = [[AddressManagerViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
 #pragma mark -- textfield delegate --
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    NSUInteger row = textField.tag - 101;
+    NSString *key = [[_titleArr objectAtIndex:0] objectAtIndex:row];
+    NSString *value = textField.text;
+    [_cellContent setValue:value?value:@""
+                    forKey:key];
+    
+    [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [self.tableView reloadData];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    UIView *supView = [textField superview];
+    CGFloat position = 0 + textField.frame.origin.y;
+    while (supView != nil && supView != self.view)
+    {
+        position += supView.frame.origin.y;
+        supView = [supView superview];
+    }
+    
+    CGFloat offset = position + textField.frame.size.height + 64 - (DeviceHeight/2) - self.tableView.contentOffset.y;
+    if(offset > 0)
+    {
+        CGPoint oldPoint = self.tableView.contentOffset;
+        [self.tableView setContentOffset:CGPointMake(oldPoint.x, oldPoint.y + offset) animated:YES];
+    }
     
 }
 
 
 
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.view endEditing:YES];
+    if([scrollView isDragging])
+    {
+        [self.view endEditing:YES];
+    }
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+
 
 
 
 - (void)saveUserInfoToServer
 {
+    NSArray *reqArr = @[self.user.identifyName,
+                        @"weqweqweqwe",
+                        [_cellContent objectForKey:@"gender"],
+                        @"address",
+                        [_cellContent objectForKey:@"room"],
+                        [_cellContent objectForKey:@"birth"],
+                        [_cellContent objectForKey:@"hobbile"],
+                        [_cellContent objectForKey:@"homeTown"],
+                        [_cellContent objectForKey:@"nickName"]
+                        ];
     
+    [NetworkEngine postRequestWithUrl:AppService
+                          paramsArray:reqArr
+                             WithPath:ModifyUserPath
+                         successBlock:^(id successJsonData)
+    {
+        NSLog(@"%@",successJsonData);
+    }
+                           errorBlock:^(int code, NSString *errorJsonData)
+    {
+        
+    }];
 }
 
 

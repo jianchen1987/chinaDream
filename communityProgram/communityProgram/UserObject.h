@@ -11,7 +11,7 @@
 
 @class quarterModel;
 
-@interface UserObject : NSObject
+@interface UserObject : NSObject<NSCoding>
 
 /**
  *  后台唯一字段
@@ -106,7 +106,7 @@
 /**
  *  积分
  */
-@property (nonatomic, assign) NSInteger *integral;
+@property (nonatomic, copy) NSString *integral;
 /**
  *  小区
  */
@@ -134,9 +134,11 @@
 
 - (BOOL)isLogin;
 
+- (void)updateInfo:(NSDictionary *)jsonData;
 
 
-
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+- (nullable instancetype)initWithCoder:( NSCoder * _Nonnull )aDecoder;
 
 
 

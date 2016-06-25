@@ -16,4 +16,5 @@
 -(void)dismissShow;
 -(NSMutableAttributedString*)AttributedString:(NSString*)allstring image:(NSString*)imageName;
 -(NSMutableAttributedString*)AttributedString:(NSString*)allstring rangeString:(NSString*)rangeString color:(UIColor*)color;
+- (void)checkIsLogin;
 @end

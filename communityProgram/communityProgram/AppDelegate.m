@@ -22,7 +22,10 @@
     [[UINavigationBar appearance] setTintColor:[UIColor greenColor]];
     [[UINavigationBar appearance] setBarTintColor:RGBA(68, 180, 17, 1)];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                          [UIColor blackColor], NSForegroundColorAttributeName, [UIFont systemFontOfSize:19], NSFontAttributeName, nil]];
+                                                          [UIColor blackColor],
+                                                          NSForegroundColorAttributeName,
+                                                          [UIFont systemFontOfSize:19],
+                                                          NSFontAttributeName, nil]];
 //    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"tabBarImage"] forBarMetrics:UIBarMetricsDefault];
     [[UITabBar appearance] setSelectedImageTintColor:RGBA(103, 203, 45, 1)];
 
@@ -82,19 +85,19 @@
 //    if ([successJsonData valueForKey:@"quarter"]) {
 //        [Utility saveToDefaults:[[successJsonData valueForKey:@"quarter"] valueForKey:@"id"] forKey:@"quarterID"];
 //    }
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-    UserObject * user=[UserObject shareUser];
-    if ([defaults objectForKey:@"userID"]) {
-        user.nickName=[defaults valueForKey:@"nickName"];
-        user.nickName=[defaults valueForKey:@"nickName"];
-        user.identifyName=[defaults valueForKey:@"userID"];
-        user.phone=[defaults valueForKey:@"phone"];
-        user.gender=[defaults valueForKey:@"gender"];
-        user.master = @"1";
-        user.identityIntegral = @"2";
-        
-    }
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//
+//    UserObject * user=[UserObject shareUser];
+//    if ([defaults objectForKey:@"userID"]) {
+//        user.nickName=[defaults valueForKey:@"nickName"];
+//        user.nickName=[defaults valueForKey:@"nickName"];
+//        user.identifyName=[defaults valueForKey:@"userID"];
+//        user.phone=[defaults valueForKey:@"phone"];
+//        user.gender=[defaults valueForKey:@"gender"];
+//        user.master = @"1";
+//        user.identityIntegral = @"2";
+//        
+//    }
    
 
     
