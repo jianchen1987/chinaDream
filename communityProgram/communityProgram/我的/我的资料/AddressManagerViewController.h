@@ -6,12 +6,8 @@
 //  Copyright © 2016年 高国峰. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "baseTableViewController.h"
 
-@interface AddressManagerViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
-{
-    UITableView *myTableView;
-    NSMutableArray *dataSource;
-    
-}
+@interface AddressManagerViewController : baseTableViewController
+
 @end

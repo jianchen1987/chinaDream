@@ -7,6 +7,9 @@
 //
 
 #import "AddressManagerViewController.h"
+#import "addressManagerViewModel.h"
+#import "addressModifyViewController.h"
+#import "AddressManagerTableViewCell.h"
 
 @interface AddressManagerViewController ()
 
@@ -14,61 +17,101 @@
 
 @implementation AddressManagerViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    self.title = @"收获地址管理";
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.frame = CGRectMake(0, 0, DeviceWidth, DeviceHeight - kNAVIGATION_HEIGHT - kSTATUSBAR_HEIGHT - 40 - 20);
     
+    UIButton *newAddressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    newAddressBtn.frame = CGRectMake((DeviceWidth - 280)/2, DeviceHeight - kNAVIGATION_HEIGHT - kSTATUSBAR_HEIGHT - 40 - 10, 280, 40);
+    [newAddressBtn setTitle:@"新增收货地址" forState:UIControlStateNormal];
+    [newAddressBtn setBackgroundImage:[UIImage imageNamed:@"最大按钮"] forState:UIControlStateNormal];
     
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, DeviceWidth, DeviceHeight-64) style:UITableViewStyleGrouped];
-    myTableView.delegate = self;
-    myTableView.dataSource = self;
-    myTableView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:myTableView];
-    // Do any additional setup after loading the view.
+    [newAddressBtn addTarget:self action:@selector(newAddress:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:newAddressBtn];
+
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self reflushAddress];
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return dataSource.count;
+    return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return dataSource.count;
+    return self.dataSource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *addressManagerIdentifire = @"addressManagerCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:addressManagerIdentifire];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addressManagerIdentifire];
+    addressModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    AddressManagerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:addressManagerIdentifire];
+    if (!cell)
+    {
+        cell = [[AddressManagerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addressManagerIdentifire];
     }
-    
+    cell.nameLable.text = model.sendName;
+    cell.phoneLable.text = model.phone;
+    if(model.isDefault)
+    {
+        NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"[默认]%@",model.levelRoom]];
+        [str addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0, 4)];
+        cell.addressLable.attributedText = str;
+    }
+    else
+    {
+        cell.addressLable.text = model.levelRoom;
+    }
     
     return cell;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 10;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.001;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50;
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    addressModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    addressModifyViewController *vc = [[addressModifyViewController alloc] init];
+    vc.addressModel = model;
+    vc.newOrModify = NO;
+    [self.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80.0f;
 }
-*/
+
+
+
+- (void)newAddress:(id)sender
+{
+    addressModifyViewController *vc = [[addressModifyViewController alloc] init];
+    vc.newOrModify = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)reflushAddress
+{
+    [self showLoading];
+    [addressManagerViewModel getUserReceiveAddressesByUserId:self.user.identifyName
+                                                SuccessBlock:^(NSArray *address)
+    {
+        [self dismissShow];
+        [self.dataSource removeAllObjects];
+        [self.dataSource addObjectsFromArray:address];
+        [self.tableView reloadData];
+     }
+                                                FailureBlock:^(int errCode, NSString *errMsg)
+    {
+        [self dismissShow];
+     }];
+}
 
 @end

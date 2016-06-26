@@ -10,12 +10,17 @@
 #import "ProgressView.h"
 #import "AddressManagerViewController.h"
 #import "NetworkEngine.h"
+#import "UIImageView+WebCache.h"
 
-@interface MyImformationViewController ()<UITextFieldDelegate>
+#import "LCActionSheet.h"
+
+@interface MyImformationViewController ()<UITextFieldDelegate,LCActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     NSArray *_titleArr;
     NSDictionary *_placeholder;
     NSMutableDictionary *_cellContent;
+    
+    UIImageView *_userHeadImg;
 }
 
 @end
@@ -39,6 +44,7 @@
     
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveUserInfoToServer)];
     [saveButton setTintColor:[UIColor whiteColor]];
+    [saveButton setEnabled:NO];
     [self.navigationItem setRightBarButtonItem:saveButton];
     
     
@@ -47,31 +53,33 @@
     topView.backgroundColor = [UIColor whiteColor];
     
     
-    UIImageView *userImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 20, 80, 80)];
-    userImageView.image = [UIImage imageNamed:@"上传头像"];
-    userImageView.layer.cornerRadius = 30;
-    userImageView.clipsToBounds = YES;
-    [userImageView setUserInteractionEnabled:YES];
+    _userHeadImg = [[UIImageView alloc] initWithFrame:CGRectMake(10, 20, 80, 80)];
+    
+    [_userHeadImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",HOSTURL,self.user.headIcon]] placeholderImage:[UIImage imageNamed:@"上传头像"]];
+    
+    _userHeadImg.layer.cornerRadius = _userHeadImg.frame.size.width/2;
+    _userHeadImg.clipsToBounds = YES;
+    [_userHeadImg setUserInteractionEnabled:YES];
     UITapGestureRecognizer *singleGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOnUploadHeadIcon:)];
     singleGesture.numberOfTapsRequired = 1;
-    [userImageView addGestureRecognizer:singleGesture];
-    [topView addSubview:userImageView];
+    [_userHeadImg addGestureRecognizer:singleGesture];
+    [topView addSubview:_userHeadImg];
     
     
-    UILabel *quarterName = [[UILabel alloc] initWithFrame:CGRectMake(userImageView.right+10, 20, 200, 20)];
+    UILabel *quarterName = [[UILabel alloc] initWithFrame:CGRectMake(_userHeadImg.right+10, 20, 200, 20)];
     quarterName.text      = [NSString stringWithFormat:@"我的小区:%@",self.user.quarter.quarterName];
     quarterName.textColor = RGBA(51, 51, 51, 1);
     quarterName.font      = Font(_SUBTITLE_FONT_SIZE_);
     [topView addSubview:quarterName];
     
     
-    UILabel *userLevelLable = [[UILabel alloc] initWithFrame:CGRectMake(userImageView.right+10, (120 - 20)/2, 200, 20)];
+    UILabel *userLevelLable = [[UILabel alloc] initWithFrame:CGRectMake(_userHeadImg.right+10, (120 - 20)/2, 200, 20)];
     userLevelLable.text      = [NSString stringWithFormat:@"我的等级:LV%@",self.user.identityIntegral];
     userLevelLable.font      = Font(_DETAIL_FONT_SIZE_);
     userLevelLable.textColor = RGBA(93, 93, 93, 1);
     [topView addSubview:userLevelLable];
     
-    ProgressView *progress = [[ProgressView alloc] initWithFrame:CGRectMake(userImageView.right + 10, userImageView.bottom -20, 200, 20)];
+    ProgressView *progress = [[ProgressView alloc] initWithFrame:CGRectMake(_userHeadImg.right + 10, _userHeadImg.bottom -20, 200, 20)];
     [progress setProgressValue:0.71];
     [topView addSubview:progress];
     
@@ -82,9 +90,60 @@
 
 - (void)clickOnUploadHeadIcon:(id)sender
 {
-    NSLog(@"touch upload");
+    [self uploadHeadImage];
 }
 
+
+#pragma mark ----------------选择图片上传
+-(void)uploadHeadImage
+{
+    // 类方法
+    LCActionSheet *sheet = [LCActionSheet sheetWithTitle:@"上传头像"
+                                            buttonTitles:@[@"拍照", @"从相册选择"]
+                                          redButtonIndex:-1
+                                                delegate:self];
+    [sheet show];
+}
+#pragma mark -----------------LCActionSheetDelegate
+- (void)actionSheet:(LCActionSheet *)actionSheet didClickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 2)
+    {
+        return;
+    }
+    
+    UIImagePickerControllerSourceType sourceType =UIImagePickerControllerSourceTypePhotoLibrary;
+    if (buttonIndex == 0) {
+        sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    
+    if ([UIImagePickerController isSourceTypeAvailable:sourceType])
+    {
+        UIImagePickerController *imagePickerController=[[UIImagePickerController alloc] init];
+        imagePickerController.allowsEditing=YES; //设置用户是否可以编辑图片
+        imagePickerController.delegate=self;
+        imagePickerController.sourceType = sourceType;
+        
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+    }
+    else
+    {
+        //[SVProgressHUD showErrorWithStatus:UI_language(@"本机不支持", @"Not Support")];
+        NSLog(@"本机不支持");
+    }
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
+    if (!image)
+    {
+        image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+    _userHeadImg.image = image;
+}
 
 
 
@@ -133,6 +192,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myImformationIdentifire];
         }
         cell.textLabel.text = _titleArr[indexPath.section][indexPath.row];
+        cell.textLabel.font = [UIFont systemFontOfSize:_SUBTITLE_FONT_SIZE_];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }
@@ -195,6 +255,8 @@
     
     [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
     [self.tableView reloadData];
+    
+    [self.navigationItem.rightBarButtonItem setEnabled:YES];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -217,23 +279,14 @@
 }
 
 
-
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if([scrollView isDragging])
-    {
-        [self.view endEditing:YES];
-    }
-}
-
-
-
-
-
 - (void)saveUserInfoToServer
 {
+    NSData *imgData = UIImageJPEGRepresentation(_userHeadImg.image, 0.5);
+    NSString *base64HeadImg = [imgData base64EncodedStringWithOptions:0];
+    
+    
     NSArray *reqArr = @[self.user.identifyName,
-                        @"weqweqweqwe",
+                        base64HeadImg,
                         [_cellContent objectForKey:@"gender"],
                         @"address",
                         [_cellContent objectForKey:@"room"],
@@ -242,17 +295,22 @@
                         [_cellContent objectForKey:@"homeTown"],
                         [_cellContent objectForKey:@"nickName"]
                         ];
-    
+    [self showLoading];
     [NetworkEngine postRequestWithUrl:AppService
                           paramsArray:reqArr
                              WithPath:ModifyUserPath
                          successBlock:^(id successJsonData)
     {
-        NSLog(@"%@",successJsonData);
+        [self dismissShow];
+        UserObject *user = [UserObject shareUser];
+        [user updateInfo:successJsonData];
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+        [self showSuccess:@"保存成功!"];
+
     }
                            errorBlock:^(int code, NSString *errorJsonData)
     {
-        
+        [self dismissShow];
     }];
 }
 

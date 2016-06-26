@@ -133,6 +133,7 @@
 
 
 - (BOOL)isLogin;
+- (void)loginOut;
 
 - (void)updateInfo:(NSDictionary *)jsonData;
 

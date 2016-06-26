@@ -164,18 +164,23 @@
         {
             NSLog(@"successJsonData = %@",successJsonData);
             
-            [Utility saveToDefaults:[successJsonData valueForKey:@"gender"] forKey:@"gender"];
-            [Utility saveToDefaults:[successJsonData valueForKey:@"nickName"] forKey:@"nickName"];
-            [Utility saveToDefaults:[successJsonData valueForKey:@"id"] forKey:@"userID"];
-            [Utility saveToDefaults:[successJsonData valueForKey:@"phone"] forKey:@"phone"];
-            if ([successJsonData valueForKey:@"quarter"]) {
+            UserObject *user = [UserObject shareUser];
+            [user updateInfo:successJsonData];
+            if ([successJsonData valueForKey:@"quarter"])
+            {
                 [Utility saveToDefaults:[[successJsonData valueForKey:@"quarter"] valueForKey:@"id"] forKey:@"quarterID"];
             }
-            self.user.nickName     = [successJsonData valueForKey:@"nickName"];
-            self.user.identifyName = [successJsonData valueForKey:@"id"];
-            self.user.phone        = [successJsonData valueForKey:@"phone"];
-            self.user.gender       = [successJsonData valueForKey:@"gender"];
-            //[self.navigationController popViewControllerAnimated:YES];
+            
+//            [NetworkEngine postRequestWithUrl:AppService paramsArray:@[user.identifyName] WithPath:GetUserLevel
+//                                 successBlock:^(id successJsonData)
+//            {
+//                NSLog(@"%@",successJsonData);
+//            }
+//                                   errorBlock:^(int code, NSString *errorJsonData)
+//            {
+//               NSLog(@"errorJsonData = %@",errorJsonData);
+//            }];
+            
             [self dismissViewControllerAnimated:YES completion:nil];
             
         }

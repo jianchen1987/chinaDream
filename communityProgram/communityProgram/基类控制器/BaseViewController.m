@@ -13,6 +13,8 @@
 
 
 @interface BaseViewController ()
+
+
 @end
 
 @implementation BaseViewController
@@ -20,7 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _user = [UserObject shareUser];
+    self.user = [UserObject shareUser];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     self.view.backgroundColor   = RGBA(239, 238, 239, 1);
@@ -45,13 +47,21 @@
 -(void)showPrompt:(NSString*)detail
 {
     [MBProgressHUD showError:detail toView:self.view];
-    [MBProgressHUD hideHUD];
+    //[MBProgressHUD hideHUD];
 }
 
 -(void)dismissShow
 {
-    [MBProgressHUD hideHUD];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
+
+- (void)showSuccess:(NSString *)msg
+{
+    [MBProgressHUD showSuccess:msg toView:self.view];
+}
+
+
+
 
 -(void)back
 {

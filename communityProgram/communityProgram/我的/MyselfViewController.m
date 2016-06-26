@@ -10,6 +10,7 @@
 #import "SystemSettingViewController.h"
 #import "LoginViewController.h"
 #import "myLabel.h"
+#import "UIImageView+WebCache.h"
 
 #define _MYSELF_BUTTON_SETT_ 901
 #define _MYSELF_BUTTON_HELP_ 902
@@ -338,15 +339,16 @@
     if([self.user isLogin])
     {
         UIImageView *headView = [[UIImageView alloc] initWithFrame:CGRectMake(20, -40, 60, 60)];
-        if([self.user.headIcon isEqualToString:@""])
+        
+        [headView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",HOSTURL,self.user.headIcon]]
+                    placeholderImage:[UIImage imageNamed:@"上传头像"]
+                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)
         {
-            headView.image = [UIImage imageNamed:@"myself_default_headImage"];
-        }
-        else
-        {
-            headView.image = [UIImage imageNamed:@"myself_default_headImage"];
-        }
-        headView.layer.cornerRadius = 30;
+            NSLog(@"down head icon completed!");
+        }];
+        
+        
+        headView.layer.cornerRadius = headView.frame.size.width/2;
         headView.clipsToBounds = YES;
         [userInfoView addSubview:headView];
         
@@ -355,6 +357,7 @@
         [userInfoView addSubview:userName];
         
         UIImageView *userGenderImg = [[UIImageView alloc] initWithFrame:CGRectMake(userName.right+1, 10, 25, 25)];
+    
         if([self.user.gender isEqualToString:@"男"])
         {
             userGenderImg.image = [UIImage imageNamed:@"myself_sex_man"];
@@ -397,7 +400,7 @@
     else
     {
         UIImageView *headView = [[UIImageView alloc] initWithFrame:CGRectMake(DeviceWidth/2 - 30, -40, 60, 60)];
-        headView.image = [UIImage imageNamed:@"myself_default_headImage"];
+        headView.image = [UIImage imageNamed:@"上传头像"];
         headView.layer.cornerRadius = 30;
         headView.clipsToBounds = YES;
         [userInfoView addSubview:headView];
@@ -424,12 +427,6 @@
 }
 
 
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end

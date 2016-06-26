@@ -25,6 +25,7 @@
         self.tableView.delegate   = self;
         self.tableView.dataSource = self;
         self.dataSource = [[NSMutableArray alloc] init];
+        self.dataSource = [[NSMutableArray alloc] init];
         
     }
     
@@ -36,9 +37,21 @@
     // Do any additional setup after loading the view.
     [self.view addSubview:self.tableView];
     
-    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 60)];
+    CGFloat offset = 60;
+    if(!self.navigationController.navigationBarHidden)
+    {
+        offset += 60;
+    }
+    
+    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, offset)];
     [footView setBackgroundColor:[UIColor clearColor]];
     self.tableView.tableFooterView = footView;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,6 +88,15 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.dataSource.count;
+}
+
+#pragma mark -- scrollview delegate --
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if([scrollView isDragging])
+    {
+        [self.view endEditing:YES];
+    }
 }
 
 

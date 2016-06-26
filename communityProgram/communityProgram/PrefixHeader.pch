@@ -56,6 +56,7 @@
 #define kTOOLHEIGHT 50.f
 //外网地址
 #define baseUrl @"http://120.24.0.49/66quart/jsonrpc.jspx?classParam="
+#define HOSTURL @"http://120.24.0.49/66quart"
 
 
 #define appHostPath @"http://192.168.2.109:8080/"
@@ -91,7 +92,14 @@
 #define GetUserByIdPath    @"getUserById"  //根据用户id来获取用户信息
 #define GetUserByPhonePath @"getUserByPhone" //根据手机号码获取用户信息
 #define ModifyUserPath     @"modifyUser"   //修改用户信息
+#define GetUserLevel        @"getLevel"    //获取会员等级
+#define GetAddressAll      @"getAddressAll" //获取所有收货地址
+#define SaveAddress        @"saveAddress"
+#define ModifyAddress      @"modifyAddres"
+#define DeleteAddress      @"removeAddress"
+#define SetDefaultAddress  @"setDefaultAddress"
 #define SignIntegralPath   @"signIntegral"  //签到赚取积分
+#define UploadAskorTalk    @"uploadAskorTalk"  //上传图片
 #define PublishAskorTalkPath @"publishAskorTalk"  //发布一条问问或者说说
 #define GetNearAskOrTalkById @"getNearAskOrTalkById" // 通过ID获取邻里问问或者说说
 #define GetNearAskLogo       @"getNearAskLogo" //获取轮播图

@@ -18,7 +18,6 @@ static UserObject *USER;
     dispatch_once(&onceToken, ^{
         
         USER = [[UserObject alloc] init];
-        USER.identifyName = @"";
     });
     return USER;
 }
@@ -28,7 +27,11 @@ static UserObject *USER;
     self = [super init];
     if(self)
     {
-        self = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:[[[UIDevice currentDevice] identifierForVendor] UUIDString]]];
+        if([[NSUserDefaults standardUserDefaults] objectForKey:[[[UIDevice currentDevice] identifierForVendor] UUIDString]])
+        {
+            self = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:[[[UIDevice currentDevice] identifierForVendor] UUIDString]]];
+        }
+
     }
     
     return self;
@@ -37,7 +40,7 @@ static UserObject *USER;
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.identifyName forKey:@"identifyName"];
+    [aCoder encodeObject:self.identifyName forKey:@"id"];
     [aCoder encodeObject:self.nickName forKey:@"nickName"];
     [aCoder encodeObject:self.phone forKey:@"phone"];
     [aCoder encodeObject:self.gender forKey:@"gender"];
@@ -58,7 +61,7 @@ static UserObject *USER;
     self = [super init];
     if(self)
     {
-        self.identifyName     = [aDecoder decodeObjectForKey:@"identifyName"];
+        self.identifyName     = [aDecoder decodeObjectForKey:@"id"]?[aDecoder decodeObjectForKey:@"id"]:@"";
         self.nickName         = [aDecoder decodeObjectForKey:@"nickName"];
         self.phone            = [aDecoder decodeObjectForKey:@"phone"];
         self.gender           = [aDecoder decodeObjectForKey:@"gender"];
@@ -85,6 +88,7 @@ static UserObject *USER;
 
 - (void)updateInfo:(NSDictionary *)jsonData
 {
+    self.identifyName     = [jsonData objectForKey:@"id"]?[jsonData objectForKey:@"id"]:@"";
     self.nickName         = [jsonData objectForKey:@"nickName"]?[jsonData objectForKey:@"nickName"]:@"";
     self.phone            = [jsonData objectForKey:@"phone"]?[jsonData objectForKey:@"phone"]:@"";
     self.gender           = [jsonData objectForKey:@"gender"]?[jsonData objectForKey:@"gender"]:@"";
@@ -107,6 +111,26 @@ static UserObject *USER;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:[NSKeyedArchiver archivedDataWithRootObject:self] forKey:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
     [defaults synchronize];
+}
+
+- (void)loginOut
+{
+    [self archiveToUserDefaults];
+    self.identifyName     = @"";
+    self.nickName         = @"";
+    self.phone            = @"";
+    self.gender           = @"";
+    self.headIcon         = @"";
+    self.address          = @"";
+    self.room             = @"";
+    self.myExtraIntegral  = @"";
+    self.birth            = @"";
+    self.hobbile          = @"";
+    self.homeTown         = @"";
+    self.identityIntegral = @"";
+    self.master           = @"";
+    self.integral         = @"";
+    
 }
 
 

@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface AddressManagerTableViewCell : UITableViewCell
-@property(nonatomic,strong)UIImageView *leftLogoImageView;
-@property(nonatomic,strong)UILabel *nameLable;
-@property(nonatomic,strong)UILabel *phoneLable;
-@property(nonatomic,strong)UILabel *addressLable;
+
+@property (nonatomic, strong) UIImageView *leftLogoImageView;
+@property (nonatomic, strong) UILabel     *nameLable;
+@property (nonatomic, strong) UILabel     *phoneLable;
+@property (nonatomic, strong) UILabel     *addressLable;
+@property (nonatomic, strong) UIButton    *rightModifyBtn;
 
 @end
