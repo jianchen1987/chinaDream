@@ -7,7 +7,7 @@
 //
 
 #import "AddressManagerViewController.h"
-#import "addressManagerViewModel.h"
+#import "addressViewModel.h"
 #import "addressModifyViewController.h"
 #import "AddressManagerTableViewCell.h"
 
@@ -31,6 +31,9 @@
     
     [newAddressBtn addTarget:self action:@selector(newAddress:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:newAddressBtn];
+    
+    self.tableView.header = nil;
+    self.tableView.footer = nil;
 
 }
 

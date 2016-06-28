@@ -86,6 +86,9 @@
     
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableHeaderView = topView;
+    
+    self.tableView.header = nil;
+    self.tableView.footer = nil;
 }
 
 - (void)clickOnUploadHeadIcon:(id)sender

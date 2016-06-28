@@ -5,7 +5,7 @@
 //  Created by xiaogao on 16/2/17.
 //  Copyright © 2016年 高国峰. All rights reserved.
 //
-static NSString *completeIdentifire = @"completeIdentifire";
+
 #import "CompleteViewController.h"
 
 @interface CompleteViewController ()
@@ -17,56 +17,80 @@ static NSString *completeIdentifire = @"completeIdentifire";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-64-40) style:UITableViewStyleGrouped];
-    myTableView.delegate = self;
-    myTableView.dataSource = self;
-    myTableView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:myTableView];
-    
-    
 }
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+
+
+- (void)pullDown:(_Nonnull id)sender
 {
-    return 10;
+    [orderViewModel getOrdersByUser:self.user
+                       SuccessBlock:^(NSArray *orders)
+     {
+         [self.dataSource addObjectsFromArray:@[@"1",@"2",@"3"]];
+         [self.tableView reloadData];
+         [self.tableView reloadEmptyDataSet];
+         [super pullDown:sender];
+     }
+                       FailureBlock:^(int code, NSString *errMsg)
+     {
+         [self showPrompt:errMsg];
+         [super pullDown:sender];
+     }];
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)pullUp:(_Nonnull id)sender
 {
-    return 1;
+    [super pullUp:sender];
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WaittingPaymentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:completeIdentifire];
-    if (!cell) {
-        cell = [[WaittingPaymentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:completeIdentifire];
+    orderListTableViewCell *cell = nil;
+    if(indexPath.section == 1)
+    {
+        static NSString *style2 = @"style2";
+        cell = [tableView dequeueReusableCellWithIdentifier:style2];
+        if(!cell)
+        {
+            cell = [[orderListTableViewCell alloc] initWithUpStyle:OrderListTableViewCellUpStyleMutable
+                                                       BottomStyle:OrderListTableViewCellBottomStyleNormal
+                                                   reuseIdentifier:style2];
+        }
+        [cell.previewImgView1 sd_setImageWithURL:[NSURL URLWithString:@"http://sc.jb51.net/uploads/allimg/140923/10-140923121040V8.jpg"] placeholderImage:[UIImage imageNamed:@"上传头像"]];
+        [cell.previewImgView2 sd_setImageWithURL:[NSURL URLWithString:@"http://sc.jb51.net/uploads/allimg/140923/10-140923121040V8.jpg"] placeholderImage:[UIImage imageNamed:@"上传头像"]];
+        [cell.previewImgView3 sd_setImageWithURL:[NSURL URLWithString:@"http://sc.jb51.net/uploads/allimg/140923/10-140923121040V8.jpg"] placeholderImage:[UIImage imageNamed:@"上传头像"]];
+        cell.upDetailsLabel.text = @"一共5款商品";
+        
+        
     }
-    [cell setModel:nil];
+    else
+    {
+        static NSString *style2 = @"style2";
+        cell = [tableView dequeueReusableCellWithIdentifier:style2];
+        if(!cell)
+        {
+            cell = [[orderListTableViewCell alloc] initWithUpStyle:OrderListTableViewCellUpStyleNormal
+                                                       BottomStyle:OrderListTableViewCellBottomStyleNormal
+                                                   reuseIdentifier:style2];
+        }
+        cell.upTitleLabel.text = @"新味道烟台苹果";
+        cell.upDetailsLabel.text =  @"烟台苹果是山东名优特产之一，产地以烟台辖区内的栖霞市、龙口市";
+        [cell.previewImgView1 sd_setImageWithURL:[NSURL URLWithString:@"http://sc.jb51.net/uploads/allimg/140923/10-140923121040V8.jpg"] placeholderImage:[UIImage imageNamed:@"上传头像"]];
+    }
+    
+    [cell.button1 setTitle:@"删除订单" forState:UIControlStateNormal];
+    cell.button1.tag = 1000 + indexPath.section;
+    [cell.button1 addTarget:self action:@selector(deleteOrder:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [cell.button2 setTitle:@"再次购买" forState:UIControlStateNormal];
+    cell.button2.tag = 3000 + indexPath.section;
+    [cell.button2 addTarget:self action:@selector(buyAgain:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [cell.button3 setTitle:@"立即评论" forState:UIControlStateNormal];
+    cell.button3.tag = 6000 + indexPath.section;
+    [cell.button3 addTarget:self action:@selector(comment:) forControlEvents:UIControlEventTouchUpInside];
+
     return cell;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 10;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.001;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 125;
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

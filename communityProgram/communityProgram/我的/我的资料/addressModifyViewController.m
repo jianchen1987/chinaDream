@@ -11,7 +11,7 @@
 #import "addressModify1TableViewCell.h"
 #import "addressModify2TableViewCell.h"
 #import "addressModel.h"
-#import "addressManagerViewModel.h"
+#import "addressViewModel.h"
 
 #define _QUARTERNAME_ 101
 #define _LEVELROOM_   102
@@ -85,6 +85,9 @@
     
     
     [self.view addSubview:toolBar];
+    
+    self.tableView.header = nil;
+    self.tableView.footer = nil;
     
 }
 

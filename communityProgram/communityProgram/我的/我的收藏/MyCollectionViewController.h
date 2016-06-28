@@ -6,11 +6,17 @@
 //  Copyright © 2016年 高国峰. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "baseTableViewController.h"
 #import "MycollectionTableViewCell.h"
-@interface MyCollectionViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
-{
-    UITableView *myTableView;
-    NSMutableArray *dataSource;
-}
+
+#define _BUTTONVIEW_BUTTON_HEIGHT 40.0f
+
+@interface MyCollectionViewController : baseTableViewController
+
+@property (nonatomic, strong) NSArray *buttonTitles;
+@property (nonatomic, assign) CGFloat buttonHeght;
+
+- (void)clickOnButton:(UIButton *)button atIndex:(NSUInteger)index;
+
+
 @end

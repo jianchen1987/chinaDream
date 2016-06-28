@@ -25,8 +25,12 @@
         self.tableView.delegate   = self;
         self.tableView.dataSource = self;
         self.dataSource = [[NSMutableArray alloc] init];
-        self.dataSource = [[NSMutableArray alloc] init];
         
+        self.tableView.emptyDataSetSource = self;
+        self.tableView.emptyDataSetDelegate = self;
+        
+        self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDown:)];
+        self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullUp:)];
     }
     
     return self;
@@ -37,13 +41,7 @@
     // Do any additional setup after loading the view.
     [self.view addSubview:self.tableView];
     
-    CGFloat offset = 60;
-    if(!self.navigationController.navigationBarHidden)
-    {
-        offset += 60;
-    }
-    
-    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, offset)];
+    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 20)];
     [footView setBackgroundColor:[UIColor clearColor]];
     self.tableView.tableFooterView = footView;
 }
@@ -58,6 +56,20 @@
 {
     [super didReceiveMemoryWarning];
     [self.dataSource removeAllObjects];
+}
+
+
+
+#pragma mark reflush
+- (void)pullDown:(id)sender
+{
+    [self.tableView.header endRefreshing];
+    
+}
+
+- (void)pullUp:(id)sender
+{
+    [self.tableView.footer endRefreshing];
 }
 
 
@@ -99,6 +111,34 @@
     }
 }
 
+#pragma mark -- empty delete --
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    return self.dataSource.count == 0;
+}
+
+- (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
+{
+    return YES;
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:_TITLE_FONT_SIZE_],NSForegroundColorAttributeName:[UIColor blackColor]};
+    return [[NSAttributedString alloc] initWithString:@"数据为空" attributes:attribute];
+}
+
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:_SUBTITLE_FONT_SIZE_],NSForegroundColorAttributeName:[UIColor darkGrayColor]};
+    return [[NSAttributedString alloc] initWithString:@"没有找到合适的记录" attributes:attribute];
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"collectionEmpty"];
+}
 
 
 

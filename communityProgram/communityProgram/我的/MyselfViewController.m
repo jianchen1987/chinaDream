@@ -12,6 +12,11 @@
 #import "myLabel.h"
 #import "UIImageView+WebCache.h"
 
+#import "allProductTableViewController.h"
+#import "allTopicTableViewController.h"
+
+#import "attentionTableViewController.h"
+
 #define _MYSELF_BUTTON_SETT_ 901
 #define _MYSELF_BUTTON_HELP_ 902
 
@@ -53,6 +58,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView.frame = CGRectMake(0, 0, DeviceWidth, DeviceHeight - kTABBAR_HEIGHT);
 
     UIImageView *bottomView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 200)];
     bottomView.image = [UIImage imageNamed:@"myself_default_headBackImage"];
@@ -75,7 +82,8 @@
     [self.tableView setParallaxHeaderView:bottomView
                                   mode:VGParallaxHeaderModeFill
                                 height:200];
-
+    self.tableView.header = nil;
+    self.tableView.footer = nil;
     
 }
 
@@ -272,17 +280,18 @@
         NSArray *titles = [NSArray arrayWithObjects:@"已付款",@"待付款",@"已完成", nil];
         WMPageController *pageVC = [[WMPageController alloc] initWithViewControllerClasses:viewControllers andTheirTitles:titles WithShowMenu:NO];
         pageVC.hidesBottomBarWhenPushed = YES;
-        pageVC.pageAnimatable = YES;
-        pageVC.menuItemWidth = 85;
-        pageVC.menuHeight = 42;
-        pageVC.postNotification = YES;
-        pageVC.bounces = YES;
-        pageVC.title = @"我的订单";
-        pageVC.menuBGColor = [UIColor whiteColor];//bar背景颜色
-        //    pageVC.titleColorNormal = RGBA(51, 51, 51, 1);
-        //    pageVC.titleColorSelected = RGBA(28, 163, 230, 1);
-        pageVC.menuViewStyle = WMMenuViewStyleLine;
-        pageVC.titleSizeSelected = 15;
+        pageVC.pageAnimatable           = YES;
+        pageVC.menuItemWidth            = DeviceWidth/3;//85;
+        pageVC.menuHeight               = kPageMenusHeight;
+        //pageVC.postNotification = YES;
+        pageVC.bounces                  = YES;
+        pageVC.title                    = @"我的订单";
+        pageVC.menuBGColor              = [UIColor whiteColor];//bar背景颜色
+        pageVC.titleColorNormal         = [UIColor darkGrayColor];
+        pageVC.titleColorSelected       = [UIColor blackColor];
+        pageVC.progressColor            = RGBA(68, 180, 17, 1);
+        pageVC.menuViewStyle            = WMMenuViewStyleLine;
+        pageVC.titleSizeSelected        = 15;
         [self.navigationController pushViewController:pageVC animated:YES];
     }
     else if(sender.tag == _MYSELF_NEIGHBOUR_)
@@ -299,13 +308,31 @@
     }
     else if(sender.tag == _MYSELF_FAVORI_)
     {
-        MyCollectionViewController *myCollectionVC = [MyCollectionViewController new];
-        myCollectionVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:myCollectionVC animated:YES];
+        NSArray *viewControllers = [NSArray arrayWithObjects:[allProductTableViewController class],[allTopicTableViewController class],nil];
+        NSArray *vcTitles = [NSArray arrayWithObjects:@"全部商品",@"全部帖子",nil];
+        WMPageController *pageVC = [[WMPageController alloc] initWithViewControllerClasses:viewControllers andTheirTitles:vcTitles WithShowMenu:NO];
+        pageVC.keys = [NSArray arrayWithObjects:@"buttonTitles",@"buttonTitles", nil];
+        pageVC.values = [NSArray arrayWithObjects:@[@"超市商品",@"试吃商品",@"众筹商品"],@[@"美邻问问",@"美邻说说",@"美邻闲置"], nil];
+        pageVC.hidesBottomBarWhenPushed = YES;
+        pageVC.pageAnimatable           = YES;
+        pageVC.menuItemWidth            = DeviceWidth/2;
+        pageVC.menuHeight               = kPageMenusHeight;
+        pageVC.bounces                  = YES;
+        pageVC.title                    = @"我的收藏";
+        pageVC.menuBGColor              = [UIColor whiteColor];//bar背景颜色
+        pageVC.titleColorNormal         = [UIColor darkGrayColor];
+        pageVC.titleColorSelected       = [UIColor blackColor];
+        pageVC.progressColor            = RGBA(68, 180, 17, 1);
+        pageVC.menuViewStyle            = WMMenuViewStyleLine;
+        pageVC.titleSizeSelected        = 15;
+        
+        [self.navigationController pushViewController:pageVC animated:YES];
     }
     else if(sender.tag == _MYSELF_FOLLOW_)
     {
-        
+        attentionTableViewController *vc = [[attentionTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
 }

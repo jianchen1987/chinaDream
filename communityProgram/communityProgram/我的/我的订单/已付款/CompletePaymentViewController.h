@@ -6,13 +6,12 @@
 //  Copyright © 2016年 高国峰. All rights reserved.
 //
 
-#import "BaseViewController.h"
-#import "WaittingPaymentTableViewCell.h"
-@interface CompletePaymentViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
-{
-    UITableView *myTableView;
-    NSMutableArray *dataSource;
-    
-    
-}
+#import "baseTableViewController.h"
+#import "orderViewModel.h"
+#import "orderListTableViewCell.h"
+#import "UIImageView+WebCache.h"
+
+@interface CompletePaymentViewController : baseTableViewController
+
+
 @end
