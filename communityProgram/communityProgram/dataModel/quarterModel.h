@@ -13,6 +13,7 @@
 
 @interface quarterModel : NSObject
 
+@property(nonatomic,strong)NSString * id;
 /**
  *  小区名字
  */

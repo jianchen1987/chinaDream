@@ -8,12 +8,16 @@
 
 
 #import "AllCagroryViewController.h"
-
+#import "UpImageButton.h"
+#import "UIView+Getlength.h"
+#import "UIImageView+WebCache.h"
 @interface AllCagroryViewController ()
-
+@property(nonatomic,strong)UIView *secondView;
+@property(nonatomic,strong)NSMutableArray * alltypeArray;
 @end
 
 @implementation AllCagroryViewController
+@synthesize secondView;
 #pragma mark ------------------获取广告图
 -(void)LoadAdvertise
 {
@@ -57,12 +61,59 @@
         
     }];
 }
+-(void)getAlltype{
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[@""] WithPath:@"getProductType" successBlock:^(id successJsonData) {
+        NSLog(@"%@",successJsonData);
+        
+        _alltypeArray=successJsonData;
+        float border=0.5;
+        for (int i  = 0; i < _alltypeArray.count; i++) {
+            float unit_W=(DeviceWidth/4);
+            float Image_W=40;
+            UIView * unit =[[UIView alloc]initWithFrame:CGRectMake((DeviceWidth/4)*(i%4), (DeviceWidth/4)*(i/4), DeviceWidth/4, DeviceWidth/4)];
+            
+            unit.layer.borderWidth=border;
+            unit.layer.borderColor=[UIColor grayColor].CGColor;
+            NSDictionary * dic_unit=_alltypeArray[i];
+            UIImageView * unitImage=[[UIImageView alloc]initWithFrame:CGRectMake((unit_W-Image_W)/2, (unit_W-Image_W)/2, Image_W, Image_W)];
+            NSString * path=[dic_unit objectForKey:@"typeImageIcon"];
+            
+            [unitImage sd_setImageWithURL:urlImage(path) placeholderImage:[UIImage imageNamed:@"cell图片"]];
+            [unit addSubview:unitImage];
+            UILabel * name=[[UILabel alloc]initWithFrame:CGRectMake(0, unitImage.getH_Y, unit_W, unit_W-unitImage.getH_Y)];
+            name.textAlignment=NSTextAlignmentCenter;
+            name.text=[dic_unit objectForKey:@"typeName"];
+            name.font=[UIFont systemFontOfSize:12];
+            name.textColor=[UIColor grayColor];
+            [unit addSubview:name];
+            [secondView addSubview:unit];
+            UIButton * action=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, unit_W, unit_W)];
+            action.tag=i;
+            [action addTarget:self action:@selector(detailAction:) forControlEvents:UIControlEventTouchUpInside];
+            [unit addSubview:action];
+        }
+        
+    } errorBlock:^(int code, NSString *errorJsonData) {
+        
+    }];
+    
+    
+}
+-(void)detailAction:(UIButton*)sender
+{
+    CagroryListDetailViewController * cagrory=[CagroryListDetailViewController new];
+    cagrory.allDataArray=self.alltypeArray;
+    cagrory.NowDataDic=self.alltypeArray[sender.tag];
+    [self.navigationController pushViewController: cagrory animated:YES];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     dataSource = [[NSMutableArray alloc] init];
     self.title=@"所有分类";
     
-    
+    [self getAlltype];
     TSEXCARLoopView *loopView = [[TSEXCARLoopView alloc] initWithFrame:CGRectMake(0.0, 0.0, DeviceWidth, DeviceWidth/3)];
     loopView.delegate = self;
     loopView.userInteractionEnabled = YES;
@@ -86,38 +137,15 @@
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
         [firstView addSubview:btn];
     }
-
     
-    UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake(0, firstView.bottom+10, DeviceWidth, 1000)];
+    
+    secondView = [[UIView alloc] initWithFrame:CGRectMake(0, firstView.bottom+10, DeviceWidth, 1000)];
     secondView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:secondView];
-
-    NSArray *titlesArray = @[@"美邻推荐",@"美邻上新",@"新鲜水果",@"精品蔬菜",@"肉禽蛋品",@"奶品冻品",@"休闲食品",@"粮油调味",@"酒水饮料",@"个人护理",@"家居日品",@"进口商品"];
-    NSArray *imagesArray = @[@"categories_recommend",@"categories_new",@"categories_fruit",@"categories_vegetables",@"categories_eggs",@"categories_frozen_goods",@"categories_food",@"categories_seasoning",@"categories_drinks",@"categories_nursing",@"categories_dailyItems",@"categories_imported_goods"];
-    for (int i  = 0; i < titlesArray.count; i++) {
-        CustomSupermarketBtn *button = [CustomSupermarketBtn buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(DeviceWidth/4*(i%4), DeviceWidth/4*(i/4), DeviceWidth/4, DeviceWidth/4);
-        [button setTitle:titlesArray[i] forState:0];
-        [button setTitleColor:[UIColor grayColor] forState:0];
-        [button setImage:[UIImage imageNamed:imagesArray[i]] forState:0];
-        button.titleLabel.font = Font(13);
-        button.tag = 5000+i;
-        button.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [button.layer setBorderColor:RGBA(200, 200, 200, 1).CGColor];
-        [button.layer setBorderWidth:0.5];
-        [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [secondView addSubview:button];
-    }
-    
-}
-
--(void)buttonAction:(UIButton *)sender
-{
-    NSLog(@"sender.tag = %ld",(long)sender.tag);
-    [self.navigationController pushViewController:[CagroryListDetailViewController new] animated:YES];
     
     
 }
+
 
 
 

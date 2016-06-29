@@ -13,7 +13,7 @@
 @interface AllCagroryViewController : BaseViewController
 {
     NSMutableArray *dataSource;
-
+    
 }
 @property(nonatomic,strong)NSMutableArray *imgsArr;
 @property(nonatomic,strong)TSEXCARLoopView *loopView;
