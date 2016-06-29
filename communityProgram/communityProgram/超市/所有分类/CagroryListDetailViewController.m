@@ -95,11 +95,11 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
     self.navigationItem.titleView = titleButton;
     
     
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight) style:UITableViewStyleGrouped];
-    myTableView.delegate = self;
-    myTableView.dataSource = self;
-    myTableView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:myTableView];
+//    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight) style:UITableViewStyleGrouped];
+//    myTableView.delegate = self;
+//    myTableView.dataSource = self;
+//    myTableView.showsVerticalScrollIndicator = NO;
+//    [self.view addSubview:myTableView];
     [self.view addSubview:backView];
     
     NSArray *topTitleArray = @[@"全部",@"销量",@"人气",@"价格"];
@@ -140,7 +140,7 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
                                  if (success.count>0) {
                                      [allDateArray addObjectsFromArray:successJsonData];
                                  }
-                                 [myTableView reloadData];
+                                 [self.tableView reloadData];
                                  
                                  
                              } errorBlock:^(int code, NSString *errorJsonData) {
@@ -153,13 +153,13 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
     if (numberButton==0) {
         [UIView animateWithDuration:0.2 animations:^{
             backView.frame=Hiden_BV;
-            myTableView.frame=CGRectMake(0, 0, DeviceWidth, DeviceHeight);
+            self.tableView.frame=CGRectMake(0, 0, DeviceWidth, DeviceHeight);
             
         }];
     }else{
         [UIView animateWithDuration:0.2 animations:^{
             backView.frame=Display_BV;
-            myTableView.frame=CGRectMake(0, 50, DeviceWidth, DeviceHeight-50);
+            self.tableView.frame=CGRectMake(0, 50, DeviceWidth, DeviceHeight-50);
             
         }];
     }

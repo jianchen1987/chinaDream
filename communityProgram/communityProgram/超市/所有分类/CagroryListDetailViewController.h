@@ -8,10 +8,11 @@
 
 #import "BaseViewController.h"
 #import "CagroryListDetailTableViewCell.h"
-@interface CagroryListDetailViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+#import "baseTableViewController.h"
+@interface CagroryListDetailViewController : baseTableViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *dataSource;
-    UITableView *myTableView;
+//    UITableView *myTableView;
     
     
     UIView *cagroryView;
