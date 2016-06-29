@@ -16,6 +16,8 @@
     [super viewDidLoad];
     self.title = @"我的关注";
     
+    self.tableView.frame = CGRectMake(0, 50, DeviceWidth, DeviceHeight - kSTATUSBAR_HEIGHT - kNAVIGATION_HEIGHT - 40);
+    
     self.segCtrl = [[UISegmentedControl alloc] initWithFrame:CGRectMake(20, 5, DeviceWidth - 40, 30)];
     [self.segCtrl insertSegmentWithTitle:@"我的关注" atIndex:0 animated:NO];
     [self.segCtrl insertSegmentWithTitle:@"关注我的" atIndex:1 animated:NO];
@@ -26,34 +28,24 @@
     self.segCtrl.selectedSegmentIndex = 0;
     [self.view addSubview:self.segCtrl];
     
-    self.tableView.frame = CGRectMake(0, 50, DeviceWidth, DeviceHeight - kSTATUSBAR_HEIGHT - kNAVIGATION_HEIGHT - 40);
+    [self getDataByType:self.segCtrl.selectedSegmentIndex];
     
 }
 
 - (void)clickOnSeg:(id)sender
 {
     [self.dataSource removeAllObjects];
+    [self getDataByType:self.segCtrl.selectedSegmentIndex];
     
+    
+}
+
+- (void)getDataByType:(NSInteger)type
+{
     [self showLoading];
-    if(self.segCtrl.selectedSegmentIndex == 0)
+    if(type == 0)
     {
         [attentionViewModel getAttentionUsersByUser:self.user
-                                       SuccessBlock:^(NSArray *usersArr)
-        {
-            [self dismissShow];
-            [self.dataSource addObjectsFromArray:usersArr];
-            [self reloadTableView];
-            
-        } FailureBlock:^(int code, NSString *errMsg)
-        {
-            [self dismissShow];
-            [self showPrompt:errMsg];
-            [self reloadTableView];
-        }];
-    }
-    else if(self.segCtrl.selectedSegmentIndex == 1)
-    {
-        [attentionViewModel getUsersAttentionMy:self.user
                                        SuccessBlock:^(NSArray *usersArr)
          {
              [self dismissShow];
@@ -67,9 +59,27 @@
              [self reloadTableView];
          }];
     }
-    
+    else if(type)
+    {
+        [attentionViewModel getUsersAttentionMy:self.user
+                                   SuccessBlock:^(NSArray *usersArr)
+         {
+             [self dismissShow];
+             [self.dataSource addObjectsFromArray:usersArr];
+             [self reloadTableView];
+             
+         } FailureBlock:^(int code, NSString *errMsg)
+         {
+             [self dismissShow];
+             [self showPrompt:errMsg];
+             [self reloadTableView];
+         }];
+    }
 }
 
+
+
+#pragma mark -- empty delegate --
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
     NSArray *title = @[@"您还没有关注过任何人",@"您还没有被任何人关注"];
