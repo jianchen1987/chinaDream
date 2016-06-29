@@ -59,7 +59,7 @@
              [self reloadTableView];
          }];
     }
-    else if(type)
+    else if(type == 1)
     {
         [attentionViewModel getUsersAttentionMy:self.user
                                    SuccessBlock:^(NSArray *usersArr)

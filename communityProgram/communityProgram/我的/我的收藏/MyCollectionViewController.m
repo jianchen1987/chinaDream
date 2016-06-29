@@ -51,8 +51,6 @@
         [self.view addSubview:buttonView];
     }
     
-    [self.dataSource addObjectsFromArray:@[@"1",@"2",@"2",@"2",@"2",@"2",@"2",@"2",@"2",@"2",@"2",@"2",@"2",@"2",@"2"]];
-    
     self.tableView.frame = CGRectMake(0, self.buttonHeght + 10, DeviceWidth, DeviceHeight - kSTATUSBAR_HEIGHT - kNAVIGATION_HEIGHT - kPageMenusHeight - self.buttonHeght - 10);
     
 
