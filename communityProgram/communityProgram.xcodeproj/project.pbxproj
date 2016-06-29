@@ -70,6 +70,7 @@
 		E852CDB01D22F80B00CD7604 /* allProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDAF1D22F80B00CD7604 /* allProductTableViewController.m */; };
 		E852CDB31D22F82A00CD7604 /* allTopicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDB21D22F82A00CD7604 /* allTopicTableViewController.m */; };
 		E852CDB61D2315B700CD7604 /* attentionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDB51D2315B700CD7604 /* attentionTableViewController.m */; };
+		E852CDB91D23567100CD7604 /* attentionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDB81D23567100CD7604 /* attentionViewModel.m */; };
 		E86F6B431D1FCF770031496C /* addressViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B421D1FCF770031496C /* addressViewModel.m */; };
 		E86F6B481D1FD12D0031496C /* addressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B471D1FD12D0031496C /* addressModel.m */; };
 		E86F6B4B1D1FDABE0031496C /* addressModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B4A1D1FDABE0031496C /* addressModifyViewController.m */; };
@@ -460,6 +461,8 @@
 		E852CDB21D22F82A00CD7604 /* allTopicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = allTopicTableViewController.m; sourceTree = "<group>"; };
 		E852CDB41D2315B700CD7604 /* attentionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attentionTableViewController.h; sourceTree = "<group>"; };
 		E852CDB51D2315B700CD7604 /* attentionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = attentionTableViewController.m; sourceTree = "<group>"; };
+		E852CDB71D23567100CD7604 /* attentionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = attentionViewModel.h; path = viewModel/attentionViewModel.h; sourceTree = "<group>"; };
+		E852CDB81D23567100CD7604 /* attentionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = attentionViewModel.m; path = viewModel/attentionViewModel.m; sourceTree = "<group>"; };
 		E86F6B411D1FCF770031496C /* addressViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addressViewModel.h; sourceTree = "<group>"; };
 		E86F6B421D1FCF770031496C /* addressViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addressViewModel.m; sourceTree = "<group>"; };
 		E86F6B461D1FD12D0031496C /* addressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addressModel.h; path = Model/addressModel.h; sourceTree = "<group>"; };
@@ -1222,6 +1225,15 @@
 			name = "工具类";
 			sourceTree = "<group>";
 		};
+		E852CDBA1D23567600CD7604 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E852CDB71D23567100CD7604 /* attentionViewModel.h */,
+				E852CDB81D23567100CD7604 /* attentionViewModel.m */,
+			);
+			name = viewModel;
+			sourceTree = "<group>";
+		};
 		E86F6B401D1FCF580031496C /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1873,6 +1885,7 @@
 		F293A0AF1C146C5300B2724B /* 我的关注 */ = {
 			isa = PBXGroup;
 			children = (
+				E852CDBA1D23567600CD7604 /* viewModel */,
 				E852CDB41D2315B700CD7604 /* attentionTableViewController.h */,
 				E852CDB51D2315B700CD7604 /* attentionTableViewController.m */,
 			);
@@ -2579,6 +2592,7 @@
 				F27118E01C62475B008AE738 /* BaseCommunityModel.m in Sources */,
 				F28B56491C871DD200F62D4E /* UIColor+RGBValues.m in Sources */,
 				F29466411CA7D70C001D774A /* MyImformationViewController.m in Sources */,
+				E852CDB91D23567100CD7604 /* attentionViewModel.m in Sources */,
 				F24FF94D1CA4282700540576 /* MyCollectionViewController.m in Sources */,
 				F2933A721C5DDD9C00606136 /* SDBrowserImageView.m in Sources */,
 				F282D4961C74ADF3001251EF /* WaittingPaymentViewController.m in Sources */,
