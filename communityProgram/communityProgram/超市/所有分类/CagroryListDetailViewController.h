@@ -18,4 +18,6 @@
     UIToolbar *myToolBar;
     UIView *bottomView;
 }
+@property(nonatomic,strong)NSArray * allDataArray;
+@property(nonatomic,strong)NSDictionary * NowDataDic;
 @end

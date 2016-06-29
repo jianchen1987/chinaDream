@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4804C5F91D2366DF0080B1C8 /* PublishCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4804C5F51D2366DF0080B1C8 /* PublishCommentViewController.m */; };
+		4804C5FA1D2366DF0080B1C8 /* SampleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4804C5F71D2366DF0080B1C8 /* SampleDetailsViewController.m */; };
+		4804C5FB1D2366DF0080B1C8 /* SampleDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4804C5F81D2366DF0080B1C8 /* SampleDetailsViewController.xib */; };
+		4804C6001D23671F0080B1C8 /* DetermineOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4804C5FE1D23671F0080B1C8 /* DetermineOrderViewController.m */; };
+		4804C6011D23671F0080B1C8 /* DetermineOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4804C5FF1D23671F0080B1C8 /* DetermineOrderViewController.xib */; };
+		4804C6041D2368930080B1C8 /* UIView+Getlength.m in Sources */ = {isa = PBXBuildFile; fileRef = 4804C6031D2368930080B1C8 /* UIView+Getlength.m */; };
 		480A49C41D11847700BA4CB8 /* TraversePicturesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49C31D11847700BA4CB8 /* TraversePicturesScrollView.m */; };
 		480A49C91D11857000BA4CB8 /* AdvertisementUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49C81D11857000BA4CB8 /* AdvertisementUnit.m */; };
 		480A49CC1D11984600BA4CB8 /* PictureCarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49CB1D11984600BA4CB8 /* PictureCarouselScrollView.m */; };
@@ -336,6 +342,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4804C5F41D2366DF0080B1C8 /* PublishCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishCommentViewController.h; sourceTree = "<group>"; };
+		4804C5F51D2366DF0080B1C8 /* PublishCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishCommentViewController.m; sourceTree = "<group>"; };
+		4804C5F61D2366DF0080B1C8 /* SampleDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsViewController.h; sourceTree = "<group>"; };
+		4804C5F71D2366DF0080B1C8 /* SampleDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsViewController.m; sourceTree = "<group>"; };
+		4804C5F81D2366DF0080B1C8 /* SampleDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleDetailsViewController.xib; sourceTree = "<group>"; };
+		4804C5FD1D23671F0080B1C8 /* DetermineOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetermineOrderViewController.h; sourceTree = "<group>"; };
+		4804C5FE1D23671F0080B1C8 /* DetermineOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetermineOrderViewController.m; sourceTree = "<group>"; };
+		4804C5FF1D23671F0080B1C8 /* DetermineOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetermineOrderViewController.xib; sourceTree = "<group>"; };
+		4804C6021D2368930080B1C8 /* UIView+Getlength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Getlength.h"; sourceTree = "<group>"; };
+		4804C6031D2368930080B1C8 /* UIView+Getlength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Getlength.m"; sourceTree = "<group>"; };
 		480A49C21D11847700BA4CB8 /* TraversePicturesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraversePicturesScrollView.h; sourceTree = "<group>"; };
 		480A49C31D11847700BA4CB8 /* TraversePicturesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraversePicturesScrollView.m; sourceTree = "<group>"; };
 		480A49C71D11857000BA4CB8 /* AdvertisementUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisementUnit.h; sourceTree = "<group>"; };
@@ -970,6 +986,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4804C5FC1D23670A0080B1C8 /* 确定订单 */ = {
+			isa = PBXGroup;
+			children = (
+				4804C5FD1D23671F0080B1C8 /* DetermineOrderViewController.h */,
+				4804C5FE1D23671F0080B1C8 /* DetermineOrderViewController.m */,
+				4804C5FF1D23671F0080B1C8 /* DetermineOrderViewController.xib */,
+			);
+			name = "确定订单";
+			sourceTree = "<group>";
+		};
 		480A49C51D11853200BA4CB8 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -1001,6 +1027,7 @@
 		480A49D81D12A33700BA4CB8 /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				4804C5FC1D23670A0080B1C8 /* 确定订单 */,
 				480BDEA11D178CD400531FAA /* 免费试吃 */,
 			);
 			name = viewcontrollers;
@@ -1120,6 +1147,11 @@
 				480BDEA31D178D3B00531FAA /* FreeSamplesViewController.m */,
 				480BDEFA1D18ED2100531FAA /* FreeSamplesDetailViewController.h */,
 				480BDEFB1D18ED2100531FAA /* FreeSamplesDetailViewController.m */,
+				4804C5F41D2366DF0080B1C8 /* PublishCommentViewController.h */,
+				4804C5F51D2366DF0080B1C8 /* PublishCommentViewController.m */,
+				4804C5F61D2366DF0080B1C8 /* SampleDetailsViewController.h */,
+				4804C5F71D2366DF0080B1C8 /* SampleDetailsViewController.m */,
+				4804C5F81D2366DF0080B1C8 /* SampleDetailsViewController.xib */,
 			);
 			name = "免费试吃";
 			sourceTree = "<group>";
@@ -1185,6 +1217,8 @@
 		E831BCFC1D1EF11100BE9247 /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
+				4804C6021D2368930080B1C8 /* UIView+Getlength.h */,
+				4804C6031D2368930080B1C8 /* UIView+Getlength.m */,
 				E831BCFD1D1EF13D00BE9247 /* CommonUtils.h */,
 				E831BCFE1D1EF13D00BE9247 /* CommonUtils.m */,
 			);
@@ -2501,6 +2535,7 @@
 			files = (
 				F26980A71C12BAFC00C46C6D /* LaunchScreen.storyboard in Resources */,
 				F241DAEB1C4A1F3E001A828D /* bgImage_HL@2x.png in Resources */,
+				4804C6011D23671F0080B1C8 /* DetermineOrderViewController.xib in Resources */,
 				48FA56481D1A249C00E74654 /* FreeSamplesCVC.xib in Resources */,
 				F2B6653B1C7997F7007427BB /* photo_def_previewVc@2x.png in Resources */,
 				F2B665431C7997F7007427BB /* TableViewArrow@2x.png in Resources */,
@@ -2528,6 +2563,7 @@
 				F2B6653C1C7997F7007427BB /* photo_number_icon@2x.png in Resources */,
 				48FF68CF1D0FD92300DAD002 /* File in Resources */,
 				F241DAEC1C4A1F3E001A828D /* cellLine@2x.png in Resources */,
+				4804C5FB1D2366DF0080B1C8 /* SampleDetailsViewController.xib in Resources */,
 				F2B665381C7997F7007427BB /* MMVideoPreviewPlayHL@2x.png in Resources */,
 				F2B6653D1C7997F7007427BB /* photo_original_def@2x.png in Resources */,
 				F26E42831C8183690041E1E1 /* EmotionIcons.bundle in Resources */,
@@ -2603,6 +2639,7 @@
 				F26E42811C8183690041E1E1 /* EmotionViewConst.m in Sources */,
 				F2A4321E1C391D8B00479C73 /* PurchaseViewController.m in Sources */,
 				E86F6B511D1FE8950031496C /* addressModify2TableViewCell.m in Sources */,
+				4804C6001D23671F0080B1C8 /* DetermineOrderViewController.m in Sources */,
 				F2B316AB1C13D6EE00438C77 /* WMMenuView.m in Sources */,
 				F2A5206D1C468131009E7551 /* SDWebImagePrefetcher.m in Sources */,
 				F24FF94A1CA423A900540576 /* MyNeiborTableViewCell.m in Sources */,
@@ -2661,6 +2698,7 @@
 				F2D008CB1C1C0FFE009FA490 /* InvitationGiftViewController.m in Sources */,
 				F2B6654A1C7997F7007427BB /* TZImagePickerController.m in Sources */,
 				F2A520741C468131009E7551 /* UIView+WebCacheOperation.m in Sources */,
+				4804C6041D2368930080B1C8 /* UIView+Getlength.m in Sources */,
 				480A4A081D13C9BF00BA4CB8 /* MASLayoutConstraint.m in Sources */,
 				F26E42A51C8186070041E1E1 /* MJType.m in Sources */,
 				E831BCF51D1CC61900BE9247 /* quarterModel.m in Sources */,
@@ -2764,6 +2802,7 @@
 				F2BF2F3E1C1BBC1B00EB7E88 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F26E427D1C8183690041E1E1 /* UITextField+Emotion.m in Sources */,
 				F290E4821C7DE9620013F592 /* DetailViewController.m in Sources */,
+				4804C5F91D2366DF0080B1C8 /* PublishCommentViewController.m in Sources */,
 				F2992D381C2655C200709D21 /* NeiborTableViewCell.m in Sources */,
 				480A4A0D1D13C9BF00BA4CB8 /* View+MASAdditions.m in Sources */,
 				480A49C91D11857000BA4CB8 /* AdvertisementUnit.m in Sources */,
@@ -2773,6 +2812,7 @@
 				480A4A091D13C9BF00BA4CB8 /* MASViewAttribute.m in Sources */,
 				F2933A741C5DDD9C00606136 /* SDWaitingView.m in Sources */,
 				F296EA941C786E06004DFBF5 /* CustomBottomViewBtn.m in Sources */,
+				4804C5FA1D2366DF0080B1C8 /* SampleDetailsViewController.m in Sources */,
 				F296EA901C785E91004DFBF5 /* PublishCommunityViewController.m in Sources */,
 				480A49E11D12AE9200BA4CB8 /* TitleButton.m in Sources */,
 				F29186BC1C93C044005E03E7 /* FreeEatHistoryCollectionViewCell.m in Sources */,
