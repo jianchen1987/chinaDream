@@ -133,18 +133,22 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
     if (self.nowPage==1) {
         [allDateArray removeAllObjects];
     }
+    [self showLoading];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:array
                              WithPath:@"getProductByCode" successBlock:^(id successJsonData) {
                                  NSLog(@"successJsonData===%@",successJsonData);
                                  NSArray * success=successJsonData;
+                                 [self dismissShow];
                                  if (success.count>0) {
                                      [allDateArray addObjectsFromArray:successJsonData];
+                                     self.dataSource[0]=allDateArray;
                                  }
+                                 
                                  [self.tableView reloadData];
                                  
                                  
                              } errorBlock:^(int code, NSString *errorJsonData) {
-                                 
+                                 [self showPrompt:errorJsonData];
                              }];
     
 }
@@ -296,7 +300,23 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:_TITLE_FONT_SIZE_],NSForegroundColorAttributeName:[UIColor blackColor]};
+    return [[NSAttributedString alloc] initWithString:@"数据为空" attributes:attribute];
+}
 
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:_SUBTITLE_FONT_SIZE_],NSForegroundColorAttributeName:[UIColor darkGrayColor]};
+    return [[NSAttributedString alloc] initWithString:@"没有找到合适的记录" attributes:attribute];
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"collectionEmpty"];
+}
 
 
 @end
