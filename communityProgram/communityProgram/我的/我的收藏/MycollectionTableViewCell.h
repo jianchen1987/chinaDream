@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#define _COLLECTION_TABLEVIEW_CELL_HEIGHT_ 120
+
 @interface MycollectionTableViewCell : UITableViewCell
+
 @property(nonatomic,strong)UIImageView *productImageView;
-@property(nonatomic,strong)UILabel *productLable;
-@property(nonatomic,strong)UILabel *descriptionLable;
-@property(nonatomic,strong)UILabel *priceLable;
-@property(nonatomic,strong)UIButton *businessButton;
+@property(nonatomic,strong)UILabel *titleLabel;
+@property(nonatomic,strong)UILabel *detailLabel;
+
 
 @end

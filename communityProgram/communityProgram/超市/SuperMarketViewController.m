@@ -54,6 +54,7 @@ static NSString *buttonCellIdentifire = @"buttonCellIdentifire";
                 
             }
             NSLog(@"imageArray = %@",imageArray);
+#warning 用sdWebView啊啊啊啊啊啊啊啊啊啊啊啊 傻鸟
             // 异步下载图片
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
                 self.imgsArr = [NSMutableArray array];

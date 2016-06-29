@@ -71,6 +71,10 @@
 		E852CDB31D22F82A00CD7604 /* allTopicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDB21D22F82A00CD7604 /* allTopicTableViewController.m */; };
 		E852CDB61D2315B700CD7604 /* attentionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDB51D2315B700CD7604 /* attentionTableViewController.m */; };
 		E852CDB91D23567100CD7604 /* attentionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDB81D23567100CD7604 /* attentionViewModel.m */; };
+		E852CDBE1D23CA9600CD7604 /* collectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDBD1D23CA9600CD7604 /* collectionViewModel.m */; };
+		E852CDC21D24179800CD7604 /* IntegralProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDC11D24179800CD7604 /* IntegralProductModel.m */; };
+		E852CDC61D241D0300CD7604 /* SecondHandProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDC51D241D0300CD7604 /* SecondHandProductModel.m */; };
+		E852CDC91D24378600CD7604 /* baseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDC81D24378600CD7604 /* baseCollectionView.m */; };
 		E86F6B431D1FCF770031496C /* addressViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B421D1FCF770031496C /* addressViewModel.m */; };
 		E86F6B481D1FD12D0031496C /* addressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B471D1FD12D0031496C /* addressModel.m */; };
 		E86F6B4B1D1FDABE0031496C /* addressModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B4A1D1FDABE0031496C /* addressModifyViewController.m */; };
@@ -463,6 +467,14 @@
 		E852CDB51D2315B700CD7604 /* attentionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = attentionTableViewController.m; sourceTree = "<group>"; };
 		E852CDB71D23567100CD7604 /* attentionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = attentionViewModel.h; path = viewModel/attentionViewModel.h; sourceTree = "<group>"; };
 		E852CDB81D23567100CD7604 /* attentionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = attentionViewModel.m; path = viewModel/attentionViewModel.m; sourceTree = "<group>"; };
+		E852CDBC1D23CA9600CD7604 /* collectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionViewModel.h; sourceTree = "<group>"; };
+		E852CDBD1D23CA9600CD7604 /* collectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionViewModel.m; sourceTree = "<group>"; };
+		E852CDC01D24179800CD7604 /* IntegralProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralProductModel.h; sourceTree = "<group>"; };
+		E852CDC11D24179800CD7604 /* IntegralProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralProductModel.m; sourceTree = "<group>"; };
+		E852CDC41D241D0300CD7604 /* SecondHandProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondHandProductModel.h; path = model/SecondHandProductModel.h; sourceTree = "<group>"; };
+		E852CDC51D241D0300CD7604 /* SecondHandProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondHandProductModel.m; path = model/SecondHandProductModel.m; sourceTree = "<group>"; };
+		E852CDC71D24378600CD7604 /* baseCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseCollectionView.h; sourceTree = "<group>"; };
+		E852CDC81D24378600CD7604 /* baseCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseCollectionView.m; sourceTree = "<group>"; };
 		E86F6B411D1FCF770031496C /* addressViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addressViewModel.h; sourceTree = "<group>"; };
 		E86F6B421D1FCF770031496C /* addressViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addressViewModel.m; sourceTree = "<group>"; };
 		E86F6B461D1FD12D0031496C /* addressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addressModel.h; path = Model/addressModel.h; sourceTree = "<group>"; };
@@ -1234,6 +1246,33 @@
 			name = viewModel;
 			sourceTree = "<group>";
 		};
+		E852CDBB1D23C99F00CD7604 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E852CDBC1D23CA9600CD7604 /* collectionViewModel.h */,
+				E852CDBD1D23CA9600CD7604 /* collectionViewModel.m */,
+			);
+			name = viewModel;
+			sourceTree = "<group>";
+		};
+		E852CDBF1D24176100CD7604 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				E852CDC01D24179800CD7604 /* IntegralProductModel.h */,
+				E852CDC11D24179800CD7604 /* IntegralProductModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		E852CDC31D241C3C00CD7604 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				E852CDC41D241D0300CD7604 /* SecondHandProductModel.h */,
+				E852CDC51D241D0300CD7604 /* SecondHandProductModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		E86F6B401D1FCF580031496C /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1752,6 +1791,7 @@
 		F287E8291C21A276002F52CF /* 我的闲置 */ = {
 			isa = PBXGroup;
 			children = (
+				E852CDC31D241C3C00CD7604 /* model */,
 			);
 			path = "我的闲置";
 			sourceTree = "<group>";
@@ -1874,6 +1914,7 @@
 		F293A0AD1C146C5300B2724B /* 积分商城 */ = {
 			isa = PBXGroup;
 			children = (
+				E852CDBF1D24176100CD7604 /* model */,
 				F29F04CE1C84751300B8A347 /* IntegralMallViewController.h */,
 				F29F04CF1C84751300B8A347 /* IntegralMallViewController.m */,
 				F29F04D11C8476AB00B8A347 /* IntegralMallTableViewCell.h */,
@@ -1906,6 +1947,7 @@
 		F293A0B11C146C5300B2724B /* 我的收藏 */ = {
 			isa = PBXGroup;
 			children = (
+				E852CDBB1D23C99F00CD7604 /* viewModel */,
 				F24FF94B1CA4282700540576 /* MyCollectionViewController.h */,
 				F24FF94C1CA4282700540576 /* MyCollectionViewController.m */,
 				F24FF94E1CA4284600540576 /* MycollectionTableViewCell.h */,
@@ -2197,6 +2239,8 @@
 				F2943BC01C53202500958029 /* BaseProductCollectionViewCell.m */,
 				E831BCEC1D1C209500BE9247 /* baseTableViewController.h */,
 				E831BCED1D1C209500BE9247 /* baseTableViewController.m */,
+				E852CDC71D24378600CD7604 /* baseCollectionView.h */,
+				E852CDC81D24378600CD7604 /* baseCollectionView.m */,
 			);
 			path = "基类控制器";
 			sourceTree = "<group>";
@@ -2643,11 +2687,13 @@
 				F2B316AB1C13D6EE00438C77 /* WMMenuView.m in Sources */,
 				F2A5206D1C468131009E7551 /* SDWebImagePrefetcher.m in Sources */,
 				F24FF94A1CA423A900540576 /* MyNeiborTableViewCell.m in Sources */,
+				E852CDBE1D23CA9600CD7604 /* collectionViewModel.m in Sources */,
 				F279F5B91C1D51A8001FB738 /* MJRefreshBackStateFooter.m in Sources */,
 				F2D008C21C1C017E009FA490 /* SasuallyTalkViewController.m in Sources */,
 				F2A520651C468131009E7551 /* MKAnnotationView+WebCache.m in Sources */,
 				480BDEA41D178D3B00531FAA /* FreeSamplesViewController.m in Sources */,
 				F26E42801C8183690041E1E1 /* EmotionAttachment.m in Sources */,
+				E852CDC91D24378600CD7604 /* baseCollectionView.m in Sources */,
 				480A49DB1D12A67000BA4CB8 /* SelectBar.m in Sources */,
 				F26E42A31C8186070041E1E1 /* MJFoundation.m in Sources */,
 				F28E4FA31C25471A00FA5F75 /* Reachability.m in Sources */,
@@ -2678,6 +2724,7 @@
 				F279F5B71C1D51A8001FB738 /* MJRefreshBackGifFooter.m in Sources */,
 				F28B56481C871DD200F62D4E /* LDProgressView.m in Sources */,
 				F2933A831C5E08A900606136 /* FreeEatHistoryViewController.m in Sources */,
+				E852CDC21D24179800CD7604 /* IntegralProductModel.m in Sources */,
 				F28E4F871C25013200FA5F75 /* DynamicViewController.m in Sources */,
 				F269809F1C12BAFC00C46C6D /* ViewController.m in Sources */,
 				F26E42A21C8186070041E1E1 /* MJConst.m in Sources */,
@@ -2842,6 +2889,7 @@
 				F279F5C01C1D51A8001FB738 /* UIScrollView+MJRefresh.m in Sources */,
 				F2B316AD1C13D6EE00438C77 /* WMProgressView.m in Sources */,
 				F2B05C2F1C3AA2EC00B54A53 /* SupermarketHeadCollectionViewCell.m in Sources */,
+				E852CDC61D241D0300CD7604 /* SecondHandProductModel.m in Sources */,
 				480BDF001D18ED6F00531FAA /* FreeSamples.m in Sources */,
 				F26E42841C8183690041E1E1 /* EmotionDeleteBtn.m in Sources */,
 				480A49E41D138F8200BA4CB8 /* MenuBarView.m in Sources */,

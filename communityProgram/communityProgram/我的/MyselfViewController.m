@@ -17,6 +17,7 @@
 
 #import "attentionTableViewController.h"
 
+
 #define _MYSELF_BUTTON_SETT_ 901
 #define _MYSELF_BUTTON_HELP_ 902
 
@@ -338,7 +339,8 @@
 }
 -(void)buttonAction:(UIButton *)sender
 {
-    if ([sender.titleLabel.text isEqualToString:@"积分商城"]) {
+    if ([sender.titleLabel.text isEqualToString:@"积分商城"])
+    {
         IntegralMallViewController *intergralVC = [IntegralMallViewController new];
         intergralVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:intergralVC animated:YES];
