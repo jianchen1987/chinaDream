@@ -23,6 +23,8 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 typedef void (^void_FailureBlock)(int code, NSString *errMsg);
+typedef void (^void_SuccessBlock_Arrary)(NSArray *arr);
+typedef void (^void_SuccessBlock_BOOL)(BOOL isSuccess);
 
 //获取设备的物理宽度
 #define DeviceWidth [UIScreen mainScreen].bounds.size.width
@@ -105,6 +107,11 @@ typedef void (^void_FailureBlock)(int code, NSString *errMsg);
 #define SubmitOrder        @"submitOrder"
 #define GetOrdersByUserId  @"getOrderByUserId"
 #define DeleteOrder        @"deleteOrder"
+#define GetNoticeUser      @"getNoticeUser"
+#define JoinNoticeMy       @"joinNoticeMy"
+#define RemoveNoticeMy     @"removeNoticeMy"
+#define GetNoticeMy        @"getNoticeMy"
+#define NoticeByUser       @"noticeByUser"
 #define GetOrderItemByOrderId @"getOrderItemByOrderId"
 #define SignIntegralPath   @"signIntegral"  //签到赚取积分
 #define UploadAskorTalk    @"uploadAskorTalk"  //上传图片
