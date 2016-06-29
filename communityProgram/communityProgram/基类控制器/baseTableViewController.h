@@ -25,4 +25,6 @@
 - (void)pullDown:(_Nonnull id)sender;
 - (void)pullUp:(_Nonnull id)sender;
 
+- (void)reloadTableView;
+
 @end
