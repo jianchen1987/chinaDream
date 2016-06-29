@@ -10,4 +10,6 @@
 
 @interface attentionTableViewController : baseTableViewController
 
+@property (nonatomic, strong) UISegmentedControl *segCtrl;
+
 @end
