@@ -8,14 +8,17 @@
 
 #import "BaseViewController.h"
 #import "CagroryListDetailTableViewCell.h"
-@interface CagroryListDetailViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+#import "baseTableViewController.h"
+@interface CagroryListDetailViewController : baseTableViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    NSMutableArray *dataSource;
-    UITableView *myTableView;
+//    NSMutableArray *dataSource;
+//    UITableView *myTableView;
     
     
     UIView *cagroryView;
     UIToolbar *myToolBar;
     UIView *bottomView;
 }
+@property(nonatomic,strong)NSArray * allDataArray;
+@property(nonatomic,strong)NSDictionary * NowDataDic;
 @end

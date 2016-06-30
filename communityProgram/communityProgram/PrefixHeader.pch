@@ -8,6 +8,7 @@
 
 #ifndef policyManager_PrefixHeader_pch
 #define policyManager_PrefixHeader_pch
+#import "UIView+Getlength.h"
 
 #import "NetworkEngine.h"
 #import "UIViewExt.h"
@@ -140,5 +141,15 @@ typedef void (^void_SuccessBlock_BOOL)(BOOL isSuccess);
 #define supermarket @"supermarket"     // 超市产品评论
 #define freeeat @"freeeat"             //免费试吃评论
 #define integralstore @"integralstore" //积分商城
+
+#define getFreeEatRecordByPage @"getFreeEatRecordByPage" //免费试吃
+#define getFreeEat @"getFreeEat" //分页获取所有的免费试吃
+#define getFreeEatRecordByPage @"getFreeEatRecordByPage"//获得所有的申请历史记录
+#define getProductAndType  @"getProductAndType" //获得某分类数据
+
+#define NSStringType(a)  [NSString stringWithFormat:@"%@",a]
+#define Number(a)  [NSNumber numberWithInteger:a]
+#define urlImage(a) [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",AppendingImageUrl,a]]
+
 
 #endif

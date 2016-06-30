@@ -77,9 +77,9 @@
     
     [self addSubview:reduce_BT];
     
-
     
-     Number_LB =[[UILabel alloc]initWithFrame:CGRectMake(reduce_BT.frame.size.width+1, 0, unit_W, unit_H)];
+    
+    Number_LB =[[UILabel alloc]initWithFrame:CGRectMake(reduce_BT.frame.size.width+1, 0, unit_W, unit_H)];
     [self addSubview:Number_LB];
     
     
@@ -88,13 +88,13 @@
     [add_BT setTitle:@"+" forState:UIControlStateNormal];
     [self addSubview:add_BT];
     [add_BT addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     add_BT.tag=200;
     reduce_BT.tag=100;
     [reduce_BT addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     [add_BT setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [reduce_BT setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-
+    
     
     Number_LB.backgroundColor=  add_BT.backgroundColor= reduce_BT.backgroundColor=[UIColor whiteColor];
     _minimum=1;
@@ -121,13 +121,14 @@
         default:
             break;
     }
+    [self.delgete NowNumberChange:_number];
 }
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

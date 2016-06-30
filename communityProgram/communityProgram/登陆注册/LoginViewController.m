@@ -50,9 +50,12 @@
     phoneNumber_tf.delegate = self;
     [self.view addSubview:phoneNumber_tf];
     
+    phoneNumber_tf.text=@"13360550875";
+    
     
     password_tf = [[UITextField alloc] initWithFrame:CGRectMake(20, phoneNumber_tf.bottom, 200, 44)];
     password_tf.placeholder = @"密码";
+    password_tf.text=@"111111";
     password_tf.keyboardType = UIKeyboardTypeAlphabet;
     password_tf.delegate = self;
     [self.view addSubview:password_tf];
@@ -180,7 +183,7 @@
 //            {
 //               NSLog(@"errorJsonData = %@",errorJsonData);
 //            }];
-            
+            [self.navigationController popViewControllerAnimated:YES];
             [self dismissViewControllerAnimated:YES completion:nil];
             
         }
