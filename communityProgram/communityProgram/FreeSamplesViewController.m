@@ -19,6 +19,8 @@
 #import "FreeSamplesDetailViewController.h"
 #import "PublishCommentViewController.h"
 #import "FreeEatModel.h"
+#import "FreeEatRecordModel.h"
+#import "mySampleDetailsViewController.h"
 #define DefaultCount  Number(9)
 @interface FreeSamplesViewController ()<UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 {
@@ -125,15 +127,15 @@
     
     cell.title_LB.text=model.productName;
    
-    cell.detail.text= [NSString stringWithFormat:@"%ld",(long)model.ruleMessage];
+    cell.detail.text= [NSString stringWithFormat:@"%@",model.simpleIntro];
 //    [unit objectForKey:@"simpleIntro"]?[unit objectForKey:@"ruleMessage"]:@"";
     cell.numberCount.text=[NSString stringWithFormat:@"%@份",model.freeNum];
-    cell.applyCount.text=[NSString stringWithFormat:@"已经有%@人申请",model.applyNum?model.applyNum:@"0"];
-    cell.expireDate=[unit objectForKey:@"expireDate"];
+    cell.applyCount.text=[NSString stringWithFormat:@"已经有%ld人申请",(long)model.applyNum];
+    cell.expireDate=model.expireDate;
     
     cell.applyAction=^{
-        NSDictionary * u=_FreeArray[indexPath.row];
-        [self appleyFree:[u objectForKey:@"id"]];
+        FreeEatModel * u=_FreeArray[indexPath.row];
+        [self appleyFree:u.id];
     };
     return cell;
 }
@@ -156,9 +158,16 @@
 -(void)getAllFreerecord:(NSInteger)page
 {
     
-    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName,Number(page),@10] WithPath:@"getFreeEatRecordByPage" successBlock:^(id successJsonData) {
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName,Number(page),@10] WithPath:@"getFreeEatRecordByPage" successBlock:^(NSArray* successJsonData) {
         NSLog(@"所有的试吃纪录%@",successJsonData);
-        [_AllFreeRecord addObjectsFromArray:successJsonData];
+        for (int i=0; i<successJsonData.count; i++) {
+            NSDictionary * di = successJsonData[i];
+            FreeEatRecordModel * model =[FreeEatRecordModel mj_objectWithKeyValues:di];
+            [_AllFreeRecord addObject:model];
+
+        }
+
+      
         
         if (_AllFreeRecord.count>0) {
             [self.tableView reloadData];
@@ -186,7 +195,6 @@
     [super viewDidLoad];
     self.title=@"免费试吃";
     _AllFreeRecord=[NSMutableArray array];
-    
     [self creatView];
     
     
@@ -266,14 +274,14 @@
     {
         cell=[[[NSBundle mainBundle]loadNibNamed:@"MyTryEatTableViewCell" owner:nil options:nil]firstObject];
     }
-    
+  
     cell.mytitle.text=[NSString stringWithFormat:@"%ld",(long)indexPath.row];
-    NSDictionary * unit =_AllFreeRecord[indexPath.row];
-    NSDictionary * detail=[unit objectForKey:@"freeEat"];
-    cell.mytitle.text =[detail objectForKey:@"productName"];
-    cell.mytime.text=[NSString stringWithFormat:@"申请时间%@",[unit objectForKey:@"createTime"]];
-    cell.mycount.text=[NSString stringWithFormat:@"%@份",[detail objectForKey:@"freeNum"]];
-    [cell.Myimage sd_setImageWithURL:urlImage([detail objectForKey:@"freeIcon"]) placeholderImage: [UIImage imageNamed:@"cell图片"]];
+     FreeEatRecordModel * model  =_AllFreeRecord[indexPath.row];
+    FreeEatModel * detail=model.freeEat;
+    cell.mytitle.text =detail.productName;
+    cell.mytime.text=[NSString stringWithFormat:@"申请时间%@",model.createTime];
+    cell.mycount.text=[NSString stringWithFormat:@"%@份",detail.freeNum];
+    [cell.Myimage sd_setImageWithURL:urlImage(detail.freeIcon) placeholderImage: [UIImage imageNamed:@"cell图片"]];
     
     __weak typeof(self) weakself=self;
     cell.delete=^{
@@ -286,6 +294,13 @@
         
     };
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    mySampleDetailsViewController * myDetail=[mySampleDetailsViewController new];
+    myDetail.model=self.AllFreeRecord[indexPath.row];
+    [self.navigationController pushViewController:myDetail animated:YES];
+    NSLog(@"%ld",(long)indexPath.row);
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 140;

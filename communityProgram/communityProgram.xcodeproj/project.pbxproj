@@ -15,6 +15,12 @@
 		4804C6041D2368930080B1C8 /* UIView+Getlength.m in Sources */ = {isa = PBXBuildFile; fileRef = 4804C6031D2368930080B1C8 /* UIView+Getlength.m */; };
 		48071F951D24B08D008CE1D4 /* FreeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071F941D24B08D008CE1D4 /* FreeCollectionViewCell.m */; };
 		48071F9D1D24B3FF008CE1D4 /* FreeEatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071F9C1D24B3FF008CE1D4 /* FreeEatModel.m */; };
+		48071FA01D24BD1A008CE1D4 /* FreeEatRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071F9F1D24BD1A008CE1D4 /* FreeEatRecordModel.m */; };
+		48071FA31D24BDF6008CE1D4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071FA21D24BDF6008CE1D4 /* User.m */; };
+		48071FAE1D24C355008CE1D4 /* mySampleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071FAC1D24C355008CE1D4 /* mySampleDetailsViewController.m */; };
+		48071FAF1D24C355008CE1D4 /* mySampleDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48071FAD1D24C355008CE1D4 /* mySampleDetailsViewController.xib */; };
+		48071FB21D24EE4F008CE1D4 /* QuarterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071FB11D24EE4F008CE1D4 /* QuarterModel.m */; };
+		48071FB51D24F114008CE1D4 /* SystemFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071FB41D24F114008CE1D4 /* SystemFunction.m */; };
 		480A49C41D11847700BA4CB8 /* TraversePicturesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49C31D11847700BA4CB8 /* TraversePicturesScrollView.m */; };
 		480A49C91D11857000BA4CB8 /* AdvertisementUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49C81D11857000BA4CB8 /* AdvertisementUnit.m */; };
 		480A49CC1D11984600BA4CB8 /* PictureCarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49CB1D11984600BA4CB8 /* PictureCarouselScrollView.m */; };
@@ -358,6 +364,17 @@
 		48071F941D24B08D008CE1D4 /* FreeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FreeCollectionViewCell.m; path = "免费试吃/FreeCollectionViewCell.m"; sourceTree = "<group>"; };
 		48071F9B1D24B3FF008CE1D4 /* FreeEatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeEatModel.h; sourceTree = "<group>"; };
 		48071F9C1D24B3FF008CE1D4 /* FreeEatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeEatModel.m; sourceTree = "<group>"; };
+		48071F9E1D24BD1A008CE1D4 /* FreeEatRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeEatRecordModel.h; sourceTree = "<group>"; };
+		48071F9F1D24BD1A008CE1D4 /* FreeEatRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeEatRecordModel.m; sourceTree = "<group>"; };
+		48071FA11D24BDF6008CE1D4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		48071FA21D24BDF6008CE1D4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		48071FAB1D24C355008CE1D4 /* mySampleDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mySampleDetailsViewController.h; sourceTree = "<group>"; };
+		48071FAC1D24C355008CE1D4 /* mySampleDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mySampleDetailsViewController.m; sourceTree = "<group>"; };
+		48071FAD1D24C355008CE1D4 /* mySampleDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mySampleDetailsViewController.xib; sourceTree = "<group>"; };
+		48071FB01D24EE4F008CE1D4 /* QuarterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuarterModel.h; sourceTree = "<group>"; };
+		48071FB11D24EE4F008CE1D4 /* QuarterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuarterModel.m; sourceTree = "<group>"; };
+		48071FB31D24F114008CE1D4 /* SystemFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemFunction.h; sourceTree = "<group>"; };
+		48071FB41D24F114008CE1D4 /* SystemFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemFunction.m; sourceTree = "<group>"; };
 		480A49C21D11847700BA4CB8 /* TraversePicturesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraversePicturesScrollView.h; sourceTree = "<group>"; };
 		480A49C31D11847700BA4CB8 /* TraversePicturesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraversePicturesScrollView.m; sourceTree = "<group>"; };
 		480A49C71D11857000BA4CB8 /* AdvertisementUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisementUnit.h; sourceTree = "<group>"; };
@@ -1025,8 +1042,24 @@
 			children = (
 				48071F9B1D24B3FF008CE1D4 /* FreeEatModel.h */,
 				48071F9C1D24B3FF008CE1D4 /* FreeEatModel.m */,
+				48071F9E1D24BD1A008CE1D4 /* FreeEatRecordModel.h */,
+				48071F9F1D24BD1A008CE1D4 /* FreeEatRecordModel.m */,
+				48071FA11D24BDF6008CE1D4 /* User.h */,
+				48071FA21D24BDF6008CE1D4 /* User.m */,
+				48071FB01D24EE4F008CE1D4 /* QuarterModel.h */,
+				48071FB11D24EE4F008CE1D4 /* QuarterModel.m */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		48071FAA1D24C355008CE1D4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48071FAB1D24C355008CE1D4 /* mySampleDetailsViewController.h */,
+				48071FAC1D24C355008CE1D4 /* mySampleDetailsViewController.m */,
+				48071FAD1D24C355008CE1D4 /* mySampleDetailsViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		480A49C51D11853200BA4CB8 /* view */ = {
@@ -1254,6 +1287,8 @@
 		E831BCFC1D1EF11100BE9247 /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
+				48071FB31D24F114008CE1D4 /* SystemFunction.h */,
+				48071FB41D24F114008CE1D4 /* SystemFunction.m */,
 				4804C6021D2368930080B1C8 /* UIView+Getlength.h */,
 				4804C6031D2368930080B1C8 /* UIView+Getlength.m */,
 				E831BCFD1D1EF13D00BE9247 /* CommonUtils.h */,
@@ -2092,6 +2127,7 @@
 		F2A432141C39169D00479C73 /* 免费试吃 */ = {
 			isa = PBXGroup;
 			children = (
+				48071FAA1D24C355008CE1D4 /* ViewController */,
 				48071F9A1D24B3C5008CE1D4 /* model */,
 				F2933A7E1C5E089900606136 /* FreeEatActivityViewController.h */,
 				F2933A7F1C5E089900606136 /* FreeEatActivityViewController.m */,
@@ -2608,6 +2644,7 @@
 				F2B665401C7997F7007427BB /* photo_sel_previewVc@2x.png in Resources */,
 				480BDEA01D1785BB00531FAA /* FreeSamplesViews.xib in Resources */,
 				480BDF021D18ED8000531FAA /* FreeSamples.xib in Resources */,
+				48071FAF1D24C355008CE1D4 /* mySampleDetailsViewController.xib in Resources */,
 				F2B665421C7997F7007427BB /* preview_original_def@2x.png in Resources */,
 				F26E428B1C8183690041E1E1 /* EmotionZoomView.xib in Resources */,
 				F279F5BD1C1D51A8001FB738 /* MJRefresh.bundle in Resources */,
@@ -2712,6 +2749,7 @@
 				480A4A121D13CF7A00BA4CB8 /* ProgressView.m in Sources */,
 				F2BF2F371C1BBC1B00EB7E88 /* AFSecurityPolicy.m in Sources */,
 				F2B665491C7997F7007427BB /* TZImageManager.m in Sources */,
+				48071FA31D24BDF6008CE1D4 /* User.m in Sources */,
 				F28E4F7B1C24EC0B00FA5F75 /* ExchangeRecordTableViewCell.m in Sources */,
 				F282D4991C74AE3C001251EF /* CompleteViewController.m in Sources */,
 				F299410B1CAD6FD70000564F /* VCertificationViewController.m in Sources */,
@@ -2824,6 +2862,7 @@
 				F2A520731C468131009E7551 /* UIImageView+WebCache.m in Sources */,
 				F29DA5481C1EF8FB0054C205 /* UIViewExt.m in Sources */,
 				480BDE991D1532DF00531FAA /* UIView+Getlength.m in Sources */,
+				48071FA01D24BD1A008CE1D4 /* FreeEatRecordModel.m in Sources */,
 				F2BF2F3D1C1BBC1B00EB7E88 /* README.md in Sources */,
 				F2BF2F3B1C1BBC1B00EB7E88 /* AFURLSessionManager.m in Sources */,
 				F2BF2F401C1BBC1B00EB7E88 /* UIAlertView+AFNetworking.m in Sources */,
@@ -2861,6 +2900,7 @@
 				E831BCF11D1C518000BE9247 /* myLabel.m in Sources */,
 				F28B564C1C87250200F62D4E /* MoreTogetherDetailViewController.m in Sources */,
 				F28F5B431C78841D00E67969 /* CustomBottomLineButton.m in Sources */,
+				48071FB21D24EE4F008CE1D4 /* QuarterModel.m in Sources */,
 				F2C878F31CA7822C008444DC /* NSMutableAttributedString+Emoji.m in Sources */,
 				F2A520691C468131009E7551 /* SDWebImageDecoder.m in Sources */,
 				48FA56431D1A22A300E74654 /* FreeSamplesFlowLayout.m in Sources */,
@@ -2876,6 +2916,7 @@
 				F2933A801C5E089900606136 /* FreeEatActivityViewController.m in Sources */,
 				F2943BC11C53202500958029 /* BaseProductCollectionViewCell.m in Sources */,
 				480BDE9E1D1785A900531FAA /* FreeSamplesViews.m in Sources */,
+				48071FAE1D24C355008CE1D4 /* mySampleDetailsViewController.m in Sources */,
 				F2BF2F431C1BBC1B00EB7E88 /* UIProgressView+AFNetworking.m in Sources */,
 				F2BF2F481C1BC08B00EB7E88 /* NetworkEngine.m in Sources */,
 				F2D008C51C1C01E0009FA490 /* IdleItmsViewController.m in Sources */,
@@ -2944,6 +2985,7 @@
 				F29F04D31C8476AB00B8A347 /* IntegralMallTableViewCell.m in Sources */,
 				F2B665521C79A330007427BB /* CustomPublishImageView.m in Sources */,
 				F2A4320B1C38F60C00479C73 /* ForgetPasswordViewController.m in Sources */,
+				48071FB51D24F114008CE1D4 /* SystemFunction.m in Sources */,
 				F29DA5441C1EF2F00054C205 /* RegisterNextViewController.m in Sources */,
 				F2A432241C39264700479C73 /* PurchaseButton.m in Sources */,
 				480BDE951D1531F500531FAA /* RightImageButton.m in Sources */,
