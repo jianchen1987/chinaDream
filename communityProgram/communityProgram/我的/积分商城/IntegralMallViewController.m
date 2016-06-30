@@ -14,26 +14,15 @@
 
 @implementation IntegralMallViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    self.title = @"积分商城";
     
     
-    
 }
--(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-}
--(void)viewWillDisappear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 10;
-}
+
+
 
 
 @end
