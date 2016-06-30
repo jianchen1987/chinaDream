@@ -11,6 +11,7 @@
 @interface FreeEatModel : NSObject
 
 //private static final long serialVersionUID = -9061236091959250210L;
+@property(nonatomic,strong)NSString * simpleIntro;
 @property(nonatomic,copy)NSString * id;
 /** 产品名称 */
 @property(nonatomic,copy)NSString *  productName;
