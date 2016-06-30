@@ -14,6 +14,7 @@
 		4804C6011D23671F0080B1C8 /* DetermineOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4804C5FF1D23671F0080B1C8 /* DetermineOrderViewController.xib */; };
 		4804C6041D2368930080B1C8 /* UIView+Getlength.m in Sources */ = {isa = PBXBuildFile; fileRef = 4804C6031D2368930080B1C8 /* UIView+Getlength.m */; };
 		48071F951D24B08D008CE1D4 /* FreeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071F941D24B08D008CE1D4 /* FreeCollectionViewCell.m */; };
+		48071F9D1D24B3FF008CE1D4 /* FreeEatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071F9C1D24B3FF008CE1D4 /* FreeEatModel.m */; };
 		480A49C41D11847700BA4CB8 /* TraversePicturesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49C31D11847700BA4CB8 /* TraversePicturesScrollView.m */; };
 		480A49C91D11857000BA4CB8 /* AdvertisementUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49C81D11857000BA4CB8 /* AdvertisementUnit.m */; };
 		480A49CC1D11984600BA4CB8 /* PictureCarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49CB1D11984600BA4CB8 /* PictureCarouselScrollView.m */; };
@@ -353,6 +354,8 @@
 		4804C6031D2368930080B1C8 /* UIView+Getlength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Getlength.m"; sourceTree = "<group>"; };
 		48071F931D24B08D008CE1D4 /* FreeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FreeCollectionViewCell.h; path = "免费试吃/FreeCollectionViewCell.h"; sourceTree = "<group>"; };
 		48071F941D24B08D008CE1D4 /* FreeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FreeCollectionViewCell.m; path = "免费试吃/FreeCollectionViewCell.m"; sourceTree = "<group>"; };
+		48071F9B1D24B3FF008CE1D4 /* FreeEatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeEatModel.h; sourceTree = "<group>"; };
+		48071F9C1D24B3FF008CE1D4 /* FreeEatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeEatModel.m; sourceTree = "<group>"; };
 		480A49C21D11847700BA4CB8 /* TraversePicturesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraversePicturesScrollView.h; sourceTree = "<group>"; };
 		480A49C31D11847700BA4CB8 /* TraversePicturesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraversePicturesScrollView.m; sourceTree = "<group>"; };
 		480A49C71D11857000BA4CB8 /* AdvertisementUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisementUnit.h; sourceTree = "<group>"; };
@@ -1009,6 +1012,15 @@
 				4804C5FF1D23671F0080B1C8 /* DetermineOrderViewController.xib */,
 			);
 			name = "确定订单";
+			sourceTree = "<group>";
+		};
+		48071F9A1D24B3C5008CE1D4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				48071F9B1D24B3FF008CE1D4 /* FreeEatModel.h */,
+				48071F9C1D24B3FF008CE1D4 /* FreeEatModel.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		480A49C51D11853200BA4CB8 /* view */ = {
@@ -2062,6 +2074,7 @@
 		F2A432141C39169D00479C73 /* 免费试吃 */ = {
 			isa = PBXGroup;
 			children = (
+				48071F9A1D24B3C5008CE1D4 /* model */,
 				F2933A7E1C5E089900606136 /* FreeEatActivityViewController.h */,
 				F2933A7F1C5E089900606136 /* FreeEatActivityViewController.m */,
 				F2933A871C5E0E7800606136 /* FreeEatActivityCollectionViewCell.h */,
@@ -2711,6 +2724,7 @@
 				F2BF2F441C1BBC1B00EB7E88 /* UIRefreshControl+AFNetworking.m in Sources */,
 				F26E42791C8183690041E1E1 /* NSAttributedString+Emotion.m in Sources */,
 				48FF68D21D0FFB0500DAD002 /* UserObject.m in Sources */,
+				48071F9D1D24B3FF008CE1D4 /* FreeEatModel.m in Sources */,
 				F29B4F1E1C423773005576B8 /* GetCommunityViewController.m in Sources */,
 				F2AE250D1C40C2200006C9CB /* ProductDetailTableViewCell.m in Sources */,
 				F26E42781C8183690041E1E1 /* NSArray+SubArray.m in Sources */,
