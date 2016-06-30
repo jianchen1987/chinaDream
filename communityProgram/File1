@@ -1,46 +1,46 @@
+(
 {
-createTime = "2016-06-22 11:44:31";
-freeEat =         {
+createTime = "2016-06-26 16:08:44";
+freeEat =     {
 applyNum = 1;
-collFreeEat = 1;
-createTime = "2016-06-02 20:01:41";
+createTime = "2016-06-26 14:32:57";
 expireDate = "2016-06-30 00:00:00";
-freeIcon = "/resource/admin/freeEatIcon/c8c724b2-cd1e-426e-b419-18365e0f6bea.jpg";
-freeNum = 40;
-id = "5ec3716f-fce1-42b3-b8d9-f569206fbfa2";
-imageText = "<p>sdfghjkhgfgdfsdfg</p>";
-modifyTime = "2016-06-22 11:43:34";
-productName = "\U86cb\U7cd5";
-sourcePrice = "3.00";
-spec = "\U5757";
+freeIcon = "/resource/admin/productIcon/5983d1d1-0d5f-4404-9b15-91fa5b5411c4.jpg";
+freeNum = 12;
+id = "5e9ada6e-dcc4-4822-a54f-9f217d4cdcd6";
+imageText = "<p>\U4e0b\U6b21\U5c3a\U5bf8</p>
+\n<p><img id=\"previewImg\" src=\"../../resource/admin/tempFile/e6b0d11e-0284-4235-93af-980f62582737.gif\" alt=\"\" border=\"0\" /></p>";
+modifyTime = "2016-06-28 21:12:55";
+productName = ddddddd;
+ruleMessage = "d\U5c3a\U5bf8";
+simpleIntro = "\U4e0b\U6b21\U4e0b\U6b21";
+sourcePrice = 12;
+spec = "\U4ef6";
 };
-freeEatCode = 171433;
+freeEatCode = 651707;
 hasTake = 1;
-id = "fb0ce50d-7457-4fd4-ac1a-25ba213d1b7a";
+id = "a8ff69d6-f2d3-4f21-b97d-e05515ceba04";
 phone = 13360550875;
 sendRecord = "\U77ed\U4fe1\U53d1\U9001\U6210\U529f!";
-user =         {
-addr =             {
-createTime = "2016-06-02 14:22:52";
-id = "11c82d26-f367-42f9-9d85-9e11d2a5862d";
-levelRoom = 302;
-phone = 13360550875;
-quarterName = "\U9a8f\U666f\U82b1\U56ed";
-sendName = Sanzi;
-};
-birth = "1990-05-20";
-createTime = "2016-04-29 16:23:36";
+user =     {
+address = address;
+birth = 18666;
+createTime = "2016-06-25 17:48:25";
 gender = "\U7537";
-headIcon = "/resource/admin/userIcon/9fc84aa7-2ca2-472a-a8a2-d88b4c54ced7.png";
-homeTown = "\U5e7f\U4e1c-\U5e7f\U5dde";
-id = "64be2220-9e34-457f-b177-d98fa19fc0dc";
-modifyTime = "2016-06-22 11:41:59";
-myExtraIntegral = 0;
-nickName = Paul;
-passWord = e10adc3949ba59abbe56e057f20f883e;
+headIcon = "/resource/admin/userIcon/1cf7c541-204d-43b6-b3e6-19fb2fb4ba33.png";
+id = "32c727df-c957-48fc-9de1-0c8ea09e69d0";
+integral =         {
+createTime = "2016-06-25 17:48:36";
+id = "823b34c4-8a8d-46d2-81c5-a091550b8f58";
+integralNum = 21;
+modifyTime = "2016-06-29 17:12:22";
+};
+modifyTime = "2016-06-29 17:12:22";
+myExtraIntegral = 21;
+nickName = James;
+passWord = 96e79218965eb72c92a549dd5a330112;
 phone = 13360550875;
-qqId = 514F95BC9FC9E1BF0537FE453C075322;
-quarter =             {
+quarter =         {
 createTime = "2016-03-20 15:06:32";
 id = "78931519-9b8b-4540-9b17-c74167f5b502";
 lat = "23.128213";
@@ -51,5 +51,115 @@ quarterName = "\U9a8f\U666f\U82b1\U56ed";
 remark = "\U9a8f\U666f\U82b1\U56ed\U2014\U2014\U9ad8\U7eff\U5316\U4f4e\U5bc6\U5ea6\U5927\U578b\U56ed\U6797\U793e\U533a\Uff0c\U6bd7\U90bb\U5929\U6cb3\U516c\U56ed\Uff0c\U8bbe\U65bd\U914d\U5957\U5b8c\U5584\Uff0c\U72ec\U7279\U7684\U5341\U5927\U201c\U5bbd\U201d\U666f\U540c\U65f6\U62e5\U6709\U3001\U5b8c\U7f8e\U7ed3\U5408\Uff0c\U53ef\U4ee5\U5c3d\U60c5\U6f14\U7ece\U6d12\U8131\U5199\U610f\U751f\U6d3b\U3002\U751f\U6d3b\U914d\U5957\U9f50\U5168\Uff0c\U5e7c\U513f\U56ed\U3001\U9a8f\U666f\U4e2d\U5b66\U5df2\U7ecf\U6295\U5165\U4f7f\U7528\Uff1b\U5bbd\U655e\U3001\U5bbd\U5e7f\U3001\U5bbd\U7545\U7684\U90fd\U5e02\U5bbd\U751f\U6d3b\U4f53\U9a8c\U3002 \U9a8f\U666f\U82b1\U56ed\U2014\U2014\U5165\U4f4f\U7387\U9ad8\U8fbe95\Uff05\Uff0c\U4e09\U5e74\U6210\U4e3a\U6210\U719f\U793e\U533a\Uff1b\U8363\U83b7\U5e7f\U5dde\U5e02\U6837\U677f\U5c0f\U533a\U3001\U5e7f\U4e1c\U7701\U7269\U4e1a\U7ba1\U7406\U793a\U8303\U5c0f\U533a\U3001\U5e7f\U5dde\U5e02\U5341\U5927\U540d\U724c\U5c45\U4f4f\U533a\U7b49\U79f0\U53f7\U3002";
 };
 };
-userIp = "59.41.65.135";
+userIp = "202.105.41.197";
+},
+{
+createTime = "2016-06-29 10:24:41";
+freeEat =     {
+applyNum = 1;
+createTime = "2016-06-26 14:32:57";
+expireDate = "2016-06-30 00:00:00";
+freeIcon = "/resource/admin/productIcon/5983d1d1-0d5f-4404-9b15-91fa5b5411c4.jpg";
+freeNum = 12;
+id = "5e9ada6e-dcc4-4822-a54f-9f217d4cdcd6";
+imageText = "<p>\U4e0b\U6b21\U5c3a\U5bf8</p>
+\n<p><img id=\"previewImg\" src=\"../../resource/admin/tempFile/e6b0d11e-0284-4235-93af-980f62582737.gif\" alt=\"\" border=\"0\" /></p>";
+modifyTime = "2016-06-28 21:12:55";
+productName = ddddddd;
+ruleMessage = "d\U5c3a\U5bf8";
+simpleIntro = "\U4e0b\U6b21\U4e0b\U6b21";
+sourcePrice = 12;
+spec = "\U4ef6";
+};
+freeEatCode = 354476;
+hasTake = 1;
+id = "dfe2cbf9-f701-4c5d-a74c-00e490440cd1";
+phone = 13360550875;
+sendRecord = "\U77ed\U4fe1\U53d1\U9001\U6210\U529f!";
+user =     {
+address = address;
+birth = 18666;
+createTime = "2016-06-25 17:48:25";
+gender = "\U7537";
+headIcon = "/resource/admin/userIcon/1cf7c541-204d-43b6-b3e6-19fb2fb4ba33.png";
+id = "32c727df-c957-48fc-9de1-0c8ea09e69d0";
+integral =         {
+createTime = "2016-06-25 17:48:36";
+id = "823b34c4-8a8d-46d2-81c5-a091550b8f58";
+integralNum = 21;
+modifyTime = "2016-06-29 17:12:22";
+};
+modifyTime = "2016-06-29 17:12:22";
+myExtraIntegral = 21;
+nickName = James;
+passWord = 96e79218965eb72c92a549dd5a330112;
+phone = 13360550875;
+quarter =         {
+createTime = "2016-03-20 15:06:32";
+id = "78931519-9b8b-4540-9b17-c74167f5b502";
+lat = "23.128213";
+lng = "113.388172";
+quarterAddress = "\U5e7f\U5dde\U5e02\U5929\U6cb3\U533a\U79d1\U65b0\U8def\U7960\U524d\U8def1\U53f7B\U680b";
+quarterIcon = "";
+quarterName = "\U9a8f\U666f\U82b1\U56ed";
+remark = "\U9a8f\U666f\U82b1\U56ed\U2014\U2014\U9ad8\U7eff\U5316\U4f4e\U5bc6\U5ea6\U5927\U578b\U56ed\U6797\U793e\U533a\Uff0c\U6bd7\U90bb\U5929\U6cb3\U516c\U56ed\Uff0c\U8bbe\U65bd\U914d\U5957\U5b8c\U5584\Uff0c\U72ec\U7279\U7684\U5341\U5927\U201c\U5bbd\U201d\U666f\U540c\U65f6\U62e5\U6709\U3001\U5b8c\U7f8e\U7ed3\U5408\Uff0c\U53ef\U4ee5\U5c3d\U60c5\U6f14\U7ece\U6d12\U8131\U5199\U610f\U751f\U6d3b\U3002\U751f\U6d3b\U914d\U5957\U9f50\U5168\Uff0c\U5e7c\U513f\U56ed\U3001\U9a8f\U666f\U4e2d\U5b66\U5df2\U7ecf\U6295\U5165\U4f7f\U7528\Uff1b\U5bbd\U655e\U3001\U5bbd\U5e7f\U3001\U5bbd\U7545\U7684\U90fd\U5e02\U5bbd\U751f\U6d3b\U4f53\U9a8c\U3002 \U9a8f\U666f\U82b1\U56ed\U2014\U2014\U5165\U4f4f\U7387\U9ad8\U8fbe95\Uff05\Uff0c\U4e09\U5e74\U6210\U4e3a\U6210\U719f\U793e\U533a\Uff1b\U8363\U83b7\U5e7f\U5dde\U5e02\U6837\U677f\U5c0f\U533a\U3001\U5e7f\U4e1c\U7701\U7269\U4e1a\U7ba1\U7406\U793a\U8303\U5c0f\U533a\U3001\U5e7f\U5dde\U5e02\U5341\U5927\U540d\U724c\U5c45\U4f4f\U533a\U7b49\U79f0\U53f7\U3002";
+};
+};
+userIp = "202.105.41.196";
+},
+{
+createTime = "2016-06-26 16:09:00";
+freeEat =     {
+applyNum = 1;
+createTime = "2016-06-26 14:32:57";
+expireDate = "2016-06-30 00:00:00";
+freeIcon = "/resource/admin/productIcon/5983d1d1-0d5f-4404-9b15-91fa5b5411c4.jpg";
+freeNum = 12;
+id = "5e9ada6e-dcc4-4822-a54f-9f217d4cdcd6";
+imageText = "<p>\U4e0b\U6b21\U5c3a\U5bf8</p>
+\n<p><img id=\"previewImg\" src=\"../../resource/admin/tempFile/e6b0d11e-0284-4235-93af-980f62582737.gif\" alt=\"\" border=\"0\" /></p>";
+modifyTime = "2016-06-28 21:12:55";
+productName = ddddddd;
+ruleMessage = "d\U5c3a\U5bf8";
+simpleIntro = "\U4e0b\U6b21\U4e0b\U6b21";
+sourcePrice = 12;
+spec = "\U4ef6";
+};
+freeEatCode = 267446;
+hasTake = 1;
+id = "f675de05-428f-4f5f-9282-f39ba4612e71";
+phone = 13360550875;
+sendRecord = "\U77ed\U4fe1\U53d1\U9001\U6210\U529f!";
+user =     {
+address = address;
+birth = 18666;
+createTime = "2016-06-25 17:48:25";
+gender = "\U7537";
+headIcon = "/resource/admin/userIcon/1cf7c541-204d-43b6-b3e6-19fb2fb4ba33.png";
+id = "32c727df-c957-48fc-9de1-0c8ea09e69d0";
+integral =         {
+createTime = "2016-06-25 17:48:36";
+id = "823b34c4-8a8d-46d2-81c5-a091550b8f58";
+integralNum = 21;
+modifyTime = "2016-06-29 17:12:22";
+};
+modifyTime = "2016-06-29 17:12:22";
+myExtraIntegral = 21;
+nickName = James;
+passWord = 96e79218965eb72c92a549dd5a330112;
+phone = 13360550875;
+quarter =         {
+createTime = "2016-03-20 15:06:32";
+id = "78931519-9b8b-4540-9b17-c74167f5b502";
+lat = "23.128213";
+lng = "113.388172";
+quarterAddress = "\U5e7f\U5dde\U5e02\U5929\U6cb3\U533a\U79d1\U65b0\U8def\U7960\U524d\U8def1\U53f7B\U680b";
+quarterIcon = "";
+quarterName = "\U9a8f\U666f\U82b1\U56ed";
+remark = "\U9a8f\U666f\U82b1\U56ed\U2014\U2014\U9ad8\U7eff\U5316\U4f4e\U5bc6\U5ea6\U5927\U578b\U56ed\U6797\U793e\U533a\Uff0c\U6bd7\U90bb\U5929\U6cb3\U516c\U56ed\Uff0c\U8bbe\U65bd\U914d\U5957\U5b8c\U5584\Uff0c\U72ec\U7279\U7684\U5341\U5927\U201c\U5bbd\U201d\U666f\U540c\U65f6\U62e5\U6709\U3001\U5b8c\U7f8e\U7ed3\U5408\Uff0c\U53ef\U4ee5\U5c3d\U60c5\U6f14\U7ece\U6d12\U8131\U5199\U610f\U751f\U6d3b\U3002\U751f\U6d3b\U914d\U5957\U9f50\U5168\Uff0c\U5e7c\U513f\U56ed\U3001\U9a8f\U666f\U4e2d\U5b66\U5df2\U7ecf\U6295\U5165\U4f7f\U7528\Uff1b\U5bbd\U655e\U3001\U5bbd\U5e7f\U3001\U5bbd\U7545\U7684\U90fd\U5e02\U5bbd\U751f\U6d3b\U4f53\U9a8c\U3002 \U9a8f\U666f\U82b1\U56ed\U2014\U2014\U5165\U4f4f\U7387\U9ad8\U8fbe95\Uff05\Uff0c\U4e09\U5e74\U6210\U4e3a\U6210\U719f\U793e\U533a\Uff1b\U8363\U83b7\U5e7f\U5dde\U5e02\U6837\U677f\U5c0f\U533a\U3001\U5e7f\U4e1c\U7701\U7269\U4e1a\U7ba1\U7406\U793a\U8303\U5c0f\U533a\U3001\U5e7f\U5dde\U5e02\U5341\U5927\U540d\U724c\U5c45\U4f4f\U533a\U7b49\U79f0\U53f7\U3002";
+};
+};
+userIp = "202.105.41.197";
 }
+)
+

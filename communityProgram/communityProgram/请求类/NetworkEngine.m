@@ -100,12 +100,11 @@
         
     }];
 }
-+(void)postImageRequestWithUrl:(NSString *)urlString paramsArray:(id)params WithImage:(NSArray *)imageArray WithPath:(NSString *)path WithImageName:(NSString *)imageName WithFileName:(NSString *)fileName successBlock:(void(^)(id successJsonData,NSString *massege))successBlock errorBlock:(void(^)(int code,id errorJsonData))errorBlock
++(void)postImageRequestWithUrl:(NSString *)urlString paramsArray:(id)params WithImage:(NSArray *)imageArray WithPath:(NSString *)path  WithFileName:(NSString *)fileName successBlock:(void(^)(id successJsonData,NSString *massege))successBlock errorBlock:(void(^)(int code,id errorJsonData))errorBlock
 {
     
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"2.0",@"jsonrpc",@"0",@"id",path,@"method",params,@"params", nil];
-    NSLog(@"dic = %@",dic);
     
 //    NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
     // 1.创建网络管理者

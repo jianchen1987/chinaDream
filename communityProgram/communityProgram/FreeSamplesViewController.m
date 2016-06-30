@@ -290,6 +290,7 @@
     cell.Mcommont=^{
         NSLog(@"%ld",   (long)indexPath.row);
         PublishCommentViewController * publish =[[PublishCommentViewController alloc]init];
+        publish.model=self.AllFreeRecord[indexPath.row];
         [weakself.navigationController pushViewController:publish  animated:YES];
         
     };
@@ -297,6 +298,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+#pragma mark 试吃详情
     mySampleDetailsViewController * myDetail=[mySampleDetailsViewController new];
     myDetail.model=self.AllFreeRecord[indexPath.row];
     [self.navigationController pushViewController:myDetail animated:YES];
