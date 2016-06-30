@@ -95,11 +95,11 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
     self.navigationItem.titleView = titleButton;
     
     
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight) style:UITableViewStyleGrouped];
-    myTableView.delegate = self;
-    myTableView.dataSource = self;
-    myTableView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:myTableView];
+//    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight) style:UITableViewStyleGrouped];
+//    myTableView.delegate = self;
+//    myTableView.dataSource = self;
+//    myTableView.showsVerticalScrollIndicator = NO;
+//    [self.view addSubview:myTableView];
     [self.view addSubview:backView];
     
     NSArray *topTitleArray = @[@"全部",@"销量",@"人气",@"价格"];
@@ -133,18 +133,22 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
     if (self.nowPage==1) {
         [allDateArray removeAllObjects];
     }
+    [self showLoading];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:array
                              WithPath:@"getProductByCode" successBlock:^(id successJsonData) {
                                  NSLog(@"successJsonData===%@",successJsonData);
                                  NSArray * success=successJsonData;
+                                 [self dismissShow];
                                  if (success.count>0) {
                                      [allDateArray addObjectsFromArray:successJsonData];
+                                     self.dataSource[0]=allDateArray;
                                  }
-                                 [myTableView reloadData];
+                                 
+                                 [self reloadTableView];
                                  
                                  
                              } errorBlock:^(int code, NSString *errorJsonData) {
-                                 
+                                 [self showPrompt:errorJsonData];
                              }];
     
 }
@@ -153,13 +157,13 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
     if (numberButton==0) {
         [UIView animateWithDuration:0.2 animations:^{
             backView.frame=Hiden_BV;
-            myTableView.frame=CGRectMake(0, 0, DeviceWidth, DeviceHeight);
+            self.tableView.frame=CGRectMake(0, 0, DeviceWidth, DeviceHeight);
             
         }];
     }else{
         [UIView animateWithDuration:0.2 animations:^{
             backView.frame=Display_BV;
-            myTableView.frame=CGRectMake(0, 50, DeviceWidth, DeviceHeight-50);
+            self.tableView.frame=CGRectMake(0, 50, DeviceWidth, DeviceHeight-50);
             
         }];
     }
@@ -296,7 +300,23 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:_TITLE_FONT_SIZE_],NSForegroundColorAttributeName:[UIColor blackColor]};
+    return [[NSAttributedString alloc] initWithString:@"数据为空" attributes:attribute];
+}
 
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:_SUBTITLE_FONT_SIZE_],NSForegroundColorAttributeName:[UIColor darkGrayColor]};
+    return [[NSAttributedString alloc] initWithString:@"没有找到合适的记录" attributes:attribute];
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"collectionEmpty"];
+}
 
 
 @end

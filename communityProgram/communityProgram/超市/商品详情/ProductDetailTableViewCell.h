@@ -10,12 +10,15 @@
 #import "UILabel+AccordingStrngSetLableSize.h"
 #import "AddNumberView.h"
 #import "AdditionSubtractionControl.h"
-@interface ProductDetailTableViewCell : UITableViewCell
+typedef void(^NumberChange)(NSInteger number);
+@interface ProductDetailTableViewCell : UITableViewCell<AdditionSubtractionControlDelgete>
 @property(nonatomic,strong)UILabel *productTitleLable;
 @property(nonatomic,strong)UILabel *productDescriptionLable;
 @property(nonatomic,strong)UILabel *productPriceLable;
 @property(nonatomic,strong)UILabel *productDiscountLable;
 @property(nonatomic,strong)UILabel *productBuyNumberLable;
+@property(nonatomic,copy)NumberChange  numberChange;
+
 //@property(nonatomic,strong)AddNumberView *numberView;
 @property(nonatomic,strong)UILabel *descriptionLable;
 @property(nonatomic,strong)AdditionSubtractionControl * AdditionSubtraction;

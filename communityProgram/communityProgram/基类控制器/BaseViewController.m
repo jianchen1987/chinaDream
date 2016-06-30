@@ -57,6 +57,7 @@
 
 - (void)showSuccess:(NSString *)msg
 {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     [MBProgressHUD showSuccess:msg toView:self.view];
 }
 
