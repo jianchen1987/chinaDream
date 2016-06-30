@@ -11,41 +11,28 @@
 @implementation MycollectionTableViewCell
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
+    {
+        self.contentView.frame = CGRectMake(0, 0, DeviceWidth, _COLLECTION_TABLEVIEW_CELL_HEIGHT_);
         
-        _productImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 80, 80)];
-        _productImageView.image = [UIImage imageNamed:@"img"];
-        [self.contentView addSubview:_productImageView];
-        
-        
-        _productLable = [[UILabel alloc] initWithFrame:CGRectMake(_productImageView.right+5, 10, 200, 20)];
-        _productLable.font = Font(14);
-        _productLable.text = @"苹果";
-        [self.contentView addSubview:_productLable];
+        self.productImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, _COLLECTION_TABLEVIEW_CELL_HEIGHT_ - 10, _COLLECTION_TABLEVIEW_CELL_HEIGHT_ - 10)];
+        [self.contentView addSubview:self.productImageView];
         
         
-        
-        _descriptionLable = [[UILabel alloc] initWithFrame:CGRectMake(_productImageView.right+5, _productLable.bottom+5, 200, 20)];
-        
-        [self.contentView addSubview:_descriptionLable];
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.productImageView.right+5, 30, self.frame.size.width - self.productImageView.frame.size.width - 10 - 10, 20)];
+        self.titleLabel.font = [UIFont systemFontOfSize:_TITLE_FONT_SIZE_];
+        self.titleLabel.textColor = [UIColor blackColor];
+        [self.contentView addSubview:self.titleLabel];
         
         
         
-        _priceLable = [[UILabel alloc] initWithFrame:CGRectMake(_productImageView.right+5, _descriptionLable.bottom, 200, 20)];
-        _priceLable.text = @"测试";
+        self.detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.productImageView.right+5, self.titleLabel.bottom+5, self.titleLabel.frame.size.width, 40)];
+        self.detailLabel.font = [UIFont systemFontOfSize:_SUBTITLE_FONT_SIZE_];
+        self.detailLabel.textColor = [UIColor colorWithWhite:0.66 alpha:1];
+        self.detailLabel.numberOfLines = 2;
+        [self.contentView addSubview:self.detailLabel];
         
-        [self.contentView addSubview:_priceLable];
-        
-        
-        
-        _businessButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _businessButton.frame = CGRectMake(DeviceWidth-120, _productImageView.top, 100, 20);
-        [_businessButton setTitle:@"超市商品" forState:0];
-        _businessButton.backgroundColor = RGBA(200, 200, 200, 1);
-        _businessButton.layer.cornerRadius = 4;
-        _businessButton.clipsToBounds = YES;
-        [self.contentView addSubview:_businessButton];
-        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }

@@ -15,12 +15,12 @@
     self = [super init];
     if(self)
     {
-        self.aid = [json objectForKey:@"id"];
+        self.aid         = [json objectForKey:@"id"];
         self.quarterName = [json objectForKey:@"quarterName"];
-        self.levelRoom = [json objectForKey:@"levelRoom"];
-        self.phone = [json objectForKey:@"phone"];
-        self.sendName = [json objectForKey:@"sendName"];
-        self.isDefault = [[json objectForKey:@"defaultValue"] boolValue];
+        self.levelRoom   = [json objectForKey:@"levelRoom"];
+        self.phone       = [json objectForKey:@"phone"];
+        self.sendName    = [json objectForKey:@"sendName"];
+        self.isDefault   = [[json objectForKey:@"defaultValue"] boolValue];
     }
     
     return self;

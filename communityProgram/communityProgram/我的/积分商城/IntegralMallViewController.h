@@ -8,10 +8,8 @@
 
 #import "BaseViewController.h"
 #import "IntegralMallTableViewCell.h"
-@interface IntegralMallViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
-{
-    UITableView *myTableView;
-    NSMutableArray *dataSource;
-    
-}
+#import "baseCollectionView.h"
+
+@interface IntegralMallViewController : baseCollectionView
+
 @end
