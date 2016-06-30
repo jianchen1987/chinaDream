@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UIKit/UIKit.h>
+@protocol AdditionSubtractionControlDelgete <NSObject>
 
+-(void)NowNumberChange:(NSInteger)Number;
+@end
 @interface AdditionSubtractionControl : UIView
 /**
  *  当前数值
@@ -17,5 +21,8 @@
  *  限制最少数值
  */
 @property(nonatomic,assign)NSInteger  minimum;
+@property(nonatomic,assign)id<AdditionSubtractionControlDelgete> delgete;
+
 
 @end
+

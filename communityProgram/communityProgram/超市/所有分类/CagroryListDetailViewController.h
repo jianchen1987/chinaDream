@@ -11,7 +11,7 @@
 #import "baseTableViewController.h"
 @interface CagroryListDetailViewController : baseTableViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    NSMutableArray *dataSource;
+//    NSMutableArray *dataSource;
 //    UITableView *myTableView;
     
     

@@ -5,6 +5,9 @@
 //  Created by xiaogao on 16/1/9.
 //  Copyright © 2016年 高国峰. All rights reserved.
 //
+#import "MBProgressHUD.h"
+#import "UIView+Getlength.h"
+#import "DetermineOrderViewController.h"
 static NSString *testIdentifire = @"testIdentifire";
 static NSString *moreRecommentIdentifire = @"moreRecommentIdentifire";
 static NSString *collectionViewReuseIdentifier = @"UICollectionViewCell";
@@ -13,6 +16,7 @@ static NSString *collectionViewReuseIdentifier = @"UICollectionViewCell";
 static NSString *productDetailIdntifire = @"productDetailIdntifire";
 static NSString *productCommentIdentifire = @"productCommentIdentifire";
 static NSString *recommendIdentifire = @"recommendIdentifire";
+#import "UpImageButton.h"
 #define commentCell @"commentCell"
 
 #import "ProductDetailViewController.h"
@@ -21,6 +25,11 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
 {
     NSArray *commentArray;
     NSInteger selectNumber;
+    UpImageButton * Collection;
+    UpImageButton * share_BT;
+    UIButton * shopCar;
+    ProductDetailTableViewCell *detailCell;
+    NSInteger count;
     
 }
 @property(nonatomic,strong)NSDictionary *dataDictionary;
@@ -32,7 +41,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
 #pragma mark - Lazy Methods
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight - kSTATUSBAR_NAVIGATION_HEIGHT - kTOOLHEIGHT)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight - kSTATUSBAR_NAVIGATION_HEIGHT - 45)];
         _scrollView.contentSize = CGSizeMake(DeviceWidth, (DeviceHeight - kSTATUSBAR_NAVIGATION_HEIGHT) * 2);
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = NO;
@@ -43,40 +52,99 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
 {
     if (!_bottomView)
     {
-        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.scrollView.frame), DeviceWidth, kTOOLHEIGHT)];
+        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.scrollView.frame), DeviceWidth, 45)];
         _bottomView.backgroundColor = [UIColor whiteColor];
         
         
+        Collection=[[UpImageButton alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth/5, 45)];
+        Collection.tag=1000;
+        [Collection setTitle:@"收藏" forState:UIControlStateNormal];
+        [Collection setImage:[UIImage imageNamed:@"商品详情收藏"] forState:UIControlStateNormal];
+        [_bottomView addSubview:Collection];
+        share_BT.tag=1001;
+        share_BT=[[UpImageButton alloc]initWithFrame:CGRectMake( Collection.getW_X+1,0, DeviceWidth/5, 45)];
+        [share_BT setTitle:@"分享" forState:UIControlStateNormal];
+        [share_BT setImage:[UIImage imageNamed:@"分享-社区首页"] forState:UIControlStateNormal];
+        [_bottomView addSubview:share_BT];
         
-        NSArray *titleArr = @[@"收藏",@"分享",@"加入购物车",@"立即购买"];
+        shopCar = [UIButton buttonWithType:UIButtonTypeCustom];
+        [shopCar setFrame:CGRectMake( share_BT.getW_X+1,0, DeviceWidth*1.5/5, 45)];
+        [shopCar setTitle:@"加入购物车" forState:0];
+        [shopCar setTitleColor:[UIColor whiteColor] forState:0];
+        [_bottomView addSubview:shopCar];
+        shopCar.tag=1002;
+        shopCar.backgroundColor=RGBA(247, 54, 10, 1);
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setFrame:CGRectMake( shopCar.getW_X+1,0, DeviceWidth*1.5/5, 45)];
+        [btn setTitle:@"立即购买" forState:0];
+        btn.backgroundColor=RGBA(247, 84, 33, 1);
+        [btn setTitleColor:[UIColor whiteColor] forState:0];
+        [_bottomView addSubview:btn];
+        btn.tag=1003;
+        [btn addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [shopCar addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [share_BT addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [Collection addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        _bottomView.backgroundColor=self.view.backgroundColor;
         
         
-        
-        for (int i = 0; i < 4; i++)
-        {
-            if (i == 0 || i == 1) {
-                CustomBottomViewBtn *leftBtn = [CustomBottomViewBtn buttonWithType:UIButtonTypeCustom];
-                [leftBtn setFrame:CGRectMake(70*i, 0, 70, kTOOLHEIGHT)];
-                [leftBtn setTitle:titleArr[i] forState:0];
-                [leftBtn setTitleColor:[UIColor grayColor] forState:0];
-                [leftBtn setImage:[UIImage imageNamed:@"rightErrow"] forState:0];
-                leftBtn.titleLabel.font = Font(13);
-                leftBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-                [_bottomView addSubview:leftBtn];
-            }else
-            {
-                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                [btn setFrame:CGRectMake(140+(DeviceWidth-140)/2*(i-2), 0, (DeviceWidth-140)/2, kTOOLHEIGHT)];
-                [btn setTitle:titleArr[i] forState:0];
-                [btn setTitleColor:[UIColor grayColor] forState:0];
-                [_bottomView addSubview:btn];
-            }
-        }
     }
-    
     return _bottomView;
 }
-
+-(void)clickAction:(UIButton*)sender{
+    //    self.loopView.
+    switch (sender.tag) {
+        case 1000://收藏
+        {
+            [self showLoading];
+            [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName, [self.dicData objectForKey:@"id"]] WithPath:@"saveProductCollection" successBlock:^(id successJsonData)
+             {
+                 [self showSuccess:@"已收藏"];
+                 NSLog(@"收藏 %@",successJsonData);
+             } errorBlock:^(int code, NSString *errorJsonData) {
+                 [self showPrompt:errorJsonData];
+             }];
+        }
+            break;
+        case 1001://分享
+            
+            break;
+        case 1002://加入购物车
+        {
+            
+            [self showLoading];
+            [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName, @(count),[self.dicData objectForKey:@"id"]] WithPath:@"addShopCar" successBlock:^(id successJsonData)
+             {
+                 
+                 [self showSuccess:@"购物车"];
+                 NSLog(@"加入购物车 %@",successJsonData);
+             } errorBlock:^(int code, NSString *errorJsonData) {
+                 [self showPrompt:errorJsonData];
+             }];
+        }
+            break;
+        case 1003://立即购买
+        {
+            DetermineOrderViewController * deter=[[DetermineOrderViewController alloc]initWithNibName:@"DetermineOrderViewController" bundle:nil];;
+            deter.information_Dic=_dataDictionary;
+            [self.navigationController pushViewController:deter animated:YES];
+        }
+            
+            //            [self showLoading];
+            //
+            //            [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName, @(count),[self.dicData objectForKey:@"id"]] WithPath:@"modifyShopCar" successBlock:^(id successJsonData) {
+            //                [self showSuccess:@"购物车"];
+            //                NSLog(@"加入购物车 %@",successJsonData);
+            //            } errorBlock:^(int code, NSString *errorJsonData) {
+            //                [self showPrompt:errorJsonData];
+            //
+            //            }];
+            break;
+            
+            
+            
+    }
+}
 - (UITableView *)tableView {
     if (!_myTableView) {
         _myTableView = [[UITableView alloc] initWithFrame:self.scrollView.bounds style:UITableViewStyleGrouped];
@@ -148,7 +216,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
     }
     return _commentTableView;
 }
-
+#pragma mark 获得详细信息
 -(void)loadData
 {
     NSArray *array = @[[self.dicData valueForKey:@"id"]];
@@ -171,42 +239,55 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
      *   pageSize 显示数量
      *
      */
-    NSArray * array=@[self.user.identifyName,[self.dicData objectForKey:@"id"],@"supermarket",@1,@4];
-   [NetworkEngine postRequestWithUrl:AppService paramsArray:array  WithPath:getComment successBlock:^(id successJsonData)
-    {
-        
+    NSArray * array=@[self.user.identifyName,[self.dicData valueForKey:@"id"],@"supermarket",@1,@4];
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:array  WithPath:getComment successBlock:^(id successJsonData)
+     {
+         
+         NSLog(@"%@",successJsonData);
+         for (NSDictionary *dic in successJsonData) {
+             CommentModle *modle = [CommentModle new];
+             NSDictionary * user=[dic objectForKey:@"user"];
+             
+             modle.commentHeadImageUrl = [dic valueForKey:@"headIcon"];
+             modle.commentName = [user valueForKey:@"nickName"];//名字
+             modle.commentTime = [dic valueForKey:@"createTime"];//评论时间
+             modle.commentContent = [dic valueForKey:@"commentInfo"];//评论信息
+             
+             if ([dic valueForKey:@"appendComment"]) {
+                 modle.addDic=[NSDictionary dictionaryWithObjectsAndKeys:
+                               [user valueForKey:@"nickName"],@"nickName",
+                               //                              @"2016-1-13",@"time",
+                               [dic valueForKey:@"appendComment"],@"comment", nil];
+                 NSLog(@"%@",[dic valueForKey:@"appendComment"]);
+             }
+             
+             //            modle.addDic = [dic valueForKey:@"other"];
+             //            modle.picNamesArray =@[@"/resource/admin/quarterLogo/83b6678f-b6cd-479d-94f9-b7a585c5808c.jpg",@"/resource/admin/quarterLogo/83b6678f-b6cd-479d-94f9-b7a585c5808c.jpg"];
+             [dic valueForKey:@"commentLogos"];//图片数组
+             [commentDataSource addObject:modle];
+         }
+         [self.myTableView reloadData];
+         
+     } errorBlock:^(int code, NSString *errorJsonData) {
+     }];
+}
+-(void)TypeRecommendation{
+    [self showLoading];
+    NSArray * arr=@[self.user.quarter.id?self.user.quarter.id:@"",[self.dicData objectForKey:@"id"],@1,@10];
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:arr WithPath:@"getProductByHotOrTuiJian" successBlock:^(id successJsonData) {
         NSLog(@"%@",successJsonData);
-        for (NSDictionary *dic in successJsonData) {
-            CommentModle *modle = [CommentModle new];
-            NSDictionary * user=[dic objectForKey:@"user"];
-            
-            modle.commentHeadImageUrl = [dic valueForKey:@"headIcon"];
-            modle.commentName = [user valueForKey:@"nickName"];//名字
-            modle.commentTime = [dic valueForKey:@"createTime"];//评论时间
-            modle.commentContent = [dic valueForKey:@"commentInfo"];//评论信息
-            
-            if ([dic valueForKey:@"appendComment"]) {
-                modle.addDic=[NSDictionary dictionaryWithObjectsAndKeys:
-                             [user valueForKey:@"nickName"],@"nickName",
-//                              @"2016-1-13",@"time",
-                              [dic valueForKey:@"appendComment"],@"comment", nil];
-                NSLog(@"%@",[dic valueForKey:@"appendComment"]);
-            }
-          
-            //            modle.addDic = [dic valueForKey:@"other"];
-//            modle.picNamesArray =@[@"/resource/admin/quarterLogo/83b6678f-b6cd-479d-94f9-b7a585c5808c.jpg",@"/resource/admin/quarterLogo/83b6678f-b6cd-479d-94f9-b7a585c5808c.jpg"];
-            [dic valueForKey:@"commentLogos"];//图片数组
-            [commentDataSource addObject:modle];
-        }
-        [self.myTableView reloadData];
-        
+        [self dismissShow];
     } errorBlock:^(int code, NSString *errorJsonData) {
+        [self showPrompt:errorJsonData];
     }];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"商品详情";
-
+    
+    count=1;
+    [self TypeRecommendation];//
     [self GetComment];//获得所有评论
     [self LoadProductAdv];//获取超市产品广告图
     [self loadData];//获得商品详情
@@ -225,47 +306,47 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
     self.loopView = loopView;
     
     
-////    虚拟数据
-//    NSMutableArray *muArray = [NSMutableArray array];
-//    NSArray *image1Arr = @[@"img"];
-//    NSArray *image2Arr = @[@"img",@"img"];
-//    NSArray *image3Arr = @[@"img",@"img",@"img",@"img",@"img"];
-//    NSArray *image4Arr = @[];
-//    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-//                         @"",@"image",
-//                         image4Arr,@"imageArr",
-//                         @"小明",@"name",
-//                         @"2016-1-13",@"time",
-//                         @"不负家人众望，实至名归，",@"comment", nil];
-//    NSDictionary *dic1 = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"image",image1Arr,@"imageArr",@"小明",@"name",@"2016-1-13",@"time",@"不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手",@"comment", nil];
-//    
-//    NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"image",
-//                               image2Arr,@"imageArr",
-//                               @"小明",@"name",
-//                               @"2016-1-13",@"time",
-//                               @"不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家望，实至名归，苹果香，脆，甜，喜欢的赶紧下手",@"comment",
-//                               [NSDictionary dictionaryWithObjectsAndKeys:
-//                                @"",@"image",
-//                                @"小明",@"name",
-//                                @"2016-1-13",@"time",
-//                                @"不负脆，甜，喜欢的赶紧下手",@"comment", nil],@"other", nil];
-//
-//    [muArray addObject:dic];
-//    [muArray addObject:dic1];
-//    [muArray addObject:secondDic];
-//
-//    
-//    
-//    for (NSDictionary *dic in muArray) {
-//        CommentModle *modle = [CommentModle new];
-//        modle.commentHeadImageUrl = [dic valueForKey:@"image"];
-//        modle.commentName = [dic valueForKey:@"name"];
-//        modle.commentTime = [dic valueForKey:@"time"];
-//        modle.commentContent = [dic valueForKey:@"comment"];
-//        modle.addDic = [dic valueForKey:@"other"];
-//        modle.picNamesArray = [dic valueForKey:@"imageArr"];
-//        [commentDataSource addObject:modle];
-//    }
+    ////    虚拟数据
+    //    NSMutableArray *muArray = [NSMutableArray array];
+    //    NSArray *image1Arr = @[@"img"];
+    //    NSArray *image2Arr = @[@"img",@"img"];
+    //    NSArray *image3Arr = @[@"img",@"img",@"img",@"img",@"img"];
+    //    NSArray *image4Arr = @[];
+    //    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+    //                         @"",@"image",
+    //                         image4Arr,@"imageArr",
+    //                         @"小明",@"name",
+    //                         @"2016-1-13",@"time",
+    //                         @"不负家人众望，实至名归，",@"comment", nil];
+    //    NSDictionary *dic1 = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"image",image1Arr,@"imageArr",@"小明",@"name",@"2016-1-13",@"time",@"不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手",@"comment", nil];
+    //
+    //    NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"image",
+    //                               image2Arr,@"imageArr",
+    //                               @"小明",@"name",
+    //                               @"2016-1-13",@"time",
+    //                               @"不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家望，实至名归，苹果香，脆，甜，喜欢的赶紧下手",@"comment",
+    //                               [NSDictionary dictionaryWithObjectsAndKeys:
+    //                                @"",@"image",
+    //                                @"小明",@"name",
+    //                                @"2016-1-13",@"time",
+    //                                @"不负脆，甜，喜欢的赶紧下手",@"comment", nil],@"other", nil];
+    //
+    //    [muArray addObject:dic];
+    //    [muArray addObject:dic1];
+    //    [muArray addObject:secondDic];
+    //
+    //
+    //
+    //    for (NSDictionary *dic in muArray) {
+    //        CommentModle *modle = [CommentModle new];
+    //        modle.commentHeadImageUrl = [dic valueForKey:@"image"];
+    //        modle.commentName = [dic valueForKey:@"name"];
+    //        modle.commentTime = [dic valueForKey:@"time"];
+    //        modle.commentContent = [dic valueForKey:@"comment"];
+    //        modle.addDic = [dic valueForKey:@"other"];
+    //        modle.picNamesArray = [dic valueForKey:@"imageArr"];
+    //        [commentDataSource addObject:modle];
+    //    }
 }
 
 #pragma mark - View lifeCycle
@@ -412,7 +493,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
     }else
     {
         return 1;
-
+        
     }
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -430,15 +511,15 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
     {
         return commentDataSource.count;
     }
-
+    
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
     if (tableView == self.myTableView) {
         //第一部分
-        ProductDetailTableViewCell *detailCell = [tableView dequeueReusableCellWithIdentifier:productDetailIdntifire];
+        detailCell = [tableView dequeueReusableCellWithIdentifier:productDetailIdntifire];
         //评论部分
         if (indexPath.section == 0) {
             if (!detailCell) {
@@ -446,6 +527,10 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
             }
             [detailCell loadCellData:self.dataDictionary];
             detailCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            detailCell.numberChange=^(NSInteger number){
+                NSLog(@"number===%ld",(long)number);
+                count=number;
+            };
             return detailCell;
         }else if(indexPath.section == 1)
         {
@@ -480,7 +565,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
         secondCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return secondCell;
     }
-
+    
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -506,7 +591,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
     {
         return nil;
     }
-
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -514,20 +599,20 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
         return 0.01;
     }else
         
-    return 40;
-
+        return 40;
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (tableView == self.myTableView) {
         return 10;
-
+        
     }else
     {
         return 0.01;
-
+        
     }
-
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -545,7 +630,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
             id model = nil;
             return [self.myTableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[MoreProductTableViewCell class] contentViewWidth:DeviceWidth-40];
         }
-
+        
     }else
     {
         id model = commentDataSource[indexPath.row];
@@ -598,7 +683,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
         self.commentTableView.hidden = YES;
         self.collectionView.hidden = NO;
         [self.twoPageView addSubview:self.collectionView];
-
+        
     }
 }
 

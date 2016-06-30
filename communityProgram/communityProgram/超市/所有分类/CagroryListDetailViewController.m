@@ -144,7 +144,7 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
                                      self.dataSource[0]=allDateArray;
                                  }
                                  
-                                 [self.tableView reloadData];
+                                 [self reloadTableView];
                                  
                                  
                              } errorBlock:^(int code, NSString *errorJsonData) {
