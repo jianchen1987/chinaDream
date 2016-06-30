@@ -148,6 +148,7 @@ typedef void (^void_SuccessBlock_BOOL)(BOOL isSuccess);
 #define getProductAndType  @"getProductAndType" //获得某分类数据
 
 #define NSStringType(a)  [NSString stringWithFormat:@"%@",a]
+
 #define Number(a)  [NSNumber numberWithInteger:a]
 #define urlImage(a) [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",AppendingImageUrl,a]]
 

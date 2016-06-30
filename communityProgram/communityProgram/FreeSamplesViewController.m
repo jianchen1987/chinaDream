@@ -5,7 +5,7 @@
 //  Created by 谢泽锋 on 16/6/20.
 //  Copyright © 2016年 高国峰. All rights reserved.
 //
-
+#import <MJExtension.h>
 #import "FreeSamplesViewController.h"
 #import "SelectBar.h"
 #import "MJRefreshGifHeader.h"
@@ -18,6 +18,7 @@
 #import "FreeCollectionViewCell.h"
 #import "FreeSamplesDetailViewController.h"
 #import "PublishCommentViewController.h"
+#import "FreeEatModel.h"
 #define DefaultCount  Number(9)
 @interface FreeSamplesViewController ()<UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 {
@@ -117,14 +118,17 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FreeCollectionViewCell * cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    NSDictionary * unit =[_FreeArray objectAtIndex:indexPath.row];
+   FreeEatModel * model =[_FreeArray objectAtIndex:indexPath.row];
     
-    [cell.FreeImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",AppendingImageUrl,[unit objectForKey:@"freeIcon"]]] placeholderImage:[UIImage imageNamed:@"cell图片"]];
     
-    cell.title_LB.text=[unit objectForKey:@"productName"];
-    cell.detail.text=[unit objectForKey:@"simpleIntro"]?[unit objectForKey:@"ruleMessage"]:@"";
-    cell.numberCount.text=[NSString stringWithFormat:@"%@份",[unit objectForKey:@"freeNum"]];
-    cell.applyCount.text=[NSString stringWithFormat:@"已经有%@人申请",[unit objectForKey:@"applyNum"]?[unit objectForKey:@"applyNum"]:@"0"];
+    [cell.FreeImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",AppendingImageUrl,model.freeIcon]] placeholderImage:[UIImage imageNamed:@"cell图片"]];
+    
+    cell.title_LB.text=model.productName;
+   
+    cell.detail.text= [NSString stringWithFormat:@"%ld",(long)model.ruleMessage];
+//    [unit objectForKey:@"simpleIntro"]?[unit objectForKey:@"ruleMessage"]:@"";
+    cell.numberCount.text=[NSString stringWithFormat:@"%@份",model.freeNum];
+    cell.applyCount.text=[NSString stringWithFormat:@"已经有%@人申请",model.applyNum?model.applyNum:@"0"];
     cell.expireDate=[unit objectForKey:@"expireDate"];
     
     cell.applyAction=^{
@@ -168,7 +172,6 @@
 -(void)appleyFree:(NSString *)ID
 {
     [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName,self.user.phone,ID] WithPath:@"applyFreeEat" successBlock:^(id successJsonData) {
-        
         NSLog(@"申请＝＝＝＝＝%@",successJsonData);
     } errorBlock:^(int code, NSString *errorJsonData) {
         NSLog(@"errorJsonData==%@",errorJsonData);
@@ -227,15 +230,22 @@
 #pragma mark 获得所有的试吃
 -(void)GetFreeEatrequest:(NSNumber*)number
 {
-    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[number,DefaultCount] WithPath:getFreeEat successBlock:^(id successJsonData)
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[number,DefaultCount] WithPath:getFreeEat successBlock:^(NSArray* successJsonData)
      {
          NSDictionary * dic =successJsonData[0];
+         for (int i=0; i<successJsonData.count; i++) {
+             FreeEatModel * model =[FreeEatModel mj_objectWithKeyValues:successJsonData[i]];
+             [_FreeArray addObject:model];
+         }
+
+         
          //         [actionView.stateImageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",AppendingImageUrl,[dic objectForKey:@"freeIcon"]]]placeholderImage:[UIImage imageNamed:@"cell图片"]];
          NSLog(@"%@",[NSString stringWithFormat:@"%@%@",AppendingImageUrl,[dic objectForKey:@"freeIcon"]]);
          //         actionView.detailinformation.text=[dic objectForKey:@"imageText"];
          //         actionView.name.text=[dic objectForKey:@"productName"];
          //         actionView.count.text=[NSString stringWithFormat:@"%@份",[dic objectForKey:@"freeNum"]];
-         [_FreeArray addObjectsFromArray:successJsonData];
+         
+//         [_FreeArray addObjectsFromArray:successJsonData];
          [_FreeCollectionView reloadData];
          
      } errorBlock:^(int code, NSString *errorJsonData) {

@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A675D14DBCF79AC98DEF58D6E33DA628CDD46696",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "2bab410f-cefc-c841-b90d-41fdd2b95f0e++7394" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A675D14DBCF79AC98DEF58D6E33DA628CDD46696" : 0,
+    "2bab410f-cefc-c841-b90d-41fdd2b95f0e++7394" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "99083A85-AFBD-427A-8173-BBA68E57543A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A675D14DBCF79AC98DEF58D6E33DA628CDD46696" : "chinaDream\/",
+    "2bab410f-cefc-c841-b90d-41fdd2b95f0e++7394" : "chinaDream\/communityProgram\/communityProgram\/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B1%BB%E5%BA%93\/DZNEmptyDataSet\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "communityProgram",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "communityProgram\/communityProgram.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/112.124.13.234\/201405_IOS_BestpayEEClient",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2bab410f-cefc-c841-b90d-41fdd2b95f0e++7394"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jianchen1987\/chinaDream.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A675D14DBCF79AC98DEF58D6E33DA628CDD46696"
+    }
+  ]
+}
