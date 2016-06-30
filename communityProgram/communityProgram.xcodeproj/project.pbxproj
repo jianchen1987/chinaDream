@@ -83,6 +83,8 @@
 		E852CDC21D24179800CD7604 /* IntegralProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDC11D24179800CD7604 /* IntegralProductModel.m */; };
 		E852CDC61D241D0300CD7604 /* SecondHandProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDC51D241D0300CD7604 /* SecondHandProductModel.m */; };
 		E852CDC91D24378600CD7604 /* baseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDC81D24378600CD7604 /* baseCollectionView.m */; };
+		E852CDCD1D24AB7100CD7604 /* integralMailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDCC1D24AB7100CD7604 /* integralMailCollectionViewCell.m */; };
+		E86705331D251BDD00EABAF3 /* myLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E86705321D251BDD00EABAF3 /* myLoopView.m */; };
 		E86F6B431D1FCF770031496C /* addressViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B421D1FCF770031496C /* addressViewModel.m */; };
 		E86F6B481D1FD12D0031496C /* addressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B471D1FD12D0031496C /* addressModel.m */; };
 		E86F6B4B1D1FDABE0031496C /* addressModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B4A1D1FDABE0031496C /* addressModifyViewController.m */; };
@@ -494,6 +496,10 @@
 		E852CDC51D241D0300CD7604 /* SecondHandProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondHandProductModel.m; path = model/SecondHandProductModel.m; sourceTree = "<group>"; };
 		E852CDC71D24378600CD7604 /* baseCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseCollectionView.h; sourceTree = "<group>"; };
 		E852CDC81D24378600CD7604 /* baseCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseCollectionView.m; sourceTree = "<group>"; };
+		E852CDCB1D24AB7100CD7604 /* integralMailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integralMailCollectionViewCell.h; sourceTree = "<group>"; };
+		E852CDCC1D24AB7100CD7604 /* integralMailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = integralMailCollectionViewCell.m; sourceTree = "<group>"; };
+		E86705311D251BDD00EABAF3 /* myLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myLoopView.h; sourceTree = "<group>"; };
+		E86705321D251BDD00EABAF3 /* myLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myLoopView.m; sourceTree = "<group>"; };
 		E86F6B411D1FCF770031496C /* addressViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addressViewModel.h; sourceTree = "<group>"; };
 		E86F6B421D1FCF770031496C /* addressViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addressViewModel.m; sourceTree = "<group>"; };
 		E86F6B461D1FD12D0031496C /* addressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addressModel.h; path = Model/addressModel.h; sourceTree = "<group>"; };
@@ -1226,6 +1232,8 @@
 				F293A0BA1C146DA000B2724B /* CustomMyselfButton.m */,
 				E831BCEF1D1C518000BE9247 /* myLabel.h */,
 				E831BCF01D1C518000BE9247 /* myLabel.m */,
+				E86705311D251BDD00EABAF3 /* myLoopView.h */,
+				E86705321D251BDD00EABAF3 /* myLoopView.m */,
 			);
 			name = "自定义控件";
 			sourceTree = "<group>";
@@ -1323,6 +1331,15 @@
 				E852CDC51D241D0300CD7604 /* SecondHandProductModel.m */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		E852CDCA1D24AB4400CD7604 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E852CDCB1D24AB7100CD7604 /* integralMailCollectionViewCell.h */,
+				E852CDCC1D24AB7100CD7604 /* integralMailCollectionViewCell.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 		E86F6B401D1FCF580031496C /* viewModel */ = {
@@ -1946,6 +1963,7 @@
 		F293A0AD1C146C5300B2724B /* 积分商城 */ = {
 			isa = PBXGroup;
 			children = (
+				E852CDCA1D24AB4400CD7604 /* view */,
 				E852CDBF1D24176100CD7604 /* model */,
 				F29F04CE1C84751300B8A347 /* IntegralMallViewController.h */,
 				F29F04CF1C84751300B8A347 /* IntegralMallViewController.m */,
@@ -2914,6 +2932,7 @@
 				F293A0A51C14679500B2724B /* ALView+PureLayout.m in Sources */,
 				F2F400971C1D41D600EC5E32 /* SuperMarketViewController.m in Sources */,
 				F241DAED1C4A1F3E001A828D /* LCActionSheet.m in Sources */,
+				E86705331D251BDD00EABAF3 /* myLoopView.m in Sources */,
 				F279F5AF1C1D51A8001FB738 /* MJRefreshAutoFooter.m in Sources */,
 				F2F4009E1C1D45FF00EC5E32 /* SupermarketCollectionViewCell.m in Sources */,
 				F2B6654C1C7997F7007427BB /* TZPhotoPreviewCell.m in Sources */,
@@ -2977,6 +2996,7 @@
 				F2B05C2F1C3AA2EC00B54A53 /* SupermarketHeadCollectionViewCell.m in Sources */,
 				E852CDC61D241D0300CD7604 /* SecondHandProductModel.m in Sources */,
 				480BDF001D18ED6F00531FAA /* FreeSamples.m in Sources */,
+				E852CDCD1D24AB7100CD7604 /* integralMailCollectionViewCell.m in Sources */,
 				F26E42841C8183690041E1E1 /* EmotionDeleteBtn.m in Sources */,
 				480A49E41D138F8200BA4CB8 /* MenuBarView.m in Sources */,
 				F26980991C12BAFC00C46C6D /* main.m in Sources */,
@@ -3090,7 +3110,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -3127,7 +3147,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
