@@ -1,36 +1,36 @@
 //
-//  TSELatestNewsLoopView.m
-//  XCAR
+//  myLoopView.m
+//  communityProgram
 //
-//  Created by Morris on 9/23/15.
-//  Copyright (c) 2015 Samtse. All rights reserved.
+//  Created by 陈剑 on 16/6/30.
+//  Copyright © 2016年 高国峰. All rights reserved.
 //
 
-#import "TSEXCARLoopView.h"
-
+#import "myLoopView.h"
 
 #define kPageH 20
-//#define advertiseHeight DeviceWidth/3
 
-@interface TSEXCARLoopView() <UIScrollViewDelegate>
+@interface myLoopView()<UIScrollViewDelegate>
 {
     CGFloat advertiseHeight; //广告图的高度
 }
+
 @property (nonatomic, strong) NSMutableArray *currentImages;
 @property (nonatomic, assign) int currentPage;
 @property (nonatomic, weak) UIPageControl *pageControl;
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, weak) UIImageView *placeHodlerView;
+
 @end
 
-@implementation TSEXCARLoopView
+@implementation myLoopView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, DeviceWidth, frame.size.height)];
         [imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [imageView setImage:[UIImage imageNamed:@"loopViewholderImage"]];
+        [imageView setImage:[UIImage imageNamed:@"loopViewHolderImage"]];
         imageView.userInteractionEnabled = YES;
         [self addSubview:imageView];
         advertiseHeight = frame.size.height;
@@ -41,16 +41,16 @@
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame images:(NSArray *)images autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval {
+- (instancetype)initWithFrame:(CGRect)frame imageUrls:(NSArray *)imageUrls autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval {
     self = [super initWithFrame:frame];
     if (self) {
         _autoPlay = isAuto;
         _timeInterval = timeInterval;
-        _images = images;
+        _imageUrls = imageUrls;
         _currentPage = 0;
         [self addPageControl];
         [self addScrollView];
-
+        
         if (_autoPlay == YES) {
             [self toPlay];
         }
@@ -58,10 +58,10 @@
     return self;
 }
 
-- (void)setLoopViewImages:(NSArray *)images autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval {
+- (void)setLoopViewImageUrls:(NSArray *)imageUrls autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval {
     _autoPlay = isAuto;
     _timeInterval = timeInterval;
-    _images = images;
+    _imageUrls = imageUrls;
     _currentPage = 0;
     
     [self addScrollView];
@@ -80,9 +80,9 @@
     CGFloat height = advertiseHeight;
     CGFloat width = self.frame.size.width;
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, height-kPageH, width, kPageH)];
-//    bgView.backgroundColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.5];
+    //    bgView.backgroundColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.5];
     UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(width/2-width / 6, 0, width / 3, kPageH)];
-    pageControl.numberOfPages = self.images.count;
+    pageControl.numberOfPages = self.imageUrls.count;
     pageControl.currentPage = 0;
     pageControl.userInteractionEnabled = NO;
     [pageControl setCurrentPageIndicatorTintColor:[UIColor redColor]];
@@ -100,7 +100,7 @@
 }
 
 - (void)autoPlayToNextPage {
-//    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoPlayToNextPage) object:nil];
+    //    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoPlayToNextPage) object:nil];
     [self.scrollView setContentOffset:CGPointMake(self.frame.size.width * 2, 0) animated:YES];
     [self performSelector:@selector(autoPlayToNextPage) withObject:nil afterDelay:_timeInterval];
 }
@@ -111,12 +111,12 @@
     }
     [_currentImages removeAllObjects];
     // 获取当前图片数量
-    NSInteger count = self.images.count;
+    NSInteger count = self.imageUrls.count;
     int i = (int)(_currentPage + count - 1) % count;
-    [_currentImages addObject:self.images[i]];
-    [_currentImages addObject:self.images[_currentPage]];
+    [_currentImages addObject:self.imageUrls[i]];
+    [_currentImages addObject:self.imageUrls[_currentPage]];
     i = (int)(_currentPage + 1) % count;
-    [_currentImages addObject:self.images[i]];
+    [_currentImages addObject:self.imageUrls[i]];
     return _currentImages;
 }
 - (void)addScrollView {
@@ -126,7 +126,7 @@
     CGFloat height = advertiseHeight;
     for (int i = 1; i < 4; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((i-1) * width, 0, width, height)];
-        imageView.image = self.currentImages[i-1];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.currentImages[i-1]] placeholderImage:[UIImage imageNamed:@"loopViewHolderImage"]];
         imageView.userInteractionEnabled = YES;
         [scrollView addSubview:imageView];
         
@@ -160,9 +160,10 @@
     for (int i = 0; i < imageViewArr.count; i++)
     {
         UIImageView *imageView = (UIImageView *)imageViewArr[i];
-        imageView.image = [UIImage imageNamed:@"zhanwei2_1"];
-        imageView.image = self.currentImages[i];
-
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.currentImages[i]] placeholderImage:[UIImage imageNamed:@"loopViewholderImage"]];
+//        imageView.image = [UIImage imageNamed:@"zhanwei2_1"];
+//        imageView.image = self.currentImages[i];
+        
     }
     [self.scrollView setContentOffset:CGPointMake(self.frame.size.width, 0)];
     
@@ -177,12 +178,12 @@
     CGFloat x = scrollView.contentOffset.x;
     CGFloat width = self.frame.size.width;
     if (x >= 2 * width) {
-        _currentPage = (++_currentPage) % self.images.count;
+        _currentPage = (++_currentPage) % self.imageUrls.count;
         self.pageControl.currentPage = _currentPage;
         [self refreshImages];
     }
     if (x <= 0) {
-        _currentPage = (int)(_currentPage + self.images.count - 1)%self.images.count;
+        _currentPage = (int)(_currentPage + self.imageUrls.count - 1)%self.imageUrls.count;
         self.pageControl.currentPage = _currentPage;
         [self refreshImages];
     }
@@ -192,13 +193,8 @@
     [scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:YES];
 }
 
-#pragma mark ------------------clickButtonAction
--(void)clickButtonAction:(CustomSupermarketBtn *)sender
-{
-    if (self.delegate) {
-        [self.delegate selectIndexButton:sender];
-    }
-}
+
+
 @end
 
 
