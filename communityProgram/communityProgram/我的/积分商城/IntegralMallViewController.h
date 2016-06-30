@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "IntegralMallTableViewCell.h"
+#import "integralMailCollectionViewCell.h"
 #import "baseCollectionView.h"
 
 @interface IntegralMallViewController : baseCollectionView

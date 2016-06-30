@@ -10,14 +10,16 @@
 
 @interface FreeEatModel : NSObject
 
-private static final long serialVersionUID = -9061236091959250210L;
+//private static final long serialVersionUID = -9061236091959250210L;
+@property(nonatomic,copy)NSString * id;
 /** 产品名称 */
 @property(nonatomic,copy)NSString *  productName;
 /** 份额 */
 @property(nonatomic,copy)NSString *  freeNum;
 
 /** 有效期 */
-private Date expireDate;
+@property(nonatomic,strong)NSString * expireDate;
+//private Date expireDate;
 /** 封面 */
 @property(nonatomic,copy)NSString *  freeIcon;
 /** 原价 */
@@ -25,7 +27,8 @@ private Date expireDate;
 /** 规格 */
 @property(nonatomic,copy)NSString *  spec;
 /** 申请人数 */
-private Long applyNum;
+@property(nonatomic,assign)NSInteger  applyNum;
+
 
 /** 图文介绍 */
 @property(nonatomic,copy)NSString *  imageText;
@@ -37,28 +40,32 @@ private Long applyNum;
  private Quarter quarter = new Quarter();*/
 
 /** 免费试吃与用户存在多对多的关联关系 */
-private List<User> users = new ArrayList<User>();
+@property(nonatomic,strong)NSArray * ArrayList;
+//private List<User> users = new ArrayList<User>();
 
 /**小区与免费试吃存在多对多的关联关系 */
-private List<Quarter> quarters = new ArrayList<Quarter>();
+//private List<Quarter> quarters = new ArrayList<Quarter>();
 
 
 
 /** 评论数 ( 每次评论后 数量 加一 ) */
-private Long commentPeople;
+@property(nonatomic,assign)NSInteger  commentPeople;
+
 /** 点赞人数*/
-private Long lovePeople;
+@property(nonatomic,assign)NSInteger   lovePeople;
 /** 点赞人 （不暴露出去） */
-private List<AdoptFreeEat> adoptFreeEats = new ArrayList<AdoptFreeEat>();
+//private List<AdoptFreeEat> adoptFreeEats = new ArrayList<AdoptFreeEat>();
 
 /** 收藏人数 */
-private Long collFreeEat;
+@property(nonatomic,assign)NSInteger  collFreeEat;
 /** 收藏人列表 （不暴露出去） */
-private List<CollFreeEat> collFreeEats = new ArrayList<CollFreeEat>();
+//private List<CollFreeEat> collFreeEats = new ArrayList<CollFreeEat>();
 
 /** 分享数量*/
-private Long sharePeople;
+@property(nonatomic,assign)NSInteger   sharePeople;
 /** 规则说明 */
-private Long ruleMessage;
+@property(nonatomic,assign)NSInteger ruleMessage;
+
+//private Long ruleMessage;
 
 @end

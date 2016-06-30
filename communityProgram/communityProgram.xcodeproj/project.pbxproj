@@ -78,6 +78,7 @@
 		E852CDC61D241D0300CD7604 /* SecondHandProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDC51D241D0300CD7604 /* SecondHandProductModel.m */; };
 		E852CDC91D24378600CD7604 /* baseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDC81D24378600CD7604 /* baseCollectionView.m */; };
 		E852CDCD1D24AB7100CD7604 /* integralMailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E852CDCC1D24AB7100CD7604 /* integralMailCollectionViewCell.m */; };
+		E86705331D251BDD00EABAF3 /* myLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E86705321D251BDD00EABAF3 /* myLoopView.m */; };
 		E86F6B431D1FCF770031496C /* addressViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B421D1FCF770031496C /* addressViewModel.m */; };
 		E86F6B481D1FD12D0031496C /* addressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B471D1FD12D0031496C /* addressModel.m */; };
 		E86F6B4B1D1FDABE0031496C /* addressModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B4A1D1FDABE0031496C /* addressModifyViewController.m */; };
@@ -480,6 +481,8 @@
 		E852CDC81D24378600CD7604 /* baseCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseCollectionView.m; sourceTree = "<group>"; };
 		E852CDCB1D24AB7100CD7604 /* integralMailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integralMailCollectionViewCell.h; sourceTree = "<group>"; };
 		E852CDCC1D24AB7100CD7604 /* integralMailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = integralMailCollectionViewCell.m; sourceTree = "<group>"; };
+		E86705311D251BDD00EABAF3 /* myLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myLoopView.h; sourceTree = "<group>"; };
+		E86705321D251BDD00EABAF3 /* myLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myLoopView.m; sourceTree = "<group>"; };
 		E86F6B411D1FCF770031496C /* addressViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addressViewModel.h; sourceTree = "<group>"; };
 		E86F6B421D1FCF770031496C /* addressViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addressViewModel.m; sourceTree = "<group>"; };
 		E86F6B461D1FD12D0031496C /* addressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addressModel.h; path = Model/addressModel.h; sourceTree = "<group>"; };
@@ -1196,6 +1199,8 @@
 				F293A0BA1C146DA000B2724B /* CustomMyselfButton.m */,
 				E831BCEF1D1C518000BE9247 /* myLabel.h */,
 				E831BCF01D1C518000BE9247 /* myLabel.m */,
+				E86705311D251BDD00EABAF3 /* myLoopView.h */,
+				E86705321D251BDD00EABAF3 /* myLoopView.m */,
 			);
 			name = "自定义控件";
 			sourceTree = "<group>";
@@ -2886,6 +2891,7 @@
 				F293A0A51C14679500B2724B /* ALView+PureLayout.m in Sources */,
 				F2F400971C1D41D600EC5E32 /* SuperMarketViewController.m in Sources */,
 				F241DAED1C4A1F3E001A828D /* LCActionSheet.m in Sources */,
+				E86705331D251BDD00EABAF3 /* myLoopView.m in Sources */,
 				F279F5AF1C1D51A8001FB738 /* MJRefreshAutoFooter.m in Sources */,
 				F2F4009E1C1D45FF00EC5E32 /* SupermarketCollectionViewCell.m in Sources */,
 				F2B6654C1C7997F7007427BB /* TZPhotoPreviewCell.m in Sources */,
