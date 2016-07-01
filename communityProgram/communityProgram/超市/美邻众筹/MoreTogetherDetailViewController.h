@@ -12,6 +12,7 @@
 #import "UITableView+SDAutoTableViewCellHeight.h"
 #import "CommentModle.h"
 #import "ComfirmOrderViewController.h"
+#import "AllChipModel.h"
 @interface MoreTogetherDetailViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView *myTableView;
@@ -19,5 +20,6 @@
     NSMutableArray *commentDataSource;
     
 }
+@property(nonatomic,strong)AllChipModel * model;
 @property(nonatomic,copy)NSString * ID;
 @end

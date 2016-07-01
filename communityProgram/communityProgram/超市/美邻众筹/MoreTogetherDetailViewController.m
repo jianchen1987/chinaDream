@@ -14,6 +14,7 @@
 #import "PictureCarouselScrollView.h"
 #import "MJRefreshGifHeader.h"
 #import "MJRefreshAutoNormalFooter.h"
+#import "CrowdFundingRequest.h"
 @interface MoreTogetherDetailViewController ()
 @property(nonatomic,strong)DetaiHeadView * detailHeadView;
 @property(nonatomic,strong)UIView  * headView;
@@ -21,6 +22,7 @@
 @property(nonatomic,strong)PictureCarouselScrollView * Picture_Scroll ;
 @property(nonatomic,strong)UIView * TooMoreView;
 @property(nonatomic,strong)UIButton * TooMore_BT ;
+
 
 /**
  *  底部
@@ -53,7 +55,7 @@
      */
     
     
-    NSArray * array=@[self.user.identifyName,_ID,allchip,@1,@4];
+    NSArray * array=@[self.model.id,allchip,@1,@4];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:array  WithPath:getComment successBlock:^(id successJsonData)
      {
          for (NSDictionary *dic in successJsonData) {
@@ -333,25 +335,28 @@
     [_headView addSubview:_detailHeadView];
 
     _detailHeadView.frame=CGRectMake(0, DeviceWidth/2, DeviceWidth, 220);
-    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.ID] WithPath:getChipById successBlock:^(NSDictionary* successJsonData) {
-        NSArray * imageArr=[successJsonData objectForKey:@"allChipBanners"];
+    
+    [CrowdFundingRequest getChipByIdRquest:self.model successBlock:^(AllChipModel * model) {
+        
+        
+        NSArray * imageArr=model.allChipBanners;
         NSMutableArray * imageArray=[NSMutableArray array];
         for (int i=0; i<imageArr.count; i++) {
+            
             NSString * name=[NSString stringWithFormat:@"%@%@",AppendingImageUrl,imageArr[i]];
             [imageArray addObject:name];
         }
- 
-      [Picture_Scroll Viewframe:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2) andViewAllimage:imageArray andChangeTime:1];
-        _detailHeadView.titleName.text=[successJsonData objectForKey:@"title"];
-        NSString * stirng=[NSString stringWithFormat:@"已筹到:%@斤",[successJsonData objectForKey:@"chipNum"]];
-        _detailHeadView.descInfo.attributedText=[self AttributedString: stirng  image:@"已筹到"];
-        _detailHeadView.price.attributedText= [self AttributedString:[NSString stringWithFormat:@"¥%@/斤",[successJsonData objectForKey:@"price"]] rangeString:@"/斤" color: [UIColor grayColor]];
-        _detailHeadView.supportNum.attributedText= [self AttributedString:[NSString stringWithFormat:@"已有%@人支持", [successJsonData objectForKey:@"supportNum"]] image:@"人数" ];
-        _detailHeadView.chipNum.attributedText=[self AttributedString: [NSString stringWithFormat:@"项目目标%@斤",  [successJsonData objectForKey:@"chipNum"]]image:@"项目目标"];
-        _detailHeadView.detaiData.text= [successJsonData objectForKey:@"simpleIntro"];
-        _Information=successJsonData;
         
-        NSNumber * number=[_Information objectForKey:@"commentPeople"];
+        [Picture_Scroll Viewframe:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2) andViewAllimage:imageArray andChangeTime:1];
+        _detailHeadView.titleName.text=model.title;
+        NSString * stirng=[NSString stringWithFormat:@"已筹到:%0.1ld斤",(long)model.chipNum];
+        _detailHeadView.descInfo.attributedText=[self AttributedString: stirng  image:@"已筹到"];
+        _detailHeadView.price.attributedText= [self AttributedString:[NSString stringWithFormat:@"¥%0.1f/斤",model.price] rangeString:@"/斤" color: [UIColor grayColor]];
+        _detailHeadView.supportNum.attributedText= [self AttributedString:[NSString stringWithFormat:@"已有%ld人支持", (long)model.supportNum] image:@"人数" ];
+        _detailHeadView.chipNum.attributedText=[self AttributedString: [NSString stringWithFormat:@"项目目标%ld斤",  (long)model.chipNum ]image:@"项目目标"];
+        _detailHeadView.detaiData.text= model.simpleIntro;
+        
+        NSNumber * number=Number(model.commentPeople);
         if ([number intValue]>0 ) {
             [_TooMore_BT setTitle:[NSString stringWithFormat:@"查看全部评论%@",number ] forState:UIControlStateNormal];
             
@@ -360,9 +365,41 @@
             _TooMore_BT.enabled=NO;
         }
         [myTableView reloadData];
+        
     } errorBlock:^(int code, NSString *errorJsonData) {
-
+        
     }];
+    
+//    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.ID] WithPath:getChipById successBlock:^(NSDictionary* successJsonData) {
+//        NSArray * imageArr=[successJsonData objectForKey:@"allChipBanners"];
+//        NSMutableArray * imageArray=[NSMutableArray array];
+//        for (int i=0; i<imageArr.count; i++) {
+//            NSString * name=[NSString stringWithFormat:@"%@%@",AppendingImageUrl,imageArr[i]];
+//            [imageArray addObject:name];
+//        }
+// 
+//      [Picture_Scroll Viewframe:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2) andViewAllimage:imageArray andChangeTime:1];
+//        _detailHeadView.titleName.text=[successJsonData objectForKey:@"title"];
+//        NSString * stirng=[NSString stringWithFormat:@"已筹到:%@斤",[successJsonData objectForKey:@"chipNum"]];
+//        _detailHeadView.descInfo.attributedText=[self AttributedString: stirng  image:@"已筹到"];
+//        _detailHeadView.price.attributedText= [self AttributedString:[NSString stringWithFormat:@"¥%@/斤",[successJsonData objectForKey:@"price"]] rangeString:@"/斤" color: [UIColor grayColor]];
+//        _detailHeadView.supportNum.attributedText= [self AttributedString:[NSString stringWithFormat:@"已有%@人支持", [successJsonData objectForKey:@"supportNum"]] image:@"人数" ];
+//        _detailHeadView.chipNum.attributedText=[self AttributedString: [NSString stringWithFormat:@"项目目标%@斤",  [successJsonData objectForKey:@"chipNum"]]image:@"项目目标"];
+//        _detailHeadView.detaiData.text= [successJsonData objectForKey:@"simpleIntro"];
+//        _Information=successJsonData;
+//        
+//        NSNumber * number=[_Information objectForKey:@"commentPeople"];
+//        if ([number intValue]>0 ) {
+//            [_TooMore_BT setTitle:[NSString stringWithFormat:@"查看全部评论%@",number ] forState:UIControlStateNormal];
+//            
+//        }else{
+//            [_TooMore_BT setTitle:[NSString stringWithFormat:@"无人评论评论"] forState:UIControlStateNormal];
+//            _TooMore_BT.enabled=NO;
+//        }
+//        [myTableView reloadData];
+//    } errorBlock:^(int code, NSString *errorJsonData) {
+//
+//    }];
     
      [self creatView];
      [self addSubView];

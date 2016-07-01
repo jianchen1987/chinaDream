@@ -1,165 +1,293 @@
 (
 {
-createTime = "2016-06-26 16:08:44";
-freeEat =     {
-applyNum = 1;
-createTime = "2016-06-26 14:32:57";
-expireDate = "2016-06-30 00:00:00";
-freeIcon = "/resource/admin/productIcon/5983d1d1-0d5f-4404-9b15-91fa5b5411c4.jpg";
-freeNum = 12;
-id = "5e9ada6e-dcc4-4822-a54f-9f217d4cdcd6";
-imageText = "<p>\U4e0b\U6b21\U5c3a\U5bf8</p>
-\n<p><img id=\"previewImg\" src=\"../../resource/admin/tempFile/e6b0d11e-0284-4235-93af-980f62582737.gif\" alt=\"\" border=\"0\" /></p>";
-modifyTime = "2016-06-28 21:12:55";
-productName = ddddddd;
-ruleMessage = "d\U5c3a\U5bf8";
-simpleIntro = "\U4e0b\U6b21\U4e0b\U6b21";
-sourcePrice = 12;
-spec = "\U4ef6";
-};
-freeEatCode = 651707;
-hasTake = 1;
-id = "a8ff69d6-f2d3-4f21-b97d-e05515ceba04";
-phone = 13360550875;
-sendRecord = "\U77ed\U4fe1\U53d1\U9001\U6210\U529f!";
-user =     {
-address = address;
-birth = 18666;
-createTime = "2016-06-25 17:48:25";
-gender = "\U7537";
-headIcon = "/resource/admin/userIcon/1cf7c541-204d-43b6-b3e6-19fb2fb4ba33.png";
-id = "32c727df-c957-48fc-9de1-0c8ea09e69d0";
-integral =         {
-createTime = "2016-06-25 17:48:36";
-id = "823b34c4-8a8d-46d2-81c5-a091550b8f58";
-integralNum = 21;
-modifyTime = "2016-06-29 17:12:22";
-};
-modifyTime = "2016-06-29 17:12:22";
-myExtraIntegral = 21;
-nickName = James;
-passWord = 96e79218965eb72c92a549dd5a330112;
-phone = 13360550875;
-quarter =         {
-createTime = "2016-03-20 15:06:32";
-id = "78931519-9b8b-4540-9b17-c74167f5b502";
-lat = "23.128213";
-lng = "113.388172";
-quarterAddress = "\U5e7f\U5dde\U5e02\U5929\U6cb3\U533a\U79d1\U65b0\U8def\U7960\U524d\U8def1\U53f7B\U680b";
-quarterIcon = "";
-quarterName = "\U9a8f\U666f\U82b1\U56ed";
-remark = "\U9a8f\U666f\U82b1\U56ed\U2014\U2014\U9ad8\U7eff\U5316\U4f4e\U5bc6\U5ea6\U5927\U578b\U56ed\U6797\U793e\U533a\Uff0c\U6bd7\U90bb\U5929\U6cb3\U516c\U56ed\Uff0c\U8bbe\U65bd\U914d\U5957\U5b8c\U5584\Uff0c\U72ec\U7279\U7684\U5341\U5927\U201c\U5bbd\U201d\U666f\U540c\U65f6\U62e5\U6709\U3001\U5b8c\U7f8e\U7ed3\U5408\Uff0c\U53ef\U4ee5\U5c3d\U60c5\U6f14\U7ece\U6d12\U8131\U5199\U610f\U751f\U6d3b\U3002\U751f\U6d3b\U914d\U5957\U9f50\U5168\Uff0c\U5e7c\U513f\U56ed\U3001\U9a8f\U666f\U4e2d\U5b66\U5df2\U7ecf\U6295\U5165\U4f7f\U7528\Uff1b\U5bbd\U655e\U3001\U5bbd\U5e7f\U3001\U5bbd\U7545\U7684\U90fd\U5e02\U5bbd\U751f\U6d3b\U4f53\U9a8c\U3002 \U9a8f\U666f\U82b1\U56ed\U2014\U2014\U5165\U4f4f\U7387\U9ad8\U8fbe95\Uff05\Uff0c\U4e09\U5e74\U6210\U4e3a\U6210\U719f\U793e\U533a\Uff1b\U8363\U83b7\U5e7f\U5dde\U5e02\U6837\U677f\U5c0f\U533a\U3001\U5e7f\U4e1c\U7701\U7269\U4e1a\U7ba1\U7406\U793a\U8303\U5c0f\U533a\U3001\U5e7f\U5dde\U5e02\U5341\U5927\U540d\U724c\U5c45\U4f4f\U533a\U7b49\U79f0\U53f7\U3002";
-};
-};
-userIp = "202.105.41.197";
+allChipBanners =         (
+{
+createTime = "2016-04-10 01:53:33";
+id = "82ac2655-2350-4b36-8e52-8ae2d32d2d2a";
+imageLogo = "/resource/admin/allchipIcon/2d26875d-639a-40ba-8d7a-fe6bab3092d9.jpg";
 },
 {
-createTime = "2016-06-29 10:24:41";
-freeEat =     {
-applyNum = 1;
-createTime = "2016-06-26 14:32:57";
-expireDate = "2016-06-30 00:00:00";
-freeIcon = "/resource/admin/productIcon/5983d1d1-0d5f-4404-9b15-91fa5b5411c4.jpg";
-freeNum = 12;
-id = "5e9ada6e-dcc4-4822-a54f-9f217d4cdcd6";
-imageText = "<p>\U4e0b\U6b21\U5c3a\U5bf8</p>
-\n<p><img id=\"previewImg\" src=\"../../resource/admin/tempFile/e6b0d11e-0284-4235-93af-980f62582737.gif\" alt=\"\" border=\"0\" /></p>";
-modifyTime = "2016-06-28 21:12:55";
-productName = ddddddd;
-ruleMessage = "d\U5c3a\U5bf8";
-simpleIntro = "\U4e0b\U6b21\U4e0b\U6b21";
-sourcePrice = 12;
-spec = "\U4ef6";
-};
-freeEatCode = 354476;
-hasTake = 1;
-id = "dfe2cbf9-f701-4c5d-a74c-00e490440cd1";
-phone = 13360550875;
-sendRecord = "\U77ed\U4fe1\U53d1\U9001\U6210\U529f!";
-user =     {
-address = address;
-birth = 18666;
-createTime = "2016-06-25 17:48:25";
-gender = "\U7537";
-headIcon = "/resource/admin/userIcon/1cf7c541-204d-43b6-b3e6-19fb2fb4ba33.png";
-id = "32c727df-c957-48fc-9de1-0c8ea09e69d0";
-integral =         {
-createTime = "2016-06-25 17:48:36";
-id = "823b34c4-8a8d-46d2-81c5-a091550b8f58";
-integralNum = 21;
-modifyTime = "2016-06-29 17:12:22";
-};
-modifyTime = "2016-06-29 17:12:22";
-myExtraIntegral = 21;
-nickName = James;
-passWord = 96e79218965eb72c92a549dd5a330112;
-phone = 13360550875;
-quarter =         {
-createTime = "2016-03-20 15:06:32";
-id = "78931519-9b8b-4540-9b17-c74167f5b502";
-lat = "23.128213";
-lng = "113.388172";
-quarterAddress = "\U5e7f\U5dde\U5e02\U5929\U6cb3\U533a\U79d1\U65b0\U8def\U7960\U524d\U8def1\U53f7B\U680b";
-quarterIcon = "";
-quarterName = "\U9a8f\U666f\U82b1\U56ed";
-remark = "\U9a8f\U666f\U82b1\U56ed\U2014\U2014\U9ad8\U7eff\U5316\U4f4e\U5bc6\U5ea6\U5927\U578b\U56ed\U6797\U793e\U533a\Uff0c\U6bd7\U90bb\U5929\U6cb3\U516c\U56ed\Uff0c\U8bbe\U65bd\U914d\U5957\U5b8c\U5584\Uff0c\U72ec\U7279\U7684\U5341\U5927\U201c\U5bbd\U201d\U666f\U540c\U65f6\U62e5\U6709\U3001\U5b8c\U7f8e\U7ed3\U5408\Uff0c\U53ef\U4ee5\U5c3d\U60c5\U6f14\U7ece\U6d12\U8131\U5199\U610f\U751f\U6d3b\U3002\U751f\U6d3b\U914d\U5957\U9f50\U5168\Uff0c\U5e7c\U513f\U56ed\U3001\U9a8f\U666f\U4e2d\U5b66\U5df2\U7ecf\U6295\U5165\U4f7f\U7528\Uff1b\U5bbd\U655e\U3001\U5bbd\U5e7f\U3001\U5bbd\U7545\U7684\U90fd\U5e02\U5bbd\U751f\U6d3b\U4f53\U9a8c\U3002 \U9a8f\U666f\U82b1\U56ed\U2014\U2014\U5165\U4f4f\U7387\U9ad8\U8fbe95\Uff05\Uff0c\U4e09\U5e74\U6210\U4e3a\U6210\U719f\U793e\U533a\Uff1b\U8363\U83b7\U5e7f\U5dde\U5e02\U6837\U677f\U5c0f\U533a\U3001\U5e7f\U4e1c\U7701\U7269\U4e1a\U7ba1\U7406\U793a\U8303\U5c0f\U533a\U3001\U5e7f\U5dde\U5e02\U5341\U5927\U540d\U724c\U5c45\U4f4f\U533a\U7b49\U79f0\U53f7\U3002";
-};
-};
-userIp = "202.105.41.196";
+createTime = "2016-04-10 01:53:33";
+id = "a8ae9240-da4b-47ad-ad46-5c50dd90ec99";
+imageLogo = "/resource/admin/allchipIcon/13ac9a28-4977-44fb-ba2f-2ff727c43378.jpg";
+}
+);
+allChipStatu = 0;
+chipsIcon = "/resource/admin/allchipIcon/9763a851-169d-48c9-b028-0ace6befbf71.jpg";
+collAllChip = 1;
+createTime = "2016-04-10 01:53:33";
+descInfo = 300;
+expireDate = "2016-04-30 00:00:00";
+id = "08acca2e-d2d5-4765-98cf-32931be7e9e3";
+imageText = "<div class=\"para\">\U84dd\U7259\U8033\U673a\U5c31\U662f\U5c06<a href=\"http://baike.baidu.com/view/7011.htm\" target=\"_blank\">\U84dd\U7259\U6280\U672f</a>\U5e94\U7528\U5728\U514d\U6301\U8033\U673a\U4e0a\Uff0c\U8ba9\U4f7f\U7528\U8005\U53ef\U4ee5\U514d\U9664\U607c\U4eba\U7535\U7ebf\U7684\U7275\U7eca\Uff0c\U81ea\U5728\U5730\U4ee5\U5404\U79cd\U65b9\U5f0f\U8f7b\U677e\U901a\U8bdd\U3002\U81ea\U4ece\U84dd\U7259\U8033\U673a\U95ee\U4e16\U4ee5\U6765\Uff0c\U4e00\U76f4\U662f\U884c\U52a8\U5546\U52a1\U65cf\U63d0\U5347\U6548\U7387\U7684\U597d\U5de5\U5177\U3002</div>
+\n<div class=\"para\">\U84dd\U7259\U662f\U4e00\U79cd\U4f4e\U6210\U672c\U5927\U5bb9\U91cf\U7684\U77ed\U8ddd\U79bb\U65e0\U7ebf\U901a\U4fe1\U89c4\U8303\U3002\U84dd\U7259\U7b14\U8bb0\U672c\U7535\U8111\Uff0c\U5c31\U662f\U5177\U6709\U84dd\U7259\U65e0\U7ebf\U901a\U4fe1\U529f\U80fd\U7684\U7b14\U8bb0\U672c\U7535\U8111\U3002\U84dd\U7259\U8fd9\U4e2a\U540d\U5b57\U8fd8\U6709\U4e00\U6bb5\U4f20\U5947\U6545\U4e8b\U5462\U3002\U516c\U514310\U4e16\U7eaa\Uff0c\U5317\U6b27\U8bf8\U4faf\U4e89\U9738\Uff0c<a href=\"http://baike.baidu.com/view/6431.htm\" target=\"_blank\">\U4e39\U9ea6</a>\U56fd\U738b\U633a\U8eab\U800c\U51fa\Uff0c\U5728\U4ed6\U7684\U4e0d\U61c8\U52aa\U529b\U4e0b\Uff0c\U8840\U8165\U7684\U6218\U4e89\U88ab\U5236\U6b62\U4e86\Uff0c\U5404\U65b9\U90fd\U5750\U5230\U4e86\U8c08\U5224\U684c\U524d\U3002\U901a\U8fc7\U6c9f\U901a\Uff0c\U8bf8\U4faf\U4eec\U51b0\U91ca\U524d\U5acc\Uff0c\U6210\U4e3a\U670b\U53cb\U3002\U7531 \U4e8e\U4e39\U9ea6\U56fd\U738b\U9177\U7231\U5403<a href=\"http://baike.baidu.com/view/133822.htm\" target=\"_blank\">\U84dd\U6885</a>\Uff0c\U4ee5\U81f3\U4e8e\U7259\U9f7f\U90fd\U88ab\U67d3\U6210\U4e86\U84dd\U8272\Uff0c\U4eba\U79f0\U84dd\U7259\U56fd\U738b\Uff0c\U6240\U4ee5\Uff0c\U84dd\U7259\U4e5f\U5c31\U6210\U4e86\U6c9f\U901a\U7684\U4ee3\U540d\U8bcd\U3002\U4e00\U5343\U5e74\U540e\U7684\U4eca\U5929\Uff0c\U5f53\U65b0\U7684\U65e0\U7ebf\U901a\U4fe1\U89c4\U8303\U51fa\U53f0\U65f6\Uff0c\U4eba\U4eec\U53c8\U7528\U84dd\U7259\U6765\U4e3a\U5b83\U547d\U540d\U30021995\U5e74\Uff0c<a href=\"http://baike.baidu.com/view/16365.htm\" target=\"_blank\">\U7231\U7acb\U4fe1</a>\U516c\U53f8\U6700\U5148\U63d0\U51fa\U84dd\U7259\U6982\U5ff5\U3002\U84dd\U7259\U89c4\U8303\U91c7\U7528\U5fae\U6ce2\U9891\U6bb5\U5de5\U4f5c\Uff0c\U4f20\U8f93\U901f\U7387\U6bcf\U79d21M\U5b57\U8282\Uff0c\U6700\U5927\U4f20\U8f93\U8ddd\U79bb10\U7c73\Uff0c\U901a\U8fc7\U589e\U52a0\U53d1\U5c04\U529f\U7387\U53ef\U8fbe\U5230100\U7c73\U3002<a href=\"http://baike.baidu.com/view/7011.htm\" target=\"_blank\">\U84dd\U7259\U6280\U672f</a>\U662f\U5168\U7403\U5f00\U653e\U7684\Uff0c\U5728\U5168\U7403\U8303\U56f4\U5185\U5177\U6709\U5f88\U597d\U7684\U517c\U5bb9\U6027\Uff0c\U5168\U4e16\U754c\U53ef\U4ee5\U901a\U8fc7\U4f4e\U6210\U672c\U7684\U65e0\U5f62\U84dd\U7259\U7f51\U8fde\U6210\U4e00\U4f53\U3002</div>";
+jianOrJin = "\U4ef6";
+modifyTime = "2016-04-12 21:36:05";
+price = 298;
+simpleIntro = "\U84dd\U7259\U8033\U673a\U5c31\U662f\U5c06\U84dd\U7259\U6280\U672f\U5e94\U7528\U5728\U514d\U6301\U8033\U673a\U4e0a\U3002";
+title = "\U84dd\U7259\U8033\U673a";
 },
 {
-createTime = "2016-06-26 16:09:00";
-freeEat =     {
-applyNum = 1;
-createTime = "2016-06-26 14:32:57";
-expireDate = "2016-06-30 00:00:00";
-freeIcon = "/resource/admin/productIcon/5983d1d1-0d5f-4404-9b15-91fa5b5411c4.jpg";
-freeNum = 12;
-id = "5e9ada6e-dcc4-4822-a54f-9f217d4cdcd6";
-imageText = "<p>\U4e0b\U6b21\U5c3a\U5bf8</p>
-\n<p><img id=\"previewImg\" src=\"../../resource/admin/tempFile/e6b0d11e-0284-4235-93af-980f62582737.gif\" alt=\"\" border=\"0\" /></p>";
-modifyTime = "2016-06-28 21:12:55";
-productName = ddddddd;
-ruleMessage = "d\U5c3a\U5bf8";
-simpleIntro = "\U4e0b\U6b21\U4e0b\U6b21";
-sourcePrice = 12;
-spec = "\U4ef6";
-};
-freeEatCode = 267446;
-hasTake = 1;
-id = "f675de05-428f-4f5f-9282-f39ba4612e71";
-phone = 13360550875;
-sendRecord = "\U77ed\U4fe1\U53d1\U9001\U6210\U529f!";
-user =     {
-address = address;
-birth = 18666;
-createTime = "2016-06-25 17:48:25";
-gender = "\U7537";
-headIcon = "/resource/admin/userIcon/1cf7c541-204d-43b6-b3e6-19fb2fb4ba33.png";
-id = "32c727df-c957-48fc-9de1-0c8ea09e69d0";
-integral =         {
-createTime = "2016-06-25 17:48:36";
-id = "823b34c4-8a8d-46d2-81c5-a091550b8f58";
-integralNum = 21;
-modifyTime = "2016-06-29 17:12:22";
-};
-modifyTime = "2016-06-29 17:12:22";
-myExtraIntegral = 21;
-nickName = James;
-passWord = 96e79218965eb72c92a549dd5a330112;
-phone = 13360550875;
-quarter =         {
-createTime = "2016-03-20 15:06:32";
-id = "78931519-9b8b-4540-9b17-c74167f5b502";
-lat = "23.128213";
-lng = "113.388172";
-quarterAddress = "\U5e7f\U5dde\U5e02\U5929\U6cb3\U533a\U79d1\U65b0\U8def\U7960\U524d\U8def1\U53f7B\U680b";
-quarterIcon = "";
-quarterName = "\U9a8f\U666f\U82b1\U56ed";
-remark = "\U9a8f\U666f\U82b1\U56ed\U2014\U2014\U9ad8\U7eff\U5316\U4f4e\U5bc6\U5ea6\U5927\U578b\U56ed\U6797\U793e\U533a\Uff0c\U6bd7\U90bb\U5929\U6cb3\U516c\U56ed\Uff0c\U8bbe\U65bd\U914d\U5957\U5b8c\U5584\Uff0c\U72ec\U7279\U7684\U5341\U5927\U201c\U5bbd\U201d\U666f\U540c\U65f6\U62e5\U6709\U3001\U5b8c\U7f8e\U7ed3\U5408\Uff0c\U53ef\U4ee5\U5c3d\U60c5\U6f14\U7ece\U6d12\U8131\U5199\U610f\U751f\U6d3b\U3002\U751f\U6d3b\U914d\U5957\U9f50\U5168\Uff0c\U5e7c\U513f\U56ed\U3001\U9a8f\U666f\U4e2d\U5b66\U5df2\U7ecf\U6295\U5165\U4f7f\U7528\Uff1b\U5bbd\U655e\U3001\U5bbd\U5e7f\U3001\U5bbd\U7545\U7684\U90fd\U5e02\U5bbd\U751f\U6d3b\U4f53\U9a8c\U3002 \U9a8f\U666f\U82b1\U56ed\U2014\U2014\U5165\U4f4f\U7387\U9ad8\U8fbe95\Uff05\Uff0c\U4e09\U5e74\U6210\U4e3a\U6210\U719f\U793e\U533a\Uff1b\U8363\U83b7\U5e7f\U5dde\U5e02\U6837\U677f\U5c0f\U533a\U3001\U5e7f\U4e1c\U7701\U7269\U4e1a\U7ba1\U7406\U793a\U8303\U5c0f\U533a\U3001\U5e7f\U5dde\U5e02\U5341\U5927\U540d\U724c\U5c45\U4f4f\U533a\U7b49\U79f0\U53f7\U3002";
-};
-};
-userIp = "202.105.41.197";
+allChipBanners =         (
+{
+createTime = "2015-12-23 22:02:49";
+id = "0062d91f-d370-4171-aa98-fb9b768639a9";
+imageLogo = "/resource/admin/allchipIcon/a7fdbe0a-b85f-4d90-b0b2-3824aa970640.png";
+},
+{
+createTime = "2015-12-23 22:02:49";
+id = "a97fdba2-0980-4e4e-b787-41acd9faff58";
+imageLogo = "/resource/admin/allchipIcon/1ab77698-31c2-4df6-a43a-7fd06ebee52b.png";
+},
+{
+createTime = "2015-12-23 22:02:49";
+id = "ed84e8c0-8aef-43c3-bb2b-a82338a57533";
+imageLogo = "/resource/admin/allchipIcon/27dd90c1-2dd9-4d63-aea2-f6c961b32c9d.png";
+}
+);
+allChipStatu = 0;
+chipsIcon = "/resource/admin/allchipIcon/2a5dff34-8ef4-4671-9b99-fc35d61f10bf.png";
+createTime = "2015-12-23 22:02:49";
+descInfo = 120;
+expireDate = "2015-12-24 00:00:00";
+id = "0e844094-8e24-4681-8ef3-a35f7eff053a";
+imageText = "<p>\U7684\U65b9\U6cd5\U7684\U662f\U5426zZz\U8fd9\U5468zzZ\U8d70</p>";
+jianOrJin = "\U4ef6";
+modifyTime = "2016-04-12 21:46:20";
+price = 17;
+simpleIntro = "sdfghj;lhgfgds";
+title = "ff\U98de";
+},
+{
+allChipBanners =         (
+);
+allChipStatu = 0;
+chipsIcon = "/resource/admin/allchipIcon/6fe8037d-f8c3-4cb6-8701-a31b85852cd7.png";
+createTime = "2016-04-16 23:40:50";
+descInfo = 30;
+expireDate = "2016-04-16 00:00:00";
+id = "16b05d1b-f2ed-4e32-86f5-3f2df1aa86ba";
+imageText = "<p>test</p>";
+jianOrJin = "\U5143";
+modifyTime = "2016-04-16 23:54:21";
+price = 10;
+simpleIntro = desc;
+title = name;
+unitNum = 20;
+},
+{
+allChipBanners =         (
+{
+id = "15a65c64-b69a-4171-8533-dd8fc81a439d";
+imageLogo = "/resource/admin/allchipIcon/af82ec69-ae96-4cbd-a8e2-3a54f4d27af0.gif";
+},
+{
+id = "652f0975-4ab3-4eaf-bae9-1eaa7bad10c4";
+imageLogo = "/resource/admin/allchipIcon/1f0c4d31-7986-484d-b175-6a92b65a1b6e.gif";
+}
+);
+allChipStatu = 0;
+chipsIcon = "/resource/admin/allchipIcon/c841b350-21db-406a-b18c-03d885d2323d.png";
+createTime = "2015-12-24 22:27:15";
+descInfo = 100;
+expireDate = "2015-12-26 00:00:00";
+id = "1f5dd5d1-eebc-4736-9274-c991bc45a552";
+imageText = "<p>saaaaaaaaaaaaa</p>";
+jianOrJin = "\U65a4";
+modifyTime = "2016-04-12 21:45:41";
+price = 234;
+simpleIntro = dfghjkljhgvc;
+title = saass;
+},
+{
+allChipBanners =         (
+);
+allChipStatu = 0;
+chipsIcon = "/resource/admin/allchipIcon/478bc40a-6788-4a32-aa32-d4ad284d7ecf.jpg";
+createTime = "2016-05-07 18:32:15";
+descInfo = 100;
+expireDate = "2016-05-07 00:00:00";
+id = "366752c6-4772-4874-97a6-7261bcd63ddf";
+imageText = "<p>desc</p>";
+jianOrJin = "\U5143";
+modifyTime = "2016-06-28 21:12:20";
+price = 10;
+simpleIntro = desc;
+title = 123;
+unitNum = 10;
+},
+{
+allChipBanners =         (
+{
+id = "043b7892-9f6c-4480-875a-833d2dea8a6a";
+imageLogo = "/resource/admin/allchipIcon/66757d24-dd41-45fb-b228-204865f779e0.gif";
+},
+{
+id = "5fb3b300-97d1-485f-9fe3-1c2132798b69";
+imageLogo = "/resource/admin/allchipIcon/8eb3dfe9-2f23-48a6-842d-39581822c70d.gif";
+},
+{
+id = "ba2acbc4-2a7a-49b9-b0aa-292681be6f35";
+imageLogo = "/resource/admin/allchipIcon/1f9b8cff-ef43-47d8-8d0c-83782b8126ba.gif";
+},
+{
+id = "c29b2e7a-bf46-4f26-b765-cb3f1c29d05f";
+imageLogo = "/resource/admin/allchipIcon/00b400a9-bb82-4d2e-b0db-7e1691a8b6af.gif";
+}
+);
+allChipStatu = 0;
+chipsIcon = "/resource/admin/allchipIcon/1e2498ba-fa06-458a-9643-f8e2074f15b6.gif";
+collAllChip = 1;
+createTime = "2016-04-09 14:08:07";
+descInfo = 300;
+expireDate = "2016-04-09 00:00:00";
+id = "3ab8a060-b14e-4262-8379-9fd690f2dd62";
+imageText = "<p>desc</p>";
+jianOrJin = "\U5143";
+modifyTime = "2016-04-12 21:44:25";
+price = 10;
+simpleIntro = 25111111111111111111;
+title = 123;
+},
+{
+allChipBanners =         (
+{
+createTime = "2015-12-24 21:59:39";
+id = "68af4bf8-27f3-41de-bac7-f24520ed4b14";
+imageLogo = "/resource/admin/allchipIcon/021a7c78-1a08-42a3-8965-bc30fa6ceaa6.png";
+},
+{
+createTime = "2015-12-24 21:59:40";
+id = "806226d5-7551-45e7-8b0d-c17f055291ab";
+imageLogo = "/resource/admin/allchipIcon/d96016e3-0519-4c82-88f5-218fdb43cc03.png";
+}
+);
+allChipStatu = 0;
+chipsIcon = "/resource/admin/allchipIcon/67254646-19c6-4e63-849a-2124d2ec9e83.png";
+createTime = "2015-12-24 21:59:40";
+descInfo = 100;
+expireDate = "2015-12-24 00:00:00";
+id = "759005e2-5017-45b5-af29-c9ca85fdc68c";
+imageText = "<p>zZZZZZXxz xzxzxzxghxz</p>";
+jianOrJin = "\U4ef6";
+modifyTime = "2016-04-12 21:45:59";
+price = 23;
+simpleIntro = sdfghjklkhgfdfs;
+title = ZZZ;
+},
+{
+allChipBanners =         (
+);
+allChipStatu = 1;
+chipNum = 0;
+chipsIcon = "/resource/admin/allchipIcon/089e4a07-28c7-4099-85f3-165a84283154.gif";
+createTime = "2016-02-20 14:32:25";
+descInfo = 300;
+expireDate = "2016-02-20 00:00:00";
+id = "82789f9b-ddf2-4098-aebc-567aa2763125";
+imageText = "<p>desc</p>";
+jianOrJin = "\U5143";
+modifyTime = "2016-06-18 16:57:36";
+price = 10;
+simpleIntro = sdhfhjgh;
+supportNum = 9;
+title = "\U540d\U79f0";
+},
+{
+allChipBanners =         (
+);
+allChipStatu = 0;
+chipsIcon = "/resource/admin/allchipIcon/53a8a34b-482c-4929-9f32-9cdc6ab4fec1.png";
+createTime = "2016-05-07 18:26:49";
+descInfo = 10;
+expireDate = "2016-05-01 00:00:00";
+id = "8bffbcc9-0061-4f75-8b0a-6dfd205500c6";
+imageText = "<p>test</p>";
+jianOrJin = "\U5143";
+price = 12;
+simpleIntro = desc;
+title = 123;
+unitNum = 10;
+},
+{
+allChipBanners =         (
+);
+allChipStatu = 2;
+chipNum = 380;
+chipsIcon = "/resource/admin/allchipIcon/84a8f8d6-270a-4d6e-bb34-86cd3d99a71b.jpg";
+collAllChip = 1;
+commentPeople = 7;
+createTime = "2016-05-30 17:44:32";
+descInfo = 600;
+expireDate = "2016-06-20 00:00:00";
+id = "b4746574-ce6f-497d-8af7-63c4cb55f268";
+imageText = "<p>sdfghjkljhgfds</p>";
+jianOrJin = "\U4ef6";
+modifyTime = "2016-06-28 21:12:10";
+price = 400;
+simpleIntro = xchgjhkhgfgdg;
+supportNum = 1;
+title = aa;
+unitNum = 10;
+},
+{
+allChipBanners =         (
+{
+id = "0384836b-a4cc-4043-a778-6ab9da20a99d";
+imageLogo = "/resource/admin/allchipIcon/2a424e3e-c08f-4ce4-a0fc-0f9bf1ad79a2.gif";
+},
+{
+id = "9880369f-be12-4a42-a84a-16dc098412cb";
+imageLogo = "/resource/admin/allchipIcon/c751c224-31b5-4f54-9252-98a5565e9617.gif";
+}
+);
+allChipStatu = 0;
+chipsIcon = "/resource/admin/allchipIcon/846814ad-665e-49f1-b413-688bd28b9ec9.png";
+createTime = "2016-01-27 19:20:07";
+descInfo = 1;
+expireDate = "2016-01-28 00:00:00";
+id = "bd5f2e46-84f0-4056-bf05-bd9566fc019a";
+imageText = "<p>sddsd</p>";
+jianOrJin = "\U5143";
+modifyTime = "2016-04-12 21:45:17";
+price = "12.59";
+simpleIntro = sdfgjh;
+title = 111;
+},
+{
+allChipBanners =         (
+);
+allChipStatu = 0;
+chipNum = 5;
+chipsIcon = "/resource/admin/allchipIcon/585e2f01-5a3a-437b-9e09-ba41435cb390.jpg";
+collAllChip = 2;
+createTime = "2016-05-07 18:29:54";
+descInfo = 300;
+expireDate = "2016-05-23 00:00:00";
+id = "e6390f01-b2a3-42a0-9ed4-5cd1d3fd2edc";
+imageText = "<p>dfghjk</p>";
+jianOrJin = "\U5143";
+modifyTime = "2016-06-28 21:12:43";
+price = 170;
+simpleIntro = dfghf;
+supportNum = 5;
+title = "\U9f20\U6807";
+unitNum = 1;
+},
+{
+allChipBanners =         (
+);
+allChipStatu = 0;
+chipsIcon = "/resource/admin/allchipIcon/08fe4e14-9ae8-4ab6-b4e5-1a06a670b366.png";
+createTime = "2016-04-25 16:56:51";
+descInfo = 100;
+expireDate = "2016-04-29 00:00:00";
+id = "fa0fd240-0d59-4dee-aef7-7617671b1568";
+imageText = "<p>cvvccv</p>";
+jianOrJin = "\U5143";
+price = 111;
+simpleIntro = dds;
+title = 23223;
+unitNum = 10;
 }
 )
-

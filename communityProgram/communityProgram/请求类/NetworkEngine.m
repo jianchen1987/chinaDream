@@ -40,6 +40,7 @@
         
     }failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
 //        NSLog(@"error = %@",error);
+        errorBlock(0, error.description);
       
     }];
 

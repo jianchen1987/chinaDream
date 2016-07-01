@@ -11,6 +11,10 @@
 #import "PictureCarouselScrollView.h"
 #import "UIImageView+WebCache.h"
 @interface PictureCarouselScrollView()
+{
+
+    NSInteger count;
+}
 @property(nonatomic,assign)int new;
 @property(nonatomic,assign)int old;
 @property(nonatomic,strong)  NSTimer * timer;
@@ -42,6 +46,7 @@
 andViewAllimageView:(NSArray*)imageArray
    andChangeTime:(NSInteger)changeTime
           object:(UIView*)view{
+    count=imageArray.count;
     self.showsHorizontalScrollIndicator=NO;
     self.rect=frame;
     self.showsVerticalScrollIndicator=NO;
@@ -101,18 +106,18 @@ andViewAllimageView:(NSArray*)imageArray
     self.pagingEnabled=YES;
     self.number=imageArray.count+2;
     self.imagePlaceName=self.imagePlaceName?self.imagePlaceName:@"";
+    
     for (int i=0; i<imageArray.count+2; i++) {
         UIImageView * imageView =[[UIImageView alloc]initWithFrame:CGRectMake(i*frame.size.width, 0, frame.size.width, frame.size.height)];
+        imageView.tag=i;
         if (imageArray.count==0) {
             imageView.image=[UIImage imageNamed:_imagePlaceName] ;
             return;
         }
         if (i==0) {//第一张为最后一张
          
-                    [imageView sd_setImageWithURL:imageArray[imageArray.count-1] placeholderImage:[UIImage imageNamed:self.imagePlaceName]] ;
             
-            
-        
+            [imageView sd_setImageWithURL:imageArray[imageArray.count-1] placeholderImage:[UIImage imageNamed:self.imagePlaceName]];
             
         }else if(i==imageArray.count+1)//最后一张为第一张
         {
@@ -122,8 +127,13 @@ andViewAllimageView:(NSArray*)imageArray
         }
         UILabel * labe=[[UILabel alloc]initWithFrame:CGRectMake(11, 13,333, 33)];
         [imageView addSubview:labe];
-        
+        imageView.userInteractionEnabled=YES;
+        UITapGestureRecognizer * tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickTap:)];
+        [imageView addGestureRecognizer:tap];
         [self addSubview:imageView];
+//        UILabel * lable=[[UILabel alloc]initWithFrame:imageView.frame];
+//        lable.text=NSStringInt(i);
+//        [self addSubview:lable];
     }
     self.indicatorStyle=UIScrollViewIndicatorStyleWhite;
     self.contentOffset=CGPointMake(frame.size.width,0);
@@ -143,6 +153,22 @@ andViewAllimageView:(NSArray*)imageArray
     [timer fire];
     self.now=1;
     
+    
+}
+-(void)clickTap:(UITapGestureRecognizer*)sender
+{
+    
+    NSInteger Number;
+    if (sender.view.tag==0) {
+        Number=count-1;
+    }else if (sender.view.tag==count+1)
+    {
+        Number=0;
+    }else{
+        Number=sender.view.tag-1;
+    }
+
+    [self.PictureDelegate PictureCarouselSelectImageViewNumber:Number];
 }
 -(void)Viewframe:(CGRect)frame
               andViewAllimage:(NSArray*)imageArray
@@ -160,7 +186,6 @@ andViewAllimageView:(NSArray*)imageArray
     self.number=imageArray.count+2;
     
     for (int i=0; i<imageArray.count+2; i++) {
-//        NSLog(@"imageArray.count+1===%d",imageArray.count+1);
         UIImageView * imageView =[[UIImageView alloc]initWithFrame:CGRectMake(i*frame.size.width, 0, frame.size.width, frame.size.height)];
         if (i==0) {//第一张为最后一张
             imageView.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArray[imageArray.count-1]]];

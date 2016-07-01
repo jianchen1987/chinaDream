@@ -58,6 +58,15 @@
 		480BDF021D18ED8000531FAA /* FreeSamples.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480BDF011D18ED8000531FAA /* FreeSamples.xib */; };
 		480BDF061D19190A00531FAA /* MyTryEatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDF041D19190A00531FAA /* MyTryEatTableViewCell.m */; };
 		480BDF071D19190A00531FAA /* MyTryEatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480BDF051D19190A00531FAA /* MyTryEatTableViewCell.xib */; };
+		4813E1471D253D99004D6E7A /* CrowdFundingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813E1461D253D99004D6E7A /* CrowdFundingView.m */; };
+		4813E1491D253DA7004D6E7A /* CrowdFundingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4813E1481D253DA7004D6E7A /* CrowdFundingView.xib */; };
+		4813E14D1D2601F2004D6E7A /* CrowdFundingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813E14C1D2601F2004D6E7A /* CrowdFundingRequest.m */; };
+		4813E1501D26029B004D6E7A /* AllChipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813E14F1D26029B004D6E7A /* AllChipModel.m */; };
+		4813E1531D261801004D6E7A /* ToRaisePublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813E1521D261801004D6E7A /* ToRaisePublicViewController.m */; };
+		4813E1561D2619E0004D6E7A /* AllChipLogoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813E1551D2619E0004D6E7A /* AllChipLogoModel.m */; };
+		48A8FA9A1D26565C003E872F /* myCrowdFundingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FA991D26565C003E872F /* myCrowdFundingViewController.m */; };
+		48A8FA9E1D2659D8003E872F /* myCrowdFundingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */; };
+		48A8FA9F1D2659D8003E872F /* myCrowdFundingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */; };
 		48FA56431D1A22A300E74654 /* FreeSamplesFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA56421D1A22A300E74654 /* FreeSamplesFlowLayout.m */; };
 		48FA56471D1A249C00E74654 /* FreeSamplesCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA56451D1A249C00E74654 /* FreeSamplesCVC.m */; };
 		48FA56481D1A249C00E74654 /* FreeSamplesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48FA56461D1A249C00E74654 /* FreeSamplesCVC.xib */; };
@@ -449,6 +458,22 @@
 		480BDF031D19190A00531FAA /* MyTryEatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTryEatTableViewCell.h; sourceTree = "<group>"; };
 		480BDF041D19190A00531FAA /* MyTryEatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTryEatTableViewCell.m; sourceTree = "<group>"; };
 		480BDF051D19190A00531FAA /* MyTryEatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTryEatTableViewCell.xib; sourceTree = "<group>"; };
+		4813E1451D253D99004D6E7A /* CrowdFundingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrowdFundingView.h; sourceTree = "<group>"; };
+		4813E1461D253D99004D6E7A /* CrowdFundingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdFundingView.m; sourceTree = "<group>"; };
+		4813E1481D253DA7004D6E7A /* CrowdFundingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CrowdFundingView.xib; sourceTree = "<group>"; };
+		4813E14B1D2601F2004D6E7A /* CrowdFundingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrowdFundingRequest.h; sourceTree = "<group>"; };
+		4813E14C1D2601F2004D6E7A /* CrowdFundingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdFundingRequest.m; sourceTree = "<group>"; };
+		4813E14E1D26029B004D6E7A /* AllChipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllChipModel.h; sourceTree = "<group>"; };
+		4813E14F1D26029B004D6E7A /* AllChipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllChipModel.m; sourceTree = "<group>"; };
+		4813E1511D261801004D6E7A /* ToRaisePublicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToRaisePublicViewController.h; sourceTree = "<group>"; };
+		4813E1521D261801004D6E7A /* ToRaisePublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToRaisePublicViewController.m; sourceTree = "<group>"; };
+		4813E1541D2619E0004D6E7A /* AllChipLogoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllChipLogoModel.h; sourceTree = "<group>"; };
+		4813E1551D2619E0004D6E7A /* AllChipLogoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllChipLogoModel.m; sourceTree = "<group>"; };
+		48A8FA981D26565C003E872F /* myCrowdFundingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCrowdFundingViewController.h; sourceTree = "<group>"; };
+		48A8FA991D26565C003E872F /* myCrowdFundingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCrowdFundingViewController.m; sourceTree = "<group>"; };
+		48A8FA9B1D2659D8003E872F /* myCrowdFundingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCrowdFundingTableViewCell.h; sourceTree = "<group>"; };
+		48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCrowdFundingTableViewCell.m; sourceTree = "<group>"; };
+		48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myCrowdFundingTableViewCell.xib; sourceTree = "<group>"; };
 		48FA56411D1A22A300E74654 /* FreeSamplesFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesFlowLayout.h; sourceTree = "<group>"; };
 		48FA56421D1A22A300E74654 /* FreeSamplesFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamplesFlowLayout.m; sourceTree = "<group>"; };
 		48FA56441D1A249C00E74654 /* FreeSamplesCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesCVC.h; sourceTree = "<group>"; };
@@ -1246,6 +1271,51 @@
 				480BDF011D18ED8000531FAA /* FreeSamples.xib */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		4813E1421D253C55004D6E7A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4813E1511D261801004D6E7A /* ToRaisePublicViewController.h */,
+				4813E1521D261801004D6E7A /* ToRaisePublicViewController.m */,
+				48A8FA981D26565C003E872F /* myCrowdFundingViewController.h */,
+				48A8FA991D26565C003E872F /* myCrowdFundingViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4813E1431D253C72004D6E7A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4813E14E1D26029B004D6E7A /* AllChipModel.h */,
+				4813E14F1D26029B004D6E7A /* AllChipModel.m */,
+				4813E1541D2619E0004D6E7A /* AllChipLogoModel.h */,
+				4813E1551D2619E0004D6E7A /* AllChipLogoModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4813E1441D253C81004D6E7A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4813E1451D253D99004D6E7A /* CrowdFundingView.h */,
+				4813E1461D253D99004D6E7A /* CrowdFundingView.m */,
+				4813E1481D253DA7004D6E7A /* CrowdFundingView.xib */,
+				48A8FA9B1D2659D8003E872F /* myCrowdFundingTableViewCell.h */,
+				48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */,
+				48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */,
+			);
+			name = view;
+			path = ViewController/view;
+			sourceTree = "<group>";
+		};
+		4813E14A1D26015B004D6E7A /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				4813E14B1D2601F2004D6E7A /* CrowdFundingRequest.h */,
+				4813E14C1D2601F2004D6E7A /* CrowdFundingRequest.m */,
+			);
+			name = viewmodel;
 			sourceTree = "<group>";
 		};
 		48FF68C71D0FA82600DAD002 /* MD5 */ = {
@@ -2109,6 +2179,10 @@
 		F2A432131C39169D00479C73 /* 美邻众筹 */ = {
 			isa = PBXGroup;
 			children = (
+				4813E14A1D26015B004D6E7A /* viewmodel */,
+				4813E1441D253C81004D6E7A /* view */,
+				4813E1431D253C72004D6E7A /* model */,
+				4813E1421D253C55004D6E7A /* ViewController */,
 				F2A432161C39171300479C73 /* MoreTogetherViewController.h */,
 				F2A432171C39171300479C73 /* MoreTogetherViewController.m */,
 				F28B56401C87163E00F62D4E /* MoreTogetherTableViewCell.h */,
@@ -2599,6 +2673,7 @@
 				TargetAttributes = {
 					F26980931C12BAFC00C46C6D = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = CU54LFPKGX;
 					};
 					F26980AC1C12BAFD00C46C6D = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -2649,6 +2724,8 @@
 				F26E428B1C8183690041E1E1 /* EmotionZoomView.xib in Resources */,
 				F279F5BD1C1D51A8001FB738 /* MJRefresh.bundle in Resources */,
 				480A49D11D127F5200BA4CB8 /* File1 in Resources */,
+				4813E1491D253DA7004D6E7A /* CrowdFundingView.xib in Resources */,
+				48A8FA9F1D2659D8003E872F /* myCrowdFundingTableViewCell.xib in Resources */,
 				F2B665391C7997F7007427BB /* navi_back@2x.png in Resources */,
 				F2B6653E1C7997F7007427BB /* photo_original_sel@2x.png in Resources */,
 				F26E42B81C818C180041E1E1 /* CoreEmotionView.xib in Resources */,
@@ -2788,6 +2865,7 @@
 				F26E42811C8183690041E1E1 /* EmotionViewConst.m in Sources */,
 				F2A4321E1C391D8B00479C73 /* PurchaseViewController.m in Sources */,
 				E86F6B511D1FE8950031496C /* addressModify2TableViewCell.m in Sources */,
+				48A8FA9A1D26565C003E872F /* myCrowdFundingViewController.m in Sources */,
 				4804C6001D23671F0080B1C8 /* DetermineOrderViewController.m in Sources */,
 				F2B316AB1C13D6EE00438C77 /* WMMenuView.m in Sources */,
 				F2A5206D1C468131009E7551 /* SDWebImagePrefetcher.m in Sources */,
@@ -2863,6 +2941,7 @@
 				F29DA5481C1EF8FB0054C205 /* UIViewExt.m in Sources */,
 				480BDE991D1532DF00531FAA /* UIView+Getlength.m in Sources */,
 				48071FA01D24BD1A008CE1D4 /* FreeEatRecordModel.m in Sources */,
+				4813E14D1D2601F2004D6E7A /* CrowdFundingRequest.m in Sources */,
 				F2BF2F3D1C1BBC1B00EB7E88 /* README.md in Sources */,
 				F2BF2F3B1C1BBC1B00EB7E88 /* AFURLSessionManager.m in Sources */,
 				F2BF2F401C1BBC1B00EB7E88 /* UIAlertView+AFNetworking.m in Sources */,
@@ -2877,6 +2956,7 @@
 				F2A432211C391F1500479C73 /* PurchaseTableViewCell.m in Sources */,
 				F2AE250A1C40BDF30006C9CB /* ProductDetailViewController.m in Sources */,
 				F2AE25101C40C2340006C9CB /* ProductCommendTableViewCell.m in Sources */,
+				4813E1561D2619E0004D6E7A /* AllChipLogoModel.m in Sources */,
 				F287E82F1C21A830002F52CF /* IntegralHistoryViewController.m in Sources */,
 				F28B56421C87163E00F62D4E /* MoreTogetherTableViewCell.m in Sources */,
 				48071F951D24B08D008CE1D4 /* FreeCollectionViewCell.m in Sources */,
@@ -2911,6 +2991,7 @@
 				E852CDB61D2315B700CD7604 /* attentionTableViewController.m in Sources */,
 				F2BEFDF41C8AC07500149FD4 /* OrderSectionTableViewCell.m in Sources */,
 				F29451DD1C7B359700E13349 /* CustomTextView.m in Sources */,
+				4813E1501D26029B004D6E7A /* AllChipModel.m in Sources */,
 				F2B6654D1C7997F7007427BB /* TZPhotoPreviewController.m in Sources */,
 				F2BF2F411C1BBC1B00EB7E88 /* UIButton+AFNetworking.m in Sources */,
 				F2933A801C5E089900606136 /* FreeEatActivityViewController.m in Sources */,
@@ -2979,6 +3060,7 @@
 				F293A0AB1C1467F300B2724B /* UIScrollView+VGParallaxHeader.m in Sources */,
 				F2BF2EFE1C1BB82300EB7E88 /* WMPageController.m in Sources */,
 				E86F6B4B1D1FDABE0031496C /* addressModifyViewController.m in Sources */,
+				4813E1531D261801004D6E7A /* ToRaisePublicViewController.m in Sources */,
 				F29DA5451C1EF2F00054C205 /* RegisterViewController.m in Sources */,
 				480BDE961D1531F500531FAA /* UpImageButton.m in Sources */,
 				F26E42851C8183690041E1E1 /* EmotionItemBtn.m in Sources */,
@@ -2992,6 +3074,7 @@
 				F28E4F7E1C24F15100FA5F75 /* IntrgraHistoryTableViewCell.m in Sources */,
 				F2849BBF1C60E89F00252A48 /* AllCagroryViewController.m in Sources */,
 				F279F5C01C1D51A8001FB738 /* UIScrollView+MJRefresh.m in Sources */,
+				48A8FA9E1D2659D8003E872F /* myCrowdFundingTableViewCell.m in Sources */,
 				F2B316AD1C13D6EE00438C77 /* WMProgressView.m in Sources */,
 				F2B05C2F1C3AA2EC00B54A53 /* SupermarketHeadCollectionViewCell.m in Sources */,
 				E852CDC61D241D0300CD7604 /* SecondHandProductModel.m in Sources */,
@@ -3023,6 +3106,7 @@
 				F279F5BE1C1D51A8001FB738 /* MJRefreshConst.m in Sources */,
 				F29DA54F1C1EFFE90054C205 /* AddNumberView.m in Sources */,
 				E86F6B431D1FCF770031496C /* addressViewModel.m in Sources */,
+				4813E1471D253D99004D6E7A /* CrowdFundingView.m in Sources */,
 				F26E42911C8185CD0041E1E1 /* CoreBtn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3159,6 +3243,8 @@
 			baseConfigurationReference = 907788F8E0ED572D4C80E19B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/communityProgram/PrefixHeader.pch";
 				INFOPLIST_FILE = communityProgram/Info.plist;
@@ -3166,6 +3252,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trussan.policyManager.communityProgram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3174,6 +3261,8 @@
 			baseConfigurationReference = 85AA24B1D694881445CA1712 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/communityProgram/PrefixHeader.pch";
 				INFOPLIST_FILE = communityProgram/Info.plist;
@@ -3181,6 +3270,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trussan.policyManager.communityProgram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
