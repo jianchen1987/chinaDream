@@ -67,6 +67,11 @@
 		48A8FA9A1D26565C003E872F /* myCrowdFundingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FA991D26565C003E872F /* myCrowdFundingViewController.m */; };
 		48A8FA9E1D2659D8003E872F /* myCrowdFundingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */; };
 		48A8FA9F1D2659D8003E872F /* myCrowdFundingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */; };
+		48A8FAA21D278623003E872F /* FoorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FAA11D278623003E872F /* FoorView.m */; };
+		48A8FAA41D278638003E872F /* FoorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A8FAA31D278638003E872F /* FoorView.xib */; };
+		48A8FAA81D2799A5003E872F /* FreeEatRquest.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FAA71D2799A5003E872F /* FreeEatRquest.m */; };
+		48A8FAAD1D27B0B9003E872F /* ShakeShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FAAB1D27B0B9003E872F /* ShakeShakeViewController.m */; };
+		48A8FAAE1D27B0B9003E872F /* ShakeShakeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A8FAAC1D27B0B9003E872F /* ShakeShakeViewController.xib */; };
 		48FA56431D1A22A300E74654 /* FreeSamplesFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA56421D1A22A300E74654 /* FreeSamplesFlowLayout.m */; };
 		48FA56471D1A249C00E74654 /* FreeSamplesCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA56451D1A249C00E74654 /* FreeSamplesCVC.m */; };
 		48FA56481D1A249C00E74654 /* FreeSamplesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48FA56461D1A249C00E74654 /* FreeSamplesCVC.xib */; };
@@ -474,6 +479,14 @@
 		48A8FA9B1D2659D8003E872F /* myCrowdFundingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCrowdFundingTableViewCell.h; sourceTree = "<group>"; };
 		48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCrowdFundingTableViewCell.m; sourceTree = "<group>"; };
 		48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myCrowdFundingTableViewCell.xib; sourceTree = "<group>"; };
+		48A8FAA01D278623003E872F /* FoorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoorView.h; sourceTree = "<group>"; };
+		48A8FAA11D278623003E872F /* FoorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoorView.m; sourceTree = "<group>"; };
+		48A8FAA31D278638003E872F /* FoorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoorView.xib; sourceTree = "<group>"; };
+		48A8FAA61D2799A5003E872F /* FreeEatRquest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeEatRquest.h; sourceTree = "<group>"; };
+		48A8FAA71D2799A5003E872F /* FreeEatRquest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeEatRquest.m; sourceTree = "<group>"; };
+		48A8FAAA1D27B0B9003E872F /* ShakeShakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeShakeViewController.h; sourceTree = SOURCE_ROOT; };
+		48A8FAAB1D27B0B9003E872F /* ShakeShakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeShakeViewController.m; sourceTree = SOURCE_ROOT; };
+		48A8FAAC1D27B0B9003E872F /* ShakeShakeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShakeShakeViewController.xib; sourceTree = SOURCE_ROOT; };
 		48FA56411D1A22A300E74654 /* FreeSamplesFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesFlowLayout.h; sourceTree = "<group>"; };
 		48FA56421D1A22A300E74654 /* FreeSamplesFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamplesFlowLayout.m; sourceTree = "<group>"; };
 		48FA56441D1A249C00E74654 /* FreeSamplesCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesCVC.h; sourceTree = "<group>"; };
@@ -1304,6 +1317,9 @@
 				48A8FA9B1D2659D8003E872F /* myCrowdFundingTableViewCell.h */,
 				48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */,
 				48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */,
+				48A8FAA01D278623003E872F /* FoorView.h */,
+				48A8FAA11D278623003E872F /* FoorView.m */,
+				48A8FAA31D278638003E872F /* FoorView.xib */,
 			);
 			name = view;
 			path = ViewController/view;
@@ -1316,6 +1332,25 @@
 				4813E14C1D2601F2004D6E7A /* CrowdFundingRequest.m */,
 			);
 			name = viewmodel;
+			sourceTree = "<group>";
+		};
+		48A8FAA51D279977003E872F /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				48A8FAA61D2799A5003E872F /* FreeEatRquest.h */,
+				48A8FAA71D2799A5003E872F /* FreeEatRquest.m */,
+			);
+			name = Viewmodel;
+			sourceTree = "<group>";
+		};
+		48A8FAA91D27B07D003E872F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48A8FAAA1D27B0B9003E872F /* ShakeShakeViewController.h */,
+				48A8FAAB1D27B0B9003E872F /* ShakeShakeViewController.m */,
+				48A8FAAC1D27B0B9003E872F /* ShakeShakeViewController.xib */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		48FF68C71D0FA82600DAD002 /* MD5 */ = {
@@ -2201,6 +2236,7 @@
 		F2A432141C39169D00479C73 /* 免费试吃 */ = {
 			isa = PBXGroup;
 			children = (
+				48A8FAA51D279977003E872F /* Viewmodel */,
 				48071FAA1D24C355008CE1D4 /* ViewController */,
 				48071F9A1D24B3C5008CE1D4 /* model */,
 				F2933A7E1C5E089900606136 /* FreeEatActivityViewController.h */,
@@ -2218,6 +2254,7 @@
 		F2A432151C39169D00479C73 /* 摇摇红包 */ = {
 			isa = PBXGroup;
 			children = (
+				48A8FAA91D27B07D003E872F /* ViewController */,
 			);
 			path = "摇摇红包";
 			sourceTree = "<group>";
@@ -2718,6 +2755,7 @@
 				F2B6653F1C7997F7007427BB /* photo_sel_photoPickerVc@2x.png in Resources */,
 				F2B665401C7997F7007427BB /* photo_sel_previewVc@2x.png in Resources */,
 				480BDEA01D1785BB00531FAA /* FreeSamplesViews.xib in Resources */,
+				48A8FAAE1D27B0B9003E872F /* ShakeShakeViewController.xib in Resources */,
 				480BDF021D18ED8000531FAA /* FreeSamples.xib in Resources */,
 				48071FAF1D24C355008CE1D4 /* mySampleDetailsViewController.xib in Resources */,
 				F2B665421C7997F7007427BB /* preview_original_def@2x.png in Resources */,
@@ -2739,6 +2777,7 @@
 				F2B6653C1C7997F7007427BB /* photo_number_icon@2x.png in Resources */,
 				48FF68CF1D0FD92300DAD002 /* File in Resources */,
 				F241DAEC1C4A1F3E001A828D /* cellLine@2x.png in Resources */,
+				48A8FAA41D278638003E872F /* FoorView.xib in Resources */,
 				4804C5FB1D2366DF0080B1C8 /* SampleDetailsViewController.xib in Resources */,
 				F2B665381C7997F7007427BB /* MMVideoPreviewPlayHL@2x.png in Resources */,
 				F2B6653D1C7997F7007427BB /* photo_original_def@2x.png in Resources */,
@@ -2819,6 +2858,7 @@
 				E852CDB91D23567100CD7604 /* attentionViewModel.m in Sources */,
 				F24FF94D1CA4282700540576 /* MyCollectionViewController.m in Sources */,
 				F2933A721C5DDD9C00606136 /* SDBrowserImageView.m in Sources */,
+				48A8FAA21D278623003E872F /* FoorView.m in Sources */,
 				F282D4961C74ADF3001251EF /* WaittingPaymentViewController.m in Sources */,
 				F2A520721C468131009E7551 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F2A4321B1C39176D00479C73 /* AdvRunLoopView.m in Sources */,
@@ -2876,6 +2916,7 @@
 				F2A520651C468131009E7551 /* MKAnnotationView+WebCache.m in Sources */,
 				480BDEA41D178D3B00531FAA /* FreeSamplesViewController.m in Sources */,
 				F26E42801C8183690041E1E1 /* EmotionAttachment.m in Sources */,
+				48A8FAAD1D27B0B9003E872F /* ShakeShakeViewController.m in Sources */,
 				E852CDC91D24378600CD7604 /* baseCollectionView.m in Sources */,
 				480A49DB1D12A67000BA4CB8 /* SelectBar.m in Sources */,
 				F28E4FA31C25471A00FA5F75 /* Reachability.m in Sources */,
@@ -3016,6 +3057,7 @@
 				E86705331D251BDD00EABAF3 /* myLoopView.m in Sources */,
 				F279F5AF1C1D51A8001FB738 /* MJRefreshAutoFooter.m in Sources */,
 				F2F4009E1C1D45FF00EC5E32 /* SupermarketCollectionViewCell.m in Sources */,
+				48A8FAA81D2799A5003E872F /* FreeEatRquest.m in Sources */,
 				F2B6654C1C7997F7007427BB /* TZPhotoPreviewCell.m in Sources */,
 				F293A0BB1C146DA000B2724B /* CustomMyselfButton.m in Sources */,
 				480BDF061D19190A00531FAA /* MyTryEatTableViewCell.m in Sources */,

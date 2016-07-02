@@ -34,48 +34,50 @@
 -(instancetype)initWithFrame:(CGRect)frame{
    self= [super initWithFrame:frame];
     
-    _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeStart) userInfo:nil repeats:YES];
-    [_timer fire];
-    UIView * Writeback=[[UIView alloc]initWithFrame:CGRectMake(20, 20, self.getWidth-40, 160)];
-    time_LB=[[UILabel alloc]initWithFrame:CGRectMake(10, 15, Writeback.getWidth-20, 40)];
+    float number=15;
+    float apply=20;
+    float time=15;
+    float detailFont=40;
+   
+    UIView * Writeback=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.getWidth, (DeviceWidth-1)/2+90)];
 //    time_LB.text=@"最新试吃活动时间剩余";
     Writeback.backgroundColor=[UIColor whiteColor];
 
     [Writeback addSubview:time_LB];
-    FreeImage=[[UIImageView alloc]initWithFrame:CGRectMake(20, 5+time_LB.getH_Y, Writeback.getWidth-20, Writeback.getWidth-60)];
+    FreeImage=[[UIImageView alloc]initWithFrame:CGRectMake(0,0, Writeback.getWidth, Writeback.getWidth)];
     FreeImage.image=[UIImage imageNamed:@"cell图片"];
     [Writeback addSubview:FreeImage];
-    title_LB=[[UILabel alloc]initWithFrame:CGRectMake(20,FreeImage.getH_Y, Writeback.getH_Y, 20)];
+    title_LB=[[UILabel alloc]initWithFrame:CGRectMake(5,FreeImage.getH_Y, Writeback.getH_Y, time)];
     title_LB.text=@"";
-    detail =[[UILabel alloc]initWithFrame:CGRectMake(10, title_LB.getH_Y, Writeback.getWidth-60, 60)];
+   
+    
+    detail =[[UILabel alloc]initWithFrame:CGRectMake(5, title_LB.getH_Y, Writeback.getWidth-60, detailFont)];
     detail.numberOfLines=2;
     detail.text=@"";
 
-    numberCount =[[UILabel alloc]initWithFrame:CGRectMake(10, detail.getH_Y, 100, 40)];
+    
+    numberCount =[[UILabel alloc]initWithFrame:CGRectMake(5, detail.getH_Y, 100, number)];
     numberCount.text=@"0份";
     numberCount.textColor=[UIColor redColor];
     
-    applyCount=[[UILabel alloc]initWithFrame:CGRectMake(Writeback.getWidth-220, numberCount.getY, 200, 40)];
+    applyCount=[[UILabel alloc]initWithFrame:CGRectMake(Writeback.getWidth-220, numberCount.getY, 200, apply)];
     applyCount.text=@"已经有0人申请";
     applyCount.textAlignment=NSTextAlignmentRight;
     [Writeback addSubview:applyCount];
+//    UIButton * sure=[[UIButton alloc]initWithFrame:CGRectMake(0, numberCount.getH_Y, Writeback.getWidth, 50)];
+//    [sure setTitle:@"立即申请" forState:UIControlStateNormal];
+//    [sure addTarget:self action:@selector(sure) forControlEvents:UIControlEventTouchUpInside];
+//    [sure setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
-    
-    
-    UIView * line=[[UIView alloc]initWithFrame:CGRectMake(20, numberCount.getH_Y, Writeback.getWidth-40, 1)];
-    
-    line.backgroundColor=[UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1];
-    [Writeback addSubview:line];
-    UIButton * sure=[[UIButton alloc]initWithFrame:CGRectMake(0, numberCount.getH_Y, Writeback.getWidth, 50)];
-    [sure setTitle:@"立即申请" forState:UIControlStateNormal];
-    [sure addTarget:self action:@selector(sure) forControlEvents:UIControlEventTouchUpInside];
-    [sure setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    isEndView=[[UIImageView alloc]initWithFrame:CGRectMake(Writeback.getWidth-90, title_LB.getH_Y-10, 80, 80)];
+    applyCount.font=numberCount.font=detail.font=[UIFont systemFontOfSize:12];
+    isEndView=[[UIImageView alloc]initWithFrame:CGRectMake(Writeback.getWidth-50, title_LB.getH_Y-10, 40, 40)];
     isEndView.image=[UIImage imageNamed:@"试吃结束"];
+    time_LB=[[UILabel alloc]initWithFrame:CGRectMake(5, applyCount.getH_Y, Writeback.getWidth-20, time)];
     
+    time_LB.font=[UIFont systemFontOfSize:12];
     
     Writeback.layer.cornerRadius=5;
-    [Writeback addSubview:sure];
+//    [Writeback addSubview:sure];
     [Writeback addSubview:numberCount];
     [Writeback addSubview:time_LB];
     [Writeback addSubview:title_LB];
@@ -83,7 +85,10 @@
     [self.contentView addSubview:Writeback];
     [Writeback addSubview:isEndView];
 
-    Writeback.frame=CGRectMake(10, 20,self.getWidth-20,  sure.getH_Y);
+    self.backgroundColor=[UIColor whiteColor];
+    Writeback.frame=CGRectMake(0, 0,self.getWidth-20,  time_LB.getH_Y);
+    _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeStart) userInfo:nil repeats:YES];
+    [_timer fire];
     return self;
 }
 -(void)sure{
@@ -103,17 +108,18 @@
     int seconds = totalSeconds % 60;
     int minutes = (totalSeconds/60)% 60;
     int hours = totalSeconds / 3600;
-    time_LB.font=[UIFont systemFontOfSize:20];
+//    time_LB.font=[UIFont systemFontOfSize:20];
+    
     if (totalSeconds>0) {
         isEnd=YES;
-        time_LB.text=[NSString stringWithFormat:@"最新试吃活动时间剩余:%02d:%02d:%02d",hours, minutes, seconds];
-        time_LB.textColor=[UIColor redColor];
-        time_LB.attributedText=[self AttributedString:[NSString stringWithFormat:@"最新试吃活动时间剩余:%02d:%02d:%02d",hours, minutes, seconds]rangeString:@"最新试吃活动时间剩余:" color:[UIColor blackColor]];
+        time_LB.text=[NSString stringWithFormat:@"剩余%02d小时%02d分%02d秒",hours, minutes, seconds];
+//        time_LB.textColor=[UIColor redColor];
+//        time_LB.attributedText=[self AttributedString:[NSString stringWithFormat:@"剩余%02d小时%02d分%02d秒",hours, minutes, seconds]rangeString:@"剩余:" color:[UIColor blackColor]];
     }else{
          isEnd=NO;
-        time_LB.text=@"最新试吃活动时间剩余:00:00:00";
-        time_LB.textColor=[UIColor redColor];
-        time_LB.attributedText=[self AttributedString:@"最新试吃活动时间剩余:00:00:00"rangeString:@"最新试吃活动时间剩余:" color:[UIColor blackColor]];
+        time_LB.text=@"剩余:00:00:00";
+//        time_LB.textColor=[UIColor redColor];
+//        time_LB.attributedText=[self AttributedString:@"剩余:00小时00分00秒"rangeString:@"剩余:" color:[UIColor blackColor]];
     }
     
 }

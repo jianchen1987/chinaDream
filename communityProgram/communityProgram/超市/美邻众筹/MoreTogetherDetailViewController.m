@@ -15,6 +15,7 @@
 #import "MJRefreshGifHeader.h"
 #import "MJRefreshAutoNormalFooter.h"
 #import "CrowdFundingRequest.h"
+#import "FoorView.h"
 @interface MoreTogetherDetailViewController ()
 @property(nonatomic,strong)DetaiHeadView * detailHeadView;
 @property(nonatomic,strong)UIView  * headView;
@@ -55,9 +56,13 @@
      */
     
     
-    NSArray * array=@[self.model.id,allchip,@1,@4];
+    NSArray * array=@[self.user.identifyName, self.model.id,allchip,@1,@4];
+    NSLog(@"%@",array);
     [NetworkEngine postRequestWithUrl:AppService paramsArray:array  WithPath:getComment successBlock:^(id successJsonData)
      {
+         
+         
+         NSLog(@"successJsonData===%@",successJsonData);
          for (NSDictionary *dic in successJsonData) {
              CommentModle *modle = [CommentModle new];
              NSDictionary * user=[dic objectForKey:@"user"];
@@ -83,6 +88,7 @@
          [myTableView reloadData];
          
      } errorBlock:^(int code, NSString *errorJsonData) {
+         [self showPrompt:errorJsonData];
      }];
 }
 - (UIWebView *)webView {
@@ -237,7 +243,9 @@
     myTableView.delegate = self;
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
-    
+    FoorView * view=[[[NSBundle mainBundle]loadNibNamed:@"FoorView" owner:nil options:nil]lastObject];
+    view.frame=CGRectMake(0, 0, DeviceWidth, 40);
+    myTableView.tableFooterView=view;
     
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, DeviceHeight-64-45, DeviceWidth, 45)];
     bottomView.backgroundColor = RGBA(213, 213, 213, 1);
@@ -257,38 +265,6 @@
     [sure setTitle:@"我要支持" forState:UIControlStateNormal];
     [bottomView addSubview:sure];
     [sure addTarget:self action:@selector(joinButtonAction) forControlEvents:UIControlEventTouchUpInside];
-//    UIButton *joinButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    joinButton.frame = CGRectMake(0, 0, DeviceWidth, 50);
-//    [joinButton setBackgroundColor:[UIColor redColor]];
-//    [joinButton setTitle:@"我要参与" forState:0];
-//    [joinButton setTitleColor:[UIColor whiteColor] forState:0];
-//    [joinButton addTarget:self action:@selector(joinButtonAction) forControlEvents:UIControlEventTouchUpInside];
-//    [bottomView addSubview:joinButton];
-    
-//    //虚拟数据
-//    NSMutableArray *muArray = [NSMutableArray array];
-//    NSArray *image1Arr = @[@"http://img.taopic.com/uploads/allimg/140714/234975-140G4155Z571.jpg"];
-//    NSArray *image2Arr = @[@"http://img.taopic.com/uploads/allimg/140714/234975-140G4155Z571.jpg",@"http://img.taopic.com/uploads/allimg/140714/234975-140G4155Z571.jpg"];
-//    NSArray *image3Arr = @[@"http://img.taopic.com/uploads/allimg/140714/234975-140G4155Z571.jpg",@"http://img.taopic.com/uploads/allimg/140714/234975-140G4155Z571.jpg",@"http://img.taopic.com/uploads/allimg/140714/234975-140G4155Z571.jpg",@"http://img.taopic.com/uploads/allimg/140714/234975-140G4155Z571.jpg",@"http://img.taopic.com/uploads/allimg/140714/234975-140G4155Z571.jpg"];
-//    NSArray *image4Arr = @[];
-//    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"image",image4Arr,@"imageArr",@"小明",@"name",@"2016-1-13",@"time",@"不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手",@"comment", nil];
-//    NSDictionary *dic1 = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"image",image1Arr,@"imageArr",@"小明",@"name",@"2016-1-13",@"time",@"不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手",@"comment", nil];
-//    
-//    NSDictionary *secondDic = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"image",image2Arr,@"imageArr",@"小明",@"name",@"2016-1-13",@"time",@"不负家人众望，实至名归，苹果香，脆，甜，喜欢的赶紧下手不负家望，实至名归，苹果香，脆，甜，喜欢的赶紧下手",@"comment",[NSDictionary dictionaryWithObjectsAndKeys:@"",@"image",@"小明",@"name",@"2016-1-13",@"time",@"不负脆，甜，喜欢的赶紧下手",@"comment", nil],@"other", nil];
-//    [muArray addObject:dic];
-//    [muArray addObject:dic1];
-//    [muArray addObject:secondDic];
-//    
-//    for (NSDictionary *dic in muArray) {
-//        CommentModle *modle = [CommentModle new];
-//        modle.commentHeadImageUrl = [dic valueForKey:@"image"];
-//        modle.commentName = [dic valueForKey:@"name"];
-//        modle.commentTime = [dic valueForKey:@"time"];
-//        modle.commentContent = [dic valueForKey:@"comment"];
-//        modle.addDic = [dic valueForKey:@"other"];
-//        modle.picNamesArray = [dic valueForKey:@"imageArr"];
-//        [commentDataSource addObject:modle];
-//    }
 
 }
 #pragma mark - Lazy Methods
@@ -306,21 +282,21 @@
    
     self.title = @"产品详情";
     
-    _headView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, 260+DeviceWidth/2)];
-    
-    _TooMoreView = [[UIView alloc] initWithFrame:CGRectMake(0, 220+DeviceWidth/2, DeviceWidth, 40)];
+    _headView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2+250)];
+   
+    _TooMoreView = [[UIView alloc] initWithFrame:CGRectMake(0, 221+DeviceWidth/2, DeviceWidth, 40)];
+    UIImageView * image=[[UIImageView alloc]initWithFrame:CGRectMake(DeviceWidth-40, 5, 30, 30)];
+    image.image=[UIImage imageNamed:@"更多小箭头"];
+    [_TooMoreView addSubview:image];
     [_headView addSubview:_TooMoreView];
     _TooMore_BT = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, DeviceWidth-10, 20)];
     _TooMore_BT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     
-    [_TooMore_BT setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [_TooMore_BT setTitleColor:RGBA(63, 168, 40, 1) forState:UIControlStateNormal];
   
     _TooMoreView.backgroundColor=[UIColor whiteColor];
     [_TooMoreView addSubview:_TooMore_BT];
-    
-    
-    
-    Picture_Scroll=[[PictureCarouselScrollView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2)];
+    self.Picture_Scroll=[[PictureCarouselScrollView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2)];
    Picture_Scroll.imagePlaceName=@"专题";
     [_headView addSubview:Picture_Scroll];
     _detailHeadView=[[[NSBundle mainBundle]loadNibNamed:@"DetaiHeadView" owner:nil options:nil]lastObject];
@@ -346,7 +322,7 @@
             NSString * name=[NSString stringWithFormat:@"%@%@",AppendingImageUrl,imageArr[i]];
             [imageArray addObject:name];
         }
-        
+        NSLog(@"-------------------------");
         [Picture_Scroll Viewframe:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2) andViewAllimage:imageArray andChangeTime:1];
         _detailHeadView.titleName.text=model.title;
         NSString * stirng=[NSString stringWithFormat:@"已筹到:%0.1ld斤",(long)model.chipNum];
@@ -358,7 +334,8 @@
         
         NSNumber * number=Number(model.commentPeople);
         if ([number intValue]>0 ) {
-            [_TooMore_BT setTitle:[NSString stringWithFormat:@"查看全部评论%@",number ] forState:UIControlStateNormal];
+            [_TooMore_BT setTitle:[NSString stringWithFormat:@"查看全部%@条评论",number ] forState:UIControlStateNormal];
+            [_TooMore_BT addTarget:self action:@selector(FindTooMorecomment) forControlEvents:UIControlEventTouchUpInside];
             
         }else{
             [_TooMore_BT setTitle:[NSString stringWithFormat:@"无人评论评论"] forState:UIControlStateNormal];
@@ -369,41 +346,17 @@
     } errorBlock:^(int code, NSString *errorJsonData) {
         
     }];
-    
-//    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.ID] WithPath:getChipById successBlock:^(NSDictionary* successJsonData) {
-//        NSArray * imageArr=[successJsonData objectForKey:@"allChipBanners"];
-//        NSMutableArray * imageArray=[NSMutableArray array];
-//        for (int i=0; i<imageArr.count; i++) {
-//            NSString * name=[NSString stringWithFormat:@"%@%@",AppendingImageUrl,imageArr[i]];
-//            [imageArray addObject:name];
-//        }
-// 
-//      [Picture_Scroll Viewframe:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2) andViewAllimage:imageArray andChangeTime:1];
-//        _detailHeadView.titleName.text=[successJsonData objectForKey:@"title"];
-//        NSString * stirng=[NSString stringWithFormat:@"已筹到:%@斤",[successJsonData objectForKey:@"chipNum"]];
-//        _detailHeadView.descInfo.attributedText=[self AttributedString: stirng  image:@"已筹到"];
-//        _detailHeadView.price.attributedText= [self AttributedString:[NSString stringWithFormat:@"¥%@/斤",[successJsonData objectForKey:@"price"]] rangeString:@"/斤" color: [UIColor grayColor]];
-//        _detailHeadView.supportNum.attributedText= [self AttributedString:[NSString stringWithFormat:@"已有%@人支持", [successJsonData objectForKey:@"supportNum"]] image:@"人数" ];
-//        _detailHeadView.chipNum.attributedText=[self AttributedString: [NSString stringWithFormat:@"项目目标%@斤",  [successJsonData objectForKey:@"chipNum"]]image:@"项目目标"];
-//        _detailHeadView.detaiData.text= [successJsonData objectForKey:@"simpleIntro"];
-//        _Information=successJsonData;
-//        
-//        NSNumber * number=[_Information objectForKey:@"commentPeople"];
-//        if ([number intValue]>0 ) {
-//            [_TooMore_BT setTitle:[NSString stringWithFormat:@"查看全部评论%@",number ] forState:UIControlStateNormal];
-//            
-//        }else{
-//            [_TooMore_BT setTitle:[NSString stringWithFormat:@"无人评论评论"] forState:UIControlStateNormal];
-//            _TooMore_BT.enabled=NO;
-//        }
-//        [myTableView reloadData];
-//    } errorBlock:^(int code, NSString *errorJsonData) {
-//
-//    }];
-    
+
      [self creatView];
      [self addSubView];
      [self configureRefresh];
+
+}
+//查看更多评论
+-(void)FindTooMorecomment{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.scrollView.contentOffset = CGPointMake(0, self.scrollView.height);
+    }];
 
 }
 
