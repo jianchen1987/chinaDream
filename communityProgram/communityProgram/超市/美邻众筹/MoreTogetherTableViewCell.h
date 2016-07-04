@@ -16,7 +16,7 @@
 @property(nonatomic,strong)UILabel *descriptionLable;
 @property(nonatomic,strong)UILabel *persentLable;
 @property(nonatomic,strong)UILabel *timeLimitLable;
-
+@property(nonatomic,strong)UIImageView * endImageView;
 @property(nonatomic,strong)ProgressView *progressView;
 -(void)setCellData;
 

@@ -20,6 +20,7 @@
 #import "EmotionModel.h"
 #import "NSString+EmotionExtend.h"
 #import "UITextView+Emotion.h"
+
 @interface PublishCommentViewController ()<UITextViewDelegate,CustomPublishImageDelegate,UITextViewDelegate,TZImagePickerControllerDelegate>
 {
     NSMutableArray *_selectedPhotos;
@@ -73,14 +74,60 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"发布说说";
+
+    /**
+     * 发布二手闲置｜超市产品｜众筹｜免费试吃的评论
+     * @param orderId 订单唯一id type==supermarket 或者==integralstore才需要传orderId
+     * @param userId 用户唯一id
+     * @param commentId 上一个评论id  这个是针对二手闲置才需要有回复功能，才需要回复的时候传入，超市产品｜众筹｜免费试吃的评论不需要传入
+     * @param commentInfo 评论信息|或者追加评论
+     * @param typeId 对应类型的唯一id
+     * @param type 类型   二手闲置评论(secondhand) | 超市产品评论(supermarket) 众筹产品评论(allchip) 免费试吃评论(freeeat) 积分商城（integralstore）
+     * @param imageBase64 图片base64的集合 (默认不传入评论图片可为空值)
+     **/
+//    	public boolean publishCommentByType(String orderId, String userId, String commentId, String commentInfo, String typeId, String type, List<String> imageBase64);
+    UIImage * image =[UIImage imageNamed:@"cell图片"];
+    NSData *mydata=UIImageJPEGRepresentation(image , 0.4);
+ 
+    NSString *pictureDataString=[mydata base64EncodedStringWithOptions:0];
+    NSArray * arr= @[
+                     @"",
+                     self.user.identifyName,
+                     @"",            //commentId
+                     @"commentInfo",//评论信息
+                     self.model.id,//typeId 对应类型的唯一id
+                     freeeat, //type 类型
+                     @[pictureDataString],
+                     ];
+
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:arr WithPath:@"publishCommentByType" successBlock:^(id successJsonData) {
+        NSLog(@"%@",successJsonData);
+    } errorBlock:^(int code, NSString *errorJsonData) {
+        NSLog(@"%@",errorJsonData);
+    }];
+   [NetworkEngine postImageRequestWithUrl:AppService paramsArray:arr  WithImage:@[] WithPath:@"publishCommentByType" WithFileName:@"订单" successBlock:^(id successJsonData, NSString *massege) {
+       
+       NSLog(@"%@",successJsonData);
+   } errorBlock:^(int code, id errorJsonData) {
+       [self showPrompt:errorJsonData];
+   }];
+    self.title = @"发布评论";
     self.view.backgroundColor = [UIColor whiteColor];
     
     _selectedPhotos = [NSMutableArray array];
     _selectedAssets = [NSMutableArray array];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonAction)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
+    UIButton * rightButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 85, 25)];
+    rightButton.layer.cornerRadius=6;
+    rightButton.layer.borderWidth=0.01;
+    rightButton.backgroundColor=RGBA(132, 132, 132, 1);
+    [rightButton setTitle:@"发布" forState:UIControlStateNormal];
+    [rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(rightBarButtonAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem * right= [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonAction)];
+   UIBarButtonItem * right= [[UIBarButtonItem alloc]initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = right;
     self.myTextView = [[UITextView alloc] initWithFrame:CGRectMake(5, 0, DeviceWidth-10, 100)];
     self.myTextView.font = PublishFont;
     self.myTextView.textColor = RGBA(200, 200, 200, 1);
@@ -109,8 +156,9 @@
     
     
     
-    NSArray *imageArray = @[@"community_publish_selectPicture",@"community_publish_face",@"community_publish_@"];
-    for (int i = 0; i < 3; i++) {
+//    NSArray *imageArray = @[@"community_publish_selectPicture",@"community_publish_face",@"community_publish_@"];
+      NSArray *imageArray = @[@"community_publish_selectPicture",@"community_publish_face"];
+    for (int i = 0; i < 2; i++) {
         UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
         leftButton.frame = CGRectMake(40*i, bottomView.height-40, 40, 40);
         [leftButton setImage:[UIImage imageNamed:imageArray[i]] forState:0];
@@ -119,18 +167,7 @@
         [bottomView addSubview:leftButton];
     }
     
-//    UILabel *otherSetLable = [[UILabel alloc] initWithFrame:CGRectMake(DeviceWidth-160, bottomView.height-40, 100, 40)];
-//    otherSetLable.text = @"其他小区可见";
-//    otherSetLable.font = Font(14);
-//    [bottomView addSubview:otherSetLable];
-//    
-//    
-//    
-//    UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(DeviceWidth-60, bottomView.height-40, 40, 20)];
-//    switchView.on = YES;
-//    [bottomView addSubview:switchView];
-    
-    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];//在这里注册通知
+
 }
 #pragma mark ----------------selectButtonAction
 -(void)leftButtonTouchAction:(UIButton *)sender
@@ -246,7 +283,7 @@
         
         UILabel *choiceLable = [[UILabel alloc] initWithFrame:CGRectMake(DeviceWidth/2-40, 44, 80, 30)];
         choiceLable.tag = 40000;
-        choiceLable.text = [NSString stringWithFormat:@"%d/%ld",(senderImageView.tag-3000)+1,(unsigned long)_selectedPhotos.count];
+        choiceLable.text = [NSString stringWithFormat:@"%ld/%ld",(senderImageView.tag-3000)+1,(unsigned long)_selectedPhotos.count];
         choiceLable.font = Font(20);
         choiceLable.layer.cornerRadius = 10;
         choiceLable.textColor = [UIColor whiteColor];

@@ -41,7 +41,9 @@
 }
 -(void)showLoading
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showMessage:@"加载中..." toView:self.view];
+    
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 -(void)showPrompt:(NSString*)detail
@@ -52,13 +54,18 @@
 
 -(void)dismissShow
 {
+ 
+    [MBProgressHUD hideHUD];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)showSuccess:(NSString *)msg
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self dismissShow];
+
     [MBProgressHUD showSuccess:msg toView:self.view];
+    
+
 }
 
 
