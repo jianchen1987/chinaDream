@@ -106,7 +106,7 @@
 //    _FreeCollectionView.dataSource=self;
     
     [self.collectionView registerClass:[FreeCollectionViewCell class]forCellWithReuseIdentifier:@"cell"];
-    [topScrollview addSubview:self.collectionView];
+    [dowmScrollview addSubview:self.collectionView];
     
     
     
@@ -195,14 +195,17 @@
     self.title=@"免费试吃";
     _AllFreeRecord=[NSMutableArray array];
     [self creatView];
-    
+    FreeSamplesViews * freeView=[[[NSBundle mainBundle]loadNibNamed:@"FreeSamplesViews" owner:nil options:nil]lastObject];
+   freeView.frame=CGRectMake(0, 60, DeviceWidth, DeviceWidth/2+200);
+    topScrollview.contentSize=CGSizeMake(DeviceWidth, freeView.getH_Y);
+    [topScrollview addSubview:freeView];
     
     SelectBar * selectBar=[[SelectBar alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, 50)];
     selectBar.backgroundColor=[UIColor whiteColor];
     [selectBar creatTitle:@[@"试吃活动",@"我的试吃"] color:RGBA(156, 156, 156, 1) selectColor:RGBA(69, 180, 17, 1) frame:CGRectMake(0, 0, DeviceWidth, 50)];
     
     _FreeArray=[NSMutableArray array];
-    
+    _FreeCollectionView.frame=CGRectMake(0, 0, DeviceWidth, DeviceHeight);
     //获得所有的试吃
     [self GetFreeEatrequest:Number(1)];
     selectBar.SelectBarClick=^(NSInteger number){
@@ -210,7 +213,7 @@
             case 0:
                 _FreeCollectionView.hidden=NO;
                 _tableView.hidden=YES;
-                topScrollview.contentSize=CGSizeMake(DeviceWidth, 20+_FreeCollectionView.getH_Y);
+                topScrollview.contentSize=CGSizeMake(DeviceWidth, 20+freeView.getH_Y);
                 
                 break;
             case 1:
@@ -227,7 +230,8 @@
         }
     };
     [topScrollview addSubview:selectBar];
-    _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height-50)];
+    topScrollview.backgroundColor=self.view.backgroundColor;
+    _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-50)];
     [topScrollview addSubview:_tableView];
     _tableView.hidden=YES;
     _tableView.delegate=self;

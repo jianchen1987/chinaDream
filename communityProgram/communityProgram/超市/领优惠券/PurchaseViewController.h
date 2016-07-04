@@ -11,10 +11,10 @@
 #import "MJRefreshNormalHeader.h"
 #import "MJRefreshAutoNormalFooter.h"
 
-
-@interface PurchaseViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+#import "baseTableViewController.h"
+@interface PurchaseViewController : baseTableViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    UITableView *myTableView;
+//    UITableView *myTableView;
     NSMutableArray *dataSource;
     int page;//页数记录
 }

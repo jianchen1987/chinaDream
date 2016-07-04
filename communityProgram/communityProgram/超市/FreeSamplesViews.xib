@@ -144,7 +144,7 @@
                 <outlet property="stateImageview" destination="STP-4G-ofA" id="yUk-vC-uF7"/>
                 <outlet property="time" destination="fAb-Wq-74t" id="MRN-Mr-ZBf"/>
             </connections>
-            <point key="canvasLocation" x="38" y="192"/>
+            <point key="canvasLocation" x="57" y="137"/>
         </view>
     </objects>
     <resources>

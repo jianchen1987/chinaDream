@@ -346,7 +346,8 @@ static NSString *buttonCellIdentifire = @"buttonCellIdentifire";
             
         }else if([buttonCell1.titleLable.text isEqualToString:@"摇摇红包"])
         {
-            ShakeShakeViewController * shake=[[[NSBundle mainBundle]loadNibNamed:@"ShakeShakeViewController" owner:nil options:nil]lastObject];
+            ShakeShakeViewController * shake=[[ShakeShakeViewController alloc]init];
+            shake.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:shake animated:YES];
             NSLog(@"摇摇红包");
             
