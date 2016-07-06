@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
-@interface FreeSamplesViewController : BaseViewController
+#import "baseCollectionView.h"
+@interface FreeSamplesViewController : baseCollectionView
 
 @end

@@ -15,7 +15,7 @@
 @implementation PurchaseViewController
 -(void)loadPurchaseData
 {
-    NSArray *array = @[[NSNumber numberWithInt:page],@10];
+    NSArray *array = @[self.user.identifyName, [NSNumber numberWithInt:page],@10];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:array WithPath:GetCouponsBatchByPagePath successBlock:^(id successJsonData) {
         NSLog(@"successJsonData = %@",successJsonData);
         NSMutableArray *array = successJsonData;
@@ -23,8 +23,8 @@
             for (NSDictionary *dic in array) {
                 [dataSource addObject:dic];
             }
-            [myTableView reloadData];
-            [myTableView.header endRefreshing];
+            [self.tableView reloadData];
+            [self.tableView.header endRefreshing];
         }
         
     } errorBlock:^(int code, NSString *errorJsonData) {
@@ -35,7 +35,7 @@
 - (void)pullUpToLoadMoreNews
 {    __weak __typeof(self) weakSelf = self;
     
-    myTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [weakSelf loadMoreData];
         
     }];
@@ -44,7 +44,7 @@
 {
     page++;
     
-    NSArray *array = @[[NSNumber numberWithInt:page],@10];
+    NSArray *array = @[self.user.identifyName,[NSNumber numberWithInt:page],@10];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:array WithPath:GetCouponsBatchByPagePath successBlock:^(id successJsonData) {
         NSLog(@"successJsonData = %@",successJsonData);
         NSMutableArray *array = successJsonData;
@@ -52,11 +52,12 @@
             for (NSDictionary *dic in array) {
                 [dataSource addObject:dic];
             }
-            [myTableView reloadData];
+            
+            [self.tableView reloadData];
 
         }else
         {
-            [myTableView.footer endRefreshing];
+            [self.tableView.footer endRefreshing];
         }
         
     } errorBlock:^(int code, NSString *errorJsonData) {
@@ -72,22 +73,22 @@
     dataSource = [[NSMutableArray alloc] init];
     page = 1;
     
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-64) style:UITableViewStyleGrouped];
-    myTableView.delegate = self;
-    myTableView.dataSource = self;
-    myTableView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:myTableView];
+//    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-64) style:UITableViewStyleGrouped];
+//    myTableView.delegate = self;
+//    myTableView.dataSource = self;
+    self.tableView.showsVerticalScrollIndicator = NO;
+//    [self.view addSubview:myTableView];
     
     
     __weak __typeof(self) weakSelf = self;
     
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
-    myTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf loadPurchaseData];
     }];
     
     // 马上进入刷新状态
-    [myTableView.header beginRefreshing];
+    [self.tableView.header beginRefreshing];
     
     [self pullUpToLoadMoreNews];
     
@@ -143,28 +144,10 @@
 
     NSLog(@"dic = %@",dic);
     NSLog(@"array = %@",array);
-
-    
-    
-    
-    
+ 
     
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

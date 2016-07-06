@@ -29,7 +29,8 @@
     }];
 }
 
-+(void)getChipByIdRquest:(AllChipModel*)idModel successBlock:(void(^)(id successJsonData))successBlock errorBlock:(void(^)(int code,NSString *errorJsonData))errorBlock{
++(void)getChipByIdRquest:(AllChipModel*)idModel successBlock:(void(^)(id successJsonData))successBlock errorBlock:(void(^)(int code,NSString *errorJsonData))errorBlock
+{
     [NetworkEngine postRequestWithUrl:AppService paramsArray:@[idModel.id] WithPath:getChipById successBlock:^(NSDictionary* successJsonData) {
         NSLog(@"%@",successJsonData);
         AllChipModel * model=[AllChipModel mj_objectWithKeyValues:successJsonData];

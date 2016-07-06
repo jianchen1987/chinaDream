@@ -88,32 +88,33 @@
     dowmScrollview.header = header;
 #pragma mark 设置试吃活动视图
     //    490 320
-    UICollectionViewFlowLayout * flowLayout=[[UICollectionViewFlowLayout alloc]init];
+//    UICollectionViewFlowLayout * flowLayout=[[UICollectionViewFlowLayout alloc]init];
+//    
+//    flowLayout.itemSize=CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+//    flowLayout.minimumLineSpacing=1;
+//    flowLayout.minimumInteritemSpacing=1;
+//    //    flowLayout.
+//    flowLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
+//    _FreeCollectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 70, DeviceWidth, 250+DeviceWidth) collectionViewLayout:flowLayout];
+//    _FreeCollectionView.pagingEnabled=YES;
+//    
+//    [topScrollview addSubview: _FreeCollectionView];
+//    topScrollview.contentSize=CGSizeMake(DeviceWidth, _FreeCollectionView.getH_Y);
+//    
+//    _FreeCollectionView.delegate=self;
+//    _FreeCollectionView.backgroundColor=self.view.backgroundColor;
+//    _FreeCollectionView.dataSource=self;
     
-    flowLayout.itemSize=CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
-    flowLayout.minimumLineSpacing=1;
-    flowLayout.minimumInteritemSpacing=1;
-    //    flowLayout.
-    flowLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
-    _FreeCollectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 70, DeviceWidth, 250+DeviceWidth) collectionViewLayout:flowLayout];
-    _FreeCollectionView.pagingEnabled=YES;
-    
-    [topScrollview addSubview: _FreeCollectionView];
-    topScrollview.contentSize=CGSizeMake(DeviceWidth, _FreeCollectionView.getH_Y);
-    
-    _FreeCollectionView.delegate=self;
-    _FreeCollectionView.backgroundColor=self.view.backgroundColor;
-    _FreeCollectionView.dataSource=self;
-    [_FreeCollectionView registerClass:[FreeCollectionViewCell class]forCellWithReuseIdentifier:@"cell"];
-    
+    [self.collectionView registerClass:[FreeCollectionViewCell class]forCellWithReuseIdentifier:@"cell"];
+    [dowmScrollview addSubview:self.collectionView];
     
     
     
 }
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    UIEdgeInsets ed=UIEdgeInsetsMake(0, 0, 0, 10);
-    return ed;
-}
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+//    UIEdgeInsets ed=UIEdgeInsetsMake(0, 0, 0, 10);
+//    return ed;
+//}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return _FreeArray.count;
 }
@@ -128,9 +129,8 @@
     cell.title_LB.text=model.productName;
    
     cell.detail.text= [NSString stringWithFormat:@"%@",model.simpleIntro];
-//    [unit objectForKey:@"simpleIntro"]?[unit objectForKey:@"ruleMessage"]:@"";
     cell.numberCount.text=[NSString stringWithFormat:@"%@份",model.freeNum];
-    cell.applyCount.text=[NSString stringWithFormat:@"已经有%ld人申请",(long)model.applyNum];
+    cell.applyCount.text=[NSString stringWithFormat:@"%ld人申请",(long)model.applyNum];
     cell.expireDate=model.expireDate;
     
     cell.applyAction=^{
@@ -147,13 +147,6 @@
 }
 
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
-}
-
-
-
-
 #pragma mark 获得所有的试吃记录
 -(void)getAllFreerecord:(NSInteger)page
 {
@@ -167,6 +160,7 @@
 
         }
 
+        
       
         
         if (_AllFreeRecord.count>0) {
@@ -186,9 +180,14 @@
         NSLog(@"errorJsonData==%@",errorJsonData);
     }];
 }
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    return (CGSize){DeviceWidth,topScrollview.contentSize.height};
+    return CGSizeMake((DeviceWidth - 1)/2, (DeviceWidth - 1)/2 + 90);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 3.0f;
 }
 
 - (void)viewDidLoad {
@@ -196,14 +195,17 @@
     self.title=@"免费试吃";
     _AllFreeRecord=[NSMutableArray array];
     [self creatView];
-    
+    FreeSamplesViews * freeView=[[[NSBundle mainBundle]loadNibNamed:@"FreeSamplesViews" owner:nil options:nil]lastObject];
+   freeView.frame=CGRectMake(0, 60, DeviceWidth, DeviceWidth/2+200);
+    topScrollview.contentSize=CGSizeMake(DeviceWidth, freeView.getH_Y);
+    [topScrollview addSubview:freeView];
     
     SelectBar * selectBar=[[SelectBar alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, 50)];
     selectBar.backgroundColor=[UIColor whiteColor];
     [selectBar creatTitle:@[@"试吃活动",@"我的试吃"] color:RGBA(156, 156, 156, 1) selectColor:RGBA(69, 180, 17, 1) frame:CGRectMake(0, 0, DeviceWidth, 50)];
     
     _FreeArray=[NSMutableArray array];
-    
+    _FreeCollectionView.frame=CGRectMake(0, 0, DeviceWidth, DeviceHeight);
     //获得所有的试吃
     [self GetFreeEatrequest:Number(1)];
     selectBar.SelectBarClick=^(NSInteger number){
@@ -211,7 +213,7 @@
             case 0:
                 _FreeCollectionView.hidden=NO;
                 _tableView.hidden=YES;
-                topScrollview.contentSize=CGSizeMake(DeviceWidth, 20+_FreeCollectionView.getH_Y);
+                topScrollview.contentSize=CGSizeMake(DeviceWidth, 20+freeView.getH_Y);
                 
                 break;
             case 1:
@@ -228,7 +230,8 @@
         }
     };
     [topScrollview addSubview:selectBar];
-    _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height-50)];
+    topScrollview.backgroundColor=self.view.backgroundColor;
+    _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-50)];
     [topScrollview addSubview:_tableView];
     _tableView.hidden=YES;
     _tableView.delegate=self;
@@ -246,15 +249,17 @@
              [_FreeArray addObject:model];
          }
 
+         [self.dataSource addObject:_FreeArray];
+         
          
          //         [actionView.stateImageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",AppendingImageUrl,[dic objectForKey:@"freeIcon"]]]placeholderImage:[UIImage imageNamed:@"cell图片"]];
-         NSLog(@"%@",[NSString stringWithFormat:@"%@%@",AppendingImageUrl,[dic objectForKey:@"freeIcon"]]);
+//         NSLog(@"%@",[NSString stringWithFormat:@"%@%@",AppendingImageUrl,[dic objectForKey:@"freeIcon"]]);
          //         actionView.detailinformation.text=[dic objectForKey:@"imageText"];
          //         actionView.name.text=[dic objectForKey:@"productName"];
          //         actionView.count.text=[NSString stringWithFormat:@"%@份",[dic objectForKey:@"freeNum"]];
          
 //         [_FreeArray addObjectsFromArray:successJsonData];
-         [_FreeCollectionView reloadData];
+         [self.collectionView reloadData];
          
      } errorBlock:^(int code, NSString *errorJsonData) {
          

@@ -21,6 +21,7 @@
 		48071FAF1D24C355008CE1D4 /* mySampleDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48071FAD1D24C355008CE1D4 /* mySampleDetailsViewController.xib */; };
 		48071FB21D24EE4F008CE1D4 /* QuarterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071FB11D24EE4F008CE1D4 /* QuarterModel.m */; };
 		48071FB51D24F114008CE1D4 /* SystemFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071FB41D24F114008CE1D4 /* SystemFunction.m */; };
+		480819E11D27F74000C87534 /* FreeSamplesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 480819E01D27F74000C87534 /* FreeSamplesDetailViewController.m */; };
 		480A49C41D11847700BA4CB8 /* TraversePicturesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49C31D11847700BA4CB8 /* TraversePicturesScrollView.m */; };
 		480A49C91D11857000BA4CB8 /* AdvertisementUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49C81D11857000BA4CB8 /* AdvertisementUnit.m */; };
 		480A49CC1D11984600BA4CB8 /* PictureCarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49CB1D11984600BA4CB8 /* PictureCarouselScrollView.m */; };
@@ -53,7 +54,6 @@
 		480BDE9E1D1785A900531FAA /* FreeSamplesViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDE9D1D1785A900531FAA /* FreeSamplesViews.m */; };
 		480BDEA01D1785BB00531FAA /* FreeSamplesViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480BDE9F1D1785BB00531FAA /* FreeSamplesViews.xib */; };
 		480BDEA41D178D3B00531FAA /* FreeSamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDEA31D178D3B00531FAA /* FreeSamplesViewController.m */; };
-		480BDEFC1D18ED2100531FAA /* FreeSamplesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDEFB1D18ED2100531FAA /* FreeSamplesDetailViewController.m */; };
 		480BDF001D18ED6F00531FAA /* FreeSamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDEFF1D18ED6F00531FAA /* FreeSamples.m */; };
 		480BDF021D18ED8000531FAA /* FreeSamples.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480BDF011D18ED8000531FAA /* FreeSamples.xib */; };
 		480BDF061D19190A00531FAA /* MyTryEatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDF041D19190A00531FAA /* MyTryEatTableViewCell.m */; };
@@ -67,6 +67,11 @@
 		48A8FA9A1D26565C003E872F /* myCrowdFundingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FA991D26565C003E872F /* myCrowdFundingViewController.m */; };
 		48A8FA9E1D2659D8003E872F /* myCrowdFundingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */; };
 		48A8FA9F1D2659D8003E872F /* myCrowdFundingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */; };
+		48A8FAA21D278623003E872F /* FoorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FAA11D278623003E872F /* FoorView.m */; };
+		48A8FAA41D278638003E872F /* FoorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A8FAA31D278638003E872F /* FoorView.xib */; };
+		48A8FAA81D2799A5003E872F /* FreeEatRquest.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FAA71D2799A5003E872F /* FreeEatRquest.m */; };
+		48A8FAAD1D27B0B9003E872F /* ShakeShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FAAB1D27B0B9003E872F /* ShakeShakeViewController.m */; };
+		48A8FAAE1D27B0B9003E872F /* ShakeShakeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A8FAAC1D27B0B9003E872F /* ShakeShakeViewController.xib */; };
 		48FA56431D1A22A300E74654 /* FreeSamplesFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA56421D1A22A300E74654 /* FreeSamplesFlowLayout.m */; };
 		48FA56471D1A249C00E74654 /* FreeSamplesCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA56451D1A249C00E74654 /* FreeSamplesCVC.m */; };
 		48FA56481D1A249C00E74654 /* FreeSamplesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48FA56461D1A249C00E74654 /* FreeSamplesCVC.xib */; };
@@ -384,6 +389,8 @@
 		48071FB11D24EE4F008CE1D4 /* QuarterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuarterModel.m; sourceTree = "<group>"; };
 		48071FB31D24F114008CE1D4 /* SystemFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemFunction.h; sourceTree = "<group>"; };
 		48071FB41D24F114008CE1D4 /* SystemFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemFunction.m; sourceTree = "<group>"; };
+		480819DF1D27F74000C87534 /* FreeSamplesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesDetailViewController.h; sourceTree = "<group>"; };
+		480819E01D27F74000C87534 /* FreeSamplesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamplesDetailViewController.m; sourceTree = "<group>"; };
 		480A49C21D11847700BA4CB8 /* TraversePicturesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraversePicturesScrollView.h; sourceTree = "<group>"; };
 		480A49C31D11847700BA4CB8 /* TraversePicturesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraversePicturesScrollView.m; sourceTree = "<group>"; };
 		480A49C71D11857000BA4CB8 /* AdvertisementUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisementUnit.h; sourceTree = "<group>"; };
@@ -450,8 +457,6 @@
 		480BDE9F1D1785BB00531FAA /* FreeSamplesViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FreeSamplesViews.xib; sourceTree = "<group>"; };
 		480BDEA21D178D3B00531FAA /* FreeSamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesViewController.h; sourceTree = "<group>"; };
 		480BDEA31D178D3B00531FAA /* FreeSamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamplesViewController.m; sourceTree = "<group>"; };
-		480BDEFA1D18ED2100531FAA /* FreeSamplesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesDetailViewController.h; sourceTree = "<group>"; };
-		480BDEFB1D18ED2100531FAA /* FreeSamplesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamplesDetailViewController.m; sourceTree = "<group>"; };
 		480BDEFE1D18ED6F00531FAA /* FreeSamples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamples.h; sourceTree = "<group>"; };
 		480BDEFF1D18ED6F00531FAA /* FreeSamples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamples.m; sourceTree = "<group>"; };
 		480BDF011D18ED8000531FAA /* FreeSamples.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FreeSamples.xib; sourceTree = "<group>"; };
@@ -474,6 +479,14 @@
 		48A8FA9B1D2659D8003E872F /* myCrowdFundingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCrowdFundingTableViewCell.h; sourceTree = "<group>"; };
 		48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCrowdFundingTableViewCell.m; sourceTree = "<group>"; };
 		48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myCrowdFundingTableViewCell.xib; sourceTree = "<group>"; };
+		48A8FAA01D278623003E872F /* FoorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoorView.h; sourceTree = "<group>"; };
+		48A8FAA11D278623003E872F /* FoorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoorView.m; sourceTree = "<group>"; };
+		48A8FAA31D278638003E872F /* FoorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoorView.xib; sourceTree = "<group>"; };
+		48A8FAA61D2799A5003E872F /* FreeEatRquest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeEatRquest.h; sourceTree = "<group>"; };
+		48A8FAA71D2799A5003E872F /* FreeEatRquest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeEatRquest.m; sourceTree = "<group>"; };
+		48A8FAAA1D27B0B9003E872F /* ShakeShakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeShakeViewController.h; sourceTree = SOURCE_ROOT; };
+		48A8FAAB1D27B0B9003E872F /* ShakeShakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeShakeViewController.m; sourceTree = SOURCE_ROOT; };
+		48A8FAAC1D27B0B9003E872F /* ShakeShakeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShakeShakeViewController.xib; sourceTree = SOURCE_ROOT; };
 		48FA56411D1A22A300E74654 /* FreeSamplesFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesFlowLayout.h; sourceTree = "<group>"; };
 		48FA56421D1A22A300E74654 /* FreeSamplesFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamplesFlowLayout.m; sourceTree = "<group>"; };
 		48FA56441D1A249C00E74654 /* FreeSamplesCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesCVC.h; sourceTree = "<group>"; };
@@ -1080,6 +1093,8 @@
 		48071FAA1D24C355008CE1D4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				480819DF1D27F74000C87534 /* FreeSamplesDetailViewController.h */,
+				480819E01D27F74000C87534 /* FreeSamplesDetailViewController.m */,
 				48071FAB1D24C355008CE1D4 /* mySampleDetailsViewController.h */,
 				48071FAC1D24C355008CE1D4 /* mySampleDetailsViewController.m */,
 				48071FAD1D24C355008CE1D4 /* mySampleDetailsViewController.xib */,
@@ -1238,8 +1253,6 @@
 				480BDEFD1D18ED2A00531FAA /* view */,
 				480BDEA21D178D3B00531FAA /* FreeSamplesViewController.h */,
 				480BDEA31D178D3B00531FAA /* FreeSamplesViewController.m */,
-				480BDEFA1D18ED2100531FAA /* FreeSamplesDetailViewController.h */,
-				480BDEFB1D18ED2100531FAA /* FreeSamplesDetailViewController.m */,
 				4804C5F41D2366DF0080B1C8 /* PublishCommentViewController.h */,
 				4804C5F51D2366DF0080B1C8 /* PublishCommentViewController.m */,
 				4804C5F61D2366DF0080B1C8 /* SampleDetailsViewController.h */,
@@ -1304,6 +1317,9 @@
 				48A8FA9B1D2659D8003E872F /* myCrowdFundingTableViewCell.h */,
 				48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */,
 				48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */,
+				48A8FAA01D278623003E872F /* FoorView.h */,
+				48A8FAA11D278623003E872F /* FoorView.m */,
+				48A8FAA31D278638003E872F /* FoorView.xib */,
 			);
 			name = view;
 			path = ViewController/view;
@@ -1316,6 +1332,25 @@
 				4813E14C1D2601F2004D6E7A /* CrowdFundingRequest.m */,
 			);
 			name = viewmodel;
+			sourceTree = "<group>";
+		};
+		48A8FAA51D279977003E872F /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				48A8FAA61D2799A5003E872F /* FreeEatRquest.h */,
+				48A8FAA71D2799A5003E872F /* FreeEatRquest.m */,
+			);
+			name = Viewmodel;
+			sourceTree = "<group>";
+		};
+		48A8FAA91D27B07D003E872F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48A8FAAA1D27B0B9003E872F /* ShakeShakeViewController.h */,
+				48A8FAAB1D27B0B9003E872F /* ShakeShakeViewController.m */,
+				48A8FAAC1D27B0B9003E872F /* ShakeShakeViewController.xib */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		48FF68C71D0FA82600DAD002 /* MD5 */ = {
@@ -2201,6 +2236,7 @@
 		F2A432141C39169D00479C73 /* 免费试吃 */ = {
 			isa = PBXGroup;
 			children = (
+				48A8FAA51D279977003E872F /* Viewmodel */,
 				48071FAA1D24C355008CE1D4 /* ViewController */,
 				48071F9A1D24B3C5008CE1D4 /* model */,
 				F2933A7E1C5E089900606136 /* FreeEatActivityViewController.h */,
@@ -2218,6 +2254,7 @@
 		F2A432151C39169D00479C73 /* 摇摇红包 */ = {
 			isa = PBXGroup;
 			children = (
+				48A8FAA91D27B07D003E872F /* ViewController */,
 			);
 			path = "摇摇红包";
 			sourceTree = "<group>";
@@ -2718,6 +2755,7 @@
 				F2B6653F1C7997F7007427BB /* photo_sel_photoPickerVc@2x.png in Resources */,
 				F2B665401C7997F7007427BB /* photo_sel_previewVc@2x.png in Resources */,
 				480BDEA01D1785BB00531FAA /* FreeSamplesViews.xib in Resources */,
+				48A8FAAE1D27B0B9003E872F /* ShakeShakeViewController.xib in Resources */,
 				480BDF021D18ED8000531FAA /* FreeSamples.xib in Resources */,
 				48071FAF1D24C355008CE1D4 /* mySampleDetailsViewController.xib in Resources */,
 				F2B665421C7997F7007427BB /* preview_original_def@2x.png in Resources */,
@@ -2739,6 +2777,7 @@
 				F2B6653C1C7997F7007427BB /* photo_number_icon@2x.png in Resources */,
 				48FF68CF1D0FD92300DAD002 /* File in Resources */,
 				F241DAEC1C4A1F3E001A828D /* cellLine@2x.png in Resources */,
+				48A8FAA41D278638003E872F /* FoorView.xib in Resources */,
 				4804C5FB1D2366DF0080B1C8 /* SampleDetailsViewController.xib in Resources */,
 				F2B665381C7997F7007427BB /* MMVideoPreviewPlayHL@2x.png in Resources */,
 				F2B6653D1C7997F7007427BB /* photo_original_def@2x.png in Resources */,
@@ -2819,6 +2858,7 @@
 				E852CDB91D23567100CD7604 /* attentionViewModel.m in Sources */,
 				F24FF94D1CA4282700540576 /* MyCollectionViewController.m in Sources */,
 				F2933A721C5DDD9C00606136 /* SDBrowserImageView.m in Sources */,
+				48A8FAA21D278623003E872F /* FoorView.m in Sources */,
 				F282D4961C74ADF3001251EF /* WaittingPaymentViewController.m in Sources */,
 				F2A520721C468131009E7551 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F2A4321B1C39176D00479C73 /* AdvRunLoopView.m in Sources */,
@@ -2876,6 +2916,7 @@
 				F2A520651C468131009E7551 /* MKAnnotationView+WebCache.m in Sources */,
 				480BDEA41D178D3B00531FAA /* FreeSamplesViewController.m in Sources */,
 				F26E42801C8183690041E1E1 /* EmotionAttachment.m in Sources */,
+				48A8FAAD1D27B0B9003E872F /* ShakeShakeViewController.m in Sources */,
 				E852CDC91D24378600CD7604 /* baseCollectionView.m in Sources */,
 				480A49DB1D12A67000BA4CB8 /* SelectBar.m in Sources */,
 				F28E4FA31C25471A00FA5F75 /* Reachability.m in Sources */,
@@ -2906,6 +2947,7 @@
 				F279F5B71C1D51A8001FB738 /* MJRefreshBackGifFooter.m in Sources */,
 				F28B56481C871DD200F62D4E /* LDProgressView.m in Sources */,
 				F2933A831C5E08A900606136 /* FreeEatHistoryViewController.m in Sources */,
+				480819E11D27F74000C87534 /* FreeSamplesDetailViewController.m in Sources */,
 				E852CDC21D24179800CD7604 /* IntegralProductModel.m in Sources */,
 				F28E4F871C25013200FA5F75 /* DynamicViewController.m in Sources */,
 				F269809F1C12BAFC00C46C6D /* ViewController.m in Sources */,
@@ -2960,7 +3002,6 @@
 				F287E82F1C21A830002F52CF /* IntegralHistoryViewController.m in Sources */,
 				F28B56421C87163E00F62D4E /* MoreTogetherTableViewCell.m in Sources */,
 				48071F951D24B08D008CE1D4 /* FreeCollectionViewCell.m in Sources */,
-				480BDEFC1D18ED2100531FAA /* FreeSamplesDetailViewController.m in Sources */,
 				480A49DE1D12A83200BA4CB8 /* MeButton.m in Sources */,
 				48FF68E11D10FA4600DAD002 /* MBProgressHUD.m in Sources */,
 				F29533721C3E913D000DEF92 /* RHMethods.m in Sources */,
@@ -3016,6 +3057,7 @@
 				E86705331D251BDD00EABAF3 /* myLoopView.m in Sources */,
 				F279F5AF1C1D51A8001FB738 /* MJRefreshAutoFooter.m in Sources */,
 				F2F4009E1C1D45FF00EC5E32 /* SupermarketCollectionViewCell.m in Sources */,
+				48A8FAA81D2799A5003E872F /* FreeEatRquest.m in Sources */,
 				F2B6654C1C7997F7007427BB /* TZPhotoPreviewCell.m in Sources */,
 				F293A0BB1C146DA000B2724B /* CustomMyselfButton.m in Sources */,
 				480BDF061D19190A00531FAA /* MyTryEatTableViewCell.m in Sources */,

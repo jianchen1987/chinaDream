@@ -7,23 +7,21 @@
 //
 #import "SelectBar.h"
 #import "MJRefreshBackGifFooter.h"
-#import "MoreTogetherDetailViewController.h"
+#import "FreeSamplesDetailViewController.h"
 #import "DetaiHeadView.h"
 #import "UpImageButton.h"
 #import "UIView+Getlength.h"
 #import "PictureCarouselScrollView.h"
 #import "MJRefreshGifHeader.h"
 #import "MJRefreshAutoNormalFooter.h"
-#import "CrowdFundingRequest.h"
-#import "FoorView.h"
-@interface MoreTogetherDetailViewController ()
+#import "FreeSamples.h"
+@interface FreeSamplesDetailViewController ()
 @property(nonatomic,strong)DetaiHeadView * detailHeadView;
 @property(nonatomic,strong)UIView  * headView;
 @property(nonatomic,strong)NSDictionary * Information;
 @property(nonatomic,strong)PictureCarouselScrollView * Picture_Scroll ;
 @property(nonatomic,strong)UIView * TooMoreView;
 @property(nonatomic,strong)UIButton * TooMore_BT ;
-
 
 /**
  *  底部
@@ -43,7 +41,7 @@
 @property(nonatomic,strong) SelectBar *secondTopView;
 @end
 
-@implementation MoreTogetherDetailViewController
+@implementation FreeSamplesDetailViewController
 @synthesize Picture_Scroll;
 -(void)GetComment
 {
@@ -56,13 +54,9 @@
      */
     
     
-    NSArray * array=@[self.user.identifyName, self.model.id,allchip,@1,@4];
-    NSLog(@"%@",array);
+    NSArray * array=@[self.user.identifyName,_ID,allchip,@1,@4];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:array  WithPath:getComment successBlock:^(id successJsonData)
      {
-         
-         
-         NSLog(@"successJsonData===%@",successJsonData);
          for (NSDictionary *dic in successJsonData) {
              CommentModle *modle = [CommentModle new];
              NSDictionary * user=[dic objectForKey:@"user"];
@@ -88,7 +82,6 @@
          [myTableView reloadData];
          
      } errorBlock:^(int code, NSString *errorJsonData) {
-         [self showPrompt:errorJsonData];
      }];
 }
 - (UIWebView *)webView {
@@ -117,7 +110,7 @@
         
         [_secondTopView creatTitle: @[@"图文详情",@"评价晒单"] color:RGBA(148,148,148,1) selectColor:RGBA(77,195,5,1) frame:CGRectMake(0, 0, DeviceWidth, 50)];
         __weak typeof(self) weakself = self;
-
+        
         _secondTopView.SelectBarClick=^(NSInteger number){
             
             if (number==0) {
@@ -130,22 +123,9 @@
                 weakself.commentTableView.hidden = NO;
                 [weakself.twoPageView addSubview:weakself.commentTableView];
             }
- 
+            
         };
-//        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 49, DeviceWidth, 1)];
-//        lineView.backgroundColor = RGBA(240, 240, 240, 1);
-//        [_secondTopView addSubview:lineView];
-//        
-//        NSArray *titleArr = @[@"图文详情",@"评价晒单"];
-//        for (int i = 0; i < 2; i++) {
-//            UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//            secondButton.frame = CGRectMake(DeviceWidth/2*i, 0, DeviceWidth/2, 50);
-//            [secondButton setTitle:titleArr[i] forState:0];
-//            [secondButton setTitleColor:[UIColor blackColor] forState:0];
-//            [secondButton addTarget:self action:@selector(secondButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-//            [_secondTopView addSubview:secondButton];
-//            
-//        }
+
     }
     return _secondTopView;
 }
@@ -200,13 +180,13 @@
     [header setTitle:@"释放，返回商品简介" forState:MJRefreshStatePulling];
     [header setTitle:@"释放，返回商品简介" forState:MJRefreshStateRefreshing];
     self.webView.scrollView.header = header;
-
+    
     _webView.backgroundColor=[UIColor clearColor];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
-
+    
     [self.webView loadHTMLString:[self.Information  objectForKey:@"imageText"] baseURL:nil];
     
-
+    
     // 3.设置 UICollectionView 下拉显示商品详情
     MJRefreshGifHeader *dHeader = [MJRefreshGifHeader headerWithRefreshingBlock:^{
         [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationOptionLayoutSubviews animations:^{
@@ -219,11 +199,11 @@
     [dHeader setTitle:@"下拉，返回商品简介" forState:MJRefreshStateIdle];
     [dHeader setTitle:@"释放，返回商品简介" forState:MJRefreshStatePulling];
     [dHeader setTitle:@"释放，返回商品简介" forState:MJRefreshStateRefreshing];
-
+    
     self.commentTableView.header = dHeader;
     
     
-   
+    
 }
 
 #pragma mark - 第二页
@@ -233,7 +213,8 @@
     }
     return _twoPageView;
 }
--(void)creatView{
+-(void)BottomToolView
+{
     dataSource = [[NSMutableArray alloc] init];
     commentDataSource = [[NSMutableArray alloc] init];
     
@@ -243,9 +224,7 @@
     myTableView.delegate = self;
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
-    FoorView * view=[[[NSBundle mainBundle]loadNibNamed:@"FoorView" owner:nil options:nil]lastObject];
-    view.frame=CGRectMake(0, 0, DeviceWidth, 40);
-    myTableView.tableFooterView=view;
+    
     
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, DeviceHeight-64-45, DeviceWidth, 45)];
     bottomView.backgroundColor = RGBA(213, 213, 213, 1);
@@ -265,7 +244,7 @@
     [sure setTitle:@"我要支持" forState:UIControlStateNormal];
     [bottomView addSubview:sure];
     [sure addTarget:self action:@selector(joinButtonAction) forControlEvents:UIControlEventTouchUpInside];
-
+    
 }
 #pragma mark - Lazy Methods
 - (UIScrollView *)scrollView {
@@ -277,87 +256,85 @@
     }
     return _scrollView;
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
-   
-    self.title = @"产品详情";
+-(void)creatHeadView{
+    _headView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, 260+DeviceWidth/2)];
     
-    _headView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2+250)];
-   
-    _TooMoreView = [[UIView alloc] initWithFrame:CGRectMake(0, 221+DeviceWidth/2, DeviceWidth, 40)];
-    UIImageView * image=[[UIImageView alloc]initWithFrame:CGRectMake(DeviceWidth-40, 5, 30, 30)];
-    image.image=[UIImage imageNamed:@"更多小箭头"];
-    [_TooMoreView addSubview:image];
+    _TooMoreView = [[UIView alloc] initWithFrame:CGRectMake(0, 220+DeviceWidth/2, DeviceWidth, 40)];
     [_headView addSubview:_TooMoreView];
     _TooMore_BT = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, DeviceWidth-10, 20)];
     _TooMore_BT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     
-    [_TooMore_BT setTitleColor:RGBA(63, 168, 40, 1) forState:UIControlStateNormal];
-  
+    [_TooMore_BT setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    
     _TooMoreView.backgroundColor=[UIColor whiteColor];
     [_TooMoreView addSubview:_TooMore_BT];
-    self.Picture_Scroll=[[PictureCarouselScrollView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2)];
-   Picture_Scroll.imagePlaceName=@"专题";
+    Picture_Scroll=[[PictureCarouselScrollView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2)];
+    Picture_Scroll.imagePlaceName=@"专题";
     [_headView addSubview:Picture_Scroll];
     _detailHeadView=[[[NSBundle mainBundle]loadNibNamed:@"DetaiHeadView" owner:nil options:nil]lastObject];
     __weak typeof(self) weakself=self;
     
     _detailHeadView.ClickDetail=^{
         [UIView animateWithDuration:0.5 animations:^{
-              weakself.scrollView.contentOffset = CGPointMake(0, weakself.scrollView.height);
+            weakself.scrollView.contentOffset = CGPointMake(0, weakself.scrollView.height);
         }];
-     
+        
     };
     [_headView addSubview:_detailHeadView];
-
-    _detailHeadView.frame=CGRectMake(0, DeviceWidth/2, DeviceWidth, 220);
     
-    [CrowdFundingRequest getChipByIdRquest:self.model successBlock:^(AllChipModel * model) {
-        
-        
-        NSArray * imageArr=model.allChipBanners;
+    
+    
+    _detailHeadView.frame=CGRectMake(0, DeviceWidth/2, DeviceWidth, 220);
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.ID] WithPath:getChipById successBlock:^(NSDictionary* successJsonData) {
+        NSArray * imageArr=[successJsonData objectForKey:@"allChipBanners"];
         NSMutableArray * imageArray=[NSMutableArray array];
         for (int i=0; i<imageArr.count; i++) {
-            
             NSString * name=[NSString stringWithFormat:@"%@%@",AppendingImageUrl,imageArr[i]];
             [imageArray addObject:name];
         }
-        NSLog(@"-------------------------");
-        [Picture_Scroll Viewframe:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2) andViewAllimage:imageArray andChangeTime:1];
-        _detailHeadView.titleName.text=model.title;
-        NSString * stirng=[NSString stringWithFormat:@"已筹到:%0.1ld斤",(long)model.chipNum];
-        _detailHeadView.descInfo.attributedText=[self AttributedString: stirng  image:@"已筹到"];
-        _detailHeadView.price.attributedText= [self AttributedString:[NSString stringWithFormat:@"¥%0.1f/斤",model.price] rangeString:@"/斤" color: [UIColor grayColor]];
-        _detailHeadView.supportNum.attributedText= [self AttributedString:[NSString stringWithFormat:@"已有%ld人支持", (long)model.supportNum] image:@"人数" ];
-        _detailHeadView.chipNum.attributedText=[self AttributedString: [NSString stringWithFormat:@"项目目标%ld斤",  (long)model.chipNum ]image:@"项目目标"];
-        _detailHeadView.detaiData.text= model.simpleIntro;
         
-        NSNumber * number=Number(model.commentPeople);
+        [Picture_Scroll Viewframe:CGRectMake(0, 0, DeviceWidth, DeviceWidth/2) andViewAllimage:imageArray andChangeTime:1];
+        _detailHeadView.titleName.text=[successJsonData objectForKey:@"title"];
+        NSString * stirng=[NSString stringWithFormat:@"已筹到:%@斤",[successJsonData objectForKey:@"chipNum"]];
+        _detailHeadView.descInfo.attributedText=[self AttributedString: stirng  image:@"已筹到"];
+        _detailHeadView.price.attributedText= [self AttributedString:[NSString stringWithFormat:@"¥%@/斤",[successJsonData objectForKey:@"price"]] rangeString:@"/斤" color: [UIColor grayColor]];
+        _detailHeadView.supportNum.attributedText= [self AttributedString:[NSString stringWithFormat:@"已有%@人支持", [successJsonData objectForKey:@"supportNum"]] image:@"人数" ];
+        _detailHeadView.chipNum.attributedText=[self AttributedString: [NSString stringWithFormat:@"项目目标%@斤",  [successJsonData objectForKey:@"chipNum"]]image:@"项目目标"];
+        _detailHeadView.detaiData.text= [successJsonData objectForKey:@"simpleIntro"];
+        _Information=successJsonData;
+        
+        NSNumber * number=[_Information objectForKey:@"commentPeople"];
         if ([number intValue]>0 ) {
-            [_TooMore_BT setTitle:[NSString stringWithFormat:@"查看全部%@条评论",number ] forState:UIControlStateNormal];
-            [_TooMore_BT addTarget:self action:@selector(FindTooMorecomment) forControlEvents:UIControlEventTouchUpInside];
+            [_TooMore_BT setTitle:[NSString stringWithFormat:@"查看全部评论%@",number ] forState:UIControlStateNormal];
             
         }else{
             [_TooMore_BT setTitle:[NSString stringWithFormat:@"无人评论评论"] forState:UIControlStateNormal];
             _TooMore_BT.enabled=NO;
         }
         [myTableView reloadData];
-        
     } errorBlock:^(int code, NSString *errorJsonData) {
         
     }];
-
-     [self creatView];
-     [self addSubView];
-     [self configureRefresh];
-
+    
+    
 }
-//查看更多评论
--(void)FindTooMorecomment{
-    [UIView animateWithDuration:0.5 animations:^{
-        self.scrollView.contentOffset = CGPointMake(0, self.scrollView.height);
-    }];
-
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.title = @"产品详情";
+    _headView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, 260+DeviceWidth/2)];
+    
+    FreeSamples * free =[[[NSBundle mainBundle]loadNibNamed:@"FreeSamples" owner:nil options:nil]lastObject];
+    free.frame=_headView.frame;
+    [_headView addSubview:free];
+    self.ID=@"ew";
+    
+//    [self creatHeadView];//创建头部
+    
+    [self BottomToolView];//底部工具条
+    [self addSubView];
+    [self configureRefresh];
+    
 }
 
 
@@ -374,20 +351,18 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-        return commentDataSource.count;
+    return commentDataSource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *commendIdentifire = @"commendIdentifire";
-
-        ProductCommendTableViewCell *secondCell = [tableView dequeueReusableCellWithIdentifier:commendIdentifire];
-        if (!secondCell) {
-            secondCell = [[ProductCommendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:commendIdentifire];
-        }
-        secondCell.model = commentDataSource[indexPath.row];
-        secondCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return secondCell;
+    ProductCommendTableViewCell *secondCell = [tableView dequeueReusableCellWithIdentifier:commendIdentifire];
+    if (!secondCell) {
+        secondCell = [[ProductCommendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:commendIdentifire];
+    }
+    secondCell.model = commentDataSource[indexPath.row];
+    secondCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return secondCell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -406,9 +381,9 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-        id model = commentDataSource[indexPath.row];
-        return [myTableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[ProductCommendTableViewCell class] contentViewWidth:DeviceWidth-40];
+    
+    id model = commentDataSource[indexPath.row];
+    return [myTableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[ProductCommendTableViewCell class] contentViewWidth:DeviceWidth-40];
 }
 
 
