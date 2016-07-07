@@ -9,14 +9,23 @@
 #import "ShoppingProductModel.h"
 
 @implementation ShoppingProductModel
--(instancetype)initWithShopDict:(NSDictionary *)dic
+
+- (instancetype)initWithJsonData:(NSDictionary *)json
 {
-    self.productImageName = dic[@"image"];
-    self.productTitle = dic[@"title"];
-    self.productDiscountPrice = dic[@"discountPrice"];
-    self.productOriginalPrice = dic[@"originalPrice"];
-    self.goodsNum = [dic[@"productNum"] intValue];
-    self.selected = [dic[@"selected"] boolValue];
+    self = [super initWithJsonData:json];
+    if(self)
+    {
+        self.productImageUrl      = [json objectForKey:@"productIcon"];
+        self.productTitle         = [json objectForKey:@"productName"];
+        self.productDiscountPrice = [[json objectForKey:@"discountPrice"] stringValue];
+        self.productOriginalPrice = [[json objectForKey:@"price"] stringValue];
+        self.goodsNum             = [[json objectForKey:@"buyNum"] intValue];
+        self.selected             = NO;
+
+    }
+    
     return self;
 }
+
+
 @end

@@ -8,46 +8,47 @@
 
 #import <Foundation/Foundation.h>
 #import "UserObject.h"
+#import "baseModel.h"
 
-//@class Zone;
+@class zoneModel;
 
-@interface quarterModel : NSObject
+@interface quarterModel : baseModel
 
-@property(nonatomic,strong)NSString * id;
+@property (nonatomic,strong ) NSString     *quarterId;
 /**
  *  小区名字
  */
-@property (nonatomic, copy) NSString *quarterName;
+@property (nonatomic, copy  ) NSString     *quarterName;
 /**
  *  小区地址
  */
-@property (nonatomic, copy) NSString *quarterAddress;
+@property (nonatomic, copy  ) NSString     *quarterAddress;
 /**
  *  小区图标
  */
-@property (nonatomic, copy) NSString *quarterIcon;
+@property (nonatomic, copy  ) NSString     *quarterIcon;
 /**
  *  小区描述
  */
-@property (nonatomic, copy) NSString *remark;
+@property (nonatomic, copy  ) NSString     *remark;
 /**
  *  小区用户
  */
-@property (nonatomic, strong) NSArray *users;
+@property (nonatomic, strong) NSArray      *users;
 /**
  *  经度
  */
-@property (nonatomic, copy) NSString *lng;
+@property (nonatomic, copy  ) NSString     *lng;
 /**
  *  纬度
  */
-@property (nonatomic, copy) NSString *lat;
+@property (nonatomic, copy  ) NSString     *lat;
 
-@property (nonatomic, strong) NSArray *freeEats;
+@property (nonatomic, strong) NSArray      *freeEats;
 
-@property (nonatomic, strong) NSArray *products;
+@property (nonatomic, strong) NSArray      *products;
 
-//@property (nonatomic, strong) Zone *zone;
+@property (nonatomic, strong) zoneModel    *zone;
 
 
 @end

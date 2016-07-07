@@ -36,6 +36,7 @@
         advertiseHeight = frame.size.height;
         self.placeHodlerView = imageView;
         self.scrollView.userInteractionEnabled = YES;
+        //self.autoPlay = NO;
         [self addPageControl];
     }
     return self;
@@ -44,22 +45,29 @@
 - (instancetype)initWithFrame:(CGRect)frame imageUrls:(NSArray *)imageUrls autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval {
     self = [super initWithFrame:frame];
     if (self) {
-        _autoPlay = isAuto;
+        //_autoPlay = isAuto;
         _timeInterval = timeInterval;
         _imageUrls = imageUrls;
         _currentPage = 0;
         [self addPageControl];
         [self addScrollView];
         
-        if (_autoPlay == YES) {
+        if (!self.autoPlay && isAuto)
+        {
+            self.autoPlay = YES;
             [self toPlay];
         }
     }
     return self;
 }
 
+- (void)dealloc
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoPlayToNextPage) object:nil];
+}
+
 - (void)setLoopViewImageUrls:(NSArray *)imageUrls autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval {
-    _autoPlay = isAuto;
+    //_autoPlay = isAuto;
     _timeInterval = timeInterval;
     _imageUrls = imageUrls;
     _currentPage = 0;
@@ -67,7 +75,9 @@
     [self addScrollView];
     [self addPageControl];
     
-    if (self.autoPlay == YES) {
+    if (!self.autoPlay && isAuto)
+    {
+        self.autoPlay = YES;
         [self toPlay];
     }
 }
@@ -96,11 +106,13 @@
 
 #pragma mark - Private Methods
 - (void)toPlay{
+    NSLog(@"toPlay");
     [self performSelector:@selector(autoPlayToNextPage) withObject:nil afterDelay:_timeInterval];
 }
 
 - (void)autoPlayToNextPage {
     //    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoPlayToNextPage) object:nil];
+    NSLog(@"autoPlayToNextPage");
     [self.scrollView setContentOffset:CGPointMake(self.frame.size.width * 2, 0) animated:YES];
     [self performSelector:@selector(autoPlayToNextPage) withObject:nil afterDelay:_timeInterval];
 }

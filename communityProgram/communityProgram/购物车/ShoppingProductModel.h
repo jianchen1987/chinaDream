@@ -7,17 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "baseModel.h"
 
-@interface ShoppingProductModel : NSObject
-@property(nonatomic,copy)NSString *productImageName;
-@property(nonatomic,copy)NSString *productTitle;
+@interface ShoppingProductModel : baseModel
+
+@property (nonatomic, copy  ) NSString *productImageUrl;
+@property (nonatomic, copy  ) NSString *productTitle;
 //@property(nonatomic,copy)NSString *goodsType;
-@property(nonatomic,copy)NSString *productOriginalPrice;
-@property(nonatomic,copy)NSString *productDiscountPrice;
-@property(nonatomic,assign)BOOL selected;
-@property(nonatomic,assign)int goodsNum;
+@property (nonatomic, strong  ) NSString *productOriginalPrice;
+@property (nonatomic, strong  ) NSString *productDiscountPrice;
+@property (nonatomic, assign) BOOL     selected;
+@property (nonatomic, assign) int      goodsNum;
 
 
--(instancetype)initWithShopDict:(NSDictionary *)dic;
+
 
 @end

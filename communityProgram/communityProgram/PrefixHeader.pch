@@ -114,6 +114,16 @@ typedef void (^void_SuccessBlock_BOOL)(BOOL isSuccess);
 #define GetNoticeMy        @"getNoticeMy"
 #define NoticeByUser       @"noticeByUser"
 #define GetOrderItemByOrderId @"getOrderItemByOrderId"
+
+#define GetIntegralProductType   @"getIntegralProductType"
+#define GetIntegralProducts      @"getIntegralProdcutByCode"
+#define GetIntegralProductById   @"getIntegralProductById"
+
+#define AddShoppingCar           @"addShopCar"    //添加到购物车
+#define RemoveShoppingCar        @"removeShopCar" //删除购物车
+#define ModifyShoppingCar        @"modifyShopCar" //修改购物车
+#define GetShoppingCarList       @"getShopCarList" //获取购物车清单
+
 #define SignIntegralPath   @"signIntegral"  //签到赚取积分
 #define UploadAskorTalk    @"uploadAskorTalk"  //上传图片
 #define PublishAskorTalkPath @"publishAskorTalk"  //发布一条问问或者说说

@@ -122,7 +122,7 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
 //请求获取数据
 -(void)getAlldataRequest
 {
-    NSArray * array=@[self.user.quarter.id?self.user.quarter.id:@"",
+    NSArray * array=@[self.user.quarter.quarterId?self.user.quarter.quarterId:@"",
                       self.keyWord,
                       self.code,
                       Number(self.nowPage),

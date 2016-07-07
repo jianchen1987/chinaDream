@@ -10,31 +10,16 @@
 
 @implementation CommonUtils
 
-+ (BOOL)savaImg:(UIImage *)img useFileName:(NSString *)filePath
++ (NSDate *)getDateByString:(NSString *)dateStr stringFormat:(NSString *)formatStr
 {
-    NSArray *tmp = [filePath componentsSeparatedByString:@"/"];
-    NSString *fileName = [tmp lastObject];
-    NSString *localPath = NSTemporaryDirectory();
-    
-    return [UIImagePNGRepresentation(img) writeToFile:[NSString stringWithFormat:@"%@/%@",localPath,fileName] atomically:YES];
-}
-
-
-+ (UIImage *)getImgByFilePath:(NSString *)filePath
-{
-    NSArray *tmp = [filePath componentsSeparatedByString:@"/"];
-    NSString *fileName = [tmp lastObject];
-    NSString *localPath = NSTemporaryDirectory();
-    NSFileManager *manage = [NSFileManager defaultManager];
-    if([manage fileExistsAtPath:[NSString stringWithFormat:@"%@/%@",localPath,fileName]])
-    {
-        return [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",localPath,fileName]];
-    }
-    else
+    if(!dateStr)
     {
         return nil;
     }
-    
-    }
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateFormat:formatStr];
+    NSDate *formatDate = [format dateFromString:dateStr];
+    return formatDate;
+}
 
 @end

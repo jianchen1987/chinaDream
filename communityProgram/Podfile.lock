@@ -1,10 +1,10 @@
 PODS:
-  - MJExtension (3.0.10)
+  - MJExtension (3.0.11)
 
 DEPENDENCIES:
   - MJExtension
 
 SPEC CHECKSUMS:
-  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
 
 COCOAPODS: 0.39.0

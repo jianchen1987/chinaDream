@@ -276,7 +276,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
 }
 -(void)TypeRecommendation{
     [self showLoading];
-    NSArray * arr=@[self.user.quarter.id?self.user.quarter.id:@"",self.unit.id,@1,@10];
+    NSArray * arr=@[self.user.quarter.quarterId?self.user.quarter.quarterId:@"",self.unit.id,@1,@10];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:arr WithPath:getProductByHotOrTuiJian successBlock:^(id successJsonData) {
         NSLog(@"%@",successJsonData);
         [self dismissShow];
