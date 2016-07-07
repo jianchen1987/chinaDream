@@ -5,6 +5,8 @@
 //  Created by xiaogao on 16/3/5.
 //  Copyright © 2016年 高国峰. All rights reserved.
 //
+#import "AllCagroryRquest.h"
+#import "ProductModel.h"
 static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
 #import "ProductDetailViewController.h"
 #define Display_BV CGRectMake(0, 50, DeviceWidth, 50)
@@ -134,22 +136,38 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
         [allDateArray removeAllObjects];
     }
     [self showLoading];
-    [NetworkEngine postRequestWithUrl:AppService paramsArray:array
-                             WithPath:@"getProductByCode" successBlock:^(id successJsonData) {
-                                 NSLog(@"successJsonData===%@",successJsonData);
-                                 NSArray * success=successJsonData;
-                                 [self dismissShow];
-                                 if (success.count>0) {
-                                     [allDateArray addObjectsFromArray:successJsonData];
-                                     self.dataSource[0]=allDateArray;
-                                 }
-                                 
-                                 [self reloadTableView];
-                                 
-                                 
-                             } errorBlock:^(int code, NSString *errorJsonData) {
-                                 [self showPrompt:errorJsonData];
-                             }];
+    [AllCagroryRquest getProductByCodeRquestparamsArray:array SuccessBlock:^(NSArray* successJsonData) {
+        [self dismissShow];
+
+        if (successJsonData.count>0) {
+            [allDateArray addObjectsFromArray:successJsonData];
+            self.dataSource[0]=allDateArray;
+        }
+        
+        [self reloadTableView];
+        
+
+    } errorBlock:^(int code, NSString *errorJsonData) {
+        [self showPrompt:errorJsonData];
+
+    }];
+    
+//    [NetworkEngine postRequestWithUrl:AppService paramsArray:array
+//                             WithPath:@"getProductByCode" successBlock:^(id successJsonData) {
+//                                 NSLog(@"successJsonData===%@",successJsonData);
+//                                 NSArray * success=successJsonData;
+//                                 [self dismissShow];
+//                                 if (success.count>0) {
+//                                     [allDateArray addObjectsFromArray:successJsonData];
+//                                     self.dataSource[0]=allDateArray;
+//                                 }
+//                                 
+//                                 [self reloadTableView];
+//                                 
+//                                 
+//                             } errorBlock:^(int code, NSString *errorJsonData) {
+//                                 [self showPrompt:errorJsonData];
+//                             }];
     
 }
 -(void)Click:(NSInteger)numberButton{
@@ -202,12 +220,14 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
     }
     
     
-    NSDictionary * unit =[allDateArray objectAtIndex:indexPath.row];
-    cell.titleLable.text=[unit objectForKey:@"productName"];
-    cell.descriptionLable.text=NSStringType([unit objectForKey:@"simpleIntro"]);
-    cell.priceLable.text=NSStringType([unit objectForKey:@"discountPrice"]);
-    cell.discountLable.text=NSStringType( [unit objectForKey:@"price"]);
-    [cell.leftImageView sd_setImageWithURL:urlImage([unit objectForKey:@"productIcon"]) placeholderImage:[UIImage imageNamed:@"cell图片"]];
+//    NSDictionary * unit =[allDateArray objectAtIndex:indexPath.row];
+    ProductModel* unit=[allDateArray objectAtIndex:indexPath.row];
+
+    cell.titleLable.text=unit.productName;
+    cell.descriptionLable.text=NSStringType(unit .simpleIntro);
+    cell.priceLable.text=[NSString stringWithFormat:@"%f",unit.discountPrice];
+    cell.discountLable.text=NSStringdouble(unit.price);
+    [cell.leftImageView sd_setImageWithURL:urlImage(unit.productIcon) placeholderImage:[UIImage imageNamed:@"cell图片"]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -228,7 +248,7 @@ static NSString *cagroryListDetailIdentifire = @"cagroryListDetailIdentifire";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ProductDetailViewController * detail=[[ProductDetailViewController alloc]init];
-    detail.dicData=[allDateArray objectAtIndex:indexPath.row];
+    detail.unit=[allDateArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma mark -----------------------ButtonAction

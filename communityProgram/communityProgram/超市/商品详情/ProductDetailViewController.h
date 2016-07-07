@@ -16,6 +16,7 @@
 #import "MoreProductTableViewCell.h"
 #import "MJRefresh.h"
 #import "CustomBottomViewBtn.h"
+#import "ProductModel.h"
 @interface ProductDetailViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource, UICollectionViewDelegate>
 {
 //    UITableView *myTableView;
@@ -27,7 +28,8 @@
 }
 @property (nonatomic, weak) TSEXCARLoopView *loopView;
 @property (nonatomic, strong) NSMutableArray *imgsArr;
-@property(nonatomic,copy)NSDictionary *dicData;
+//@property(nonatomic,copy)NSDictionary *dicData;
+@property(nonatomic,strong)ProductModel * unit;
 
 
 /** 商品详情整体 */
