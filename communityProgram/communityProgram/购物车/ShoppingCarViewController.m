@@ -7,48 +7,47 @@
 //
 
 #import "ShoppingCarViewController.h"
+#import "ShoppingCarViewModel.h"
+
+#define _SETTLE_VIEW_HEIGHT_   50.0f
 
 @interface ShoppingCarViewController ()
+{
+    UIButton *selectAllButton; //全选按钮
+    UIButton *settlementButton; //结算按钮
+    UILabel *totalMoneyLable;
+    float allPrice;
+    
+}
 
 @end
 
 @implementation ShoppingCarViewController
 
--(void)loginButtonAction
+
+- (void)viewDidLoad
 {
-    LoginViewController *loginVC = [LoginViewController new];
-    loginVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:loginVC animated:YES];
-    
-    
-}
-#pragma mark ---------------获取购物车数据
--(void)loadShoppingData
-{
-//    NSArray *array = @[];
-//    [NetworkEngine postRequestWithUrl:AppService paramsArray:array WithPath:@"getShopCar" successBlock:^(id successJsonData) {
-//        NSLog(@"successJsonData = %@",successJsonData);
-//    } errorBlock:^(int code, NSString *errorJsonData) {
-//        NSLog(@"errorJsonData = %@",errorJsonData);
-//    }];
-}
-- (void)viewDidLoad {
     [super viewDidLoad];
-    dataSource = [[NSMutableArray alloc] init];
-    [self loadShoppingData];
-    
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"登录" style:UIBarButtonItemStylePlain target:self action:@selector(loginButtonAction)];
     
-    allPrice = 0.00;
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-64-49-50) style:UITableViewStylePlain];
-    myTableView.delegate = self;
-    myTableView.dataSource = self;
-    [self.view addSubview:myTableView];
+    self.tableView.frame = CGRectMake(0, 0, DeviceWidth, DeviceHeight - kSTATUSBAR_HEIGHT - kNAVIGATION_HEIGHT - kTABBAR_HEIGHT - _SETTLE_VIEW_HEIGHT_);
     
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, myTableView.bottom, DeviceWidth, 50)];
+    self.tableView.footer = nil;
+
+    allPrice = 0.00;
+    
+    [self initBottomView];
+}
+
+
+- (void)initBottomView
+{
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.tableView.bottom, DeviceWidth, _SETTLE_VIEW_HEIGHT_)];
     bottomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:bottomView];
     
+
     
     selectAllButton = [UIButton buttonWithType:UIButtonTypeCustom];
     selectAllButton.frame = CGRectMake(10,(50-20)/2.0, 60, 20);
@@ -57,7 +56,7 @@
     [selectAllButton addTarget:self action:@selector(selectAllaction:) forControlEvents:UIControlEventTouchUpInside];
     [selectAllButton setTitle:@"全选" forState:UIControlStateNormal];
     [selectAllButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    selectAllButton.titleLabel.font = Font(15.0);
+    selectAllButton.titleLabel.font = [UIFont systemFontOfSize:_SUBTITLE_FONT_SIZE_];
     selectAllButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
     [bottomView addSubview:selectAllButton];
     
@@ -65,9 +64,9 @@
     
     totalMoneyLable = [[UILabel alloc]initWithFrame:CGRectMake(DeviceWidth/2-100, (50-20)/2, 200, 20)];
     totalMoneyLable.textAlignment = NSTextAlignmentCenter;
-    totalMoneyLable.font = Font(13.0);
+    totalMoneyLable.font = Font(_SUBTITLE_FONT_SIZE_);
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%.2f元",allPrice]];
-    [str addAttribute:NSFontAttributeName value:Font(17) range:NSMakeRange(4,str.length-4)];
+    [str addAttribute:NSFontAttributeName value:Font(_TITLE_FONT_SIZE_) range:NSMakeRange(4,str.length-4)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(4,str.length-4)];
     totalMoneyLable.attributedText = str;
     [bottomView addSubview:totalMoneyLable];
@@ -80,32 +79,35 @@
     settlementButton.layer.cornerRadius =8;
     [settlementButton setTitle:@"结算" forState:UIControlStateNormal];
     [settlementButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    settlementButton.titleLabel.font = Font(15.0);
+    settlementButton.titleLabel.font = Font(_SUBTITLE_FONT_SIZE_);
     settlementButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
     [settlementButton addTarget:self action:@selector(settlementAction) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [bottomView addSubview:settlementButton];
-    
-    
-    
-    NSMutableArray *muArr = [NSMutableArray array];
-    NSDictionary *dic1 = [NSDictionary dictionaryWithObjectsAndKeys:@"欧客家手工曲奇饼干",@"title",@"300",@"originalPrice",@"199",@"discountPrice",@"1",@"productNum",@"packege",@"image",@"NO",@"selected", nil];
-    NSDictionary *dic2 = [NSDictionary dictionaryWithObjectsAndKeys:@"纯正手工麦芽糖",@"title",@"300",@"originalPrice",@"99",@"discountPrice",@"1",@"productNum",@"packege",@"image",@"NO",@"selected", nil];
-    NSDictionary *dic3 = [NSDictionary dictionaryWithObjectsAndKeys:@"巧克力饼干",@"title",@"300",@"originalPrice",@"9",@"discountPrice",@"1",@"productNum",@"packege",@"image",@"NO",@"selected", nil];
-    
-    NSDictionary *dic4 = [NSDictionary dictionaryWithObjectsAndKeys:@"穷巧克力糖果",@"title",@"300",@"originalPrice",@"19",@"discountPrice",@"1",@"productNum",@"packege",@"image",@"NO",@"selected", nil];
-    
-    [muArr addObject:dic1];
-    [muArr addObject:dic2];
-    [muArr addObject:dic3];
-    [muArr addObject:dic4];
-    
-    
-    for (NSDictionary *dic in muArr)
+}
+
+- (void)pullDown:(_Nonnull id)sender
+{
+    [ShoppingCarViewModel getShoppingCarListByUser:self.user
+                                      SuccessBlock:^(NSArray *arr)
     {
-        ShoppingProductModel *goodsModel = [[ShoppingProductModel alloc]initWithShopDict:dic];
-        [dataSource addObject:goodsModel];
-    }
+        [self.dataSource addObjectsFromArray:arr];
+        [super pullDown:sender];
+        
+    } FailureBlock:^(int code, NSString *errMsg) {
+        [self showPrompt:errMsg];
+        [super pullDown:sender];
+    }];
+}
+
+
+
+-(void)loginButtonAction
+{
+    LoginViewController *loginVC = [LoginViewController new];
+    loginVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:loginVC animated:YES];
+    
     
 }
 #pragma mark -------------结算
@@ -116,8 +118,9 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return dataSource.count;
+    return self.dataSource.count;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifire = @"cell";
@@ -125,7 +128,7 @@
     if (!cell) {
         cell = [[ShoppingCarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifire];
     }
-    ShoppingProductModel *modle = dataSource[indexPath.row];
+    ShoppingProductModel *modle = self.dataSource[indexPath.row];
     cell.shoppingModel = modle;
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -169,8 +172,8 @@
 }
 -(void)selectWithCell:(ShoppingCarCell *)cell WithButtonAction:(BOOL)select
 {
-    NSIndexPath *index = [myTableView indexPathForCell:cell];
-    ShoppingProductModel *model = dataSource[index.row];
+    NSIndexPath *index = [self.tableView indexPathForCell:cell];
+    ShoppingProductModel *model = self.dataSource[index.row];
     if (select)
     {
         model.selected = YES;
@@ -180,7 +183,7 @@
         model.selected = NO;
     }
 
-    [myTableView reloadData];
+    [self.tableView reloadData];
     [self CalculationPrice];
 }
 
@@ -194,23 +197,23 @@
         sender.selected = NO;
     }
     //改变单元格选中状态
-    for (int i=0; i<dataSource.count;i++)
+    for (int i=0; i<self.dataSource.count;i++)
     {
-        ShoppingProductModel *model = dataSource[i];
+        ShoppingProductModel *model = self.dataSource[i];
         model.selected = sender.tag;
     }
     
     [self CalculationPrice];
-    [myTableView reloadData];
+    [self.tableView reloadData];
 }
 
 //计算价格
 -(void)CalculationPrice
 {
     //遍历整个数据源，然后判断如果是选中的商品，就计算价格(单价 * 商品数量)
-    for ( int i =0; i<dataSource.count;i++)
+    for ( int i =0; i<self.dataSource.count;i++)
     {
-        ShoppingProductModel *model = dataSource[i];
+        ShoppingProductModel *model = self.dataSource[i];
         if (model.selected)
         {
             allPrice = allPrice + model.goodsNum *[model.productDiscountPrice intValue];
@@ -223,14 +226,15 @@
     totalMoneyLable.attributedText = str;
     allPrice = 0.0;
 }
+
 -(void)btnClick:(UITableViewCell *)cell andFlag:(int)flag
 {
-    NSIndexPath *index = [myTableView indexPathForCell:cell];
+    NSIndexPath *index = [self.tableView indexPathForCell:cell];
     switch (flag) {
         case 11:
         {
             //做减法
-            ShoppingProductModel *model = dataSource[index.row];
+            ShoppingProductModel *model = self.dataSource[index.row];
             if (model.goodsNum > 1)
             {
                 model.goodsNum --;
@@ -240,7 +244,7 @@
         case 12:
         {
             //做加法
-            ShoppingProductModel *model = dataSource[index.row];
+            ShoppingProductModel *model = self.dataSource[index.row];
             
             model.goodsNum ++;
         }
@@ -250,25 +254,12 @@
     }
     
     //刷新表格
-    [myTableView reloadData];
+    [self.tableView reloadData];
     //计算总价
     [self CalculationPrice];
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

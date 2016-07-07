@@ -10,7 +10,7 @@
 #import "baseModel.h"
 #import "quarterModel.h"
 
-
+@class quarterModel;
 
 @interface UserObject : baseModel<NSCoding>
 

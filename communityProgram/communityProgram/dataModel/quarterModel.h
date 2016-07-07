@@ -14,7 +14,7 @@
 
 @interface quarterModel : baseModel
 
-@property (nonatomic,strong ) NSString     *qid;
+@property (nonatomic,strong ) NSString     *quarterId;
 /**
  *  小区名字
  */

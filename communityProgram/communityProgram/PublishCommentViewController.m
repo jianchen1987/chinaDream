@@ -118,7 +118,7 @@
     _selectedAssets = [NSMutableArray array];
     
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
-    UIButton * rightButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 85, 25)];
+    UIButton * rightButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 75, 27)];
     rightButton.layer.cornerRadius=6;
     rightButton.layer.borderWidth=0.01;
     rightButton.backgroundColor=RGBA(132, 132, 132, 1);

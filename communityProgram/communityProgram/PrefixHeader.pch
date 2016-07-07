@@ -119,6 +119,11 @@ typedef void (^void_SuccessBlock_BOOL)(BOOL isSuccess);
 #define GetIntegralProducts      @"getIntegralProdcutByCode"
 #define GetIntegralProductById   @"getIntegralProductById"
 
+#define AddShoppingCar           @"addShopCar"    //添加到购物车
+#define RemoveShoppingCar        @"removeShopCar" //删除购物车
+#define ModifyShoppingCar        @"modifyShopCar" //修改购物车
+#define GetShoppingCarList       @"getShopCarList" //获取购物车清单
+
 #define SignIntegralPath   @"signIntegral"  //签到赚取积分
 #define UploadAskorTalk    @"uploadAskorTalk"  //上传图片
 #define PublishAskorTalkPath @"publishAskorTalk"  //发布一条问问或者说说
@@ -156,12 +161,14 @@ typedef void (^void_SuccessBlock_BOOL)(BOOL isSuccess);
 #define getAllChipHistory @"getAllChipHistory" //获得所有众筹历史纪录
 #define getAllChipRecord @"getAllChipRecord"  //我的记录
 #define removeFreeEat @"removeFreeEat"//
+#define getProductByHotOrTuiJian    @"getProductByHotOrTuiJian" //获得对应商品推荐
 #define NSStringInt(a) [NSString stringWithFormat:@"%d",a]
+#define NSStringdouble(a) [NSString stringWithFormat:@"%f",a]
 #define NSStringType(a)  [NSString stringWithFormat:@"%@",a]
+#define getProductByCode @"getProductByCode" //根据code来获取产品信息列表
 
 #define Number(a)  [NSNumber numberWithInteger:a]
 #define imageString(a) [NSString stringWithFormat:@"%@%@",AppendingImageUrl,a]
 #define urlImage(a) [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",AppendingImageUrl,a]]
-
 
 #endif

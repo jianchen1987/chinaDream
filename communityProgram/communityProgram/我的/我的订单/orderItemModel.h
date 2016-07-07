@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "baseModel.h"
+#import "ProductModel.h"
 
-@class productModel;
 @interface orderItemModel : baseModel
 
 @property (nonatomic, strong) NSString     *orderId;
-@property (nonatomic, strong) productModel *productId;
+@property (nonatomic, strong) NSString     *orderItemId;
+@property (nonatomic, strong) ProductModel *product;
 @property (nonatomic, assign) NSNumber     *orderItemNum;
 @property (nonatomic, strong) NSNumber     *sendPrice;
 @property (nonatomic, strong) NSDate       *createTime;

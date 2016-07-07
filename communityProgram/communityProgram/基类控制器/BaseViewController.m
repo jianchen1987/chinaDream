@@ -48,8 +48,9 @@
 
 -(void)showPrompt:(NSString*)detail
 {
+    [self dismissShow];
     [MBProgressHUD showError:detail toView:self.view];
-    //[MBProgressHUD hideHUD];
+   
 }
 
 -(void)dismissShow

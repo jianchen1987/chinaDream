@@ -5,6 +5,7 @@
 //  Created by xiaogao on 16/1/9.
 //  Copyright © 2016年 高国峰. All rights reserved.
 //
+#import "SelectBar.h"
 #import "MBProgressHUD.h"
 #import "UIView+Getlength.h"
 #import "DetermineOrderViewController.h"
@@ -97,7 +98,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
         case 1000://收藏
         {
             [self showLoading];
-            [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName, [self.dicData objectForKey:@"id"]] WithPath:@"saveProductCollection" successBlock:^(id successJsonData)
+            [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName, self.unit.id] WithPath:@"saveProductCollection" successBlock:^(id successJsonData)
              {
                  [self showSuccess:@"已收藏"];
                  NSLog(@"收藏 %@",successJsonData);
@@ -113,7 +114,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
         {
             
             [self showLoading];
-            [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName, @(count),[self.dicData objectForKey:@"id"]] WithPath:@"addShopCar" successBlock:^(id successJsonData)
+            [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName, @(count),self.unit.id] WithPath:@"addShopCar" successBlock:^(id successJsonData)
              {
                  
                  [self showSuccess:@"购物车"];
@@ -189,6 +190,8 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
             
         }
     }
+    
+    
     return _secondTopView;
 }
 - (UICollectionView *)collectionView {
@@ -219,7 +222,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
 #pragma mark 获得详细信息
 -(void)loadData
 {
-    NSArray *array = @[[self.dicData valueForKey:@"id"]];
+    NSArray *array = @[self.unit.id];
     
     [NetworkEngine postRequestWithUrl:AppService paramsArray:array WithPath:getProductById successBlock:^(id successJsonData) {
         
@@ -239,7 +242,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
      *   pageSize 显示数量
      *
      */
-    NSArray * array=@[self.user.identifyName,[self.dicData valueForKey:@"id"],@"supermarket",@1,@4];
+    NSArray * array=@[self.user.identifyName,self.unit.id,@"supermarket",@1,@4];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:array  WithPath:getComment successBlock:^(id successJsonData)
      {
          
@@ -273,8 +276,8 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
 }
 -(void)TypeRecommendation{
     [self showLoading];
-    NSArray * arr=@[self.user.quarter.id?self.user.quarter.id:@"",[self.dicData objectForKey:@"id"],@1,@10];
-    [NetworkEngine postRequestWithUrl:AppService paramsArray:arr WithPath:@"getProductByHotOrTuiJian" successBlock:^(id successJsonData) {
+    NSArray * arr=@[self.user.quarter.quarterId?self.user.quarter.quarterId:@"",self.unit.id,@1,@10];
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:arr WithPath:getProductByHotOrTuiJian successBlock:^(id successJsonData) {
         NSLog(@"%@",successJsonData);
         [self dismissShow];
     } errorBlock:^(int code, NSString *errorJsonData) {
@@ -449,7 +452,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
 #pragma mark ------------------获取超市产品广告图
 -(void)LoadProductAdv
 {
-    NSArray *paramArray = @[[self.dicData valueForKey:@"id"]];
+    NSArray *paramArray = @[self.unit.id];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:paramArray WithPath:GetLogoByProductIdPath successBlock:^(id successJsonData) {
         
         NSLog(@"successJsonData = %@",successJsonData);

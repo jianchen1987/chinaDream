@@ -7,6 +7,8 @@
 //
 
 #import "ShoppingCarCell.h"
+#import "UIImageView+WebCache.h"
+
 @implementation ShoppingCarCell
 
 
@@ -39,7 +41,7 @@
     
     
     //产品图片
-    self.shopImageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.selectedButton.right+10,15, 60, 60)];
+    self.shopImageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.selectedButton.right+10,15, 80, 80)];
 //    self.shopImageView.image = [UIImage imageNamed:@"img"];
     [self.contentView addSubview:self.shopImageView];
     
@@ -110,16 +112,18 @@
 
 -(void)setShoppingModel:(ShoppingProductModel *)shoppingModel{
     
-    _shoppingModel = shoppingModel;
-    self.shopNameLab.text = shoppingModel.productTitle;
-
+    _shoppingModel                  = shoppingModel;
     
-    self.selectedButton.selected = shoppingModel.selected;
+    self.shopNameLab.text           = shoppingModel.productTitle;
     
+    self.selectedButton.selected    = shoppingModel.selected;
     
-    self.shopImageView.image = [UIImage imageNamed:shoppingModel.productImageName];
+    [self.shopImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",HOSTURL,shoppingModel.productImageUrl]]];
+    
     self.oldPriceLab.attributedText = [Utility rebackDiscountPriceAttr:[NSString stringWithFormat:@"￥%@",shoppingModel.productOriginalPrice]];
-    self.priceLab.text = shoppingModel.productDiscountPrice;
+    
+    self.priceLab.text              = shoppingModel.productDiscountPrice;
+    
     self.addNumberView.numberString = [NSString stringWithFormat:@"%d",shoppingModel.goodsNum];
     
 }

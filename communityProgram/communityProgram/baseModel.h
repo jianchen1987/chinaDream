@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CommonUtils.h"
 
 @interface baseModel : NSObject
 
