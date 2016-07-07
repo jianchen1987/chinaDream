@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol PictureCarouselDelegate <NSObject>
+-(void)PictureCarouselSelectImageViewNumber:(NSInteger)number;
 
+@end
 @interface PictureCarouselScrollView : UIScrollView<UIScrollViewDelegate>
 @property(nonatomic,strong)NSString * imagePlaceName;
 @property(nonatomic,strong)UIPageControl * page;
+@property(nonatomic,assign)id<PictureCarouselDelegate>PictureDelegate;
 
 
 /**
@@ -48,4 +52,17 @@
       center:(NSInteger)center
        Bount: (float)bottom
   viewHeight:(float)height;
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,6 +38,8 @@ static UserObject *USER;
 }
 
 
+
+
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.identifyName forKey:@"id"];

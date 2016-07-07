@@ -8,6 +8,7 @@
 
 #import "mySampleDetailsViewController.h"
 #import "UIImageView+WebCache.h"
+#import "PublishCommentViewController.h"
 #import "SystemFunction.h"
 @interface mySampleDetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -21,8 +22,20 @@
 
 @implementation mySampleDetailsViewController
 - (IBAction)delete:(id)sender {
+    [self showLoading];
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName,self.model.id] WithPath:removeFreeEat successBlock:^(id successJsonData) {
+        [self showSuccess:@"删除成功"];
+        
+        NSLog(@"%@",successJsonData);
+    } errorBlock:^(int code, NSString *errorJsonData) {
+//          NSLog(@"%@",errorJsonData);
+        [self showPrompt:errorJsonData];
+    }];
 }
 - (IBAction)PingLun:(id)sender {
+    PublishCommentViewController * publish=[PublishCommentViewController new];
+    publish.model=self.model;
+    [self.navigationController pushViewController:publish animated:YES];
 }
 
 - (void)viewDidLoad {

@@ -10,7 +10,7 @@
 #import "UIView+Getlength.h"
 @implementation UpImageButton
 -(CGRect)imageRectForContentRect:(CGRect)contentRect{
-    return CGRectMake(self.getWidth*1/3, 2.5, self.getWidth*1/3, self.getHeight*3/5);
+    return CGRectMake(self.getWidth*1/3, 2.5, self.getWidth*1/3, self.getHeight*3/5-2);
 }
 -(CGRect)titleRectForContentRect:(CGRect)contentRect{
     

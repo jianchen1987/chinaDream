@@ -10,6 +10,7 @@ static NSString *footCellIdentifire = @"footCellIdentifire";
 static NSString *sectionHeadCellIdentifire = @"sectionHeadCellIdentifire";
 static NSString *SectionCellIdentifire = @"sectionCellIdentifire";
 static NSString *buttonCellIdentifire = @"buttonCellIdentifire";
+#import "ShakeShakeViewController.h"
 #import "AdvertisementUnit.h"
 #import "SuperMarketViewController.h"
 #import "MeButton.h"
@@ -345,6 +346,9 @@ static NSString *buttonCellIdentifire = @"buttonCellIdentifire";
             
         }else if([buttonCell1.titleLable.text isEqualToString:@"摇摇红包"])
         {
+            ShakeShakeViewController * shake=[[ShakeShakeViewController alloc]init];
+            shake.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:shake animated:YES];
             NSLog(@"摇摇红包");
             
         }else

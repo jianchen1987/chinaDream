@@ -21,6 +21,7 @@
 		48071FAF1D24C355008CE1D4 /* mySampleDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48071FAD1D24C355008CE1D4 /* mySampleDetailsViewController.xib */; };
 		48071FB21D24EE4F008CE1D4 /* QuarterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071FB11D24EE4F008CE1D4 /* QuarterModel.m */; };
 		48071FB51D24F114008CE1D4 /* SystemFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 48071FB41D24F114008CE1D4 /* SystemFunction.m */; };
+		480819E11D27F74000C87534 /* FreeSamplesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 480819E01D27F74000C87534 /* FreeSamplesDetailViewController.m */; };
 		480A49C41D11847700BA4CB8 /* TraversePicturesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49C31D11847700BA4CB8 /* TraversePicturesScrollView.m */; };
 		480A49C91D11857000BA4CB8 /* AdvertisementUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49C81D11857000BA4CB8 /* AdvertisementUnit.m */; };
 		480A49CC1D11984600BA4CB8 /* PictureCarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 480A49CB1D11984600BA4CB8 /* PictureCarouselScrollView.m */; };
@@ -53,11 +54,24 @@
 		480BDE9E1D1785A900531FAA /* FreeSamplesViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDE9D1D1785A900531FAA /* FreeSamplesViews.m */; };
 		480BDEA01D1785BB00531FAA /* FreeSamplesViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480BDE9F1D1785BB00531FAA /* FreeSamplesViews.xib */; };
 		480BDEA41D178D3B00531FAA /* FreeSamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDEA31D178D3B00531FAA /* FreeSamplesViewController.m */; };
-		480BDEFC1D18ED2100531FAA /* FreeSamplesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDEFB1D18ED2100531FAA /* FreeSamplesDetailViewController.m */; };
 		480BDF001D18ED6F00531FAA /* FreeSamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDEFF1D18ED6F00531FAA /* FreeSamples.m */; };
 		480BDF021D18ED8000531FAA /* FreeSamples.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480BDF011D18ED8000531FAA /* FreeSamples.xib */; };
 		480BDF061D19190A00531FAA /* MyTryEatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 480BDF041D19190A00531FAA /* MyTryEatTableViewCell.m */; };
 		480BDF071D19190A00531FAA /* MyTryEatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480BDF051D19190A00531FAA /* MyTryEatTableViewCell.xib */; };
+		4813E1471D253D99004D6E7A /* CrowdFundingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813E1461D253D99004D6E7A /* CrowdFundingView.m */; };
+		4813E1491D253DA7004D6E7A /* CrowdFundingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4813E1481D253DA7004D6E7A /* CrowdFundingView.xib */; };
+		4813E14D1D2601F2004D6E7A /* CrowdFundingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813E14C1D2601F2004D6E7A /* CrowdFundingRequest.m */; };
+		4813E1501D26029B004D6E7A /* AllChipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813E14F1D26029B004D6E7A /* AllChipModel.m */; };
+		4813E1531D261801004D6E7A /* ToRaisePublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813E1521D261801004D6E7A /* ToRaisePublicViewController.m */; };
+		4813E1561D2619E0004D6E7A /* AllChipLogoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4813E1551D2619E0004D6E7A /* AllChipLogoModel.m */; };
+		48A8FA9A1D26565C003E872F /* myCrowdFundingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FA991D26565C003E872F /* myCrowdFundingViewController.m */; };
+		48A8FA9E1D2659D8003E872F /* myCrowdFundingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */; };
+		48A8FA9F1D2659D8003E872F /* myCrowdFundingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */; };
+		48A8FAA21D278623003E872F /* FoorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FAA11D278623003E872F /* FoorView.m */; };
+		48A8FAA41D278638003E872F /* FoorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A8FAA31D278638003E872F /* FoorView.xib */; };
+		48A8FAA81D2799A5003E872F /* FreeEatRquest.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FAA71D2799A5003E872F /* FreeEatRquest.m */; };
+		48A8FAAD1D27B0B9003E872F /* ShakeShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A8FAAB1D27B0B9003E872F /* ShakeShakeViewController.m */; };
+		48A8FAAE1D27B0B9003E872F /* ShakeShakeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A8FAAC1D27B0B9003E872F /* ShakeShakeViewController.xib */; };
 		48FA56431D1A22A300E74654 /* FreeSamplesFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA56421D1A22A300E74654 /* FreeSamplesFlowLayout.m */; };
 		48FA56471D1A249C00E74654 /* FreeSamplesCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA56451D1A249C00E74654 /* FreeSamplesCVC.m */; };
 		48FA56481D1A249C00E74654 /* FreeSamplesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48FA56461D1A249C00E74654 /* FreeSamplesCVC.xib */; };
@@ -99,6 +113,7 @@
 		E86F6B681D2108740031496C /* orderListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B671D2108740031496C /* orderListTableViewCell.m */; };
 		E86F6B6F1D21880B0031496C /* orderDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86F6B6E1D21880B0031496C /* orderDetailsViewController.m */; };
 		E8A31DAD1D2C0308008A1C46 /* integralMallViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A31DAC1D2C0308008A1C46 /* integralMallViewModel.m */; };
+		E8A31DB01D2D06BE008A1C46 /* baseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A31DAF1D2D06BE008A1C46 /* baseModel.m */; };
 		EDE4CDE612B780D1585B0D9F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF5CA133AC14165C04EE59A /* libPods.a */; };
 		F218EEEE1C218DF7005FFD60 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F218EEED1C218DF7005FFD60 /* AboutUsViewController.m */; };
 		F21AD4761C886D610052F1BA /* ComfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F21AD4751C886D610052F1BA /* ComfirmOrderViewController.m */; };
@@ -378,6 +393,8 @@
 		48071FB11D24EE4F008CE1D4 /* QuarterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuarterModel.m; sourceTree = "<group>"; };
 		48071FB31D24F114008CE1D4 /* SystemFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemFunction.h; sourceTree = "<group>"; };
 		48071FB41D24F114008CE1D4 /* SystemFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemFunction.m; sourceTree = "<group>"; };
+		480819DF1D27F74000C87534 /* FreeSamplesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesDetailViewController.h; sourceTree = "<group>"; };
+		480819E01D27F74000C87534 /* FreeSamplesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamplesDetailViewController.m; sourceTree = "<group>"; };
 		480A49C21D11847700BA4CB8 /* TraversePicturesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraversePicturesScrollView.h; sourceTree = "<group>"; };
 		480A49C31D11847700BA4CB8 /* TraversePicturesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraversePicturesScrollView.m; sourceTree = "<group>"; };
 		480A49C71D11857000BA4CB8 /* AdvertisementUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisementUnit.h; sourceTree = "<group>"; };
@@ -444,14 +461,36 @@
 		480BDE9F1D1785BB00531FAA /* FreeSamplesViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FreeSamplesViews.xib; sourceTree = "<group>"; };
 		480BDEA21D178D3B00531FAA /* FreeSamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesViewController.h; sourceTree = "<group>"; };
 		480BDEA31D178D3B00531FAA /* FreeSamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamplesViewController.m; sourceTree = "<group>"; };
-		480BDEFA1D18ED2100531FAA /* FreeSamplesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesDetailViewController.h; sourceTree = "<group>"; };
-		480BDEFB1D18ED2100531FAA /* FreeSamplesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamplesDetailViewController.m; sourceTree = "<group>"; };
 		480BDEFE1D18ED6F00531FAA /* FreeSamples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamples.h; sourceTree = "<group>"; };
 		480BDEFF1D18ED6F00531FAA /* FreeSamples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamples.m; sourceTree = "<group>"; };
 		480BDF011D18ED8000531FAA /* FreeSamples.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FreeSamples.xib; sourceTree = "<group>"; };
 		480BDF031D19190A00531FAA /* MyTryEatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTryEatTableViewCell.h; sourceTree = "<group>"; };
 		480BDF041D19190A00531FAA /* MyTryEatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTryEatTableViewCell.m; sourceTree = "<group>"; };
 		480BDF051D19190A00531FAA /* MyTryEatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTryEatTableViewCell.xib; sourceTree = "<group>"; };
+		4813E1451D253D99004D6E7A /* CrowdFundingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrowdFundingView.h; sourceTree = "<group>"; };
+		4813E1461D253D99004D6E7A /* CrowdFundingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdFundingView.m; sourceTree = "<group>"; };
+		4813E1481D253DA7004D6E7A /* CrowdFundingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CrowdFundingView.xib; sourceTree = "<group>"; };
+		4813E14B1D2601F2004D6E7A /* CrowdFundingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrowdFundingRequest.h; sourceTree = "<group>"; };
+		4813E14C1D2601F2004D6E7A /* CrowdFundingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrowdFundingRequest.m; sourceTree = "<group>"; };
+		4813E14E1D26029B004D6E7A /* AllChipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllChipModel.h; sourceTree = "<group>"; };
+		4813E14F1D26029B004D6E7A /* AllChipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllChipModel.m; sourceTree = "<group>"; };
+		4813E1511D261801004D6E7A /* ToRaisePublicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToRaisePublicViewController.h; sourceTree = "<group>"; };
+		4813E1521D261801004D6E7A /* ToRaisePublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToRaisePublicViewController.m; sourceTree = "<group>"; };
+		4813E1541D2619E0004D6E7A /* AllChipLogoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllChipLogoModel.h; sourceTree = "<group>"; };
+		4813E1551D2619E0004D6E7A /* AllChipLogoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllChipLogoModel.m; sourceTree = "<group>"; };
+		48A8FA981D26565C003E872F /* myCrowdFundingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCrowdFundingViewController.h; sourceTree = "<group>"; };
+		48A8FA991D26565C003E872F /* myCrowdFundingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCrowdFundingViewController.m; sourceTree = "<group>"; };
+		48A8FA9B1D2659D8003E872F /* myCrowdFundingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCrowdFundingTableViewCell.h; sourceTree = "<group>"; };
+		48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCrowdFundingTableViewCell.m; sourceTree = "<group>"; };
+		48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myCrowdFundingTableViewCell.xib; sourceTree = "<group>"; };
+		48A8FAA01D278623003E872F /* FoorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoorView.h; sourceTree = "<group>"; };
+		48A8FAA11D278623003E872F /* FoorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoorView.m; sourceTree = "<group>"; };
+		48A8FAA31D278638003E872F /* FoorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoorView.xib; sourceTree = "<group>"; };
+		48A8FAA61D2799A5003E872F /* FreeEatRquest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeEatRquest.h; sourceTree = "<group>"; };
+		48A8FAA71D2799A5003E872F /* FreeEatRquest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeEatRquest.m; sourceTree = "<group>"; };
+		48A8FAAA1D27B0B9003E872F /* ShakeShakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeShakeViewController.h; sourceTree = SOURCE_ROOT; };
+		48A8FAAB1D27B0B9003E872F /* ShakeShakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeShakeViewController.m; sourceTree = SOURCE_ROOT; };
+		48A8FAAC1D27B0B9003E872F /* ShakeShakeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShakeShakeViewController.xib; sourceTree = SOURCE_ROOT; };
 		48FA56411D1A22A300E74654 /* FreeSamplesFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesFlowLayout.h; sourceTree = "<group>"; };
 		48FA56421D1A22A300E74654 /* FreeSamplesFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeSamplesFlowLayout.m; sourceTree = "<group>"; };
 		48FA56441D1A249C00E74654 /* FreeSamplesCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeSamplesCVC.h; sourceTree = "<group>"; };
@@ -530,6 +569,8 @@
 		E86F6B6E1D21880B0031496C /* orderDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = orderDetailsViewController.m; path = view/orderDetailsViewController.m; sourceTree = "<group>"; };
 		E8A31DAB1D2C0308008A1C46 /* integralMallViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integralMallViewModel.h; sourceTree = "<group>"; };
 		E8A31DAC1D2C0308008A1C46 /* integralMallViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = integralMallViewModel.m; sourceTree = "<group>"; };
+		E8A31DAE1D2D06BE008A1C46 /* baseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseModel.h; sourceTree = "<group>"; };
+		E8A31DAF1D2D06BE008A1C46 /* baseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseModel.m; sourceTree = "<group>"; };
 		ECF5CA133AC14165C04EE59A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F218EEEC1C218DF7005FFD60 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		F218EEED1C218DF7005FFD60 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
@@ -1063,6 +1104,8 @@
 		48071FAA1D24C355008CE1D4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				480819DF1D27F74000C87534 /* FreeSamplesDetailViewController.h */,
+				480819E01D27F74000C87534 /* FreeSamplesDetailViewController.m */,
 				48071FAB1D24C355008CE1D4 /* mySampleDetailsViewController.h */,
 				48071FAC1D24C355008CE1D4 /* mySampleDetailsViewController.m */,
 				48071FAD1D24C355008CE1D4 /* mySampleDetailsViewController.xib */,
@@ -1221,8 +1264,6 @@
 				480BDEFD1D18ED2A00531FAA /* view */,
 				480BDEA21D178D3B00531FAA /* FreeSamplesViewController.h */,
 				480BDEA31D178D3B00531FAA /* FreeSamplesViewController.m */,
-				480BDEFA1D18ED2100531FAA /* FreeSamplesDetailViewController.h */,
-				480BDEFB1D18ED2100531FAA /* FreeSamplesDetailViewController.m */,
 				4804C5F41D2366DF0080B1C8 /* PublishCommentViewController.h */,
 				4804C5F51D2366DF0080B1C8 /* PublishCommentViewController.m */,
 				4804C5F61D2366DF0080B1C8 /* SampleDetailsViewController.h */,
@@ -1254,6 +1295,73 @@
 				480BDF011D18ED8000531FAA /* FreeSamples.xib */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		4813E1421D253C55004D6E7A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4813E1511D261801004D6E7A /* ToRaisePublicViewController.h */,
+				4813E1521D261801004D6E7A /* ToRaisePublicViewController.m */,
+				48A8FA981D26565C003E872F /* myCrowdFundingViewController.h */,
+				48A8FA991D26565C003E872F /* myCrowdFundingViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4813E1431D253C72004D6E7A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4813E14E1D26029B004D6E7A /* AllChipModel.h */,
+				4813E14F1D26029B004D6E7A /* AllChipModel.m */,
+				4813E1541D2619E0004D6E7A /* AllChipLogoModel.h */,
+				4813E1551D2619E0004D6E7A /* AllChipLogoModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4813E1441D253C81004D6E7A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4813E1451D253D99004D6E7A /* CrowdFundingView.h */,
+				4813E1461D253D99004D6E7A /* CrowdFundingView.m */,
+				4813E1481D253DA7004D6E7A /* CrowdFundingView.xib */,
+				48A8FA9B1D2659D8003E872F /* myCrowdFundingTableViewCell.h */,
+				48A8FA9C1D2659D8003E872F /* myCrowdFundingTableViewCell.m */,
+				48A8FA9D1D2659D8003E872F /* myCrowdFundingTableViewCell.xib */,
+				48A8FAA01D278623003E872F /* FoorView.h */,
+				48A8FAA11D278623003E872F /* FoorView.m */,
+				48A8FAA31D278638003E872F /* FoorView.xib */,
+			);
+			name = view;
+			path = ViewController/view;
+			sourceTree = "<group>";
+		};
+		4813E14A1D26015B004D6E7A /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				4813E14B1D2601F2004D6E7A /* CrowdFundingRequest.h */,
+				4813E14C1D2601F2004D6E7A /* CrowdFundingRequest.m */,
+			);
+			name = viewmodel;
+			sourceTree = "<group>";
+		};
+		48A8FAA51D279977003E872F /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				48A8FAA61D2799A5003E872F /* FreeEatRquest.h */,
+				48A8FAA71D2799A5003E872F /* FreeEatRquest.m */,
+			);
+			name = Viewmodel;
+			sourceTree = "<group>";
+		};
+		48A8FAA91D27B07D003E872F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48A8FAAA1D27B0B9003E872F /* ShakeShakeViewController.h */,
+				48A8FAAB1D27B0B9003E872F /* ShakeShakeViewController.m */,
+				48A8FAAC1D27B0B9003E872F /* ShakeShakeViewController.xib */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		48FF68C71D0FA82600DAD002 /* MD5 */ = {
@@ -1288,6 +1396,8 @@
 				48FF68D11D0FFB0500DAD002 /* UserObject.m */,
 				E831BCF31D1CC61900BE9247 /* quarterModel.h */,
 				E831BCF41D1CC61900BE9247 /* quarterModel.m */,
+				E8A31DAE1D2D06BE008A1C46 /* baseModel.h */,
+				E8A31DAF1D2D06BE008A1C46 /* baseModel.m */,
 			);
 			name = "数据模型";
 			sourceTree = "<group>";
@@ -2137,6 +2247,10 @@
 		F2A432131C39169D00479C73 /* 美邻众筹 */ = {
 			isa = PBXGroup;
 			children = (
+				4813E14A1D26015B004D6E7A /* viewmodel */,
+				4813E1441D253C81004D6E7A /* view */,
+				4813E1431D253C72004D6E7A /* model */,
+				4813E1421D253C55004D6E7A /* ViewController */,
 				F2A432161C39171300479C73 /* MoreTogetherViewController.h */,
 				F2A432171C39171300479C73 /* MoreTogetherViewController.m */,
 				F28B56401C87163E00F62D4E /* MoreTogetherTableViewCell.h */,
@@ -2155,6 +2269,7 @@
 		F2A432141C39169D00479C73 /* 免费试吃 */ = {
 			isa = PBXGroup;
 			children = (
+				48A8FAA51D279977003E872F /* Viewmodel */,
 				48071FAA1D24C355008CE1D4 /* ViewController */,
 				48071F9A1D24B3C5008CE1D4 /* model */,
 				F2933A7E1C5E089900606136 /* FreeEatActivityViewController.h */,
@@ -2172,6 +2287,7 @@
 		F2A432151C39169D00479C73 /* 摇摇红包 */ = {
 			isa = PBXGroup;
 			children = (
+				48A8FAA91D27B07D003E872F /* ViewController */,
 			);
 			path = "摇摇红包";
 			sourceTree = "<group>";
@@ -2628,6 +2744,7 @@
 				TargetAttributes = {
 					F26980931C12BAFC00C46C6D = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = CU54LFPKGX;
 					};
 					F26980AC1C12BAFD00C46C6D = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -2672,12 +2789,15 @@
 				F2B6653F1C7997F7007427BB /* photo_sel_photoPickerVc@2x.png in Resources */,
 				F2B665401C7997F7007427BB /* photo_sel_previewVc@2x.png in Resources */,
 				480BDEA01D1785BB00531FAA /* FreeSamplesViews.xib in Resources */,
+				48A8FAAE1D27B0B9003E872F /* ShakeShakeViewController.xib in Resources */,
 				480BDF021D18ED8000531FAA /* FreeSamples.xib in Resources */,
 				48071FAF1D24C355008CE1D4 /* mySampleDetailsViewController.xib in Resources */,
 				F2B665421C7997F7007427BB /* preview_original_def@2x.png in Resources */,
 				F26E428B1C8183690041E1E1 /* EmotionZoomView.xib in Resources */,
 				F279F5BD1C1D51A8001FB738 /* MJRefresh.bundle in Resources */,
 				480A49D11D127F5200BA4CB8 /* File1 in Resources */,
+				4813E1491D253DA7004D6E7A /* CrowdFundingView.xib in Resources */,
+				48A8FA9F1D2659D8003E872F /* myCrowdFundingTableViewCell.xib in Resources */,
 				F2B665391C7997F7007427BB /* navi_back@2x.png in Resources */,
 				F2B6653E1C7997F7007427BB /* photo_original_sel@2x.png in Resources */,
 				F26E42B81C818C180041E1E1 /* CoreEmotionView.xib in Resources */,
@@ -2691,6 +2811,7 @@
 				F2B6653C1C7997F7007427BB /* photo_number_icon@2x.png in Resources */,
 				48FF68CF1D0FD92300DAD002 /* File in Resources */,
 				F241DAEC1C4A1F3E001A828D /* cellLine@2x.png in Resources */,
+				48A8FAA41D278638003E872F /* FoorView.xib in Resources */,
 				4804C5FB1D2366DF0080B1C8 /* SampleDetailsViewController.xib in Resources */,
 				E86705381D29F40F00EABAF3 /* JPullDown.bundle in Resources */,
 				F2B665381C7997F7007427BB /* MMVideoPreviewPlayHL@2x.png in Resources */,
@@ -2772,6 +2893,7 @@
 				E852CDB91D23567100CD7604 /* attentionViewModel.m in Sources */,
 				F24FF94D1CA4282700540576 /* MyCollectionViewController.m in Sources */,
 				F2933A721C5DDD9C00606136 /* SDBrowserImageView.m in Sources */,
+				48A8FAA21D278623003E872F /* FoorView.m in Sources */,
 				F282D4961C74ADF3001251EF /* WaittingPaymentViewController.m in Sources */,
 				F2A520721C468131009E7551 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F2A4321B1C39176D00479C73 /* AdvRunLoopView.m in Sources */,
@@ -2818,6 +2940,7 @@
 				F26E42811C8183690041E1E1 /* EmotionViewConst.m in Sources */,
 				F2A4321E1C391D8B00479C73 /* PurchaseViewController.m in Sources */,
 				E86F6B511D1FE8950031496C /* addressModify2TableViewCell.m in Sources */,
+				48A8FA9A1D26565C003E872F /* myCrowdFundingViewController.m in Sources */,
 				4804C6001D23671F0080B1C8 /* DetermineOrderViewController.m in Sources */,
 				F2B316AB1C13D6EE00438C77 /* WMMenuView.m in Sources */,
 				F2A5206D1C468131009E7551 /* SDWebImagePrefetcher.m in Sources */,
@@ -2828,6 +2951,7 @@
 				F2A520651C468131009E7551 /* MKAnnotationView+WebCache.m in Sources */,
 				480BDEA41D178D3B00531FAA /* FreeSamplesViewController.m in Sources */,
 				F26E42801C8183690041E1E1 /* EmotionAttachment.m in Sources */,
+				48A8FAAD1D27B0B9003E872F /* ShakeShakeViewController.m in Sources */,
 				E852CDC91D24378600CD7604 /* baseCollectionView.m in Sources */,
 				480A49DB1D12A67000BA4CB8 /* SelectBar.m in Sources */,
 				F28E4FA31C25471A00FA5F75 /* Reachability.m in Sources */,
@@ -2859,6 +2983,7 @@
 				F279F5B71C1D51A8001FB738 /* MJRefreshBackGifFooter.m in Sources */,
 				F28B56481C871DD200F62D4E /* LDProgressView.m in Sources */,
 				F2933A831C5E08A900606136 /* FreeEatHistoryViewController.m in Sources */,
+				480819E11D27F74000C87534 /* FreeSamplesDetailViewController.m in Sources */,
 				E852CDC21D24179800CD7604 /* IntegralProductModel.m in Sources */,
 				F28E4F871C25013200FA5F75 /* DynamicViewController.m in Sources */,
 				F269809F1C12BAFC00C46C6D /* ViewController.m in Sources */,
@@ -2894,6 +3019,7 @@
 				F29DA5481C1EF8FB0054C205 /* UIViewExt.m in Sources */,
 				480BDE991D1532DF00531FAA /* UIView+Getlength.m in Sources */,
 				48071FA01D24BD1A008CE1D4 /* FreeEatRecordModel.m in Sources */,
+				4813E14D1D2601F2004D6E7A /* CrowdFundingRequest.m in Sources */,
 				F2BF2F3D1C1BBC1B00EB7E88 /* README.md in Sources */,
 				F2BF2F3B1C1BBC1B00EB7E88 /* AFURLSessionManager.m in Sources */,
 				F2BF2F401C1BBC1B00EB7E88 /* UIAlertView+AFNetworking.m in Sources */,
@@ -2908,10 +3034,10 @@
 				F2A432211C391F1500479C73 /* PurchaseTableViewCell.m in Sources */,
 				F2AE250A1C40BDF30006C9CB /* ProductDetailViewController.m in Sources */,
 				F2AE25101C40C2340006C9CB /* ProductCommendTableViewCell.m in Sources */,
+				4813E1561D2619E0004D6E7A /* AllChipLogoModel.m in Sources */,
 				F287E82F1C21A830002F52CF /* IntegralHistoryViewController.m in Sources */,
 				F28B56421C87163E00F62D4E /* MoreTogetherTableViewCell.m in Sources */,
 				48071F951D24B08D008CE1D4 /* FreeCollectionViewCell.m in Sources */,
-				480BDEFC1D18ED2100531FAA /* FreeSamplesDetailViewController.m in Sources */,
 				480A49DE1D12A83200BA4CB8 /* MeButton.m in Sources */,
 				48FF68E11D10FA4600DAD002 /* MBProgressHUD.m in Sources */,
 				F29533721C3E913D000DEF92 /* RHMethods.m in Sources */,
@@ -2942,6 +3068,7 @@
 				E852CDB61D2315B700CD7604 /* attentionTableViewController.m in Sources */,
 				F2BEFDF41C8AC07500149FD4 /* OrderSectionTableViewCell.m in Sources */,
 				F29451DD1C7B359700E13349 /* CustomTextView.m in Sources */,
+				4813E1501D26029B004D6E7A /* AllChipModel.m in Sources */,
 				F2B6654D1C7997F7007427BB /* TZPhotoPreviewController.m in Sources */,
 				F2BF2F411C1BBC1B00EB7E88 /* UIButton+AFNetworking.m in Sources */,
 				F2933A801C5E089900606136 /* FreeEatActivityViewController.m in Sources */,
@@ -2966,6 +3093,7 @@
 				E86705331D251BDD00EABAF3 /* myLoopView.m in Sources */,
 				F279F5AF1C1D51A8001FB738 /* MJRefreshAutoFooter.m in Sources */,
 				F2F4009E1C1D45FF00EC5E32 /* SupermarketCollectionViewCell.m in Sources */,
+				48A8FAA81D2799A5003E872F /* FreeEatRquest.m in Sources */,
 				F2B6654C1C7997F7007427BB /* TZPhotoPreviewCell.m in Sources */,
 				F293A0BB1C146DA000B2724B /* CustomMyselfButton.m in Sources */,
 				480BDF061D19190A00531FAA /* MyTryEatTableViewCell.m in Sources */,
@@ -2977,6 +3105,7 @@
 				E86F6B4E1D1FE5250031496C /* addressModify1TableViewCell.m in Sources */,
 				F26E42AF1C8186180041E1E1 /* NSString+File.m in Sources */,
 				F2B6654E1C7997F7007427BB /* TZVideoPlayerController.m in Sources */,
+				E8A31DB01D2D06BE008A1C46 /* baseModel.m in Sources */,
 				F2D008BF1C1C0154009FA490 /* NeighborAskViewController.m in Sources */,
 				F279F5BB1C1D51A8001FB738 /* MJRefreshNormalHeader.m in Sources */,
 				F2BF2F4B1C1BC27D00EB7E88 /* NSData+Base64.m in Sources */,
@@ -3010,6 +3139,7 @@
 				F293A0AB1C1467F300B2724B /* UIScrollView+VGParallaxHeader.m in Sources */,
 				F2BF2EFE1C1BB82300EB7E88 /* WMPageController.m in Sources */,
 				E86F6B4B1D1FDABE0031496C /* addressModifyViewController.m in Sources */,
+				4813E1531D261801004D6E7A /* ToRaisePublicViewController.m in Sources */,
 				F29DA5451C1EF2F00054C205 /* RegisterViewController.m in Sources */,
 				480BDE961D1531F500531FAA /* UpImageButton.m in Sources */,
 				F26E42851C8183690041E1E1 /* EmotionItemBtn.m in Sources */,
@@ -3023,6 +3153,7 @@
 				F28E4F7E1C24F15100FA5F75 /* IntrgraHistoryTableViewCell.m in Sources */,
 				F2849BBF1C60E89F00252A48 /* AllCagroryViewController.m in Sources */,
 				F279F5C01C1D51A8001FB738 /* UIScrollView+MJRefresh.m in Sources */,
+				48A8FA9E1D2659D8003E872F /* myCrowdFundingTableViewCell.m in Sources */,
 				F2B316AD1C13D6EE00438C77 /* WMProgressView.m in Sources */,
 				F2B05C2F1C3AA2EC00B54A53 /* SupermarketHeadCollectionViewCell.m in Sources */,
 				E852CDC61D241D0300CD7604 /* SecondHandProductModel.m in Sources */,
@@ -3055,6 +3186,7 @@
 				F279F5BE1C1D51A8001FB738 /* MJRefreshConst.m in Sources */,
 				F29DA54F1C1EFFE90054C205 /* AddNumberView.m in Sources */,
 				E86F6B431D1FCF770031496C /* addressViewModel.m in Sources */,
+				4813E1471D253D99004D6E7A /* CrowdFundingView.m in Sources */,
 				F26E42911C8185CD0041E1E1 /* CoreBtn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3191,6 +3323,8 @@
 			baseConfigurationReference = 907788F8E0ED572D4C80E19B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/communityProgram/PrefixHeader.pch";
 				INFOPLIST_FILE = communityProgram/Info.plist;
@@ -3198,6 +3332,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trussan.policyManager.communityProgram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3206,6 +3341,8 @@
 			baseConfigurationReference = 85AA24B1D694881445CA1712 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/communityProgram/PrefixHeader.pch";
 				INFOPLIST_FILE = communityProgram/Info.plist;
@@ -3213,6 +3350,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trussan.policyManager.communityProgram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

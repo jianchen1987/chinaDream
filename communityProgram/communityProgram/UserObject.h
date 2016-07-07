@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "baseModel.h"
 #import "quarterModel.h"
 
-@class quarterModel;
 
-@interface UserObject : NSObject<NSCoding>
+
+@interface UserObject : baseModel<NSCoding>
 
 /**
  *  后台唯一字段

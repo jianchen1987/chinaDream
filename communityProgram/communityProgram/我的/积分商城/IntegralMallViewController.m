@@ -200,7 +200,7 @@
     }
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
+- (CGSize)collectionView:(UICollectionView *)UICollectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     if(indexPath.section == 1)
     {

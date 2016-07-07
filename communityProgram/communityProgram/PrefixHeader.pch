@@ -152,9 +152,15 @@ typedef void (^void_SuccessBlock_BOOL)(BOOL isSuccess);
 #define getFreeEatRecordByPage @"getFreeEatRecordByPage"//获得所有的申请历史记录
 #define getProductAndType  @"getProductAndType" //获得某分类数据
 
+#define removeCollFreeEat @"removeCollFreeEat" //删除收藏的免费试吃
+#define getAllChipHistory @"getAllChipHistory" //获得所有众筹历史纪录
+#define getAllChipRecord @"getAllChipRecord"  //我的记录
+#define removeFreeEat @"removeFreeEat"//
+#define NSStringInt(a) [NSString stringWithFormat:@"%d",a]
 #define NSStringType(a)  [NSString stringWithFormat:@"%@",a]
 
 #define Number(a)  [NSNumber numberWithInteger:a]
+#define imageString(a) [NSString stringWithFormat:@"%@%@",AppendingImageUrl,a]
 #define urlImage(a) [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",AppendingImageUrl,a]]
 
 

@@ -62,27 +62,24 @@
                             <rect key="frame" x="0.0" y="111" width="375" height="46"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gSs-SN-EB2">
+                                    <rect key="frame" x="217.00000028928122" y="8" width="150" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="立即评论" backgroundImage="立即评论"/>
+                                    <connections>
+                                        <action selector="PingLun:" destination="-1" eventType="touchUpInside" id="ogN-MM-Du7"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DnE-3z-K0Y">
-                                    <rect key="frame" x="8" y="8" width="164.5" height="30"/>
+                                    <rect key="frame" x="8" y="8" width="150" height="30"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.10787388330515713" green="1" blue="0.14027883943982244" alpha="1" colorSpace="calibratedRGB"/>
-                                    <state key="normal" title="删除历史">
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="删除历史" backgroundImage="试吃删除历史、查看评论">
                                         <color key="titleColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" red="1" green="0.04248751362" blue="0.11695639989999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="delete:" destination="-1" eventType="touchUpInside" id="r2l-Em-uZ1"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gSs-SN-EB2">
-                                    <rect key="frame" x="202.50000005449567" y="8" width="164.5" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.1078738833" green="1" blue="0.14027883939999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <state key="normal" title="立即评论">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="PingLun:" destination="-1" eventType="touchUpInside" id="ogN-MM-Du7"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -157,7 +154,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="77" y="95"/>
+            <point key="canvasLocation" x="50.5" y="94.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="立即评论" width="176" height="38"/>
+        <image name="试吃删除历史、查看评论" width="176" height="38"/>
+    </resources>
 </document>

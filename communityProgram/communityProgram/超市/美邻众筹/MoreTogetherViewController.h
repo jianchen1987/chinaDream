@@ -13,10 +13,11 @@
 #import "AdvRunLoopView.h"
 #import "MoreTogetherTableViewCell.h"
 #import "MoreTogetherDetailViewController.h"
-@interface MoreTogetherViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+#import "baseTableViewController.h"
+@interface MoreTogetherViewController : baseTableViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *dataSource;
-    UITableView *myTableView;
+//    UITableView *myTableView;
 }
 
 @property (nonatomic, weak) AdvRunLoopView *loopView;
