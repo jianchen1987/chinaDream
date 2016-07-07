@@ -243,22 +243,13 @@
 {
     [NetworkEngine postRequestWithUrl:AppService paramsArray:@[number,DefaultCount] WithPath:getFreeEat successBlock:^(NSArray* successJsonData)
      {
-         NSDictionary * dic =successJsonData[0];
          for (int i=0; i<successJsonData.count; i++) {
              FreeEatModel * model =[FreeEatModel mj_objectWithKeyValues:successJsonData[i]];
              [_FreeArray addObject:model];
          }
 
          [self.dataSource addObject:_FreeArray];
-         
-         
-         //         [actionView.stateImageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",AppendingImageUrl,[dic objectForKey:@"freeIcon"]]]placeholderImage:[UIImage imageNamed:@"cell图片"]];
-//         NSLog(@"%@",[NSString stringWithFormat:@"%@%@",AppendingImageUrl,[dic objectForKey:@"freeIcon"]]);
-         //         actionView.detailinformation.text=[dic objectForKey:@"imageText"];
-         //         actionView.name.text=[dic objectForKey:@"productName"];
-         //         actionView.count.text=[NSString stringWithFormat:@"%@份",[dic objectForKey:@"freeNum"]];
-         
-//         [_FreeArray addObjectsFromArray:successJsonData];
+
          [self.collectionView reloadData];
          
      } errorBlock:^(int code, NSString *errorJsonData) {

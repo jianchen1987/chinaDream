@@ -1,293 +1,184 @@
-(
-{
-allChipBanners =         (
-{
-createTime = "2016-04-10 01:53:33";
-id = "82ac2655-2350-4b36-8e52-8ae2d32d2d2a";
-imageLogo = "/resource/admin/allchipIcon/2d26875d-639a-40ba-8d7a-fe6bab3092d9.jpg";
-},
-{
-createTime = "2016-04-10 01:53:33";
-id = "a8ae9240-da4b-47ad-ad46-5c50dd90ec99";
-imageLogo = "/resource/admin/allchipIcon/13ac9a28-4977-44fb-ba2f-2ff727c43378.jpg";
-}
-);
-allChipStatu = 0;
-chipsIcon = "/resource/admin/allchipIcon/9763a851-169d-48c9-b028-0ace6befbf71.jpg";
-collAllChip = 1;
-createTime = "2016-04-10 01:53:33";
-descInfo = 300;
-expireDate = "2016-04-30 00:00:00";
-id = "08acca2e-d2d5-4765-98cf-32931be7e9e3";
-imageText = "<div class=\"para\">\U84dd\U7259\U8033\U673a\U5c31\U662f\U5c06<a href=\"http://baike.baidu.com/view/7011.htm\" target=\"_blank\">\U84dd\U7259\U6280\U672f</a>\U5e94\U7528\U5728\U514d\U6301\U8033\U673a\U4e0a\Uff0c\U8ba9\U4f7f\U7528\U8005\U53ef\U4ee5\U514d\U9664\U607c\U4eba\U7535\U7ebf\U7684\U7275\U7eca\Uff0c\U81ea\U5728\U5730\U4ee5\U5404\U79cd\U65b9\U5f0f\U8f7b\U677e\U901a\U8bdd\U3002\U81ea\U4ece\U84dd\U7259\U8033\U673a\U95ee\U4e16\U4ee5\U6765\Uff0c\U4e00\U76f4\U662f\U884c\U52a8\U5546\U52a1\U65cf\U63d0\U5347\U6548\U7387\U7684\U597d\U5de5\U5177\U3002</div>
-\n<div class=\"para\">\U84dd\U7259\U662f\U4e00\U79cd\U4f4e\U6210\U672c\U5927\U5bb9\U91cf\U7684\U77ed\U8ddd\U79bb\U65e0\U7ebf\U901a\U4fe1\U89c4\U8303\U3002\U84dd\U7259\U7b14\U8bb0\U672c\U7535\U8111\Uff0c\U5c31\U662f\U5177\U6709\U84dd\U7259\U65e0\U7ebf\U901a\U4fe1\U529f\U80fd\U7684\U7b14\U8bb0\U672c\U7535\U8111\U3002\U84dd\U7259\U8fd9\U4e2a\U540d\U5b57\U8fd8\U6709\U4e00\U6bb5\U4f20\U5947\U6545\U4e8b\U5462\U3002\U516c\U514310\U4e16\U7eaa\Uff0c\U5317\U6b27\U8bf8\U4faf\U4e89\U9738\Uff0c<a href=\"http://baike.baidu.com/view/6431.htm\" target=\"_blank\">\U4e39\U9ea6</a>\U56fd\U738b\U633a\U8eab\U800c\U51fa\Uff0c\U5728\U4ed6\U7684\U4e0d\U61c8\U52aa\U529b\U4e0b\Uff0c\U8840\U8165\U7684\U6218\U4e89\U88ab\U5236\U6b62\U4e86\Uff0c\U5404\U65b9\U90fd\U5750\U5230\U4e86\U8c08\U5224\U684c\U524d\U3002\U901a\U8fc7\U6c9f\U901a\Uff0c\U8bf8\U4faf\U4eec\U51b0\U91ca\U524d\U5acc\Uff0c\U6210\U4e3a\U670b\U53cb\U3002\U7531 \U4e8e\U4e39\U9ea6\U56fd\U738b\U9177\U7231\U5403<a href=\"http://baike.baidu.com/view/133822.htm\" target=\"_blank\">\U84dd\U6885</a>\Uff0c\U4ee5\U81f3\U4e8e\U7259\U9f7f\U90fd\U88ab\U67d3\U6210\U4e86\U84dd\U8272\Uff0c\U4eba\U79f0\U84dd\U7259\U56fd\U738b\Uff0c\U6240\U4ee5\Uff0c\U84dd\U7259\U4e5f\U5c31\U6210\U4e86\U6c9f\U901a\U7684\U4ee3\U540d\U8bcd\U3002\U4e00\U5343\U5e74\U540e\U7684\U4eca\U5929\Uff0c\U5f53\U65b0\U7684\U65e0\U7ebf\U901a\U4fe1\U89c4\U8303\U51fa\U53f0\U65f6\Uff0c\U4eba\U4eec\U53c8\U7528\U84dd\U7259\U6765\U4e3a\U5b83\U547d\U540d\U30021995\U5e74\Uff0c<a href=\"http://baike.baidu.com/view/16365.htm\" target=\"_blank\">\U7231\U7acb\U4fe1</a>\U516c\U53f8\U6700\U5148\U63d0\U51fa\U84dd\U7259\U6982\U5ff5\U3002\U84dd\U7259\U89c4\U8303\U91c7\U7528\U5fae\U6ce2\U9891\U6bb5\U5de5\U4f5c\Uff0c\U4f20\U8f93\U901f\U7387\U6bcf\U79d21M\U5b57\U8282\Uff0c\U6700\U5927\U4f20\U8f93\U8ddd\U79bb10\U7c73\Uff0c\U901a\U8fc7\U589e\U52a0\U53d1\U5c04\U529f\U7387\U53ef\U8fbe\U5230100\U7c73\U3002<a href=\"http://baike.baidu.com/view/7011.htm\" target=\"_blank\">\U84dd\U7259\U6280\U672f</a>\U662f\U5168\U7403\U5f00\U653e\U7684\Uff0c\U5728\U5168\U7403\U8303\U56f4\U5185\U5177\U6709\U5f88\U597d\U7684\U517c\U5bb9\U6027\Uff0c\U5168\U4e16\U754c\U53ef\U4ee5\U901a\U8fc7\U4f4e\U6210\U672c\U7684\U65e0\U5f62\U84dd\U7259\U7f51\U8fde\U6210\U4e00\U4f53\U3002</div>";
-jianOrJin = "\U4ef6";
-modifyTime = "2016-04-12 21:36:05";
-price = 298;
-simpleIntro = "\U84dd\U7259\U8033\U673a\U5c31\U662f\U5c06\U84dd\U7259\U6280\U672f\U5e94\U7528\U5728\U514d\U6301\U8033\U673a\U4e0a\U3002";
-title = "\U84dd\U7259\U8033\U673a";
-},
-{
-allChipBanners =         (
-{
-createTime = "2015-12-23 22:02:49";
-id = "0062d91f-d370-4171-aa98-fb9b768639a9";
-imageLogo = "/resource/admin/allchipIcon/a7fdbe0a-b85f-4d90-b0b2-3824aa970640.png";
-},
-{
-createTime = "2015-12-23 22:02:49";
-id = "a97fdba2-0980-4e4e-b787-41acd9faff58";
-imageLogo = "/resource/admin/allchipIcon/1ab77698-31c2-4df6-a43a-7fd06ebee52b.png";
-},
-{
-createTime = "2015-12-23 22:02:49";
-id = "ed84e8c0-8aef-43c3-bb2b-a82338a57533";
-imageLogo = "/resource/admin/allchipIcon/27dd90c1-2dd9-4d63-aea2-f6c961b32c9d.png";
-}
-);
-allChipStatu = 0;
-chipsIcon = "/resource/admin/allchipIcon/2a5dff34-8ef4-4671-9b99-fc35d61f10bf.png";
-createTime = "2015-12-23 22:02:49";
-descInfo = 120;
-expireDate = "2015-12-24 00:00:00";
-id = "0e844094-8e24-4681-8ef3-a35f7eff053a";
-imageText = "<p>\U7684\U65b9\U6cd5\U7684\U662f\U5426zZz\U8fd9\U5468zzZ\U8d70</p>";
-jianOrJin = "\U4ef6";
-modifyTime = "2016-04-12 21:46:20";
-price = 17;
-simpleIntro = "sdfghj;lhgfgds";
-title = "ff\U98de";
-},
-{
-allChipBanners =         (
-);
-allChipStatu = 0;
-chipsIcon = "/resource/admin/allchipIcon/6fe8037d-f8c3-4cb6-8701-a31b85852cd7.png";
-createTime = "2016-04-16 23:40:50";
-descInfo = 30;
-expireDate = "2016-04-16 00:00:00";
-id = "16b05d1b-f2ed-4e32-86f5-3f2df1aa86ba";
-imageText = "<p>test</p>";
-jianOrJin = "\U5143";
-modifyTime = "2016-04-16 23:54:21";
-price = 10;
-simpleIntro = desc;
-title = name;
-unitNum = 20;
-},
-{
-allChipBanners =         (
-{
-id = "15a65c64-b69a-4171-8533-dd8fc81a439d";
-imageLogo = "/resource/admin/allchipIcon/af82ec69-ae96-4cbd-a8e2-3a54f4d27af0.gif";
-},
-{
-id = "652f0975-4ab3-4eaf-bae9-1eaa7bad10c4";
-imageLogo = "/resource/admin/allchipIcon/1f0c4d31-7986-484d-b175-6a92b65a1b6e.gif";
-}
-);
-allChipStatu = 0;
-chipsIcon = "/resource/admin/allchipIcon/c841b350-21db-406a-b18c-03d885d2323d.png";
-createTime = "2015-12-24 22:27:15";
-descInfo = 100;
-expireDate = "2015-12-26 00:00:00";
-id = "1f5dd5d1-eebc-4736-9274-c991bc45a552";
-imageText = "<p>saaaaaaaaaaaaa</p>";
+
+buyNum = 0;
+collProduct = 1;
+commentPeople = 0;
+createTime = "2016-02-19 08:42:01";
+discountPrice = 100;
+hot = 1;
+id = "2e08fe49-6da2-4e18-bdc5-3c82bf14bb0e";
+imageText = "<p>\U852c\U83dc\Uff0c\U662f\U6307\U53ef\U4ee5\U505a\U83dc\U3001\U70f9\U996a\U6210\U4e3a\U98df\U54c1\U7684\U4e00\U7c7b\U690d\U7269\U6216<a href=\"http://baike.baidu.com/view/425911.htm\" target=\"_blank\">\U83cc\U7c7b</a>\Uff0c\U852c\U83dc\U662f\U4eba\U4eec\U65e5\U5e38\U996e\U98df\U4e2d\U5fc5\U4e0d\U53ef\U5c11\U7684\U98df\U7269\U4e4b\U4e00\Uff0c\U662f\U4e00\U79cd<a href=\"http://baike.baidu.com/view/5589.htm\" target=\"_blank\">\U7eff\U8272\U98df\U54c1</a>\U3002\U852c\U83dc\U53ef\U63d0\U4f9b\U4eba\U4f53\U6240\U5fc5\U9700\U7684\U591a\U79cd\U7ef4\U751f\U7d20\U548c<a href=\"http://baike.baidu.com/subview/116906/14416283.htm\" target=\"_blank\">\U77ff\U7269\U8d28</a>\U7b49\U8425\U517b\U7269\U8d28\U3002\U636e\U56fd\U9645\U7269\U8d28\U7cae\U519c\U7ec4\U7ec71990\U5e74\U7edf\U8ba1\Uff0c\U4eba\U4f53\U5fc5\U9700\U7684<a href=\"http://baike.baidu.com/subview/10642/5375394.htm\" target=\"_blank\">VC</a>\U768490%\U3001VA\U768460%\U6765\U81ea<a href=\"http://baike.baidu.com/subview/13544/5031564.htm\" target=\"_blank\">\U852c\U83dc</a>\U3002\U6b64\U5916\Uff0c\U852c\U83dc\U4e2d\U8fd8\U6709\U591a\U79cd\U591a\U6837\U7684\U690d\U7269\U5316\U5b66\U7269\U8d28\Uff0c\U662f\U4eba\U4eec\U516c\U8ba4\U7684\U5bf9\U5065\U5eb7\U6709\U6548\U7684\U6210\U5206\Uff0c\U76ee\U524d\U679c\U852c\U4e2d\U7684<a href=\"http://baike.baidu.com/view/65358.htm\" target=\"_blank\">\U8425\U517b\U7d20</a>\U53ef\U4ee5\U6709\U6548\U9884\U9632\U6162\U6027\U3001\U9000\U884c\U6027\U75be\U75c5\U7684\U591a\U79cd\U7269\U8d28\Uff0c\U6b63\U5728\U88ab\U4eba\U4eec\U7814\U7a76\U53d1\U73b0\U3002</p>";
+isPublic = 1;
 jianOrJin = "\U65a4";
-modifyTime = "2016-04-12 21:45:41";
-price = 234;
-simpleIntro = dfghjkljhgvc;
-title = saass;
-},
+modifyTime = "2016-05-29 17:10:12";
+money = 0;
+price = 123;
+productIcon = "/resource/admin/productIcon/197e1058-b0f5-4258-9629-9f85d5a79a1e.jpg";
+productLogos =             (
 {
-allChipBanners =         (
-);
-allChipStatu = 0;
-chipsIcon = "/resource/admin/allchipIcon/478bc40a-6788-4a32-aa32-d4ad284d7ecf.jpg";
-createTime = "2016-05-07 18:32:15";
-descInfo = 100;
-expireDate = "2016-05-07 00:00:00";
-id = "366752c6-4772-4874-97a6-7261bcd63ddf";
-imageText = "<p>desc</p>";
-jianOrJin = "\U5143";
-modifyTime = "2016-06-28 21:12:20";
-price = 10;
-simpleIntro = desc;
-title = 123;
-unitNum = 10;
-},
-{
-allChipBanners =         (
-{
-id = "043b7892-9f6c-4480-875a-833d2dea8a6a";
-imageLogo = "/resource/admin/allchipIcon/66757d24-dd41-45fb-b228-204865f779e0.gif";
-},
-{
-id = "5fb3b300-97d1-485f-9fe3-1c2132798b69";
-imageLogo = "/resource/admin/allchipIcon/8eb3dfe9-2f23-48a6-842d-39581822c70d.gif";
-},
-{
-id = "ba2acbc4-2a7a-49b9-b0aa-292681be6f35";
-imageLogo = "/resource/admin/allchipIcon/1f9b8cff-ef43-47d8-8d0c-83782b8126ba.gif";
-},
-{
-id = "c29b2e7a-bf46-4f26-b765-cb3f1c29d05f";
-imageLogo = "/resource/admin/allchipIcon/00b400a9-bb82-4d2e-b0db-7e1691a8b6af.gif";
+id = "a9d8fba7-c3a7-48fb-ab25-d4f7573e34ed";
+imageLogo = "/resource/admin/productIcon/2cc98223-8cef-4c81-b64e-1cbd0c62df90.gif";
 }
 );
-allChipStatu = 0;
-chipsIcon = "/resource/admin/allchipIcon/1e2498ba-fa06-458a-9643-f8e2074f15b6.gif";
-collAllChip = 1;
-createTime = "2016-04-09 14:08:07";
-descInfo = 300;
-expireDate = "2016-04-09 00:00:00";
-id = "3ab8a060-b14e-4262-8379-9fd690f2dd62";
-imageText = "<p>desc</p>";
-jianOrJin = "\U5143";
-modifyTime = "2016-04-12 21:44:25";
-price = 10;
-simpleIntro = 25111111111111111111;
-title = 123;
+productName = "\U852c\U83dc";
+productType =             {
+createTime = "2015-12-06 10:56:10";
+id = 0001;
+modifyTime = "2016-06-01 13:56:26";
+postion = 99;
+remark = "\U852c\U83dc";
+typeImageIcon = "/resource/admin/productTypeIcon/86600407-3af2-467c-be95-d02c99c8a4ab.bmp";
+typeName = "\U7cbe\U54c1\U852c\U83dc";
+};
+saleNum = 1;
+simpleIntro = "\U852c\U83dc\Uff0c\U662f\U6307\U53ef\U4ee5\U505a\U83dc\U3001\U70f9\U996a\U6210\U4e3a\U98df\U54c1\U7684\U4e00\U7c7b\U690d\U7269\U6216\U83cc\U7c7b";
+stock = 1;
+tuijian = 1;
 },
 {
-allChipBanners =         (
+buyNum = 0;
+collProduct = 1;
+createTime = "2016-03-08 22:42:42";
+discountPrice = 9;
+hot = 1;
+id = "60e1b633-3bff-4bc3-b4ce-e3007cd24b2e";
+imageText = "<p>\U767e\U9999\U679c\Uff0c\U522b\U540d\U9e21\U86cb\U679c\U6216\U897f\U756a\U83b2\Uff0c\U4fd7\U79f0&ldquo;\U5df4\U897f\U679c&rdquo;\Uff0c\U539f\U4ea7\U4e8e\U5df4\U897f\Uff0c\U662f\U897f\U756a\U83b2\U79d1\U897f\U756a\U83b2\U5c5e\U7684\U8349\U8d28\U85e4\U672c\U690d\U7269\U30021610\U5e74\U95f4\U4f20\U5165\U6b27\U6d32\Uff0c\U73b0\U4ea7\U4e8e\U7f8e\U6d32\U7684\U70ed\U5e26\U53ca\U4e9a\U70ed\U5e26\U5730\U533a\U3002\U56e0\U5176\U679c\U6c41\U8425\U517b\U4e30\U5bcc\Uff0c\U6c14\U5473\U7279\U522b\U82b3\U9999\Uff0c\U53ef\U6563\U53d1\U51fa\U9999\U8549\U3001\U83e0\U841d\U3001\U67e0\U6aac\U3001\U8349\U8393\U3001\U756a\U6843\U3001\U77f3\U69b4\U7b49\U591a\U79cd\U6c34\U679c\U7684\U6d53\U90c1\U9999\U5473\U800c\U88ab\U4e3e\U4e3a&ldquo;\U767e\U9999\U679c&rdquo;\Uff0c\U53c8\U6709&ldquo;\U679c\U6c41\U4e4b\U738b&rdquo;\U4e4b\U7f8e\U79f0</p>
+\n<p><img id=\"previewImg\" src=\"http://192.168.2.109:8080/resource/admin/tempFile/e503c1bc-5dc3-4f3f-b5e7-302db6189fb1.jpg\" alt=\"\" border=\"0\" /><img id=\"previewImg\" src=\"http://192.168.2.109:8080/resource/admin/tempFile/b05b3535-4a72-46c8-80ee-944ed9e6c69d.jpg\" alt=\"\" border=\"0\" /></p>";
+isPublic = 1;
+jianOrJin = "\U65a4";
+modifyTime = "2016-06-14 21:37:25";
+money = 0;
+price = 18;
+productIcon = "/resource/admin/productIcon/6a89cb7c-04f0-43d3-818d-d796708489a6.jpg";
+productLogos =             (
 {
-createTime = "2015-12-24 21:59:39";
-id = "68af4bf8-27f3-41de-bac7-f24520ed4b14";
-imageLogo = "/resource/admin/allchipIcon/021a7c78-1a08-42a3-8965-bc30fa6ceaa6.png";
+createTime = "2016-03-08 22:42:42";
+id = "ef1ab248-c1d0-4722-82b3-ebc008355470";
+imageLogo = "/resource/admin/productIcon/dd760be9-6422-47a0-8298-e2453acfaa85.jpg";
 },
 {
-createTime = "2015-12-24 21:59:40";
-id = "806226d5-7551-45e7-8b0d-c17f055291ab";
-imageLogo = "/resource/admin/allchipIcon/d96016e3-0519-4c82-88f5-218fdb43cc03.png";
+createTime = "2016-03-08 22:42:42";
+id = "fae17a22-1166-4a05-b623-590735503783";
+imageLogo = "/resource/admin/productIcon/a62b2acf-cee3-4b8c-936d-77d584d32d14.jpg";
 }
 );
-allChipStatu = 0;
-chipsIcon = "/resource/admin/allchipIcon/67254646-19c6-4e63-849a-2124d2ec9e83.png";
-createTime = "2015-12-24 21:59:40";
-descInfo = 100;
-expireDate = "2015-12-24 00:00:00";
-id = "759005e2-5017-45b5-af29-c9ca85fdc68c";
-imageText = "<p>zZZZZZXxz xzxzxzxghxz</p>";
-jianOrJin = "\U4ef6";
-modifyTime = "2016-04-12 21:45:59";
-price = 23;
-simpleIntro = sdfghjklkhgfdfs;
-title = ZZZ;
+productName = "\U767e\U9999\U679c";
+productType =             {
+createTime = "2016-03-05 12:06:22";
+id = 00010001;
+modifyTime = "2016-06-28 21:32:44";
+postion = 100;
+remark = "desc\U5566\U5566\U5566";
+typeImageIcon = "/resource/admin/productTypeIcon/d22848ce-b4db-4675-ad4b-a53c86fedee1.jpg";
+typeName = "----\U65b0\U9c9c\U6c34\U679c";
+};
+saleNum = 0;
+simpleIntro = "\U767e\U9999\U679c\Uff0c\U522b\U540d\U9e21\U86cb\U679c\U6216\U897f\U756a\U83b2\Uff0c\U4fd7\U79f0\U201c\U5df4\U897f\U679c\U201d\Uff0c\U539f\U4ea7\U4e8e\U5df4\U897f\U3002";
+stock = 1000;
+tuijian = 1;
 },
 {
-allChipBanners =         (
-);
-allChipStatu = 1;
-chipNum = 0;
-chipsIcon = "/resource/admin/allchipIcon/089e4a07-28c7-4099-85f3-165a84283154.gif";
-createTime = "2016-02-20 14:32:25";
-descInfo = 300;
-expireDate = "2016-02-20 00:00:00";
-id = "82789f9b-ddf2-4098-aebc-567aa2763125";
-imageText = "<p>desc</p>";
-jianOrJin = "\U5143";
-modifyTime = "2016-06-18 16:57:36";
-price = 10;
-simpleIntro = sdhfhjgh;
-supportNum = 9;
-title = "\U540d\U79f0";
+buyNum = 0;
+collProduct = 1;
+createTime = "2016-05-29 15:00:12";
+discountPrice = "3.2";
+hot = 1;
+id = "69a74104-981a-4846-be55-a97c8a7c0693";
+imageText = "<div class=\"para\"><strong>\U9a6c\U94c3\U85af</strong>\Uff08\U5b66\U540d\Uff1a<strong>Solanum tuberosum</strong>\Uff09\Uff0c\U5c5e<a href=\"http://baike.baidu.com/view/472011.htm\" target=\"_blank\">\U8304\U79d1</a>\U591a\U5e74\U751f\U8349\U672c\U690d\U7269\Uff0c<a href=\"http://baike.baidu.com/view/370733.htm\" target=\"_blank\">\U5757\U830e</a>\U53ef\U4f9b<a href=\"http://baike.baidu.com/view/1570184.htm\" target=\"_blank\">\U98df\U7528</a>\Uff0c\U662f\U5168\U7403\U7b2c\U56db\U5927\U91cd\U8981\U7684<a href=\"http://baike.baidu.com/view/822244.htm\" target=\"_blank\">\U7cae\U98df\U4f5c\U7269</a>\Uff0c\U4ec5\U6b21\U4e8e<a href=\"http://baike.baidu.com/subview/22057/5896107.htm\" target=\"_blank\">\U5c0f\U9ea6</a>\U3001\U7a3b\U8c37\U548c<a href=\"http://baike.baidu.com/subview/1243/6475733.htm\" target=\"_blank\">\U7389\U7c73</a>\U3002\U9a6c\U94c3\U85af\U53c8\U79f0\U5730\U86cb\U3001<a href=\"http://baike.baidu.com/subview/22941/8083318.htm\" target=\"_blank\">\U571f\U8c46</a> \U3001\U6d0b\U5c71\U828b\U7b49\Uff0c\U8304\U79d1\U690d\U7269\U7684\U5757\U830e\U3002\U4e0e\U5c0f\U9ea6\U3001\U7a3b\U8c37\U3001\U7389\U7c73\U3001<a href=\"http://baike.baidu.com/subview/25831/5094491.htm\" target=\"_blank\">\U9ad8\U7cb1</a>\U5e76\U6210\U4e3a\U4e16\U754c\U4e94\U5927<a href=\"http://baike.baidu.com/view/94571.htm\" target=\"_blank\">\U4f5c\U7269</a>\U3002</div>
+\n<div class=\"para\">\U9a6c\U94c3\U85af\U539f\U4ea7\U4e8e\U5357\U7f8e\U6d32<a href=\"http://baike.baidu.com/view/79288.htm\" target=\"_blank\">\U5b89\U7b2c\U65af\U5c71</a>\U533a\Uff0c\U4eba\U5de5<a href=\"http://baike.baidu.com/subview/873394/11243764.htm\" target=\"_blank\">\U683d\U57f9</a>\U5386\U53f2\U6700\U65e9\U53ef\U8ffd\U6eaf\U5230\U5927\U7ea6\U516c\U5143\U524d8000\U5e74\U52305000\U5e74\U7684<a href=\"http://baike.baidu.com/view/10316.htm\" target=\"_blank\">\U79d8\U9c81</a>\U5357\U90e8\U5730\U533a\U3002</div>
+\n<div class=\"para\">\U9a6c\U94c3\U85af\U4e3b\U8981\U751f\U4ea7\U56fd\U6709\U4e2d\U56fd\U3001\U4fc4\U7f57\U65af\U3001\U5370\U5ea6\U3001<a href=\"http://baike.baidu.com/view/10290.htm\" target=\"_blank\">\U4e4c\U514b\U5170</a>\U3001\U7f8e\U56fd\U7b49\U3002\U4e2d\U56fd\U662f\U4e16\U754c\U9a6c\U94c3\U85af\U603b\U4ea7\U6700\U591a\U7684\U56fd\U5bb6\U3002</div>
+\n<div class=\"para\">2015\U5e74\Uff0c\U4e2d\U56fd\U5c06\U542f\U52a8\U9a6c\U94c3\U85af\U4e3b\U7cae\U5316\U6218\U7565\Uff0c\U63a8\U8fdb\U628a\U9a6c\U94c3\U85af\U52a0\U5de5\U6210<a href=\"http://baike.baidu.com/subview/4/5389220.htm\" target=\"_blank\">\U9992\U5934</a>\U3001\U9762\U6761\U3001<a href=\"http://baike.baidu.com/view/90644.htm\" target=\"_blank\">\U7c73\U7c89</a>\U7b49\U4e3b\U98df\Uff0c\U9a6c\U94c3\U85af\U5c06\U6210<a href=\"http://baike.baidu.com/subview/38362/13617426.htm\" target=\"_blank\">\U7a3b\U7c73</a>\U3001\U5c0f\U9ea6 \U3001\U7389\U7c73\U5916\U7684\U53c8\U4e00\U4e3b\U7cae\U3002</div>";
+isPublic = 1;
+jianOrJin = "\U65a4";
+modifyTime = "2016-06-30 18:57:49";
+money = 0;
+price = "3.5";
+productIcon = "/resource/admin/productIcon/c83339e3-206d-4ff0-9af0-50cade1e2f08.png";
+productLogos =             (
+{
+createTime = "2016-05-29 15:00:12";
+id = "14178582-4176-4b79-89c5-7ef0b7c0dcc5";
+imageLogo = "/resource/admin/productIcon/388822c0-aeff-4b56-8beb-d3efa8c99586.jpg";
 },
 {
-allChipBanners =         (
-);
-allChipStatu = 0;
-chipsIcon = "/resource/admin/allchipIcon/53a8a34b-482c-4929-9f32-9cdc6ab4fec1.png";
-createTime = "2016-05-07 18:26:49";
-descInfo = 10;
-expireDate = "2016-05-01 00:00:00";
-id = "8bffbcc9-0061-4f75-8b0a-6dfd205500c6";
-imageText = "<p>test</p>";
-jianOrJin = "\U5143";
-price = 12;
-simpleIntro = desc;
-title = 123;
-unitNum = 10;
+createTime = "2016-05-29 15:00:12";
+id = "1833fe10-f248-457e-82ce-a4df4e59175f";
+imageLogo = "/resource/admin/productIcon/eba941ed-1aed-4978-bc75-8d4b31312e51.jpg";
 },
 {
-allChipBanners =         (
-);
-allChipStatu = 2;
-chipNum = 380;
-chipsIcon = "/resource/admin/allchipIcon/84a8f8d6-270a-4d6e-bb34-86cd3d99a71b.jpg";
-collAllChip = 1;
-commentPeople = 7;
-createTime = "2016-05-30 17:44:32";
-descInfo = 600;
-expireDate = "2016-06-20 00:00:00";
-id = "b4746574-ce6f-497d-8af7-63c4cb55f268";
-imageText = "<p>sdfghjkljhgfds</p>";
-jianOrJin = "\U4ef6";
-modifyTime = "2016-06-28 21:12:10";
-price = 400;
-simpleIntro = xchgjhkhgfgdg;
-supportNum = 1;
-title = aa;
-unitNum = 10;
-},
-{
-allChipBanners =         (
-{
-id = "0384836b-a4cc-4043-a778-6ab9da20a99d";
-imageLogo = "/resource/admin/allchipIcon/2a424e3e-c08f-4ce4-a0fc-0f9bf1ad79a2.gif";
-},
-{
-id = "9880369f-be12-4a42-a84a-16dc098412cb";
-imageLogo = "/resource/admin/allchipIcon/c751c224-31b5-4f54-9252-98a5565e9617.gif";
+createTime = "2016-05-29 15:00:12";
+id = "35a066e8-9575-466c-87d4-e6dea9829498";
+imageLogo = "/resource/admin/productIcon/9401d53e-5558-41cf-9e30-821a912a0ad6.jpg";
 }
 );
-allChipStatu = 0;
-chipsIcon = "/resource/admin/allchipIcon/846814ad-665e-49f1-b413-688bd28b9ec9.png";
-createTime = "2016-01-27 19:20:07";
-descInfo = 1;
-expireDate = "2016-01-28 00:00:00";
-id = "bd5f2e46-84f0-4056-bf05-bd9566fc019a";
-imageText = "<p>sddsd</p>";
-jianOrJin = "\U5143";
-modifyTime = "2016-04-12 21:45:17";
-price = "12.59";
-simpleIntro = sdfgjh;
-title = 111;
-},
-{
-allChipBanners =         (
-);
-allChipStatu = 0;
-chipNum = 5;
-chipsIcon = "/resource/admin/allchipIcon/585e2f01-5a3a-437b-9e09-ba41435cb390.jpg";
-collAllChip = 2;
-createTime = "2016-05-07 18:29:54";
-descInfo = 300;
-expireDate = "2016-05-23 00:00:00";
-id = "e6390f01-b2a3-42a0-9ed4-5cd1d3fd2edc";
-imageText = "<p>dfghjk</p>";
-jianOrJin = "\U5143";
-modifyTime = "2016-06-28 21:12:43";
-price = 170;
-simpleIntro = dfghf;
-supportNum = 5;
-title = "\U9f20\U6807";
-unitNum = 1;
-},
-{
-allChipBanners =         (
-);
-allChipStatu = 0;
-chipsIcon = "/resource/admin/allchipIcon/08fe4e14-9ae8-4ab6-b4e5-1a06a670b366.png";
-createTime = "2016-04-25 16:56:51";
-descInfo = 100;
-expireDate = "2016-04-29 00:00:00";
-id = "fa0fd240-0d59-4dee-aef7-7617671b1568";
-imageText = "<p>cvvccv</p>";
-jianOrJin = "\U5143";
-price = 111;
-simpleIntro = dds;
-title = 23223;
-unitNum = 10;
+productName = "\U9a6c\U94c3\U85af";
+productType =             {
+createTime = "2015-12-06 10:56:10";
+id = 0001;
+modifyTime = "2016-06-01 13:56:26";
+postion = 99;
+remark = "\U852c\U83dc";
+typeImageIcon = "/resource/admin/productTypeIcon/86600407-3af2-467c-be95-d02c99c8a4ab.bmp";
+typeName = "\U7cbe\U54c1\U852c\U83dc";
+};
+saleNum = 3;
+simpleIntro = "\U9a6c\U94c3\U85af\Uff0c\U5c5e\U8304\U79d1\U591a\U5e74\U751f\U8349\U672c\U690d\U7269\Uff0c\U5757\U830e\U53ef\U4f9b\U98df\U7528\U3002";
+stock = 0;
+tuijian = 1;
 }
-)
+);
+}
+2016-07-04 09:56:31.069 communityProgram[1428:434954] dic = {
+buyNum = 0;
+collProduct = 4;
+commentPeople = 0;
+createTime = "2016-05-29 16:26:11";
+discountPrice = "2.5";
+hot = 1;
+id = "1136364d-f54c-44b4-8767-09c5eddd2054";
+imageText = "<div class=\"para\">\U80e1\U841d\U535c\Uff08\U5b66\U540d\Uff1a<em>Daucus carota</em> L. var. sativa Hoffm.\Uff09\Uff0c\U53c8\U79f0\U7ea2\U841d\U535c\U6216\U7518\U8340\Uff0c\U4e3a<a href=\"http://baike.baidu.com/view/177733.htm\" target=\"_blank\">\U91ce\U80e1\U841d\U535c</a>\Uff08\U5b66\U540d\Uff1aDaucus carota L. var. carota\Uff09\U7684\U53d8\U79cd\Uff0c\U672c\U53d8\U79cd\U4e0e\U539f\U53d8\U79cd\U533a\U522b\U5728\U4e8e\U6839\U8089\U8d28\Uff0c\U957f\U5706\U9525\U5f62\Uff0c\U7c97\U80a5\Uff0c\U5448\U7ea2\U8272\U6216\U9ec4\U8272\U3002</div>
+\n<div class=\"para\">\U4e8c\U5e74\U751f\U8349\U672c\Uff0c\U9ad815-120\U5398\U7c73\U3002\U830e\U5355\U751f\Uff0c\U5168\U4f53\U6709\U767d\U8272\U7c97\U786c\U6bdb\U3002\U57fa\U751f\U53f6\U8584\U819c\U8d28\Uff0c\U957f\U5706\U5f62\Uff1b\U53f6\U67c4\U957f3-12\U5398\U7c73\Uff1b\U830e\U751f\U53f6\U8fd1\U65e0\U67c4\Uff0c\U6709\U53f6\U9798\U3002\U590d\U4f1e\U5f62\U82b1\U5e8f\Uff0c\U82b1\U5e8f\U6897\U957f10-55\U5398\U7c73\Uff0c\U6709\U7cd9\U786c\U6bdb\Uff1b\U603b\U82de\U6709\U591a\U6570\U82de\U7247\Uff0c\U5448\U53f6\U72b6\Uff0c\U7fbd\U72b6\U5206\U88c2\Uff1b\U4f1e\U8f90\U591a\U6570\Uff0c\U7ed3\U679c\U65f6\U5916\U7f18\U7684\U4f1e\U8f90\U5411\U5185\U5f2f\U66f2\Uff1b\U5c0f\U603b\U82de\U72475-7\Uff0c\U7ebf\U5f62\Uff1b\U82b1\U901a\U5e38\U767d\U8272\Uff0c\U6709\U65f6\U5e26\U6de1\U7ea2\U8272\Uff1b\U82b1\U67c4\U4e0d\U7b49\U957f\Uff0c\U957f3-10\U6beb\U7c73\U3002\U679c\U5b9e\U5706\U5375\U5f62\Uff0c\U957f3-4\U6beb\U7c73\Uff0c\U5bbd2\U6beb\U7c73\Uff0c\U68f1\U4e0a\U6709\U767d\U8272\U523a\U6bdb\U3002\U82b1\U671f5-7\U6708\U3002</div>
+\n<div class=\"para\">\U4ea7<a href=\"http://baike.baidu.com/subview/61891/14022133.htm\" target=\"_blank\">\U4e2d\U56fd</a>\U56db\U5ddd\U3001\U8d35\U5dde\U3001\U6e56\U5317\U3001\U6c5f\U897f\U3001\U5b89\U5fbd\U3001\U6c5f\U82cf\U3001\U6d59\U6c5f\U7b49\U7701\U3002\U5168\U56fd\U5404\U5730\U5e7f\U6cdb\U683d\U57f9\U3002\U5206\U5e03\U4e8e<a href=\"http://baike.baidu.com/view/3622.htm\" target=\"_blank\">\U6b27\U6d32</a>\U53ca<a href=\"http://baike.baidu.com/subview/20086/18957264.htm\" target=\"_blank\">\U4e1c\U5357\U4e9a</a>\U5730\U533a\U3002</div>
+\n<div class=\"para\">\U6839\U4f5c\U852c\U83dc\U98df\U7528\U3002\U5e76\U542b\U591a\U79cd\U7ef4\U751f\U7d20\U7532\U3001\U4e59\U3001\U4e19\U53ca<a href=\"http://baike.baidu.com/view/285812.htm\" target=\"_blank\">\U80e1\U841d\U535c\U7d20</a>\U3002<sup>[</sup></div>";
+isPublic = 1;
+jianOrJin = "\U65a4";
+modifyTime = "2016-06-30 18:57:37";
+money = 0;
+price = "2.8";
+productIcon = "/resource/admin/productIcon/63f13e1c-2bd3-49a5-8314-60f1d394584c.png";
+productLogos =     (
+{
+createTime = "2016-05-29 16:26:11";
+id = "6cd9a1b3-5f0a-4326-a093-1786385a3b3d";
+imageLogo = "/resource/admin/productIcon/20ca68f8-1b19-4a78-b4b7-ee8145f5c87c.jpg";
+},
+{
+createTime = "2016-05-29 16:26:11";
+id = "73121fd3-e74e-46dc-86e5-72cf763e8f7d";
+imageLogo = "/resource/admin/productIcon/21bbf936-503f-41b5-863c-fb2ba81039b5.png";
+},
+{
+createTime = "2016-05-29 16:26:11";
+id = "a2fae533-c78e-431d-bd69-fb401efba045";
+imageLogo = "/resource/admin/productIcon/2d749abd-92ea-46a9-a844-86a85220a1ee.jpg";
+},
+{
+createTime = "2016-05-29 16:26:11";
+id = "d5da7000-e544-4818-9ac2-fdc3ed9c92d1";
+imageLogo = "/resource/admin/productIcon/fccd9ad0-4417-40f1-a8fd-82e41d61dac1.jpg";
+}
+);
+productName = "\U80e1\U841d\U535c";
+productType =     {
+createTime = "2015-12-06 10:56:10";
+id = 0001;
+modifyTime = "2016-06-01 13:56:26";
+postion = 99;
+remark = "\U852c\U83dc";
+typeImageIcon = "/resource/admin/productTypeIcon/86600407-3af2-467c-be95-d02c99c8a4ab.bmp";
+typeName = "\U7cbe\U54c1\U852c\U83dc";
+};
+saleNum = 1;
+simpleIntro = "\U80e1\U841d\U535c\Uff0c\U53c8\U79f0\U7ea2\U841d\U535c\U6216\U7518\U8340\Uff0c\U4e3a\U91ce\U80e1\U841d\U535c\U7684\U53d8\U79cd\U3002";
+stock = 49;
+tuijian = 1;
+}

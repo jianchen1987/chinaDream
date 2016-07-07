@@ -15,6 +15,7 @@ static NSString *buttonCellIdentifire = @"buttonCellIdentifire";
 #import "SuperMarketViewController.h"
 #import "MeButton.h"
 #import "FreeSamplesViewController.h"
+#import "Masonry.h"
 @interface SuperMarketViewController ()
 {
     NSMutableArray *tuijianArray;
@@ -93,6 +94,7 @@ static NSString *buttonCellIdentifire = @"buttonCellIdentifire";
     tuijianArray = [[NSMutableArray alloc] init];
     firstArray = [[NSMutableArray alloc] init];
     secondArray = [[NSMutableArray alloc] init];
+    
     MeButton * bar=[[MeButton alloc]initWithFrame:CGRectMake(5, 5, DeviceWidth-10, 35)];
     [bar setTitle:@"请输入商品名称或种类" forState:UIControlStateNormal];
     [bar setImage:[UIImage imageNamed:@"一级搜索图标"] forState:UIControlStateNormal];
@@ -109,6 +111,7 @@ static NSString *buttonCellIdentifire = @"buttonCellIdentifire";
     myCollectionView.alwaysBounceVertical = YES;
     myCollectionView.backgroundColor = [UIColor whiteColor];
     myCollectionView.showsVerticalScrollIndicator = NO;
+ 
     
     [myCollectionView registerClass:[SupermarketCollectionViewCell class] forCellWithReuseIdentifier:SectionCellIdentifire];
     
@@ -361,17 +364,17 @@ static NSString *buttonCellIdentifire = @"buttonCellIdentifire";
     }else
     {
         if (indexPath.section == 1) {
-            NSDictionary *dic = firstArray[indexPath.row];
+            ProductModel * unit= firstArray[indexPath.row];
             ProductDetailViewController *productDetailVC = [ProductDetailViewController new];
             productDetailVC.hidesBottomBarWhenPushed = YES;
-            productDetailVC.dicData = dic;
+            productDetailVC.unit = unit;
             [self.navigationController pushViewController:productDetailVC animated:YES];
         }else
         {
-            NSDictionary *dic = secondArray[indexPath.row];
+            ProductModel * unit = secondArray[indexPath.row];
             ProductDetailViewController *productDetailVC = [ProductDetailViewController new];
             productDetailVC.hidesBottomBarWhenPushed = YES;
-            productDetailVC.dicData = dic;
+            productDetailVC.unit = unit;
             [self.navigationController pushViewController:productDetailVC animated:YES];
         }
     }
