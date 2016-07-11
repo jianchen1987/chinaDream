@@ -16,7 +16,7 @@
 +(void)getProductByHotOrTuiJianRquestSuccessBlock:(void (^)(id))successBlock errorBlock:(void (^)(int, NSString *))errorBlock{
     UserObject* user=[UserObject shareUser];
     
-    NSArray * arr=@[@"",user.quarter.id?user.quarter.id:@"",@1,@10];
+    NSArray * arr=@[@"",user.quarter.quarterId?user.quarter.quarterId:@"",@1,@10];
     [NetworkEngine postRequestWithUrl:AppService paramsArray:arr WithPath:getProductByHotOrTuiJian successBlock:^(NSDictionary* successJsonData) {
         NSMutableArray * array =[NSMutableArray array];
         NSArray * hot=[successJsonData objectForKey:@"hot"];

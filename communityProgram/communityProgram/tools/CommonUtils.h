@@ -10,8 +10,6 @@
 
 @interface CommonUtils : NSObject
 
-+ (BOOL)savaImg:(UIImage *)img useFileName:(NSString *)filePath;
-
-+ (UIImage *)getImgByFilePath:(NSString *)filePath;
++ (NSDate *)getDateByString:(NSString *)dateStr stringFormat:(NSString *)formatStr;
 
 @end

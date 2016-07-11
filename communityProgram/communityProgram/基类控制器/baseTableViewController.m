@@ -64,12 +64,13 @@
 - (void)pullDown:(id)sender
 {
     [self.tableView.header endRefreshing];
-    
+    [self reloadTableView];
 }
 
 - (void)pullUp:(id)sender
 {
     [self.tableView.footer endRefreshing];
+    [self reloadTableView];
 }
 
 
@@ -81,14 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(self.dataSource.count > 0)
-    {
-        return [[self.dataSource objectAtIndex:section] count];
-    }
-    else
-    {
-        return 0;
-    }
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,7 +93,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.dataSource.count;
+    return 1;
 }
 
 #pragma mark -- scrollview delegate --

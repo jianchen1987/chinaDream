@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "baseModel.h"
 
-@interface ProductModel : NSObject
+@interface ProductModel : baseModel
 //@property(nonatomic,copy)NSString * productName;
 // /** 门市价 */
 //@property(nonatomic,copy)NSString * price;
@@ -73,7 +74,7 @@
 
 
 /**小区与超市存在多对多的关联关系 */
-@property(nonatomic,strong)NSArray * quarters;
+@property(nonatomic,strong) NSArray * quarters;
 //private List<Quarter> quarters = new ArrayList<Quarter>();
 
 
