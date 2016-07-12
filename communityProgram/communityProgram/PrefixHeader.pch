@@ -124,6 +124,8 @@ typedef void (^void_SuccessBlock_BOOL)(BOOL isSuccess);
 #define ModifyShoppingCar        @"modifyShopCar" //修改购物车
 #define GetShoppingCarList       @"getShopCarList" //获取购物车清单
 
+#define SaveProductCollection    @"saveProductCollection"   //添加收藏
+
 #define SignIntegralPath   @"signIntegral"  //签到赚取积分
 #define UploadAskorTalk    @"uploadAskorTalk"  //上传图片
 #define PublishAskorTalkPath @"publishAskorTalk"  //发布一条问问或者说说
