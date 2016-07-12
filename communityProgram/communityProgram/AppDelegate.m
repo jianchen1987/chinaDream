@@ -17,6 +17,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=Touch ID"]];
+    
     // Override point for customization after application launch.
     //设置导航栏底部颜色和状态栏颜色
     [[UINavigationBar appearance] setTintColor:[UIColor greenColor]];
