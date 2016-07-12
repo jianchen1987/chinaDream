@@ -25,12 +25,7 @@
 }
 
 -(void)createSubViews{
-    
-//    self.checkImg = [[UIImageView alloc]initWithFrame:CGRectMake(10, (110-20)/2.0, 20, 20)];
-//    self.checkImg.image =[UIImage imageNamed:@"check_p"];
-//    [self.contentView addSubview:self.checkImg];
-    
-    
+
     
     self.selectedButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.selectedButton.frame = CGRectMake(10, (110-20)/2.0, 20, 20);
@@ -110,23 +105,6 @@
     }
 }
 
--(void)setShoppingModel:(ShoppingProductModel *)shoppingModel{
-    
-    _shoppingModel                  = shoppingModel;
-    
-    self.shopNameLab.text           = shoppingModel.productTitle;
-    
-    self.selectedButton.selected    = shoppingModel.selected;
-    
-    [self.shopImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",HOSTURL,shoppingModel.productImageUrl]]];
-    
-    self.oldPriceLab.attributedText = [Utility rebackDiscountPriceAttr:[NSString stringWithFormat:@"￥%@",shoppingModel.productOriginalPrice]];
-    
-    self.priceLab.text              = shoppingModel.productDiscountPrice;
-    
-    self.addNumberView.numberString = [NSString stringWithFormat:@"%d",shoppingModel.goodsNum];
-    
-}
 
 
 
@@ -136,7 +114,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 

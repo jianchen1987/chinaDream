@@ -42,7 +42,7 @@
          NSMutableArray *result = [[NSMutableArray alloc] init];
          for(NSDictionary *dic in successJsonData)
          {
-             ShoppingProductModel *model = [[ShoppingProductModel alloc] initWithJsonData:dic];
+             ProductModel *model = [[ProductModel alloc] initWithJsonData:dic];
              [result addObject:model];
          }
          success(result);
@@ -61,7 +61,7 @@
     [NetworkEngine postRequestWithUrl:AppService paramsArray:@[user.identifyName,product.id] WithPath:RemoveShoppingCar
                          successBlock:^(id successJsonData)
      {
-         success([[successJsonData objectForKey:@"result"] boolValue]);
+         success([successJsonData boolValue]);
      }
                            errorBlock:^(int code, NSString *errorJsonData)
      {
@@ -78,7 +78,7 @@
     [NetworkEngine postRequestWithUrl:AppService paramsArray:@[user.identifyName,[NSNumber numberWithUnsignedInteger:num],product.id] WithPath:ModifyShoppingCar
                          successBlock:^(id successJsonData)
      {
-         success([[successJsonData objectForKey:@"result"] boolValue]);
+         success([successJsonData boolValue]);
      }
                            errorBlock:^(int code, NSString *errorJsonData)
      {
