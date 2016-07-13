@@ -8,8 +8,11 @@
 
 #import "baseTableViewController.h"
 #import "ShoppingCarCell.h"
-#import "ShoppingProductModel.h"
+//#import "ShoppingProductModel.h"
+#import "ProductModel.h"
 #import "LoginViewController.h"
+#import "DetermineOrderViewController.h"
+#import "ProductDetailViewController.h"
 @interface ShoppingCarViewController : baseTableViewController<ShoppingCarCellDelegate>
 
 @end

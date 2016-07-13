@@ -96,4 +96,6 @@
 /** 斤｜件｜个 */
 @property(nonatomic,copy)NSString *  jianOrJin;
 
+@property (nonatomic,assign) BOOL selected;
+
 @end

@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "UserObject.h"
+#import "ProductModel.h"
 
-@class ProductModel;
 @class ChipModel;
 @class FreeEatModel;
 @class IntegralProductModel;

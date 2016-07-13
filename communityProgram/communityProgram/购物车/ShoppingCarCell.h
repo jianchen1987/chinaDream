@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ShoppingProductModel.h"
+//#import "ShoppingProductModel.h"
 #import "AddNumberView.h"
 #import "LineLabel.h"
+#import "ProductModel.h"
 
 @protocol ShoppingCarCellDelegate;
 @interface ShoppingCarCell : UITableViewCell<AddNumberViewDelegate>
@@ -34,7 +35,7 @@
 
 @property (nonatomic,strong) UILabel                 *numberLab;//显示数量
 
-@property (nonatomic,strong) ShoppingProductModel    *shoppingModel;
+@property (nonatomic,strong) ProductModel    *shoppingModel;
 
 @property (assign,nonatomic) BOOL                    selectState;//选中状态
 
