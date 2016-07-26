@@ -83,7 +83,7 @@
     [progress setProgressValue:0.71];
     [topView addSubview:progress];
     
-    
+    self.tableView.frame = CGRectMake(0, 0, DeviceWidth, DeviceHeight - kSTATUSBAR_NAVIGATION_HEIGHT);
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableHeaderView = topView;
     

@@ -19,6 +19,9 @@
     [super viewDidLoad];
     self.title = @"设置";
     self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.frame = CGRectMake(0, 0, DeviceWidth, DeviceHeight - kSTATUSBAR_NAVIGATION_HEIGHT - kTABBAR_HEIGHT);
+    self.tableView.header = nil;
+    self.tableView.footer = nil;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

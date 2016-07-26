@@ -11,12 +11,14 @@
 
 #define _BUTTONVIEW_BUTTON_HEIGHT 40.0f
 
+#define _COLLECTION_PAGE_SIZE_ 20
+
 @interface MyCollectionViewController : baseTableViewController
 
 @property (nonatomic, strong) NSArray *buttonTitles;
 @property (nonatomic, assign) CGFloat buttonHeght;
 
 - (void)clickOnButton:(UIButton *)button atIndex:(NSUInteger)index;
-
+- (NSUInteger)getSelectedButton;
 
 @end

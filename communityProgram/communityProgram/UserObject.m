@@ -37,6 +37,37 @@ static UserObject *USER;
     return self;
 }
 
+- (instancetype)initWithJsonData:(NSDictionary *)json
+{
+    self = [super initWithJsonData:json];
+    if(self)
+    {
+        self.identifyName     = [json objectForKey:@"id"]?[json objectForKey:@"id"]:@"";
+        self.nickName         = [json objectForKey:@"nickName"]?[json objectForKey:@"nickName"]:@"";
+        self.phone            = [json objectForKey:@"phone"]?[json objectForKey:@"phone"]:@"";
+        self.gender           = [json objectForKey:@"gender"]?[json objectForKey:@"gender"]:@"";
+        self.headIcon         = [json objectForKey:@"headIcon"]?[json objectForKey:@"headIcon"]:@"";
+        self.address          = [json objectForKey:@"address"]?[json objectForKey:@"address"]:@"";
+        self.room             = [json objectForKey:@"room"]?[json objectForKey:@"room"]:@"";
+        self.myExtraIntegral  = [json objectForKey:@"myExtraIntegral"]?[json objectForKey:@"myExtraIntegral"]:@"";
+        self.birth            = [json objectForKey:@"birth"]?[json objectForKey:@"birth"]:@"";
+        self.hobbile          = [json objectForKey:@"hobbile"]?[json objectForKey:@"hobbile"]:@"";
+        self.homeTown         = [json objectForKey:@"homeTown"]?[json objectForKey:@"homeTown"]:@"";
+        self.identityIntegral = [json objectForKey:@"identityIntegral"]?[json objectForKey:@"identityIntegral"]:@"";
+        self.master           = [json objectForKey:@"master"]?[json objectForKey:@"master"]:@"";
+        if([json objectForKey:@"integral"])
+        {
+            self.integral = [[UserIntegralModel alloc] initWithJsonData:[json objectForKey:@"integral"]];
+        }
+        
+        if([json objectForKey:@"quarter"])
+        {
+            self.quarter = [[quarterModel alloc] initWithJsonData:[json objectForKey:@"quarter"]];
+        }
+    }
+    return self;
+}
+
 
 
 
@@ -56,6 +87,7 @@ static UserObject *USER;
     [aCoder encodeObject:self.identityIntegral forKey:@"identityIntegral"];
     [aCoder encodeObject:self.master forKey:@"master"];
     [aCoder encodeObject:self.integral forKey:@"integral"];
+    [aCoder encodeObject:self.quarter forKey:@"quarter"];
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -77,6 +109,7 @@ static UserObject *USER;
         self.identityIntegral = [aDecoder decodeObjectForKey:@"identityIntegral"];
         self.master           = [aDecoder decodeObjectForKey:@"master"];
         self.integral         = [aDecoder decodeObjectForKey:@"integral"];
+        self.quarter          = [aDecoder decodeObjectForKey:@"quarter"];
     }
     
     return self;
@@ -103,7 +136,17 @@ static UserObject *USER;
     self.homeTown         = [jsonData objectForKey:@"homeTown"]?[jsonData objectForKey:@"homeTown"]:@"";
     self.identityIntegral = [jsonData objectForKey:@"identityIntegral"]?[jsonData objectForKey:@"identityIntegral"]:@"";
     self.master           = [jsonData objectForKey:@"master"]?[jsonData objectForKey:@"master"]:@"";
-    self.integral         = [jsonData objectForKey:@"integral"]?[jsonData objectForKey:@"integral"]:@"";
+    if([jsonData objectForKey:@"integral"])
+    {
+        self.integral = [[UserIntegralModel alloc] initWithJsonData:[jsonData objectForKey:@"integral"]];
+    }
+    
+    if([jsonData objectForKey:@"quarter"])
+    {
+        self.quarter = [[quarterModel alloc] initWithJsonData:[jsonData objectForKey:@"quarter"]];
+    }
+    
+    //self.integral         = [jsonData objectForKey:@"integral"]?[jsonData objectForKey:@"integral"]:@"";
     
     [self archiveToUserDefaults];
 }

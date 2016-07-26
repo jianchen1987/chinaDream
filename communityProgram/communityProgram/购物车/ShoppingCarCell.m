@@ -24,11 +24,13 @@
     return self;
 }
 
--(void)createSubViews{
+-(void)createSubViews
+{
 
     
+    
     self.selectedButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.selectedButton.frame = CGRectMake(10, (110-20)/2.0, 20, 20);
+    self.selectedButton.frame = CGRectMake(0, 0, 30, _ShoppingCarListCellHeight_);
     [self.selectedButton setImage:[UIImage imageNamed:@"check_n"] forState:UIControlStateNormal];
     [self.selectedButton setImage:[UIImage imageNamed:@"check_p"] forState:UIControlStateSelected];
     [self.selectedButton addTarget:self action:@selector(selectedButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -36,35 +38,31 @@
     
     
     //产品图片
-    self.shopImageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.selectedButton.right+10,15, 80, 80)];
-//    self.shopImageView.image = [UIImage imageNamed:@"img"];
+    self.shopImageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.selectedButton.right, 5, _ShoppingCarListCellHeight_ - 10, _ShoppingCarListCellHeight_ - 10)];
     [self.contentView addSubview:self.shopImageView];
     
     //标题
-    self.shopNameLab = [[UILabel alloc]initWithFrame:CGRectMake(self.shopImageView.right+10,self.shopImageView.top+5,DeviceWidth-self.shopImageView.right-20-self.priceLab.width, 20)];
-//    self.shopNameLab.text = @"合生元金装3段1-3岁";
-    self.shopNameLab.numberOfLines = 0;
+    self.shopNameLab = [[UILabel alloc]initWithFrame:CGRectMake(self.shopImageView.right + 5, 5, DeviceWidth - self.shopImageView.width - 30 - 10, 40)];
+    self.shopNameLab.numberOfLines = 2;
     self.shopNameLab.font = Font(16);
     [self.contentView addSubview:self.shopNameLab];
     
     
     //原价
-    self.oldPriceLab = [[UILabel alloc]initWithFrame:CGRectMake(self.shopImageView.right+10,self.shopNameLab.bottom+5, 100, 14)];
+    self.oldPriceLab = [[UILabel alloc]initWithFrame:CGRectMake(self.shopImageView.right + 5, _ShoppingCarListCellHeight_ - 5 - 20, 100, 20)];
     self.oldPriceLab.textColor = [UIColor grayColor];
-//    self.oldPriceLab.text = @"￥200.00";
     self.oldPriceLab.backgroundColor = [UIColor clearColor];
     self.oldPriceLab.font = Font(13);
     [self.contentView addSubview:self.oldPriceLab];
     
     
     //优惠价
-    self.priceLab = [[UILabel alloc]initWithFrame:CGRectMake(self.shopImageView.right+10, self.oldPriceLab.bottom+5, 160, 20)];
+    self.priceLab = [[UILabel alloc]initWithFrame:CGRectMake(self.shopImageView.right + 5, _ShoppingCarListCellHeight_ - 5 - 20 - 20, 100, 20)];
     self.priceLab.textColor = [UIColor redColor];
-//    self.priceLab.text = @"优惠价:￥123.00";
     self.priceLab.font = Font(16);
     [self.contentView addSubview:self.priceLab];
   
-    self.addNumberView = [[AddNumberView alloc]initWithFrame:CGRectMake(DeviceWidth-120, 50, 110, 30)];
+    self.addNumberView = [[AddNumberView alloc]initWithFrame:CGRectMake(DeviceWidth - 105, _ShoppingCarListCellHeight_ - 10 - 30, 95, 30)];
     self.addNumberView.delegate = self;
     self.addNumberView.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:self.addNumberView];

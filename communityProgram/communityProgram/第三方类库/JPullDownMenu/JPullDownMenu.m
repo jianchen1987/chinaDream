@@ -96,12 +96,12 @@
         [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         titleButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [titleButton setTitleColor:[[UIColor blackColor] colorWithAlphaComponent:0.3] forState:UIControlStateSelected];
-        [titleButton setImage:[UIImage imageNamed:@"JPullDown.bundle/jiantou_up1x"] forState:UIControlStateNormal];
+        [titleButton setImage:[UIImage imageNamed:@"JPullDown.bundle/jiantou_down1x"] forState:UIControlStateNormal];
         [titleButton setAdjustsImageWhenHighlighted:NO];
-//        titleButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//        titleButton.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        titleButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        titleButton.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         
-        titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+        titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, DeviceWidth - 30, 0, 0);
         
         [self addSubview:titleButton];
         [self.buttonArray addObject:titleButton];

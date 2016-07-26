@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) UIButton *reduceButton;
 @property (strong, nonatomic) UIButton *addButton;
-@property (strong, nonatomic) UILabel *middleNumberLable;
+@property (strong, nonatomic) UITextField *middleNumberTextField;
 
 @property (nonatomic,copy) NSString *numberString;
 

@@ -11,5 +11,6 @@
 @interface CommonUtils : NSObject
 
 + (NSDate *)getDateByString:(NSString *)dateStr stringFormat:(NSString *)formatStr;
++ (NSString *)getStrByDate:(NSDate *)date stringFormat:(NSString *)formatStr;
 
 @end

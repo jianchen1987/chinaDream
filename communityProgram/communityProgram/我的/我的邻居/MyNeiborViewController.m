@@ -8,86 +8,97 @@
 static NSString *myNeiborIdentifire = @"myNeiborIdentifire";
 
 #import "MyNeiborViewController.h"
+#import "NearUserViewModel.h"
+#import "UIImageView+WebCache.h"
 
-@interface MyNeiborViewController ()
-
+@interface MyNeiborViewController()
+{
+    UISearchBar *_mySearchBar;
+    UISearchDisplayController *_mySearchDisplayController;
+    NSMutableArray *_searchResult;
+}
 @end
 
 @implementation MyNeiborViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-64) style:UITableViewStyleGrouped];
-    myTableView.delegate = self;
-    myTableView.dataSource = self;
-    myTableView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:myTableView];
-    
-    
+    self.title = @"我的邻居";
+    self.tableView.frame = CGRectMake(0, 0, DeviceWidth, DeviceHeight-64);;
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.footer = nil;
     
     [self initSearchBar];
-
+    [self showLoading];
+    [self pullDown:self.tableView.header];
 }
 -(void)initSearchBar
 {
-    mySearchBar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, 44)];
-    [mySearchBar setPlaceholder:@"搜索基金名称/代码/拼音"];
+    _mySearchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, 44)];
+    [_mySearchBar setPlaceholder:@"输入邻居名称名称/拼音"];
     
-    myTableView.tableHeaderView = mySearchBar;
-    mySearchDisplayController = [[UISearchDisplayController alloc]initWithSearchBar:mySearchBar contentsController:self];//挂上关系;
-    mySearchDisplayController.delegate = self;
-    mySearchDisplayController.searchResultsDataSource = self;
-    mySearchDisplayController.searchResultsDelegate = self;
+    self.tableView.tableHeaderView = _mySearchBar;
+    _mySearchDisplayController = [[UISearchDisplayController alloc]initWithSearchBar:_mySearchBar contentsController:self];//挂上关系;
+    _mySearchDisplayController.delegate = self;
+    _mySearchDisplayController.searchResultsDataSource = self;
+    _mySearchDisplayController.searchResultsDelegate = self;
     
     
 }
 
-
-
+- (void)pullDown:(id)sender
+{
+    if(!self.dataSource)
+    {
+        self.dataSource = [[NSMutableArray alloc]init];
+    }
+    
+    [NearUserViewModel getNearNeighborByUser:self.user SuccessBlock:^(NSArray *arr)
+    {
+        [self dismissShow];
+        [self.dataSource removeAllObjects];
+        [self.dataSource addObjectsFromArray:arr];
+        
+        [super pullDown:sender];
+    }
+                                FailureBlock:^(int code, NSString *errMsg)
+    {
+        [self dismissShow];
+        [super pullDown:sender];
+        [self showPrompt:errMsg];
+    }];
+}
 
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return dataSource.count;
+    return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return dataSource.count;
+    return self.dataSource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NeiborTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:myNeiborIdentifire];
-    if (!cell) {
-        cell = [[NeiborTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myNeiborIdentifire];
+    MyNeiborTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:myNeiborIdentifire];
+    if (!cell)
+    {
+        cell = [[MyNeiborTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myNeiborIdentifire];
     }
+    UserObject *neighbour = [self.dataSource objectAtIndex:indexPath.row];
+    
+    cell.nameLable.text = neighbour.nickName;
+    cell.placeLable.text = neighbour.quarter.quarterName;
+    [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",HOSTURL,neighbour.headIcon]]];
+    
     return cell;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 10;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.001;
-}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 80;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

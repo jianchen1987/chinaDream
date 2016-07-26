@@ -92,82 +92,96 @@ typedef void (^void_SuccessBlock_BOOL)(BOOL isSuccess);
 #define getComment         @"getComment" //获得商品详情评论
 
 
-#define GetQuartersPath    @"getQuarters"
-#define GetVerifyCodePath  @"getVerifyCode"  //获取验证码
-#define RegisterPath       @"registerUser" //注册
-#define LoginUserPath      @"loginUser"  //登录
-#define GetUserByIdPath    @"getUserById"  //根据用户id来获取用户信息
-#define GetUserByPhonePath @"getUserByPhone" //根据手机号码获取用户信息
-#define ModifyUserPath     @"modifyUser"   //修改用户信息
-#define GetUserLevel        @"getLevel"    //获取会员等级
-#define GetAddressAll      @"getAddressAll" //获取所有收货地址
-#define SaveAddress        @"saveAddress"
-#define ModifyAddress      @"modifyAddres"
-#define DeleteAddress      @"removeAddress"
-#define SetDefaultAddress  @"setDefaultAddress"
-#define SubmitOrder        @"submitOrder"
-#define GetOrdersByUserId  @"getOrderByUserId"
-#define DeleteOrder        @"deleteOrder"
-#define GetNoticeUser      @"getNoticeUser"
-#define JoinNoticeMy       @"joinNoticeMy"
-#define RemoveNoticeMy     @"removeNoticeMy"
-#define GetNoticeMy        @"getNoticeMy"
-#define NoticeByUser       @"noticeByUser"
-#define GetOrderItemByOrderId @"getOrderItemByOrderId"
+#define GetQuartersPath             @"getQuarters"
+#define GetVerifyCodePath           @"getVerifyCode"           //获取验证码
+#define RegisterPath                @"registerUser"            //注册
+#define LoginUserPath               @"loginUser"               //登录
+#define GetUserByIdPath             @"getUserById"             //根据用户id来获取用户信息
+#define GetUserByPhonePath          @"getUserByPhone"          //根据手机号码获取用户信息
+#define ModifyUserPath              @"modifyUser"              //修改用户信息
+#define GetUserLevel                @"getLevel"                //获取会员等级
+#define GetAddressAll               @"getAddressAll"           //获取所有收货地址
+#define SaveAddress                 @"saveAddress"
+#define ModifyAddress               @"modifyAddres"
+#define DeleteAddress               @"removeAddress"
+#define SetDefaultAddress           @"setDefaultAddress"
+#define SubmitOrder                 @"submitOrder"
+#define GetOrdersByUserId           @"getOrderByUserId"
+#define DeleteOrder                 @"deleteOrder"
+#define GetNoticeUser               @"getNoticeUser"
+#define JoinNoticeMy                @"joinNoticeMy"
+#define RemoveNoticeMy              @"removeNoticeMy"
+#define GetNoticeMy                 @"getNoticeMy"
+#define NoticeByUser                @"noticeByUser"
+#define GetOrderItemByOrderId       @"getOrderItemByOrderId"
 
-#define GetIntegralProductType   @"getIntegralProductType"
-#define GetIntegralProducts      @"getIntegralProdcutByCode"
-#define GetIntegralProductById   @"getIntegralProductById"
+#define GetIntegralProductType      @"getIntegralProductType"
+#define GetIntegralProducts         @"getIntegralProdcutByCode"
+#define GetIntegralProductById      @"getIntegralProductById"
 
-#define AddShoppingCar           @"addShopCar"    //添加到购物车
-#define RemoveShoppingCar        @"removeShopCar" //删除购物车
-#define ModifyShoppingCar        @"modifyShopCar" //修改购物车
-#define GetShoppingCarList       @"getShopCarList" //获取购物车清单
+#define AddShoppingCar              @"addShopCar"              //添加到购物车
+#define RemoveShoppingCar           @"removeShopCar"           //删除购物车
+#define ModifyShoppingCar           @"modifyShopCar"           //修改购物车
+#define GetShoppingCarList          @"getShopCarList"          //获取购物车清单
 
-#define SaveProductCollection    @"saveProductCollection"   //添加收藏
+#define SaveProductCollection       @"saveProductCollection"   //添加收藏
 
-#define SignIntegralPath   @"signIntegral"  //签到赚取积分
-#define UploadAskorTalk    @"uploadAskorTalk"  //上传图片
-#define PublishAskorTalkPath @"publishAskorTalk"  //发布一条问问或者说说
-#define GetNearAskOrTalkById @"getNearAskOrTalkById" // 通过ID获取邻里问问或者说说
-#define GetNearAskLogo       @"getNearAskLogo" //获取轮播图
-#define ToastNearTalkOrAsk   @"toastNearTalkOrAsk" //点赞随便说说和邻里问问
-#define ShareNearTalkOrAsk   @"shareNearTalkOrAsk" //分享随便说说和邻里问问
-#define GetProductByHotOrTuiJian @"getProductByHotOrTuiJian"
-#define GetProductType       @"getProductType"
-#define SetQuaterPath        @"setQuater" //设置小区
-#define GetAllChipLogoPath   @"getAllChipLogo"  //获取超市广告图
-#define GetLogoByProductIdPath    @"getLogoByProductId"  //获取超市产品的轮播图
-#define GetCouponsBatchByPagePath @"getCouponsBatchByPage"  //分页获取系统优惠卷信息集合
-#define GetCouponsByPagePath      @"getCouponsByPage"  //获取用户优惠券
-#define UserHasCouponPath         @"hasCoupon"  //领取优惠券
-#define UserUseCouponPath         @"useCoupon"   //用户使用优惠券
-#define GetNearAsksOrTalkPath     @"getNearAsksOrTalk"
-#define  getProductById            @"getProductById"//产品id来获取产品信息
+#define SignIntegralPath            @"signIntegral"            //签到赚取积分
+#define UploadAskorTalk             @"uploadAskorTalk"         //上传图片
+#define PublishAskorTalkPath        @"publishAskorTalk"        //发布一条问问或者说说
+#define GetNearAskOrTalkById        @"getNearAskOrTalkById"    // 通过ID获取邻里问问或者说说
+#define GetNearAskLogo              @"getNearAskLogo"          //获取轮播图
+#define ToastNearTalkOrAsk          @"toastNearTalkOrAsk"      //点赞随便说说和邻里问问
+#define ShareNearTalkOrAsk          @"shareNearTalkOrAsk"      //分享随便说说和邻里问问
+#define GetProductByHotOrTuiJian    @"getProductByHotOrTuiJian"
+#define GetProductType              @"getProductType"
+#define SetQuaterPath               @"setQuater"               //设置小区
+#define GetAllChipLogoPath          @"getAllChipLogo"          //获取超市广告图
+#define GetLogoByProductIdPath      @"getLogoByProductId"      //获取超市产品的轮播图
+#define GetCouponsBatchByPagePath   @"getCouponsBatchByPage"   //分页获取系统优惠卷信息集合
+#define GetCouponsByPagePath        @"getCouponsByPage"        //获取用户优惠券
+#define UserHasCouponPath           @"hasCoupon"               //领取优惠券
+#define UserUseCouponPath           @"useCoupon"               //用户使用优惠券
+#define GetNearAsksOrTalkPath       @"getNearAsksOrTalk"
+#define  getProductById             @"getProductById"          //产品id来获取产品信息
 
-#define getChipByPage          @"getChipByPage"//众筹列表
-#define getChipById            @"getChipById"//单个众筹详情
+#define getChipByPage               @"getChipByPage"           //众筹列表
+#define getChipById                 @"getChipById"             //单个众筹详情
 
-#define allchip @"allchip"             //众筹评论参数
-#define secondhand @"secondhand"       // 二手闲置评论
-#define supermarket @"supermarket"     // 超市产品评论
-#define freeeat @"freeeat"             //免费试吃评论
-#define integralstore @"integralstore" //积分商城
+#define allchip                     @"allchip"                 //众筹评论参数
+#define secondhand                  @"secondhand"              // 二手闲置评论
+#define supermarket                 @"supermarket"             // 超市产品评论
+#define freeeat                     @"freeeat"                 //免费试吃评论
+#define integralstore               @"integralstore"           //积分商城
 
-#define getFreeEatRecordByPage @"getFreeEatRecordByPage" //免费试吃
-#define getFreeEat @"getFreeEat" //分页获取所有的免费试吃
-#define getFreeEatRecordByPage @"getFreeEatRecordByPage"//获得所有的申请历史记录
-#define getProductAndType  @"getProductAndType" //获得某分类数据
+#define getFreeEatRecordByPage      @"getFreeEatRecordByPage"  //免费试吃
+#define getFreeEat                  @"getFreeEat"              //分页获取所有的免费试吃
+#define getFreeEatRecordByPage      @"getFreeEatRecordByPage"  //获得所有的申请历史记录
+#define getProductAndType           @"getProductAndType"       //获得某分类数据
 
-#define removeCollFreeEat @"removeCollFreeEat" //删除收藏的免费试吃
-#define getAllChipHistory @"getAllChipHistory" //获得所有众筹历史纪录
-#define getAllChipRecord @"getAllChipRecord"  //我的记录
-#define removeFreeEat @"removeFreeEat"//
-#define getProductByHotOrTuiJian    @"getProductByHotOrTuiJian" //获得对应商品推荐
-#define NSStringInt(a) [NSString stringWithFormat:@"%d",a]
+#define removeCollFreeEat           @"removeCollFreeEat"       //删除收藏的免费试吃
+#define getCollProduct              @"getCollProduct"          //获取超市收藏
+#define getCollFreeEat              @"getCollFreeEat"
+#define getCollAllChip              @"getCollAllChip"          //众筹收藏
+#define getCollIntegralProduct      @"getCollIntegralProduct"
+#define getCollSencond              @"getCollSecond"
+#define getCollPeople               @"getCollPeople"
+#define getAllChipHistory           @"getAllChipHistory"       //获得所有众筹历史纪录
+#define getAllChipRecord            @"getAllChipRecord"        //我的记录
+#define removeCollProduct           @"removeCollProduct"
+#define removeCollAllChip           @"removeCollAllChip"
+#define removeCollIntegralProduct   @"removeCollIntegralProduct"
+#define removeCollSecond            @"removeCollSecond"
+#define removeCollAskOrTalk         @"removeCollAskOrTalk"
+#define getNearNeighbour            @"getMyNearUser"
+
+#define getIntegralRecordHis        @"getIntegralRecord"  //获取积分历史记录
+
+#define getProductByHotOrTuiJian    @"getProductByHotOrTuiJian"//获得对应商品推荐
+#define NSStringInt(a) [NSString    stringWithFormat:@"%d",a]
 #define NSStringdouble(a) [NSString stringWithFormat:@"%f",a]
-#define NSStringType(a)  [NSString stringWithFormat:@"%@",a]
-#define getProductByCode @"getProductByCode" //根据code来获取产品信息列表
+#define NSStringType(a)  [NSString  stringWithFormat:@"%@",a]
+#define getProductByCode            @"getProductByCode"        //根据code来获取产品信息列表
 
 #define Number(a)  [NSNumber numberWithInteger:a]
 #define imageString(a) [NSString stringWithFormat:@"%@%@",AppendingImageUrl,a]

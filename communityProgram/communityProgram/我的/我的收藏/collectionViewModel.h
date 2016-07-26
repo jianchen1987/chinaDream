@@ -31,4 +31,9 @@
 
 + (void)saveTalkOrAskCollection:(TalkOrAskModel *)talkOrAsk forUser:(UserObject *)user SuccessBlock:(void_SuccessBlock_BOOL)success FailureBlock:(void_FailureBlock)failure;
 
+
++ (void)getCollectionProductsByUser:(UserObject *)user TypeId:(NSUInteger)type pageIndex:(NSUInteger)page pageSize:(NSUInteger)size SuccessBlock:(void_SuccessBlock_Arrary)success FailureBlock:(void_FailureBlock)failure;
+
++ (void)removeCollectionProduct:(ProductModel *)product productType:(NSUInteger)type byUser:(UserObject *)user SuccessBlock:(void_SuccessBlock_BOOL)success FailureBlock:(void_FailureBlock)failure;
+
 @end

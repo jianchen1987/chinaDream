@@ -170,6 +170,7 @@
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.bounces = self.bounces;//反弹
     
+    
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
     

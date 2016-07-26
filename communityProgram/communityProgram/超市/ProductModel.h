@@ -85,7 +85,7 @@
 
 /** 购买数量 */
 
-@property(nonatomic,assign)NSInteger  buyNum;
+@property(nonatomic,assign) NSInteger  buyNum;
 /** 单品总价 = 单价 * 购买数量 */
 @property(nonatomic,assign) double money;
 /** 库存  */

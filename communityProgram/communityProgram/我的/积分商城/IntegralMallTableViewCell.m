@@ -44,6 +44,7 @@
         [self.contentView addSubview:_sealNumberLable];
         
         
+        
     }
     return self;
 }

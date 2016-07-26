@@ -5,14 +5,13 @@
 //  Created by 陈剑 on 16/6/24.
 //  Copyright © 2016年 高国峰. All rights reserved.
 //
-
-#import <Foundation/Foundation.h>
-#import "UserObject.h"
 #import "baseModel.h"
+#import "UserObject.h"
 
-@class zoneModel;
 
-@interface quarterModel : baseModel
+//@class zoneModel;
+
+@interface quarterModel : baseModel<NSCoding>
 
 @property (nonatomic,strong ) NSString     *quarterId;
 /**
@@ -44,11 +43,16 @@
  */
 @property (nonatomic, copy  ) NSString     *lat;
 
+
+@property (nonatomic, strong) NSDate *createTime;
+
+
 @property (nonatomic, strong) NSArray      *freeEats;
 
 @property (nonatomic, strong) NSArray      *products;
 
-@property (nonatomic, strong) zoneModel    *zone;
-
+//@property (nonatomic, strong) zoneModel    *zone;
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+- (nullable instancetype)initWithCoder:( NSCoder * _Nonnull )aDecoder;
 
 @end

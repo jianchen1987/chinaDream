@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "IntegralRecordModel.h"
+
 @interface IntrgraHistoryTableViewCell : UITableViewCell
 @property(nonatomic,strong)UILabel *titleLable;
 @property(nonatomic,strong)UILabel *dateLable;
 @property(nonatomic,strong)UILabel *integralLable;
 
--(void)cellWithData:(NSDictionary *)dic;
+-(void)cellWithData:(IntegralRecordModel *)model;
 
 @end

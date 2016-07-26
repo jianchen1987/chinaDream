@@ -8,48 +8,105 @@
 static NSString *exchangeIdentifire = @"exchangeIdentifire";
 
 #import "IntegralHistoryViewController.h"
+#import "integralViewModel.h"
+#import "IntegralRecordModel.h"
 
-@interface IntegralHistoryViewController ()
 
-@end
+#define _INTEGRAL_HISTORY_RECORD_PAGE_SIZE_ 20
 
 @implementation IntegralHistoryViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    dataSource = [[NSMutableArray alloc] initWithCapacity:1];
     
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-64-50) style:UITableViewStyleGrouped];
-    myTableView.delegate = self;
-    myTableView.dataSource = self;
-    myTableView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:myTableView];
-    
-    NSDictionary *dic1 = [NSDictionary dictionaryWithObjectsAndKeys:@"签到",@"title",@"2015-12-14",@"date",@"1",@"intergral", nil];
-    NSDictionary *dic2 = [NSDictionary dictionaryWithObjectsAndKeys:@"签到",@"title",@"2015-12-14",@"date",@"1",@"intergral", nil];
-
-    NSDictionary *dic3 = [NSDictionary dictionaryWithObjectsAndKeys:@"签到",@"title",@"2015-12-14",@"date",@"1",@"intergral", nil];
-    [dataSource addObject:dic1];
-    [dataSource addObject:dic2];
-    [dataSource addObject:dic3];
-    [dataSource addObject:dic1];
-    [dataSource addObject:dic1];
-    [dataSource addObject:dic2];
-    [dataSource addObject:dic3];
-    [dataSource addObject:dic1];
-    [dataSource addObject:dic1];
-    [dataSource addObject:dic2];
-    [dataSource addObject:dic3];
-    [dataSource addObject:dic1];
-    [dataSource addObject:dic1];
-    [dataSource addObject:dic2];
-    [dataSource addObject:dic3];
-    [dataSource addObject:dic1];
+    self.tableView.frame = CGRectMake(0, 0, DeviceWidth, DeviceHeight- kSTATUSBAR_NAVIGATION_HEIGHT - kTABBAR_HEIGHT - 50);
+    [self showLoading];
+    [self pullDown:self.tableView.header];
 }
+
+-(void)pullDown:(id)sender
+{
+    if(!self.dataSource)
+    {
+        self.dataSource = [[NSMutableArray alloc] init];
+    }
+    
+    [integralViewModel getIntegralRecordHisByUser:self.user
+                                        pageIndex:1
+                                         pageSize:_INTEGRAL_HISTORY_RECORD_PAGE_SIZE_
+                                     SuccessBlock:^(NSArray *arr)
+    {
+        [self dismissShow];
+        [self.dataSource removeAllObjects];
+        [self.dataSource addObjectsFromArray:arr];
+        if(arr.count < _INTEGRAL_HISTORY_RECORD_PAGE_SIZE_)
+        {
+            [self.tableView.footer endRefreshingWithNoMoreData];
+        }
+        else
+        {
+            [self.tableView.footer resetNoMoreData];
+        }
+        [self reloadTableView];
+        [super pullDown:sender];
+    }
+                                     FailureBlock:^(int code, NSString *errMsg)
+    {
+        [self dismissShow];
+        [self showPrompt:errMsg];
+        [super pullDown:sender];
+    }];
+}
+
+- (void)pullUp:(id)sender
+{
+    if(!self.dataSource)
+    {
+        return;
+    }
+    
+    if(self.dataSource.count < _INTEGRAL_HISTORY_RECORD_PAGE_SIZE_ )
+    {
+        return;
+    }
+    
+    [integralViewModel getIntegralRecordHisByUser:self.user
+                                        pageIndex:(self.dataSource.count/_INTEGRAL_HISTORY_RECORD_PAGE_SIZE_) + 1
+                                         pageSize:_INTEGRAL_HISTORY_RECORD_PAGE_SIZE_
+                                     SuccessBlock:^(NSArray *arr)
+     {
+         [self dismissShow];
+         [self.dataSource removeAllObjects];
+         [self.dataSource addObjectsFromArray:arr];
+         if(arr.count < _INTEGRAL_HISTORY_RECORD_PAGE_SIZE_)
+         {
+             [self.tableView.footer endRefreshingWithNoMoreData];
+         }
+         else
+         {
+             [self.tableView.footer endRefreshing];
+         }
+         [self reloadTableView];
+     }
+                                     FailureBlock:^(int code, NSString *errMsg)
+     {
+         [self dismissShow];
+         [self showPrompt:errMsg];
+         [super pullUp:sender];
+     }];
+}
+
+
+
+
+
+
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return dataSource.count;
+    return self.dataSource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -57,8 +114,8 @@ static NSString *exchangeIdentifire = @"exchangeIdentifire";
     if (!cell) {
         cell = [[IntrgraHistoryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:exchangeIdentifire];
     }
-    NSDictionary *dic = dataSource[indexPath.row];
-    [cell cellWithData:dic];
+    IntegralRecordModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    [cell cellWithData:model];
     
     return cell;
 }
@@ -77,19 +134,5 @@ static NSString *exchangeIdentifire = @"exchangeIdentifire";
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

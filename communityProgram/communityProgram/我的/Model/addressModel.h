@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface addressModel : NSObject
+@interface addressModel : NSObject<NSCoding>
 
 @property (nonatomic, copy) NSString * _Nullable aid;
 @property (nonatomic, copy) NSString * _Nullable phone;
@@ -20,5 +20,8 @@
 @property (nonatomic, assign) BOOL isDefault;
 
 - (nullable instancetype)initWithJsonData:(NSDictionary  * _Nullable )json;
+
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+- (nullable instancetype)initWithCoder:( NSCoder * _Nonnull )aDecoder;
 
 @end

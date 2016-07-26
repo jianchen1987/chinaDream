@@ -103,6 +103,10 @@
 - (void)reflushAddress
 {
     [self showLoading];
+    if(!self.dataSource)
+    {
+        self.dataSource = [[NSMutableArray alloc] init];
+    }
     [addressManagerViewModel getUserReceiveAddressesByUserId:self.user.identifyName
                                                 SuccessBlock:^(NSArray *address)
     {

@@ -22,4 +22,12 @@
     return formatDate;
 }
 
++ (NSString *)getStrByDate:(NSDate *)date stringFormat:(NSString *)formatStr
+{
+    NSDateFormatter *format = [[NSDateFormatter  alloc] init];
+    [format setDateFormat:formatStr];
+    
+    return [format stringFromDate:date];
+}
+
 @end
