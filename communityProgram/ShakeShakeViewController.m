@@ -8,6 +8,7 @@
 
 #import "ShakeShakeViewController.h"
 #import "MyintegralViewController.h"
+
 @interface ShakeShakeViewController ()
 
 @end
@@ -30,15 +31,23 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
 }
+-(void)shake{
+    
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName] WithPath:@"shakeRed" successBlock:^(id successJsonData) {
+        [_phone.layer removeAllAnimations];
+        NSLog(@"successJsonData////////////%@",successJsonData);
+    } errorBlock:^(int code, NSString *errorJsonData) {
+        NSLog(@"errorJsonData////////////%@",errorJsonData);
+        [_phone.layer removeAllAnimations];
 
+    } ];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];
     self.view.backgroundColor= RGBA(60, 0, 93, 1);
-//    _detailView.hidden=YES;
-//    self.navigationItem.
+
     [self becomeFirstResponder];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
@@ -46,7 +55,7 @@
 {
     NSLog(@"检测到摇动");
     //检测到摇动
-    
+    [self shake];
 }
 
 
@@ -94,7 +103,7 @@
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //    [self pauseLayer:_phone.layer];
-    [_phone.layer removeAllAnimations];
+//    [_phone.layer removeAllAnimations];
 }
 -(void)pauseLayer:(CALayer*)layer
 {
