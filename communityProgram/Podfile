@@ -1,5 +1,6 @@
 platform :ios, "7.0"
 
 pod "MJExtension"
+pod 'CXAlertView', '~> 1.1.0'
 ##pod 'JPullDownMenu', '~> 0.2.1'
 

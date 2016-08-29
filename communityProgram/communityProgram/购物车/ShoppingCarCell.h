@@ -12,6 +12,8 @@
 #import "LineLabel.h"
 #import "ProductModel.h"
 
+#define _ShoppingCarListCellHeight_ 110
+
 @protocol ShoppingCarCellDelegate;
 @interface ShoppingCarCell : UITableViewCell<AddNumberViewDelegate>
 

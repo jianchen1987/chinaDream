@@ -16,6 +16,10 @@
 #import "allTopicTableViewController.h"
 #import "attentionTableViewController.h"
 
+#import "MyintegralViewController.h"
+#import "IntegralHistoryViewController.h"
+#import "ExchangeRecordViewController.h"
+
 
 #define _MYSELF_BUTTON_SETT_ 901
 #define _MYSELF_BUTTON_HELP_ 902
@@ -231,18 +235,27 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.section == 1)
+    {
+        UIViewController *vc = nil;
+        switch (indexPath.row) {
+            case 0:
+                vc = [[MyintegralViewController alloc] init];
+                ((MyintegralViewController *)vc).viewControllers = @[[[IntegralHistoryViewController alloc] init],[[ExchangeRecordViewController alloc] init]];
+                break;
+                
+            default:
+                break;
+        }
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if(indexPath.section == 3)
+    {
+        
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    if (indexPath.row == 8) {
-//        SystemSettingViewController *settingVC = [SystemSettingViewController new];
-//        settingVC.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:settingVC animated:YES];
-//    }else if(indexPath.row == 2)
-//    {
-//        MyArchivesViewController *myArchiverVC = [MyArchivesViewController new];
-//        myArchiverVC.hidesBottomBarWhenPushed = YES;
-//        
-//        [self.navigationController pushViewController:myArchiverVC animated:YES];
-//    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -317,7 +330,7 @@
         pageVC.pageAnimatable           = YES;
         pageVC.menuItemWidth            = DeviceWidth/2;
         pageVC.menuHeight               = kPageMenusHeight;
-        pageVC.bounces                  = YES;
+        pageVC.bounces                  = NO;
         pageVC.title                    = @"我的收藏";
         pageVC.menuBGColor              = [UIColor whiteColor];//bar背景颜色
         pageVC.titleColorNormal         = [UIColor darkGrayColor];

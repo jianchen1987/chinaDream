@@ -24,7 +24,7 @@
         self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight) style:style];
         self.tableView.delegate   = self;
         self.tableView.dataSource = self;
-        self.dataSource = [[NSMutableArray alloc] init];
+        //self.dataSource = [[NSMutableArray alloc] init];
         
         self.tableView.emptyDataSetSource = self;
         self.tableView.emptyDataSetDelegate = self;
@@ -96,6 +96,25 @@
     return 1;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(self.tableView.editing)
+    {
+        return UITableViewCellEditingStyleDelete|UITableViewCellEditingStyleInsert;
+    }
+    else
+    {
+        return UITableViewCellEditingStyleDelete;
+    }
+}
+
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
 #pragma mark -- scrollview delegate --
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -108,7 +127,18 @@
 #pragma mark -- empty delete --
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
 {
-    return self.dataSource.count == 0;
+    if(self.dataSource == nil)
+    {
+        return NO;
+    }
+    else if(self.dataSource.count == 0)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 - (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView

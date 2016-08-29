@@ -9,6 +9,7 @@
 #import "ShoppingCarViewController.h"
 #import "ShoppingCarViewModel.h"
 #import "UIImageView+WebCache.h"
+#import "LXAlertView.h"
 
 #define _SETTLE_VIEW_HEIGHT_   50.0f
 
@@ -26,11 +27,35 @@
 @implementation ShoppingCarViewController
 
 
+- (instancetype)init
+{
+    self = [super init];
+    if(self)
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateBadge:) name:@"ShoppingcarUpdate" object:nil];
+    }
+    
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ShoppingcarUpdate" object:nil];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtn.frame = CGRectMake(0, 0, 25, 25);
+    [rightBtn setImage:[UIImage imageNamed:@"shoppingcar_delete"] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(deleteSelectedItem) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightBaritem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"登录" style:UIBarButtonItemStylePlain target:self action:@selector(loginButtonAction)];
+    self.navigationItem.rightBarButtonItem = rightBaritem;//[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"shoppingcar_delete"] style:UIBarButtonItemStylePlain target:self action:@selector(loginButtonAction)];
     
     self.tableView.frame = CGRectMake(0, 0, DeviceWidth, DeviceHeight - kSTATUSBAR_HEIGHT - kNAVIGATION_HEIGHT - kTABBAR_HEIGHT - _SETTLE_VIEW_HEIGHT_);
     
@@ -44,7 +69,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    [self showLoading];
     [self pullDown:self.tableView.header];
 }
 
@@ -55,7 +80,7 @@
     [self.view addSubview:bottomView];
     
     selectAllButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    selectAllButton.frame = CGRectMake(10,(50-20)/2.0, 60, 20);
+    selectAllButton.frame = CGRectMake(10,(_SETTLE_VIEW_HEIGHT_ - 20)/2.0, 60, 20);
     [selectAllButton setImage:[UIImage imageNamed:@"check_n"] forState:UIControlStateNormal];
     [selectAllButton setImage:[UIImage imageNamed:@"check_p"] forState:UIControlStateSelected];
     [selectAllButton addTarget:self action:@selector(selectAllaction:) forControlEvents:UIControlEventTouchUpInside];
@@ -65,9 +90,9 @@
     selectAllButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
     [bottomView addSubview:selectAllButton];
     
-    totalMoneyLable = [[UILabel alloc]initWithFrame:CGRectMake(DeviceWidth/2-100, (50-20)/2, 200, 20)];
-    totalMoneyLable.textAlignment = NSTextAlignmentCenter;
-    totalMoneyLable.font = Font(_SUBTITLE_FONT_SIZE_);
+    totalMoneyLable               = [[UILabel alloc]initWithFrame:CGRectMake(80, (_SETTLE_VIEW_HEIGHT_-20)/2, 200, 20)];
+    totalMoneyLable.textAlignment = NSTextAlignmentLeft;
+    totalMoneyLable.font          = Font(_SUBTITLE_FONT_SIZE_);
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%.2f元",allPrice]];
     [str addAttribute:NSFontAttributeName value:Font(_TITLE_FONT_SIZE_) range:NSMakeRange(4,str.length-4)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(4,str.length-4)];
@@ -75,12 +100,12 @@
     [bottomView addSubview:totalMoneyLable];
     
     
-    settlementButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    settlementButton.frame = CGRectMake(DeviceWidth-70, (50-30)/2, 60, 30);
-    settlementButton.backgroundColor =[UIColor grayColor];
+    settlementButton                     = [UIButton buttonWithType:UIButtonTypeCustom];
+    settlementButton.frame               = CGRectMake(DeviceWidth - 100, (_SETTLE_VIEW_HEIGHT_ - 40)/2, 90, 40);
+    settlementButton.backgroundColor     = [UIColor grayColor];
     settlementButton.layer.masksToBounds = YES;
-    settlementButton.layer.cornerRadius =8;
-    [settlementButton setTitle:@"结算" forState:UIControlStateNormal];
+    settlementButton.layer.cornerRadius  = 5;
+    [settlementButton setTitle:@"去结算" forState:UIControlStateNormal];
     [settlementButton setBackgroundImage:[UIImage imageNamed:@"结算按钮"] forState:UIControlStateNormal];
     [settlementButton setBackgroundImage:nil forState:UIControlStateDisabled];
     [settlementButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -93,42 +118,51 @@
 
 - (void)pullDown:(_Nonnull id)sender
 {
+    if(!self.dataSource)
+    {
+        self.dataSource = [[NSMutableArray alloc] init];
+    }
     
     [ShoppingCarViewModel getShoppingCarListByUser:self.user
                                       SuccessBlock:^(NSArray *arr)
     {
+        [self dismissShow];
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:arr];
         [self CalculationPrice];
         [super pullDown:sender];
         
-    } FailureBlock:^(int code, NSString *errMsg) {
+        
+    }
+                                      FailureBlock:^(int code, NSString *errMsg)
+    {
+        [self dismissShow];
         [self showPrompt:errMsg];
         [super pullDown:sender];
+        
     }];
 }
 
 
 
--(void)loginButtonAction
-{
-    
-    LoginViewController *loginVC = [LoginViewController new];
-    loginVC.hidesBottomBarWhenPushed = YES;
-    
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-    
-    [self presentViewController:nav animated:YES completion:nil];
-    
-    
-}
+//-(void)loginButtonAction
+//{
+//    
+//    LoginViewController *loginVC = [LoginViewController new];
+//    loginVC.hidesBottomBarWhenPushed = YES;
+//    
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+//    
+//    [self presentViewController:nav animated:YES completion:nil];
+//    
+//    
+//}
 #pragma mark -------------结算
 -(void)settlementAction
 {
     NSLog(@"结算");
     DetermineOrderViewController * deter=[[DetermineOrderViewController alloc]initWithNibName:@"DetermineOrderViewController" bundle:nil];;
     [self.navigationController pushViewController:deter animated:YES];
-    
     
 }
 
@@ -199,6 +233,7 @@
             {
                 [self.dataSource removeObjectAtIndex:indexPath.row];
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                [self CalculationPrice];
             }
         } FailureBlock:^(int code, NSString *errMsg) {
             [self dismissShow];
@@ -224,7 +259,7 @@
                                                                          title:@"删除"
                                                                        handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath)
     {
-        NSLog(@"删除");
+
         ProductModel *model = [self.dataSource objectAtIndex:indexPath.row];
         [self showLoading];
         [ShoppingCarViewModel removeProduct:model forUser:self.user
@@ -235,6 +270,7 @@
              {
                  [self.dataSource removeObjectAtIndex:indexPath.row];
                  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                 [self CalculationPrice];
              }
          }
                                FailureBlock:^(int code, NSString *errMsg)
@@ -249,7 +285,6 @@
                                                                             title:@"加入收藏"
                                                                           handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath)
     {
-        NSLog(@"加入收藏");
         ProductModel *model = [self.dataSource objectAtIndex:indexPath.row];
         [self showLoading];
         [collectionViewModel saveProductCollection:model forUser:self.user SuccessBlock:^(BOOL isSuccess)
@@ -325,12 +360,14 @@
 -(void)CalculationPrice
 {
     //遍历整个数据源，然后判断如果是选中的商品，就计算价格(单价 * 商品数量)
+    NSNumber *totalNum = [NSNumber numberWithInteger:0];
     for ( int i =0; i<self.dataSource.count;i++)
     {
         ProductModel *model = self.dataSource[i];
         if (model.selected)
         {
             allPrice = allPrice + model.buyNum *model.discountPrice;
+            totalNum = [NSNumber numberWithInteger:model.buyNum + totalNum.integerValue];
         }
     }
     //给总价赋值
@@ -341,6 +378,7 @@
     allPrice = 0.0;
     [self checkSelectAll];
     [self checkSettlementBtnState];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShoppingcarUpdate" object:@{@"oper":@"0",@"parm":totalNum}];
 }
 
 
@@ -457,6 +495,98 @@
         }
     }
     [settlementButton setEnabled:NO];
+}
+
+
+- (void)updateBadge:(NSNotification *)sender
+{
+    NSString *opera = [sender.object objectForKey:@"oper"];
+    int buyNum = self.navigationController.tabBarItem.badgeValue?[self.navigationController.tabBarItem.badgeValue intValue]:0;
+    switch ([opera intValue])
+    {
+        //reset
+        case 0:
+        {
+            buyNum = [[sender.object objectForKey:@"parm"] intValue];
+        }
+            break;
+        case 1:
+        {
+            buyNum += [[sender.object objectForKey:@"parm"] intValue];
+        }
+            break;
+        default:
+            break;
+    }
+    if(buyNum == 0)
+    {
+        self.navigationController.tabBarItem.badgeValue = nil;
+        [settlementButton setTitle:@"去结算" forState:UIControlStateNormal];
+    }
+    else
+    {
+        self.navigationController.tabBarItem.badgeValue = buyNum > 99?@"99+":[NSString stringWithFormat:@"%d",buyNum];
+        [settlementButton setTitle:[NSString stringWithFormat:@"去结算(%@)",buyNum > 99?@"99+":[NSString stringWithFormat:@"%d",buyNum]] forState:UIControlStateNormal];
+    }
+}
+
+- (NSInteger)getSelectedItemCount
+{
+    NSInteger cnt = 0;
+    for(ProductModel *model in self.dataSource)
+    {
+        if(model.selected)
+        {
+            cnt = cnt + 1;
+        }
+    }
+    
+    return cnt;
+}
+
+
+
+- (void)deleteSelectedItem
+{
+    NSUInteger cnt = [self getSelectedItemCount];
+    if(cnt == 0)
+    {
+        return;
+    }
+    
+    
+    LXAlertView *alert = [[LXAlertView alloc] initWithTitle:@""
+                                                    message:[NSString stringWithFormat:@"是否删除这%ld款商品",cnt]
+                                             cancelBtnTitle:@"取消"
+                                              otherBtnTitle:@"确认"
+                                            clickIndexBlock:^(NSInteger clickIndex)
+    {
+        if(clickIndex == 1)
+        {
+            [self showLoading];
+            NSArray *temp = [NSArray arrayWithArray:self.dataSource];
+            
+            for(ProductModel *model in temp)
+            {
+                if(model.selected)
+                {
+                    [ShoppingCarViewModel removeProduct:model
+                                                forUser:self.user
+                                           SuccessBlock:^(BOOL isSuccess){}
+                                           FailureBlock:^(int code, NSString *errMsg){}];
+                    [self.dataSource removeObject:model];
+                }
+            }
+            
+            [self dismissShow];
+            [self.tableView reloadData];
+            [self CalculationPrice];
+        }
+    }];
+    
+    
+    [alert showLXAlertView];
+
 }
 
 

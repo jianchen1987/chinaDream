@@ -9,32 +9,101 @@
 #import "allProductTableViewController.h"
 #import "MycollectionTableViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "collectionViewModel.h"
+#import "ProductDetailViewController.h"
 
 @implementation allProductTableViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self showLoading];
+    [self pullDown:self.tableView.header];
     
 }
 
+
+
 - (void)clickOnButton:(UIButton *)button atIndex:(NSUInteger)index
 {
-    
+    [self showLoading];
+    [self pullDown:self.tableView.header];
 }
+
 - (void)pullDown:(id)sender
 {
-    NSLog(@"pushdown");
-    [self.dataSource addObjectsFromArray:@[@"12",@"12",@"12",@"12",@"12",@"12"]];
-    [self reloadTableView];
-    [super pullDown:sender];
+    [collectionViewModel getCollectionProductsByUser:self.user
+                                              TypeId:[self getSelectedButton]
+                                           pageIndex:1
+                                            pageSize:_COLLECTION_PAGE_SIZE_
+                                        SuccessBlock:^(NSArray *arr)
+    {
+        if(!self.dataSource)
+        {
+            self.dataSource = [[NSMutableArray alloc] init];
+        }
+        
+        [self.dataSource removeAllObjects];
+        [self.dataSource addObjectsFromArray:arr];
+        [self reloadTableView];
+        [super pullDown:sender];
+        [self dismissShow];
+        [self.tableView.footer resetNoMoreData];
+        
+    }
+                                        FailureBlock:^(int code, NSString *errMsg)
+    {
+        [self showPrompt:errMsg];
+        [super pullDown:sender];
+        [self dismissShow];
+    }];
 }
 
 - (void)pullUp:(id)sender;
 {
+    if(!self.dataSource)
+    {
+        [super pullUp:sender];
+        return;
+    }
     
-    [super pullUp:sender];
+    if(self.dataSource.count < _COLLECTION_PAGE_SIZE_)
+    {
+        [self.tableView.footer endRefreshingWithNoMoreData];
+        return;
+    }
+    
+    [collectionViewModel getCollectionProductsByUser:self.user
+                                              TypeId:[self getSelectedButton]
+                                           pageIndex:(self.dataSource.count/_COLLECTION_PAGE_SIZE_) + 1
+                                            pageSize:_COLLECTION_PAGE_SIZE_
+                                        SuccessBlock:^(NSArray *arr)
+     {
+         [self dismissShow];
+         if(!self.dataSource)
+         {
+             self.dataSource = [[NSMutableArray alloc] init];
+         }
+         
+         [self.dataSource addObjectsFromArray:arr];
+        
+         if(arr.count < _COLLECTION_PAGE_SIZE_)
+         {
+             [self.tableView.footer endRefreshingWithNoMoreData];
+         }
+         else
+         {
+             [super pullDown:sender];
+         }
+         
+         [self reloadTableView];
+     }
+                                        FailureBlock:^(int code, NSString *errMsg)
+     {
+         [self showPrompt:errMsg];
+         [super pullDown:sender];
+         [self dismissShow];
+     }];
 }
 
 
@@ -60,18 +129,68 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *collectionIdentify = @"collection";
+    ProductModel *model = [self.dataSource objectAtIndex:indexPath.section];
     MycollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:collectionIdentify];
     if(!cell)
     {
         cell = [[MycollectionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:collectionIdentify];
     }
     
-    [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:@"http://sc.jb51.net/uploads/allimg/140923/10-140923121040V8.jpg"] placeholderImage:[UIImage imageNamed:@"myself_collection"]];
-    cell.titleLabel.text = @"一个大苹果";
-    cell.detailLabel.text = @"新鲜采摘，原生态种植，洗洗带皮吃。鲜嫩多汁.新鲜采摘，原生态种植，洗洗带皮吃。鲜嫩多汁.新鲜采摘，原生态种植，洗洗带皮吃。鲜嫩多汁.新鲜采摘，原生态种植，洗洗带皮吃。鲜嫩多汁.";
+    [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",HOSTURL,model.productIcon]] placeholderImage:[UIImage imageNamed:@"cell图片"]];
+    cell.titleLabel.text = model.productName;
+    cell.detailLabel.text = model.simpleIntro;
     
     
     return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ProductModel *model = [self.dataSource objectAtIndex:indexPath.section];
+    ProductDetailViewController *vc = [[ProductDetailViewController alloc] init];
+    vc.unit = model;
+    [self.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        ProductModel *model = [self.dataSource objectAtIndex:indexPath.section];
+        [self showLoading];
+        [collectionViewModel removeCollectionProduct:model
+                                         productType:[self getSelectedButton]
+                                              byUser:self.user
+                                        SuccessBlock:^(BOOL isSuccess)
+        {
+            [self dismissShow];
+            if(isSuccess)
+            {
+                [self.dataSource removeObject:model];
+            }
+            else
+            {
+                [self showPrompt:@"删除失败!"];
+            }
+            
+            [self reloadTableView];
+        }
+                                        FailureBlock:^(int code, NSString *errMsg)
+        {
+            [self dismissShow];
+            [self showPrompt:errMsg];
+            [self reloadTableView];
+        }];
+        
+    }
+    else if(editingStyle == (UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert))
+    {
+        //无
+    }
+    
 }
 
 @end

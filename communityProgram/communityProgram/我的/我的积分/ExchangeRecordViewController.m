@@ -19,7 +19,7 @@ static NSString *exchangeIdentifire = @"exchangeIdentifire";
     [super viewDidLoad];
     dataSource = [[NSMutableArray alloc] initWithCapacity:1];
     
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-64-50) style:UITableViewStyleGrouped];
+    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight - kSTATUSBAR_NAVIGATION_HEIGHT - kTABBAR_HEIGHT - 50) style:UITableViewStyleGrouped];
     myTableView.delegate = self;
     myTableView.dataSource = self;
     myTableView.showsVerticalScrollIndicator = NO;

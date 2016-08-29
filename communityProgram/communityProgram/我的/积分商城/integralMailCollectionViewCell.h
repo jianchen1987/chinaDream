@@ -11,12 +11,13 @@
 
 @interface integralMailCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) UIImageView *previewImgView;
-@property (nonatomic, strong) UIImageView *coverImgView;
+@property (nonatomic, strong, setter = setPreviewImageUrl:) NSString *previewImageUrl;
+@property (nonatomic, strong, setter = setCoverImageUrl:)   NSString *coverImageUrl;
+@property (nonatomic, strong, setter = setTitle:)           NSString *title;
+@property (nonatomic, strong, setter = setExchangeType:)    NSString *exchangeType;
+@property (nonatomic, strong, setter = setPrice:)           NSString *price;
+@property (nonatomic, strong, setter = setPeopleCnt:)       NSString *peopleCnt;
 
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) myLabel *exchangeTypeLabel;
-@property (nonatomic, strong) UILabel *priceLabel;
-@property (nonatomic, strong) UILabel *peopleCntLabel;
+
 
 @end

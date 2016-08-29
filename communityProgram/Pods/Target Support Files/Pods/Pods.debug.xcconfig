@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/MJExtension"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/MJExtension"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"MJExtension"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CXAlertView" "${PODS_ROOT}/Headers/Public/MJExtension"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/CXAlertView" -isystem "${PODS_ROOT}/Headers/Public/MJExtension"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"CXAlertView" -l"MJExtension" -framework "Accelerate" -framework "CoreGraphics" -framework "QuartzCore"
 PODS_ROOT = ${SRCROOT}/Pods

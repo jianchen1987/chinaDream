@@ -118,6 +118,7 @@ static NSString *recommendIdentifire = @"recommendIdentifire";
              {
                  
                  [self showSuccess:@"购物车"];
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ShoppingcarUpdate" object:@{@"oper":@"1",@"parm":[NSNumber numberWithInteger:1]}];
                  NSLog(@"加入购物车 %@",successJsonData);
              } errorBlock:^(int code, NSString *errorJsonData) {
                  [self showPrompt:errorJsonData];

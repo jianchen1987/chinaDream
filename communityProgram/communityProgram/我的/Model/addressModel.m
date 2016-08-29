@@ -26,4 +26,32 @@
     return self;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.aid forKey:@"aid"];
+    [aCoder encodeObject:self.quarterName forKey:@"quarterName"];
+    [aCoder encodeObject:self.levelRoom forKey:@"levelRoom"];
+    [aCoder encodeObject:self.phone forKey:@"phone"];
+    [aCoder encodeObject:self.sendName forKey:@"sendName"];
+    [aCoder encodeObject:[NSNumber numberWithBool:self.isDefault] forKey:@"isDefault"];
+
+    
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if(self)
+    {
+        self.aid         = [aDecoder decodeObjectForKey:@"aid"]?[aDecoder decodeObjectForKey:@"aid"]:@"";
+        self.quarterName = [aDecoder decodeObjectForKey:@"quarterName"];
+        self.phone       = [aDecoder decodeObjectForKey:@"phone"];
+        self.levelRoom   = [aDecoder decodeObjectForKey:@"levelRoom"];
+        self.sendName    = [aDecoder decodeObjectForKey:@"sendName"];
+        self.isDefault   = [[aDecoder decodeObjectForKey:@"isDefault"] boolValue];
+    }
+    
+    return self;
+}
+
 @end

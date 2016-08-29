@@ -23,7 +23,7 @@
 @implementation mySampleDetailsViewController
 - (IBAction)delete:(id)sender {
     [self showLoading];
-    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName,self.model.id] WithPath:removeFreeEat successBlock:^(id successJsonData) {
+    [NetworkEngine postRequestWithUrl:AppService paramsArray:@[self.user.identifyName,self.model.id] WithPath:removeCollFreeEat successBlock:^(id successJsonData) {
         [self showSuccess:@"删除成功"];
         
         NSLog(@"%@",successJsonData);

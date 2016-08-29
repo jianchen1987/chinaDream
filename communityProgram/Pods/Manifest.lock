@@ -1,10 +1,13 @@
 PODS:
+  - CXAlertView (1.1.0)
   - MJExtension (3.0.11)
 
 DEPENDENCIES:
+  - CXAlertView (~> 1.1.0)
   - MJExtension
 
 SPEC CHECKSUMS:
+  CXAlertView: 7387ca9af81796ab22d26ff2fc3cfcb082f3ee09
   MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
 
 COCOAPODS: 0.39.0

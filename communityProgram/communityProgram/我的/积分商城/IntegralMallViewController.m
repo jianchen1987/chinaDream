@@ -16,9 +16,9 @@
 
 @interface IntegralMallViewController ()
 {
-    myLoopView *_advertiseView;
+    myLoopView     *_advertiseView;
     NSMutableArray *_advertiseImgViews;
-    JPullDownMenu *_filterMenu;
+    JPullDownMenu  *_filterMenu;
 }
 
 @end
@@ -30,25 +30,27 @@
     [super viewDidLoad];
     self.title = @"积分商城";
     
-    _advertiseView = [[myLoopView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 150)];
+    _advertiseView     = [[myLoopView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 150)];
     _advertiseImgViews = [[NSMutableArray alloc] init];
-    
-    _filterMenu = [[JPullDownMenu alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 40) menuTitleArray:@[@"排序"]];
-    _filterMenu.menuDataArray = [NSMutableArray arrayWithArray:@[@[@"最新排序",@"积分从低到高",@"积分从高到低"]]];
-    [_filterMenu setHandleSelectDataBlock:^(NSString *selectTitle, NSUInteger selectIndex, NSUInteger selectButtonTag)
-    {
-        NSLog(@"%@  %lu  %lu",selectTitle, (unsigned long)selectIndex, (unsigned long)selectButtonTag);
-    }];
-    
     for(int i = 0; i < 5; i++)
     {
         NSString *imageUrl = @"http://d02.res.meilishuo.net/pic/_o/e4/d9/d34baa117aa1abb17822337b7bf6_800_800.ch.jpeg";
         [_advertiseImgViews addObject:imageUrl];
     }
+    [_advertiseView setLoopViewImageUrls:_advertiseImgViews autoPlay:YES delay:5];
+
+    
+    _filterMenu = [[JPullDownMenu alloc] initWithFrame:CGRectMake(0, 156, DeviceWidth, 40) menuTitleArray:@[@"最新排序"]];
+    _filterMenu.menuDataArray = [NSMutableArray arrayWithArray:@[@[@"最新排序",@"积分从低到高",@"积分从高到低"]]];
+    [_filterMenu setHandleSelectDataBlock:^(NSString *selectTitle, NSUInteger selectIndex, NSUInteger selectButtonTag)
+     {
+         NSLog(@"%@  %lu  %lu",selectTitle, (unsigned long)selectIndex, (unsigned long)selectButtonTag);
+     }];
+    
+    [self.collectionView addSubview:_filterMenu];
     
     [self.collectionView registerClass:[integralMailCollectionViewCell class] forCellWithReuseIdentifier:@"integraMailCollectionCell"];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"advertise"];
-    //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"category"];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"category"];
     
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -89,7 +91,7 @@
     
 
     
-    [self.dataSource addObjectsFromArray:@[@"1",@"1",@"1",@"1",@"1"]];
+    [self.dataSource addObjectsFromArray:@[@"0",@"1",@"2",@"0",@"1"]];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.collectionView.header endRefreshing];
         [self.collectionView reloadData];
@@ -159,8 +161,8 @@
         {
             headerView = [[UICollectionReusableView alloc] init];
         }
-        headerView.backgroundColor = [UIColor redColor];
-        [headerView addSubview:_filterMenu];
+        headerView.backgroundColor = [UIColor clearColor];
+        //[headerView addSubview:_filterMenu];
         
         return headerView;
     }
@@ -204,7 +206,7 @@
 {
     if(indexPath.section == 1)
     {
-        return CGSizeMake((DeviceWidth - 3)/2, (DeviceWidth - 3)/2 + 120);
+        return CGSizeMake((DeviceWidth - 15)/2, (DeviceWidth - 15)/2 + 120);
     }
     else if(indexPath.section == 0)
     {
@@ -213,14 +215,44 @@
     }
     else
     {
-        //筛选
+        
         return CGSizeMake(DeviceWidth, 0);
     }
-    
+
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 3.0f;
+    if(section == 1)
+    {
+        return 5.0f;
+    }
+    else
+    {
+        return 0;
+    }
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    if(section == 1)
+    {
+        return 5.0f;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    if(section == 1)
+    {
+        return UIEdgeInsetsMake(5, 5, 5, 5);
+    }
+    else
+    {
+        return UIEdgeInsetsMake(0, 0, 0, 0);
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -229,25 +261,13 @@
     {
         static NSString *advertise = @"advertise";
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:advertise forIndexPath:indexPath];
-//        if(!cell)
-//        {
-//            cell = [[UICollectionViewCell alloc] init];
-//            [_advertiseView setLoopViewImageUrls:_advertiseImgViews autoPlay:YES delay:5];
-//        }
-//        else
-//        {
-//            _advertiseView.imageUrls = _advertiseImgViews;
-//        }
-        [_advertiseView setLoopViewImageUrls:_advertiseImgViews autoPlay:YES delay:5];
         [cell.contentView addSubview:_advertiseView];
         return cell;
     }
-//    else if(indexPath.section == 1)
+//    else if(indexPath.section == 1 && indexPath.row == 0)
 //    {
-//        static NSString *category = @"category";
-//        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:category forIndexPath:indexPath];
-////        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, 40)];
-////        view.backgroundColor = [UIColor redColor];
+//        static NSString *test = @"test";
+//        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:test forIndexPath:indexPath];
 //        [cell.contentView addSubview:_filterMenu];
 //        return cell;
 //    }
@@ -256,14 +276,28 @@
         static NSString *identify = @"integraMailCollectionCell";
         integralMailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
         
-        [cell.previewImgView sd_setImageWithURL:[NSURL URLWithString:@"http://d02.res.meilishuo.net/pic/_o/e4/d9/d34baa117aa1abb17822337b7bf6_800_800.ch.jpeg"] placeholderImage:[UIImage imageNamed:@"myself_collection"]];
+        cell.previewImageUrl = @"http://d02.res.meilishuo.net/pic/_o/e4/d9/d34baa117aa1abb17822337b7bf6_800_800.ch.jpeg";
         //[cell.coverImgView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@""]];
-        cell.titleLabel.text        = @"LYCRA莱卡宽松纯色长袖卫衣";
-        cell.exchangeTypeLabel.text = @"可积分+金额";
-        cell.priceLabel.text        = @"5000积分";
-        cell.peopleCntLabel.text    = @"已兑换11";
+        cell.title        = @"LYCRA莱卡宽松纯色长袖卫衣";
+        cell.exchangeType = [self.dataSource objectAtIndex:indexPath.row];
+        cell.price        = @"5000积分";
+        cell.peopleCnt    = @"560";
+
+        
+        //阴影
+        cell.layer.shadowColor   = [UIColor lightGrayColor].CGColor;
+        cell.layer.shadowOffset  = CGSizeMake(3, 3);
+        cell.layer.shadowRadius  = 2.0f;
+        cell.layer.shadowOpacity = 0.4f;
+        cell.layer.masksToBounds = NO;
+        cell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath;
         return cell;
     }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"click on item %ld",indexPath.row);
 }
 
 

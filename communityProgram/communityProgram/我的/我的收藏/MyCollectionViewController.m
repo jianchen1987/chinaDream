@@ -84,6 +84,19 @@
     
 }
 
+- (NSUInteger)getSelectedButton
+{
+    for(UIButton *btn in _buttons)
+    {
+        if(![btn isEnabled])
+        {
+            return btn.tag - 101;
+        }
+    }
+    
+    return 0;
+}
+
 
 #pragma mark -- tableview delegate --
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

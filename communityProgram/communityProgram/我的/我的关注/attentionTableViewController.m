@@ -43,6 +43,10 @@
 - (void)getDataByType:(NSInteger)type
 {
     [self showLoading];
+    if(!self.dataSource)
+    {
+        self.dataSource = [[NSMutableArray alloc] init];
+    }
     if(type == 0)
     {
         [attentionViewModel getAttentionUsersByUser:self.user

@@ -7,6 +7,7 @@
 //
 
 #import "IntrgraHistoryTableViewCell.h"
+#import "CommonUtils.h"
 
 @implementation IntrgraHistoryTableViewCell
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -29,11 +30,12 @@
     }
     return self;
 }
--(void)cellWithData:(NSDictionary *)dic
+
+-(void)cellWithData:(IntegralRecordModel *)model
 {
-    _titleLable.text = [dic valueForKey:@"title"];
-    _dateLable.text = [dic valueForKey:@"date"];
-    _integralLable.text = [NSString stringWithFormat:@"+%@",[dic valueForKey:@"intergral"]];
+    _titleLable.text = model.recordName;
+    _dateLable.text = [CommonUtils getStrByDate:model.createTime stringFormat:@"yyyy-MM-dd HH:mm:ss"];
+    _integralLable.text = [NSString stringWithFormat:@"+%@",model.integralNum];
 
     
 }
